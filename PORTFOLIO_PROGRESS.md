@@ -9,7 +9,7 @@
 
 ## TL;DR — Where I am right now
 
-Migrating off Webflow to a Next.js + MDX portfolio, scaffolded from a v0 export, edited with Claude Code in the terminal. Tech setup is mostly done; content migration is the active phase. About to wire up the **UGLOO** case study as the first MDX page to validate the pattern.
+Infrastructure complete — Next.js + MDX scaffold, GitHub repo, Vercel auto-deploy from main all wired up. Live URL serving real codebase. Next phase is filling in case study content, starting with **UGLOO**.
 
 ---
 
@@ -18,7 +18,7 @@ Migrating off Webflow to a Next.js + MDX portfolio, scaffolded from a v0 export,
 - **Framework:** Next.js (from v0 export)
 - **Content format:** MDX files (one per case study) — chosen over a CMS because volume is small (~12 case studies) and editing files directly is faster than maintaining a CMS schema
 - **Editing:** Claude Code in Terminal
-- **Hosting:** Vercel (planned)
+- **Hosting:** Vercel (live — auto-deploys from `main`)
 - **Replacing:** Webflow (`z-design-notebook.webflow.io`) — leaving because case study creation was too slow
 
 ---
@@ -29,7 +29,7 @@ Migrating off Webflow to a Next.js + MDX portfolio, scaffolded from a v0 export,
 ~/Desktop/portfolio_website/
 ```
 
-No nested wrappers — `package.json` and all project files live directly here.
+Flattened today — no `my_portfolio` wrapper, no `b_pWjCYhe5jTr` subfolder. `package.json` and all project files live directly here.
 
 ---
 
@@ -45,10 +45,17 @@ No nested wrappers — `package.json` and all project files live directly here.
 - [x] Decided to **copy** (not move) images from organized folders into `public/images/case-studies/`
 - [x] v0 export already includes MDX infrastructure — custom components in `components/mdx/`: `CaseStudyHeader`, `Section`, `ImageWithCaption`, `AnnotatedImage`, `KeyInsight`, `QuoteCard`, `QuoteGrid`, `PersonaCard`, `PersonaGrid`, `StoryboardFrame`, `StoryboardGrid`, `ComparisonGrid`
 - [x] Initialized git repo with clean `.gitignore` on `main` branch
+- [x] Standardized on pnpm (v10.33.3); removed `package-lock.json` conflict
+- [x] Flattened folder structure (removed `my_portfolio` wrapper)
+- [x] Pushed repo to GitHub at `zgoingco13/portfolio_website`
+- [x] Connected GitHub to existing Vercel project (`v0-portfolio-website-design`, on Pro plan)
+- [x] Verified end-to-end: push to `main` triggers production build automatically (~10–15s)
+- [x] Confirmed UGLOO case study scaffold renders live at `/case-studies/ugloo`
+- [x] Production URL: https://v0-portfolio-website-design-lovat-six-96.vercel.app
 
 ## In progress 🔄
 
-- [ ] Finish UGLOO MDX content (`content/case-studies/ugloo.mdx` exists but partially written)
+- [ ] Fill in real UGLOO content (`content/case-studies/ugloo.mdx`) — Brief → Problem → Research → Solution → Outcomes
 
 ## Next up 🔜
 
@@ -97,8 +104,11 @@ Optimize later via TinyPNG or Squoosh before deploy.
 
 - [ ] What component pattern for case study layouts? (hero → problem → research → solution → outcomes — match across all three majors?)
 - [ ] How rich should the major case studies feel? (Embedded prototypes? Image carousels? Just static images + prose?)
-- [ ] Domain name — keep `z-design-notebook` or pick something new?
-- [ ] Two lockfiles present (`package-lock.json` + `pnpm-lock.yaml`) — pick one and delete the other
+- [ ] Rename Vercel project from `v0-portfolio-website-design` to something cleaner (e.g. `portfolio`)
+- [ ] Rename `name` field in `package.json` from `"my-project"` to something real
+- [ ] Delete dead code: `lib/case-studies.ts` (orphan from v0, unused since switch to MDX)
+- [ ] Buy custom domain on Vercel (`zgoingco.com` vs `zgoingco.dev` — leaning `.com` for professional default)
+- [ ] Decide whether to commit `_source/` PDFs to git or add to `.gitignore`
 
 ---
 
@@ -109,10 +119,13 @@ Optimize later via TinyPNG or Squoosh before deploy.
 cd ~/Desktop/portfolio_website
 
 # Install deps (first time, or after pulling new packages)
-npm install
+pnpm install
 
 # Run the dev server
-npm run dev
+pnpm dev
+
+# Add a package
+pnpm add <pkg>
 
 # Launch Claude Code inside the project
 claude
@@ -123,10 +136,18 @@ claude
 ## Log
 
 ### 2026-05-05
+Major infrastructure session. Returned after weeks away. Created progress doc, set up git repo, pushed to GitHub, standardized on pnpm, connected GitHub to existing Vercel project, verified auto-deploy works end-to-end. UGLOO scaffold now live. Next session: start filling in UGLOO content from the source PDF.
+
 - Returned after working on other projects; couldn't remember status
 - Created this progress doc to prevent future "where was I?" gaps
 - Dropped progress doc into repo, initialized git, made root commit on `main`
 - Discovered v0 scaffold is more complete than remembered: MDX component library already exists (`components/mdx/`), `ugloo.mdx` is partially written, 4 UGLOO images already in `public/`
+- Standardized on pnpm (v10.33.3), removed `package-lock.json`
+- Flattened folder structure — removed `my_portfolio` wrapper directory
+- Pushed to GitHub (`zgoingco13/portfolio_website`)
+- Connected GitHub repo to existing Vercel project (`v0-portfolio-website-design`, Pro plan)
+- Verified push-to-main triggers production build automatically (~10–15s)
+- UGLOO case study scaffold confirmed live at `/case-studies/ugloo`
 
 ### Late April 2026
 - Confirmed Webflow case studies are static pages, not CMS-backed
