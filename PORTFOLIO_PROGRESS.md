@@ -26,10 +26,10 @@ Migrating off Webflow to a Next.js + MDX portfolio, scaffolded from a v0 export,
 ## Project location on disk
 
 ```
-~/Desktop/my_portfolio/b_pWjCYhe5jTr/
+~/Desktop/portfolio_website/
 ```
 
-The outer `my_portfolio` folder is just a wrapper — actual project files (including `package.json`) live in `b_pWjCYhe5jTr`. Always `cd` into the inner folder before running `npm` commands.
+No nested wrappers — `package.json` and all project files live directly here.
 
 ---
 
@@ -43,12 +43,12 @@ The outer `my_portfolio` folder is just a wrapper — actual project files (incl
 - [x] Confirmed case studies are NOT in Webflow CMS — they're static pages, so no API migration possible
 - [x] Decided on MDX as the content format
 - [x] Decided to **copy** (not move) images from organized folders into `public/images/case-studies/`
+- [x] v0 export already includes MDX infrastructure — custom components in `components/mdx/`: `CaseStudyHeader`, `Section`, `ImageWithCaption`, `AnnotatedImage`, `KeyInsight`, `QuoteCard`, `QuoteGrid`, `PersonaCard`, `PersonaGrid`, `StoryboardFrame`, `StoryboardGrid`, `ComparisonGrid`
+- [x] Initialized git repo with clean `.gitignore` on `main` branch
 
 ## In progress 🔄
 
-- [ ] Run `npm install` successfully inside `b_pWjCYhe5jTr`
-- [ ] Wire up first case study (UGLOO) as MDX to validate the pattern
-- [ ] Copy UGLOO images into `public/images/case-studies/ugloo/`
+- [ ] Finish UGLOO MDX content (`content/case-studies/ugloo.mdx` exists but partially written)
 
 ## Next up 🔜
 
@@ -68,7 +68,7 @@ Pulled from resume + project files. Status reflects readiness for the new site.
 
 | Project | Year | Role | Source material status | MDX status |
 |---|---|---|---|---|
-| **UGLOO** — Wearable ecosystem for neurodivergent kids (Lvl 1 Autism) | Spring 2025 (16 wks) | Marketing/Brand Lead, UX/UI, UX Research | Full PDF write-up + images in project files | Not started |
+| **UGLOO** — Wearable ecosystem for neurodivergent kids (Lvl 1 Autism) | Spring 2025 (16 wks) | Marketing/Brand Lead, UX/UI, UX Research | Full PDF write-up + images in project files | **Partially started** — `ugloo.mdx` exists; 4 images in `public/images/case-studies/ugloo/` (hero-phone, hero-watch, logo, solution-diagram) |
 | **BeWell** — Wellness app for medical professionals / Barnsdall walk experience | Fall 2024 (16 wks) | UX/UI Designer | Wireframes + final UI screens in project files | Not started |
 | **Apple Watch — Now Playing redesign** | Spring 2025 (2 wks) | UX/UI Designer | Sketches, lo-fi, mid-fi, final renders in project files | Not started |
 
@@ -85,7 +85,7 @@ Pulled from resume + project files. Status reflects readiness for the new site.
 - Organized folders on local machine (UGLOO renders, BeWell screens, etc.)
 
 **Repo copies (where MDX pulls from):**
-- `public/images/case-studies/ugloo/` — pending
+- `public/images/case-studies/ugloo/` — **4 images present** (hero-phone, hero-watch, logo, solution-diagram)
 - `public/images/case-studies/bewell/` — pending
 - `public/images/case-studies/apple-watch/` — pending
 
@@ -98,6 +98,7 @@ Optimize later via TinyPNG or Squoosh before deploy.
 - [ ] What component pattern for case study layouts? (hero → problem → research → solution → outcomes — match across all three majors?)
 - [ ] How rich should the major case studies feel? (Embedded prototypes? Image carousels? Just static images + prose?)
 - [ ] Domain name — keep `z-design-notebook` or pick something new?
+- [ ] Two lockfiles present (`package-lock.json` + `pnpm-lock.yaml`) — pick one and delete the other
 
 ---
 
@@ -105,7 +106,7 @@ Optimize later via TinyPNG or Squoosh before deploy.
 
 ```bash
 # Get into the project
-cd ~/Desktop/my_portfolio/b_pWjCYhe5jTr
+cd ~/Desktop/portfolio_website
 
 # Install deps (first time, or after pulling new packages)
 npm install
@@ -124,7 +125,8 @@ claude
 ### 2026-05-05
 - Returned after working on other projects; couldn't remember status
 - Created this progress doc to prevent future "where was I?" gaps
-- About to resume UGLOO MDX wire-up
+- Dropped progress doc into repo, initialized git, made root commit on `main`
+- Discovered v0 scaffold is more complete than remembered: MDX component library already exists (`components/mdx/`), `ugloo.mdx` is partially written, 4 UGLOO images already in `public/`
 
 ### Late April 2026
 - Confirmed Webflow case studies are static pages, not CMS-backed
