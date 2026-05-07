@@ -164,3 +164,19 @@ Major infrastructure session. Returned after weeks away. Created progress doc, s
 - Installed Claude Code 2.1.112
 - Located v0 project files (subfolder issue resolved)
 - Hit `npm install` ENOENT error — caused by being in wrong folder
+
+---
+
+## UGLOO case study — content phase
+
+### Session 1: Brief + Problem (May 7, 2026)
+- Source PDF lives at `_source/UGLOO_website_pdf.pdf` (gitignored)
+- Workflow: Claude Code reads the PDF, drafts into existing MDX components, I iterate on tone before committing
+- Tone decisions that stuck:
+  - First person singular for my contributions, plural for team decisions
+  - Short paragraphs (2–4 sentences)
+  - Concrete over abstract — picked the most specific version of any claim
+  - Pushed back on stylized rewriting — first Claude draft of Brief led with "UGLOO is a wearable and companion app ecosystem designed for..." which was too polished; reverted to PDF's plain declarative tone
+  - "we" → "I" but team still visible — changed "we were tasked" to "I worked with a team of four" to show both ownership and collaboration
+- Components used in Brief + Problem: `Section`, `ImageWithCaption` (with `natural` prop for full-width responsive display), `KeyInsight` (with bullet list inside)
+- Next session: Research + Interviews
