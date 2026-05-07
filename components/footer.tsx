@@ -16,7 +16,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           {/* Eurostile for captions/UI text */}
           <p className="font-sans text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Sarah Chen. All rights reserved.
+            © {new Date().getFullYear()} Czarina 'Z' Goingco. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             {socialLinks.map((link) => (

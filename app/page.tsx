@@ -4,7 +4,7 @@ import { OutdoorCarousel } from "@/components/outdoor-carousel"
 import { CaseStudyCard } from "@/components/case-study-card"
 import { getAllCaseStudies } from "@/lib/content"
 import Link from "next/link"
-import { ArrowRight, Flower2, Sun } from "lucide-react"
+import { ArrowRight, Mountain, Sun } from "lucide-react"
 
 export default function HomePage() {
   const allStudies = getAllCaseStudies()
@@ -19,22 +19,21 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
           <p className="font-sans text-sm font-medium uppercase tracking-wider text-white/60">Good morning</p>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
+          <h1 className="mt-4 max-w-4xl font-display text-4xl leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
             <span className="text-balance">
-              {"I'm Sarah Chen"}
+              {"Czarina \"Z\" Goingco"}
             </span>
           </h1>
-          <p className="mt-4 max-w-2xl font-serif text-xl text-white/90 md:text-2xl">
-            A UX Designer focused on creating thoughtful digital experiences that people love to use.
+          <p className="mt-4 max-w-4xl font-serif text-xl text-white/90 md:text-2xl">
+            An interaction designer working at the intersection of healthcare, outdoor culture, and human-centered storytelling.
           </p>
           <div className="mt-4 flex items-center gap-2 text-white/60">
-            <Flower2 className="h-4 w-4 text-mustard" />
+            <Mountain className="h-4 w-4 text-mustard" />
             <Sun className="h-4 w-4 text-mustard" />
-            <span className="font-sans text-sm italic">Based in San Francisco, exploring new horizons</span>
+            <span className="font-sans text-sm italic">Based in Los Angeles — designing between hikes and climbs, happiest on trails</span>
           </div>
-          <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/80 md:text-lg">
-            I believe good design is invisible—it just works. My approach
-            combines deep user research with clean, purposeful interfaces.
+          <p className="mt-6 max-w-4xl font-sans text-base leading-relaxed text-white/80 md:text-lg">
+            My background as an orthopedic technician shapes how I approach care and accessibility, and my love of trails and climbing shapes how I think about adventure, resilience, and the gear that supports them. My work spans wellness apps, outdoor tools, and emotional design, all built to foster connection through shared experience.
           </p>
           <div className="mt-8">
             <Link

@@ -6,7 +6,7 @@ import { getAllCaseStudies } from '@/lib/content'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata = {
-  title: 'Case Studies — Sarah Chen',
+  title: "Case Studies — Czarina 'Z' Goingco",
   description: 'In-depth UX case studies exploring research, design process, and outcomes.',
 }
 

@@ -6,7 +6,7 @@ import { getAllAcademicProjects } from '@/lib/content'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata = {
-  title: 'Academic Projects — Sarah Chen',
+  title: "Academic Projects — Czarina 'Z' Goingco",
   description: 'Course projects and academic UX/design work.',
 }
 

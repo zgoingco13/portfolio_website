@@ -28,7 +28,7 @@ const exo2 = Exo_2({
 })
 
 export const metadata: Metadata = {
-  title: "Sarah Chen — UX Designer",
+  title: "Czarina 'Z' Goingco — UX Designer",
   description:
     "UX/Product Designer crafting thoughtful digital experiences that balance user needs with business goals.",
 }

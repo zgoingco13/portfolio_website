@@ -19,12 +19,12 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        {/* Logo - Recoleta for personality */}
+        {/* TODO: replace with logo SVG */}
         <Link
           href="/"
-          className="font-serif text-xl font-semibold tracking-tight text-white transition-colors hover:text-mustard"
+          className="font-serif text-2xl font-semibold tracking-tight text-white transition-colors hover:text-mustard"
         >
-          Sarah Chen
+          Z
         </Link>
 
         {/* Desktop Navigation - Eurostile for UI */}

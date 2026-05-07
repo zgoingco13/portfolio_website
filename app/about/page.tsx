@@ -7,9 +7,9 @@ import { ArrowRight, Flower2 } from "lucide-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "About — Sarah Chen",
+  title: "About — Czarina 'Z' Goingco",
   description:
-    "Learn more about Sarah Chen, a UX Designer passionate about creating thoughtful digital experiences.",
+    "Learn more about Czarina 'Z' Goingco, a UX Designer passionate about creating thoughtful digital experiences.",
 }
 
 const skills = [
@@ -47,7 +47,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-card">
               <Image
                 src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=1000&fit=crop"
-                alt="Sarah Chen"
+                alt="Czarina 'Z' Goingco"
                 fill
                 className="object-cover"
                 priority

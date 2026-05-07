@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps) {
   const item = getCaseStudy(slug)
   if (!item) return { title: 'Not Found' }
   return {
-    title: `${item.frontmatter.title} — Sarah Chen`,
+    title: `${item.frontmatter.title} — Czarina 'Z' Goingco`,
     description: item.frontmatter.summary,
   }
 }
