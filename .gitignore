@@ -17,3 +17,6 @@ node_modules
 
 # Source/reference files (PDFs, raw assets — not for version control)
 _source/
+
+# Source material — reference PDFs, raw assets, etc. Not for git.
+_source/
