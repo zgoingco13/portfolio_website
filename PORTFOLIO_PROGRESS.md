@@ -3,13 +3,13 @@
 > Personal running doc to track what's done, what's in flight, and what's next.
 > Update this whenever you make a meaningful change so future-you (and Claude) can pick up fast.
 
-**Last updated:** 2026-05-05
+**Last updated:** 2026-05-07
 
 ---
 
 ## TL;DR — Where I am right now
 
-Infrastructure complete — Next.js + MDX scaffold, GitHub repo, Vercel auto-deploy from main all wired up. Live URL serving real codebase. Next phase is filling in case study content, starting with **UGLOO**.
+Infrastructure complete. Live at https://zgoingco.design. Next phase: filling in case study content, starting with **UGLOO**.
 
 ---
 
@@ -52,6 +52,9 @@ Flattened today — no `my_portfolio` wrapper, no `b_pWjCYhe5jTr` subfolder. `pa
 - [x] Verified end-to-end: push to `main` triggers production build automatically (~10–15s)
 - [x] Confirmed UGLOO case study scaffold renders live at `/case-studies/ugloo`
 - [x] Production URL: https://v0-portfolio-website-design-lovat-six-96.vercel.app
+- [x] Bought `zgoingco.design` ($19.99 yr 1, autorenew OFF — expires May 5 2027)
+- [x] Bought `zgoingco.com` ($11.25/yr, autorenew ON)
+- [x] Configured `zgoingco.design` as primary; `.com` and `.vercel.app` URLs redirect to it
 
 ## In progress 🔄
 
@@ -107,7 +110,7 @@ Optimize later via TinyPNG or Squoosh before deploy.
 - [ ] Rename Vercel project from `v0-portfolio-website-design` to something cleaner (e.g. `portfolio`)
 - [ ] Rename `name` field in `package.json` from `"my-project"` to something real
 - [ ] Delete dead code: `lib/case-studies.ts` (orphan from v0, unused since switch to MDX)
-- [ ] Buy custom domain on Vercel (`zgoingco.com` vs `zgoingco.dev` — leaning `.com` for professional default)
+- [ ] Decide on `.design` renewal by April 2027 (~$53.29/yr after promo)
 - [ ] Decide whether to commit `_source/` PDFs to git or add to `.gitignore`
 
 ---
@@ -134,6 +137,9 @@ claude
 ---
 
 ## Log
+
+### 2026-05-07
+Domain session. Bought `zgoingco.design` (primary, $19.99 yr 1, autorenew OFF, expires May 2027) and `zgoingco.com` ($11.25/yr, autorenew ON). Configured `.design` as the canonical URL on Vercel; `.com` and `.vercel.app` redirect to it. Site is now live at https://zgoingco.design. Open question: decide whether to renew `.design` at ~$53.29/yr before May 2027.
 
 ### 2026-05-05
 Major infrastructure session. Returned after weeks away. Created progress doc, set up git repo, pushed to GitHub, standardized on pnpm, connected GitHub to existing Vercel project, verified auto-deploy works end-to-end. UGLOO scaffold now live. Next session: start filling in UGLOO content from the source PDF.
