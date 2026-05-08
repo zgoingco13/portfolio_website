@@ -3,13 +3,13 @@
 > Personal running doc to track what's done, what's in flight, and what's next.
 > Update this whenever you make a meaningful change so future-you (and Claude) can pick up fast.
 
-**Last updated:** 2026-05-07
+**Last updated:** 2026-05-08 (late evening · brand v2.1 — full site refactor complete)
 
 ---
 
 ## TL;DR — Where I am right now
 
-Infrastructure complete. Live at https://zgoingco.design. Next phase: filling in case study content, starting with **UGLOO**.
+Infrastructure complete. Live at https://zgoingco.design. Brand system **v2.1 fully applied** across the entire site — two-state architecture, all components, MDX, and footer. Next phase: fill in real UGLOO case study content, then replicate for BeWell and Apple Watch.
 
 ---
 
@@ -55,6 +55,18 @@ Flattened today — no `my_portfolio` wrapper, no `b_pWjCYhe5jTr` subfolder. `pa
 - [x] Bought `zgoingco.design` ($19.99 yr 1, autorenew OFF — expires May 5 2027)
 - [x] Bought `zgoingco.com` ($11.25/yr, autorenew ON)
 - [x] Configured `zgoingco.design` as primary; `.com` and `.vercel.app` URLs redirect to it
+- [x] Locked brand identity: Z+mountains+path logo (Image 8 from Claude.ai brand session)
+- [x] Locked color system: Forest `#2D4A33` (primary), Moss, Cream, Charcoal, plus warm autumn accents (Honey, Amber, Rust, Ember)
+- [x] Locked typography: Cooper Black (hero) + Bookmania (mid) + Eurostile (body/UI), all served via Adobe Fonts
+- [x] Created `BRAND_GUIDE.md` and `BRAND_SPEC.md` (machine-readable for Claude Code) — to be added to the repo and to the IxD project on Claude.ai
+- [x] Cleaned logo source files: `logo-forest.svg`/`.png` and `logo-cream.svg`/`.png` (transparent backgrounds, brand color normalized to `#2D4A33`)
+- [x] **Brand v2.1 full site refactor** (commit `468bb08`) — applied in one session via Claude Code:
+  - `globals.css` rewritten with all v2.1 color tokens, font stacks, spacing, and utility classes
+  - State A homepage: sunset stripes, 4-up gradient carousel (placeholder), three-ridge hero SVG, topo watermark on work section, rust CTA panel, breath strip, forest footer
+  - State B (about, contact, case-studies, academic-projects, detail pages): topo+ridge watermark on heroes, coordinate row eyebrows, rust CTA + breath strip before forest footer; carousel removed from non-homepage pages
+  - New components: `SunsetStripe`, `CoordinateRow`, `ThreeRidgeHero`, `TopoWatermark`, `RustCtaPanel`, `BreathStrip`
+  - MDX components updated: `KeyInsight` and `QuoteCard` → forest dark panels; `StoryboardFrame` auto-numbered via CSS counters (Cooper Black); `CaseStudyHeader` eyebrow → CoordinateRow with rust
+  - Nav active state → rust; footer → forest bg with logo-cream.svg
 
 ## In progress 🔄
 
@@ -67,6 +79,8 @@ Flattened today — no `my_portfolio` wrapper, no `b_pWjCYhe5jTr` subfolder. `pa
 - [ ] Wire homepage cards to the case study pages
 - [ ] Polish, optimize images (TinyPNG / Squoosh), deploy to Vercel
 - [ ] Update resume/links to point to new domain instead of Webflow URL
+- [ ] **Logo cleanup task:** redraw the SVG as clean hand-coded paths (current SVG is from a raster trace — works but bloated). Target: under 5 path elements, single fill.
+- [ ] Create icon-only variant of the logo (Z + mountains, no path detail) for favicons and small UI
 
 ---
 
@@ -112,6 +126,11 @@ Optimize later via TinyPNG or Squoosh before deploy.
 - [ ] Delete dead code: `lib/case-studies.ts` (orphan from v0, unused since switch to MDX)
 - [ ] Decide on `.design` renewal by April 2027 (~$53.29/yr after promo)
 - [ ] Decide whether to commit `_source/` PDFs to git or add to `.gitignore`
+- [ ] Activate Adobe Fonts web project with Cooper Black + Bookmania (Light Italic, Regular, Bold) + Eurostile, paste `<link>` into `app/layout.tsx`
+- [ ] After Option A refactor, schedule the logo SVG redraw (clean hand-coded paths) before any print/large-format use
+- [ ] Confirm the Adobe Fonts web project's exact font-family strings match the spec (lowercase-hyphenated by Adobe convention but can vary)
+- [ ] Source 4-12 nature photographs for the homepage carousel (landscape orientation, ~1600px wide). Until then, run the build with placeholder gradients and swap real photos in afterward.
+- [ ] Decide whether `/work` is a separate index page (would also use State A) or whether the homepage IS the work index
 
 ---
 
@@ -137,6 +156,60 @@ claude
 ---
 
 ## Log
+
+### 2026-05-08 (evening) — v2.1 Breath Strip
+Quick follow-up session to fix a visual collision spotted in the v2.0 homepage assembly mockup.
+
+- **Problem:** the rust CTA panel sat directly above the forest footer, and both being saturated dark structural panels back-to-back created visual collision — the eye had nowhere to rest.
+- **Fix: Breath Strip pattern.** A short Sand-canvas section (24-32px padding) inserted between the rust CTA and the forest footer. Carries quiet "or just say hello" + email link content — same destination as the rust CTA, lower commitment level. The page rhythm now reads: announce → invite → close.
+- **System rule added:** two heavy structural panels (Forest, Rust, Charcoal) must never be adjacent without a Breath Strip between them, unless adjacency carries semantic meaning (what-worked / what-didn't pairs).
+- **Spec, guide, prompt, and pre-shipping checklist updated** to v2.1. New `.breath-strip` component pattern is in `BRAND_SPEC.md`. Homepage composition now has 9 steps (was 8), with Breath Strip required between rust CTA and forest footer.
+- **Next:** unchanged from afternoon — Adobe Fonts setup, then run the v2.1 Claude Code prompt.
+
+### 2026-05-08 (afternoon)
+Brand v2.0 lock session in Claude.ai. Earlier today's v1.1 was the warm-up; this session resolved the architecture questions that were still open.
+
+- **Page canvas: Cream → Sand.** `#FAF6EE` was reading too yellow / too dairy. Tested six warmer alternatives, picked **Sand `#F0E6D0`** — earthy enough to feel like canvas/parchment, light enough that body text contrast still works.
+- **Two-state architecture decided.** Homepage gets State A (loud, atmospheric — sunset stripes, three-ridge hero, full-width nature carousel). Every other page gets State B (calm Sand canvas + topo+ridge watermark). Both states share all tokens, components, typography. Reasoning: portfolio homepage's job is first-impression atmosphere; content page's job is making the case study itself the focal point. Same brand, two volumes.
+- **Background watermark for inner pages: Topo + ridge silhouettes.** Picked over hand-drawn topo (too casual), botanical fragments (too literal — would compete with case study photography), and tree rings (too motif-heavy). Topo + ridge gives "looking out across a valley" without literal mountains.
+- **Hero treatment: thin sunrise stripe + outline ridges.** Original v1 hero had full forest panel + amber-orange gradient band, which read as too intense. Pulled back to just the 6px sunset stripe + three-ridge silhouette in fading green opacity. Keeps the sunrise reference, stops shouting.
+- **Carousel placement: before the hero, with sunset stripes top AND bottom.** Sandwiches the photography between two horizon lines — sky above, sky below. The visual move that makes the carousel feel like a held moment instead of a random photo strip.
+- **Rust co-structural panels approved.** Rust now joins Forest as a panel-level structural color. Forest = brand's resting state (default footers, sidebars, content panels). Rust = brand's call (CTAs, "currently open to" callouts, friction-vs-success pairs). Standard homepage pattern: rust CTA panel between work section and forest footer.
+- **New signature elements formalized:**
+  - **Sunset stripe** — 6px gradient (Honey → Amber → Rust), 85% opacity, State A only
+  - **Three-ridge silhouettes** — fading green opacity layers (10%/18%/32%), anchored to bottom of containers
+  - **Topo + ridge watermark** — State B page-level pattern at 0.13 wrapper opacity
+  - **Coordinate metadata** — wayfinding language with 24px rust marker line (e.g., `UX/UI Designer · N 34.013° · W 118.310°`)
+  - **Shape-symbol category tags** — ▲ Wearable · ◆ Wellness · ● Watch UI · ■ Mobile
+  - **Rust CTA panel** — canonical "currently open to" banner, used once per page
+- **Brand documents updated to v2.0:**
+  - `BRAND_SPEC.md` — rewritten from scratch, now encodes both states, all signature elements, and CSS for everything
+  - `BRAND_GUIDE.md` — rewritten with two-state explanation, "what changed in v2.0" section
+  - `CLAUDE_CODE_PROMPT.md` — new 11-step prompt covering the full Option A refactor including State A homepage build and State B page treatment
+- **Decisions deferred:**
+  - Real nature photography for the homepage carousel — placeholders OK for first build, swap real photos in after
+  - Logo SVG redraw (still a raster trace; works on web, redraw before any print use)
+  - Adobe Fonts Web Project setup — needs to happen before running the Claude Code prompt
+- **Next session:** create the Adobe Fonts Web Project, drop the brand files into the IxD project on Claude.ai, then run the v2.0 Claude Code prompt against the portfolio repo.
+
+### 2026-05-08 (morning)
+Brand identity session in Claude.ai. Locked the full brand system before applying it to the portfolio.
+
+- **Logo:** picked the Z + mountains + winding path mark (Image 8 from a set of 8 generated options). Considered but rejected: a more abstract mountain-and-path version that lost the Z structure — kept Image 8 because the Z works as a recognizable monogram, which matters since the brand starts with Z (zgoingco).
+- **Color system:** Forest green `#2D4A33` primary, plus Moss, Cream `#FAF6EE` (page bg, never `#FFF`), Charcoal `#1F2A22` (text, never `#000`), and a 4-step warm accent ramp — Honey `#E8B547`, Amber `#D87A3A`, Rust `#B8482E`, Ember `#7A2820`. Aim for ~70% greens / ~5% warm accents per screen.
+- **Typography:** three-typeface system, all served via Adobe Fonts (no self-hosting):
+  - Cooper Black for hero headlines (one per screen, max)
+  - Bookmania for section headers (Bold) and subheads (Light Italic) — chose Bookmania over Recoleta (not on Adobe Fonts) and over Adobe Caslon (right move was warmth over editorial contrast since Cooper already brings personality)
+  - Eurostile for body, UI, and uppercase tracked elements (nav, buttons, eyebrow, metadata)
+- **Logo files cleaned in this session:**
+  - Source PNG was actually a JPEG with a black background baked in. Re-extracted with anti-aliased alpha, autocropped, saved as `logo-forest.png` / `logo-cream.png` plus `-1x` (256px) and `-2x` (512px) web variants — all transparent backgrounds.
+  - Source SVG was an Illustrator image-trace export with 200+ slightly different shades of green. Normalized down to 2 colors (Forest + Cream) and saved as `logo-forest.svg` / `logo-cream.svg`. Path data is still bloated; future task is to hand-redraw as clean SVG.
+- **Brand documents created:**
+  - `BRAND_GUIDE.md` — human-readable reference (rationale, voice, files)
+  - `BRAND_SPEC.md` — machine-readable spec for Claude Code (CSS variables, component patterns, do's/don'ts, pre-shipping checklist)
+- **Decided on Option A** for applying to the existing portfolio: full refactor since only the homepage and one case study scaffold exist — better to get the foundation right now than retrofit later.
+- **Adobe Fonts setup pending:** need to create a Web Project on fonts.adobe.com, activate Cooper Black, Bookmania (Light Italic + Regular + Bold), and Eurostile (Regular), then paste the project's `<link>` tag into `app/layout.tsx`.
+- **Next session:** run the Claude Code prompt (saved alongside the brand docs) to apply the brand across the site, then return to UGLOO content.
 
 ### 2026-05-07
 Domain session. Bought `zgoingco.design` (primary, $19.99 yr 1, autorenew OFF, expires May 2027) and `zgoingco.com` ($11.25/yr, autorenew ON). Configured `.design` as the canonical URL on Vercel; `.com` and `.vercel.app` redirect to it. Site is now live at https://zgoingco.design. Open question: decide whether to renew `.design` at ~$53.29/yr before May 2027.
