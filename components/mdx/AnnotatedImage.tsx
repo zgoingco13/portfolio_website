@@ -23,7 +23,7 @@ export function AnnotatedImage({ image, annotations = [] }: AnnotatedImageProps)
           className="absolute flex items-center gap-2"
           style={{ left: `${a.x}%`, top: `${a.y}%`, transform: 'translate(-50%, -50%)' }}
         >
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-burnt-orange font-sans text-xs font-bold text-white">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rust font-sans text-xs font-bold text-sand">
             {i + 1}
           </span>
           <span className="rounded bg-card/90 px-2 py-1 font-sans text-xs text-foreground backdrop-blur-sm">

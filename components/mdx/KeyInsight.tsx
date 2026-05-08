@@ -1,10 +1,10 @@
 export function KeyInsight({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-6 rounded-xl border-l-4 border-burnt-orange bg-card p-6">
-      <p className="mb-2 font-sans text-xs font-medium uppercase tracking-wider text-burnt-orange">
+    <div className="my-6 rounded-xl bg-forest px-6 py-5">
+      <p className="mb-3 font-sans text-[11px] font-medium uppercase tracking-[2px] text-honey">
         Key Insight
       </p>
-      <div className="font-serif text-lg leading-relaxed text-foreground">{children}</div>
+      <div className="font-serif text-lg leading-relaxed text-sand">{children}</div>
     </div>
   )
 }

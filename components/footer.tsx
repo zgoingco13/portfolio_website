@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Linkedin, Twitter, Dribbble, Mail } from "lucide-react"
 
 const socialLinks = [
@@ -10,20 +11,28 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card/50">
-      <div className="wavy-divider" />
+    <footer className="bg-forest">
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          {/* Eurostile for captions/UI text */}
-          <p className="font-sans text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Czarina 'Z' Goingco. All rights reserved.
+          <Link href="/" className="flex items-center transition-opacity hover:opacity-75">
+            <Image
+              src="/logo/logo-cream.svg"
+              alt="Z Goingco"
+              width={48}
+              height={32}
+            />
+          </Link>
+
+          <p className="font-sans text-[11px] uppercase tracking-[1.8px] text-sand/60">
+            © {new Date().getFullYear()} Czarina &apos;Z&apos; Goingco
           </p>
+
           <div className="flex items-center gap-6">
             {socialLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-muted-foreground transition-colors hover:text-burnt-orange"
+                className="text-sand/50 transition-colors hover:text-honey"
                 aria-label={link.label}
                 target="_blank"
                 rel="noopener noreferrer"

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import type { CaseStudyFrontmatter } from '@/lib/content'
+import { CoordinateRow } from '@/components/CoordinateRow'
 
 function ProductAndLogoHero({
   heroWatch,
@@ -128,11 +129,9 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
         <DefaultHero coverImage={coverImage} title={title} />
       ) : null}
 
-      <p className="font-sans text-sm font-medium uppercase tracking-wider text-mustard">
-        {projectType}
-      </p>
-      <h1 className="mt-3 font-display text-4xl text-foreground md:text-5xl lg:text-6xl">{title}</h1>
-      <p className="mt-4 max-w-3xl font-serif text-xl text-muted-foreground">{tagline}</p>
+      <CoordinateRow text={[projectType, String(year), duration].filter(Boolean).join(' · ')} />
+      <h1 className="mt-3 font-display leading-none text-foreground" style={{ fontSize: "var(--text-hero-xl)" }}>{title}</h1>
+      <p className="mt-4 max-w-3xl font-serif font-light italic text-muted-foreground" style={{ fontSize: "var(--text-subhead)" }}>{tagline}</p>
 
       <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
         {[
@@ -142,7 +141,7 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
           { label: 'Team', value: team?.join(', ') },
         ].map(({ label, value }) => (
           <div key={label} className="rounded-xl border border-border bg-card p-4">
-            <p className="font-sans text-xs font-medium uppercase tracking-wider text-mustard">
+            <p className="font-sans text-[11px] font-medium uppercase tracking-[2px] text-honey">
               {label}
             </p>
             <p className="mt-1 font-sans text-sm leading-snug text-foreground">{value}</p>
@@ -169,7 +168,7 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
             <span
               key={tag}
               className={`rounded-full px-3 py-1 font-sans text-xs font-medium uppercase tracking-wide text-foreground ${
-                i % 2 === 0 ? 'bg-mustard/40' : 'bg-olive/30'
+                i % 2 === 0 ? 'bg-honey/40' : 'bg-moss/30'
               }`}
             >
               {tag}

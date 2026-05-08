@@ -2,6 +2,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
+import { TopoWatermark } from '@/components/TopoWatermark'
+import { CoordinateRow } from '@/components/CoordinateRow'
+import { RustCtaPanel } from '@/components/RustCtaPanel'
+import { BreathStrip } from '@/components/BreathStrip'
 import { getAllAcademicProjects } from '@/lib/content'
 import { ArrowRight } from 'lucide-react'
 
@@ -17,19 +21,28 @@ export default function AcademicProjectsPage() {
     <div className="flex min-h-screen flex-col">
       <Navigation />
       <main className="flex-1">
-        <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <p className="font-sans text-sm font-medium uppercase tracking-wider text-mustard">
-            School Work
-          </p>
-          <h1 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
-            Academic Projects
-          </h1>
-          <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-muted-foreground">
-            Course projects, design explorations, and academic research from my studies.
-          </p>
+        {/* Hero with topo watermark */}
+        <section className="relative overflow-hidden bg-background pb-8 pt-16 md:pt-24">
+          <TopoWatermark />
+          <div className="relative mx-auto max-w-6xl px-6">
+            <CoordinateRow text="Academic work · 2022 – 2026" />
+            <h1
+              className="mt-3 font-display leading-none text-foreground"
+              style={{ fontSize: "var(--text-hero-lg)" }}
+            >
+              Academic projects
+            </h1>
+            <p
+              className="mt-4 max-w-2xl font-serif font-light italic text-muted-foreground"
+              style={{ fontSize: "var(--text-subhead)" }}
+            >
+              Course projects, design explorations, and academic research from my studies.
+            </p>
+          </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-6 pb-24">
+        {/* Cards */}
+        <section className="mx-auto max-w-6xl px-6 pb-24 pt-12">
           {projects.length === 0 ? (
             <div className="rounded-2xl border border-border bg-card p-12 text-center">
               <p className="font-serif text-xl text-muted-foreground">Projects coming soon.</p>
@@ -43,7 +56,7 @@ export default function AcademicProjectsPage() {
                 <Link
                   key={project.slug}
                   href={`/academic-projects/${project.slug}`}
-                  className="group block overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-burnt-orange/60 hover:shadow-lg"
+                  className="group block overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-rust/60 hover:shadow-lg"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     {project.coverImage ? (
@@ -58,10 +71,10 @@ export default function AcademicProjectsPage() {
                     )}
                   </div>
                   <div className="p-5">
-                    <p className="font-sans text-xs font-medium uppercase tracking-wider text-mustard">
+                    <p className="font-sans text-[11px] font-medium uppercase tracking-[2px] text-rust">
                       {project.year}
                     </p>
-                    <h2 className="mt-1 font-serif text-lg font-medium text-foreground">
+                    <h2 className="mt-1 font-serif font-bold text-lg text-foreground">
                       {project.title}
                     </h2>
                     <p className="mt-1 line-clamp-2 font-sans text-sm text-muted-foreground">
@@ -72,14 +85,14 @@ export default function AcademicProjectsPage() {
                         <span
                           key={tag}
                           className={`rounded-full px-3 py-1 font-sans text-xs font-medium uppercase tracking-wide text-foreground ${
-                            j % 2 === 0 ? 'bg-mustard/40' : 'bg-olive/30'
+                            j % 2 === 0 ? 'bg-honey/40' : 'bg-moss/30'
                           }`}
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <div className="mt-4 flex items-center gap-1 font-sans text-sm font-medium text-burnt-orange">
+                    <div className="mt-4 flex items-center gap-1 font-sans text-sm font-medium text-rust">
                       View project
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </div>
@@ -90,6 +103,9 @@ export default function AcademicProjectsPage() {
           )}
         </section>
       </main>
+
+      <RustCtaPanel />
+      <BreathStrip />
       <Footer />
     </div>
   )

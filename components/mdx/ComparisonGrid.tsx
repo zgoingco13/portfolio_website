@@ -10,7 +10,7 @@ export function ComparisonGrid({ children, labels = ['Before', 'After'] }: Compa
         {labels.map((label) => (
           <p
             key={label}
-            className="font-sans text-xs font-medium uppercase tracking-wider text-mustard"
+            className="font-sans text-[11px] font-medium uppercase tracking-[2px] text-honey"
           >
             {label}
           </p>

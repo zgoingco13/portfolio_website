@@ -2,6 +2,10 @@ import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
+import { TopoWatermark } from '@/components/TopoWatermark'
+import { CoordinateRow } from '@/components/CoordinateRow'
+import { RustCtaPanel } from '@/components/RustCtaPanel'
+import { BreathStrip } from '@/components/BreathStrip'
 import { getAcademicProject, getAllAcademicProjects } from '@/lib/content'
 import { getMdxComponents } from '@/components/mdx'
 import Link from 'next/link'
@@ -41,52 +45,62 @@ export default async function AcademicProjectPage({ params }: PageProps) {
         <article className="mdx-content mx-auto max-w-4xl px-6 py-12 md:py-16">
           <Link
             href="/academic-projects"
-            className="mb-10 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wider text-muted-foreground transition-colors hover:text-rust"
+            className="mb-10 inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[1.5px] text-muted-foreground transition-colors hover:text-rust"
           >
             <ArrowLeft className="h-4 w-4" />
             All academic projects
           </Link>
 
-          {/* Inline header for academic projects (lighter than CaseStudyHeader) */}
-          <header className="mb-12 border-b border-border pb-10">
-            <p className="font-sans text-xs font-medium uppercase tracking-wider text-mustard">
-              {frontmatter.year}
-            </p>
-            <h1 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
-              {frontmatter.title}
-            </h1>
-            <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-muted-foreground">
-              {frontmatter.summary}
-            </p>
-            {frontmatter.role?.length > 0 && (
-              <div className="mt-6">
-                <p className="font-sans text-xs font-medium uppercase tracking-wider text-mustard">
-                  Role
-                </p>
-                <p className="mt-1 font-sans text-sm text-foreground">
-                  {frontmatter.role.join(' · ')}
-                </p>
-              </div>
-            )}
-            {frontmatter.tags?.length > 0 && (
-              <div className="mt-4 flex flex-wrap gap-2">
-                {frontmatter.tags.map((tag, i) => (
-                  <span
-                    key={tag}
-                    className={`rounded-full px-3 py-1 font-sans text-xs font-medium uppercase tracking-wide text-foreground ${
-                      i % 2 === 0 ? 'bg-mustard/40' : 'bg-olive/30'
-                    }`}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
+          {/* Hero header with topo watermark */}
+          <header className="relative mb-12 overflow-hidden rounded-xl border border-border pb-10 pt-8">
+            <TopoWatermark />
+            <div className="relative px-6">
+              <CoordinateRow text={`Academic work · ${frontmatter.year}`} />
+              <h1
+                className="mt-3 font-display leading-none text-foreground"
+                style={{ fontSize: "var(--text-hero-lg)" }}
+              >
+                {frontmatter.title}
+              </h1>
+              <p
+                className="mt-4 max-w-2xl font-serif font-light italic text-muted-foreground"
+                style={{ fontSize: "var(--text-subhead)" }}
+              >
+                {frontmatter.summary}
+              </p>
+              {frontmatter.role?.length > 0 && (
+                <div className="mt-6">
+                  <p className="font-sans text-[11px] font-medium uppercase tracking-[2px] text-rust">
+                    Role
+                  </p>
+                  <p className="mt-1 font-sans text-sm text-foreground">
+                    {frontmatter.role.join(' · ')}
+                  </p>
+                </div>
+              )}
+              {frontmatter.tags?.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {frontmatter.tags.map((tag: string, i: number) => (
+                    <span
+                      key={tag}
+                      className={`rounded-full px-3 py-1 font-sans text-xs font-medium uppercase tracking-wide text-foreground ${
+                        i % 2 === 0 ? 'bg-honey/40' : 'bg-moss/30'
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
           </header>
 
           <MDXRemote source={content} components={components} />
         </article>
       </main>
+
+      <RustCtaPanel />
+      <BreathStrip />
       <Footer />
     </div>
   )

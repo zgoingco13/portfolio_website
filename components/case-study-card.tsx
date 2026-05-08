@@ -13,10 +13,10 @@ interface CaseStudyCardProps {
 }
 
 const tagColors = [
-  "bg-mustard/40 text-foreground",
-  "bg-olive/30 text-foreground",
-  "bg-mustard/40 text-foreground",
-  "bg-olive/30 text-foreground",
+  "bg-honey/40 text-foreground",
+  "bg-moss/30 text-foreground",
+  "bg-honey/40 text-foreground",
+  "bg-moss/30 text-foreground",
 ]
 
 export function CaseStudyCard({
@@ -32,7 +32,7 @@ export function CaseStudyCard({
     <Link
       href={`/case-studies/${slug}`}
       className={cn(
-        "group block overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-burnt-orange/50 hover:shadow-lg",
+        "group block overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-rust/50 hover:shadow-lg",
         featured ? "col-span-full" : ""
       )}
     >
@@ -54,7 +54,7 @@ export function CaseStudyCard({
         {/* Recoleta for card titles */}
         <h3
           className={cn(
-            "font-serif font-semibold text-foreground",
+            "font-serif font-bold text-foreground",
             featured ? "text-2xl md:text-3xl" : "text-xl"
           )}
         >

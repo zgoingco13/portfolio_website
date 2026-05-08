@@ -7,7 +7,7 @@ interface StoryboardFrameProps {
 
 export function StoryboardFrame({ image, caption }: StoryboardFrameProps) {
   return (
-    <figure className="overflow-hidden rounded-xl border border-border">
+    <figure className="storyboard-frame overflow-hidden rounded-xl border border-border">
       <div className="relative aspect-[4/3]">
         <Image src={image} alt={caption} fill className="object-cover" />
       </div>

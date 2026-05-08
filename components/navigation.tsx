@@ -37,10 +37,10 @@ export function Navigation() {
               <Link
                 href={link.href}
                 className={cn(
-                  "nav-link font-sans text-sm font-medium uppercase tracking-wider transition-colors hover:text-foreground",
+                  "nav-link font-sans text-xs font-medium uppercase tracking-[1.5px] transition-colors hover:text-foreground",
                   pathname === link.href ||
                     (link.href !== "/" && pathname.startsWith(link.href))
-                    ? "text-foreground"
+                    ? "text-rust"
                     : "text-muted-foreground"
                 )}
               >
@@ -74,10 +74,10 @@ export function Navigation() {
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "block font-sans font-medium uppercase tracking-wider transition-colors hover:text-foreground",
+                    "block font-sans text-xs font-medium uppercase tracking-[1.5px] transition-colors hover:text-foreground",
                     pathname === link.href ||
                       (link.href !== "/" && pathname.startsWith(link.href))
-                      ? "text-foreground"
+                      ? "text-rust"
                       : "text-muted-foreground"
                   )}
                 >

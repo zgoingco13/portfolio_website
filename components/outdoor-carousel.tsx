@@ -1,90 +1,85 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import Image from "next/image"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
-interface OutdoorCarouselProps {
-  images?: {
-    src: string
-    alt: string
-  }[]
-  interval?: number // in milliseconds
-}
-
-const defaultImages = [
-  {
-    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&h=400&fit=crop",
-    alt: "Mountain landscape at golden hour",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&h=400&fit=crop",
-    alt: "Forest trail in morning mist",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600&h=400&fit=crop",
-    alt: "Lake reflection with mountains",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&h=400&fit=crop",
-    alt: "Rolling hills at sunset",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=1600&h=400&fit=crop",
-    alt: "Waterfall in lush forest",
-  },
+// Option A: placeholder gradient blocks — replace with real nature photos later
+// TODO: add public/images/nature-carousel/ photos and swap these out
+const POOL = [
+  { gradient: "linear-gradient(135deg, #2D4A33 0%, #6B8A4A 55%, #E8B547 100%)", label: "Dawn Ridge" },
+  { gradient: "linear-gradient(160deg, #E8B547 0%, #D87A3A 50%, #B8482E 100%)", label: "Sunset Valley" },
+  { gradient: "linear-gradient(135deg, #1F2A22 0%, #2D4A33 60%, #6B8A4A 100%)", label: "Forest Floor" },
+  { gradient: "linear-gradient(150deg, #6B8A4A 0%, #2D4A33 50%, #1F2A22 100%)", label: "Alpine Morning" },
+  { gradient: "linear-gradient(135deg, #B8482E 0%, #D87A3A 50%, #E8B547 100%)", label: "Ember Sky" },
+  { gradient: "linear-gradient(160deg, #1F2A22 0%, #2D4A33 55%, #D87A3A 100%)", label: "Dusk Trail" },
+  { gradient: "linear-gradient(135deg, #D87A3A 0%, #E8B547 50%, #F0E6D0 100%)", label: "High Noon" },
+  { gradient: "linear-gradient(150deg, #2D4A33 0%, #6B8A4A 35%, #D87A3A 100%)", label: "Golden Hour" },
 ]
 
-export function OutdoorCarousel({
-  images = defaultImages,
-  interval = 7000,
-}: OutdoorCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+const MAX_OFFSET = POOL.length - 4  // 4
 
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    )
-  }, [images.length])
+export function OutdoorCarousel() {
+  const [offset, setOffset] = useState(0)
+
+  const advance = useCallback(() => {
+    setOffset(o => (o >= MAX_OFFSET ? 0 : o + 1))
+  }, [])
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, interval)
-    return () => clearInterval(timer)
-  }, [nextSlide, interval])
+    const t = setInterval(advance, 6000)
+    return () => clearInterval(t)
+  }, [advance])
+
+  const prev = () => setOffset(o => (o <= 0 ? MAX_OFFSET : o - 1))
+  const next = () => setOffset(o => (o >= MAX_OFFSET ? 0 : o + 1))
+
+  const visible = [
+    POOL[offset % POOL.length],
+    POOL[(offset + 1) % POOL.length],
+    POOL[(offset + 2) % POOL.length],
+    POOL[(offset + 3) % POOL.length],
+  ]
 
   return (
-    <div className="relative h-24 w-full overflow-hidden sm:h-28 md:h-32">
-      {/* Images */}
-      {images.map((image, index) => (
-        <div
-          key={image.src}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            className="object-cover"
-            priority={index === 0}
+    <div className="group relative w-full">
+      {/* 4-up strip, 4:3 aspect, 2px gaps */}
+      <div className="grid grid-cols-4 gap-[2px]">
+        {visible.map((item, i) => (
+          <div
+            key={`${offset}-${i}`}
+            className="aspect-[4/3] animate-in fade-in duration-500"
+            style={{ background: item.gradient }}
+            aria-label={item.label}
           />
-          {/* Overlay gradient for better text contrast if needed */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/30" />
-        </div>
-      ))}
+        ))}
+      </div>
 
-      {/* Progress indicators */}
-      <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
-        {images.map((_, index) => (
+      {/* Prev/next — visible on hover */}
+      <button
+        onClick={prev}
+        className="absolute left-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-charcoal/50 text-sand opacity-0 transition-opacity group-hover:opacity-100 hover:bg-charcoal/80"
+        aria-label="Previous"
+      >
+        <ChevronLeft className="h-4 w-4" />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-charcoal/50 text-sand opacity-0 transition-opacity group-hover:opacity-100 hover:bg-charcoal/80"
+        aria-label="Next"
+      >
+        <ChevronRight className="h-4 w-4" />
+      </button>
+
+      {/* Position dots */}
+      <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1">
+        {Array.from({ length: MAX_OFFSET + 1 }).map((_, i) => (
           <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? "w-6 bg-cream"
-                : "w-1.5 bg-cream/40 hover:bg-cream/60"
+            key={i}
+            onClick={() => setOffset(i)}
+            className={`h-1 rounded-full transition-all duration-300 ${
+              i === offset ? "w-4 bg-sand" : "w-1 bg-sand/40 hover:bg-sand/60"
             }`}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={`Go to position ${i + 1}`}
           />
         ))}
       </div>
