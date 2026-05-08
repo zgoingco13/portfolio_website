@@ -41,7 +41,7 @@ export default async function AcademicProjectPage({ params }: PageProps) {
         <article className="mdx-content mx-auto max-w-4xl px-6 py-12 md:py-16">
           <Link
             href="/academic-projects"
-            className="mb-10 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wider text-white/60 transition-colors hover:text-burnt-orange"
+            className="mb-10 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wider text-muted-foreground transition-colors hover:text-rust"
           >
             <ArrowLeft className="h-4 w-4" />
             All academic projects
@@ -52,10 +52,10 @@ export default async function AcademicProjectPage({ params }: PageProps) {
             <p className="font-sans text-xs font-medium uppercase tracking-wider text-mustard">
               {frontmatter.year}
             </p>
-            <h1 className="mt-3 font-display text-4xl text-white md:text-5xl">
+            <h1 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
               {frontmatter.title}
             </h1>
-            <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/70">
+            <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-muted-foreground">
               {frontmatter.summary}
             </p>
             {frontmatter.role?.length > 0 && (
@@ -63,7 +63,7 @@ export default async function AcademicProjectPage({ params }: PageProps) {
                 <p className="font-sans text-xs font-medium uppercase tracking-wider text-mustard">
                   Role
                 </p>
-                <p className="mt-1 font-sans text-sm text-white/90">
+                <p className="mt-1 font-sans text-sm text-foreground">
                   {frontmatter.role.join(' · ')}
                 </p>
               </div>

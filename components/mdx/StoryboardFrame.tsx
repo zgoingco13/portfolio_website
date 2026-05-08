@@ -11,7 +11,7 @@ export function StoryboardFrame({ image, caption }: StoryboardFrameProps) {
       <div className="relative aspect-[4/3]">
         <Image src={image} alt={caption} fill className="object-cover" />
       </div>
-      <figcaption className="bg-card px-4 py-3 font-sans text-xs text-white/70">
+      <figcaption className="bg-card px-4 py-3 font-sans text-xs text-muted-foreground">
         {caption}
       </figcaption>
     </figure>

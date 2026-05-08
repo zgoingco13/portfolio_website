@@ -41,7 +41,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <article className="mdx-content mx-auto max-w-6xl px-6 py-12 md:py-16">
           <Link
             href="/case-studies"
-            className="mb-10 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wider text-white/60 transition-colors hover:text-burnt-orange"
+            className="mb-10 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wider text-muted-foreground transition-colors hover:text-rust"
           >
             <ArrowLeft className="h-4 w-4" />
             All case studies

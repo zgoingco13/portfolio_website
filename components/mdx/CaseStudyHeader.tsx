@@ -131,8 +131,8 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
       <p className="font-sans text-sm font-medium uppercase tracking-wider text-mustard">
         {projectType}
       </p>
-      <h1 className="mt-3 font-display text-4xl text-white md:text-5xl lg:text-6xl">{title}</h1>
-      <p className="mt-4 max-w-3xl font-serif text-xl text-white/80">{tagline}</p>
+      <h1 className="mt-3 font-display text-4xl text-foreground md:text-5xl lg:text-6xl">{title}</h1>
+      <p className="mt-4 max-w-3xl font-serif text-xl text-muted-foreground">{tagline}</p>
 
       <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
         {[
@@ -145,7 +145,7 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
             <p className="font-sans text-xs font-medium uppercase tracking-wider text-mustard">
               {label}
             </p>
-            <p className="mt-1 font-sans text-sm leading-snug text-white/90">{value}</p>
+            <p className="mt-1 font-sans text-sm leading-snug text-foreground">{value}</p>
           </div>
         ))}
       </div>
@@ -155,7 +155,7 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
           {tools.map((tool) => (
             <span
               key={tool}
-              className="rounded-full border border-border bg-card px-3 py-1 font-sans text-xs text-white/70"
+              className="rounded-full border border-border bg-card px-3 py-1 font-sans text-xs text-muted-foreground"
             >
               {tool}
             </span>

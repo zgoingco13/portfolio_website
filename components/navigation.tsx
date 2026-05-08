@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
@@ -19,12 +20,14 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        {/* TODO: replace with logo SVG */}
-        <Link
-          href="/"
-          className="font-serif text-2xl font-semibold tracking-tight text-white transition-colors hover:text-mustard"
-        >
-          Z
+        <Link href="/" className="flex items-center transition-opacity hover:opacity-75">
+          <Image
+            src="/logo/logo-forest.svg"
+            alt="Z Goingco"
+            width={48}
+            height={32}
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation - Eurostile for UI */}
@@ -34,11 +37,11 @@ export function Navigation() {
               <Link
                 href={link.href}
                 className={cn(
-                  "nav-link font-sans text-sm font-medium uppercase tracking-wider transition-colors hover:text-white",
+                  "nav-link font-sans text-sm font-medium uppercase tracking-wider transition-colors hover:text-foreground",
                   pathname === link.href ||
                     (link.href !== "/" && pathname.startsWith(link.href))
-                    ? "text-white"
-                    : "text-white/70"
+                    ? "text-foreground"
+                    : "text-muted-foreground"
                 )}
               >
                 {link.label}
@@ -49,7 +52,7 @@ export function Navigation() {
 
         {/* Mobile Menu Button */}
         <button
-          className="text-white md:hidden"
+          className="text-foreground md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -63,7 +66,7 @@ export function Navigation() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="border-b border-white/20 bg-background px-6 pb-6 md:hidden">
+        <div className="border-b border-border bg-background px-6 pb-6 md:hidden">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -71,11 +74,11 @@ export function Navigation() {
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "block font-sans font-medium uppercase tracking-wider transition-colors hover:text-white",
+                    "block font-sans font-medium uppercase tracking-wider transition-colors hover:text-foreground",
                     pathname === link.href ||
                       (link.href !== "/" && pathname.startsWith(link.href))
-                      ? "text-white"
-                      : "text-white/70"
+                      ? "text-foreground"
+                      : "text-muted-foreground"
                   )}
                 >
                   {link.label}

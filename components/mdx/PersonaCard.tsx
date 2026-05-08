@@ -15,9 +15,9 @@ export function PersonaCard({ name, role, image, description }: PersonaCardProps
           <Image src={image} alt={name} fill className="object-cover" />
         </div>
       )}
-      <h3 className="font-serif text-lg font-medium text-white">{name}</h3>
-      <p className="font-sans text-sm text-mustard">{role}</p>
-      <p className="mt-3 font-sans text-sm leading-relaxed text-white/80">{description}</p>
+      <h3 className="font-serif text-lg font-medium text-foreground">{name}</h3>
+      <p className="font-sans text-sm text-honey">{role}</p>
+      <p className="mt-3 font-sans text-sm leading-relaxed text-muted-foreground">{description}</p>
     </div>
   )
 }

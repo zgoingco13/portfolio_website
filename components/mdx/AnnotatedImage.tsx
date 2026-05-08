@@ -26,7 +26,7 @@ export function AnnotatedImage({ image, annotations = [] }: AnnotatedImageProps)
           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-burnt-orange font-sans text-xs font-bold text-white">
             {i + 1}
           </span>
-          <span className="rounded bg-card/90 px-2 py-1 font-sans text-xs text-white backdrop-blur-sm">
+          <span className="rounded bg-card/90 px-2 py-1 font-sans text-xs text-foreground backdrop-blur-sm">
             {a.label}
           </span>
         </div>

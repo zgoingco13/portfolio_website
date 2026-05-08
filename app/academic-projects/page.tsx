@@ -21,10 +21,10 @@ export default function AcademicProjectsPage() {
           <p className="font-sans text-sm font-medium uppercase tracking-wider text-mustard">
             School Work
           </p>
-          <h1 className="mt-3 font-display text-4xl text-white md:text-5xl">
+          <h1 className="mt-3 font-display text-4xl text-foreground md:text-5xl">
             Academic Projects
           </h1>
-          <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/70">
+          <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-muted-foreground">
             Course projects, design explorations, and academic research from my studies.
           </p>
         </section>
@@ -32,8 +32,8 @@ export default function AcademicProjectsPage() {
         <section className="mx-auto max-w-6xl px-6 pb-24">
           {projects.length === 0 ? (
             <div className="rounded-2xl border border-border bg-card p-12 text-center">
-              <p className="font-serif text-xl text-white/60">Projects coming soon.</p>
-              <p className="mt-2 font-sans text-sm text-white/40">
+              <p className="font-serif text-xl text-muted-foreground">Projects coming soon.</p>
+              <p className="mt-2 font-sans text-sm text-muted-foreground/60">
                 Academic project files will appear here once added to content/academic-projects/.
               </p>
             </div>
@@ -61,10 +61,10 @@ export default function AcademicProjectsPage() {
                     <p className="font-sans text-xs font-medium uppercase tracking-wider text-mustard">
                       {project.year}
                     </p>
-                    <h2 className="mt-1 font-serif text-lg font-medium text-white">
+                    <h2 className="mt-1 font-serif text-lg font-medium text-foreground">
                       {project.title}
                     </h2>
-                    <p className="mt-1 line-clamp-2 font-sans text-sm text-white/70">
+                    <p className="mt-1 line-clamp-2 font-sans text-sm text-muted-foreground">
                       {project.summary}
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2">

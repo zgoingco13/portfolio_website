@@ -7,6 +7,7 @@ interface CaseStudyCardProps {
   title: string
   description: string
   coverImage: string
+  coverImageAlt?: string
   tags: string[]
   featured?: boolean
 }
@@ -23,6 +24,7 @@ export function CaseStudyCard({
   title,
   description,
   coverImage,
+  coverImageAlt,
   tags,
   featured = false,
 }: CaseStudyCardProps) {
@@ -37,13 +39,14 @@ export function CaseStudyCard({
       <div
         className={cn(
           "relative overflow-hidden",
-          featured ? "aspect-[16/9] md:aspect-[21/9]" : "aspect-[4/3]"
+          featured ? "aspect-[16/7] md:aspect-[21/7]" : "aspect-[4/3]"
         )}
       >
         <Image
           src={coverImage}
-          alt={title}
+          alt={coverImageAlt ?? title}
           fill
+          sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>

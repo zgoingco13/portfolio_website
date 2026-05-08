@@ -18,21 +18,21 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <p className="font-sans text-sm font-medium uppercase tracking-wider text-white/60">Good morning</p>
-          <h1 className="mt-4 max-w-4xl font-display text-4xl leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
+          <p className="font-sans text-sm font-medium uppercase tracking-wider text-muted-foreground">Good morning</p>
+          <h1 className="mt-4 max-w-4xl font-display text-4xl leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
             <span className="text-balance">
               {"Czarina \"Z\" Goingco"}
             </span>
           </h1>
-          <p className="mt-4 max-w-4xl font-serif text-xl text-white/90 md:text-2xl">
+          <p className="mt-4 max-w-4xl font-serif text-xl text-foreground md:text-2xl">
             An interaction designer working at the intersection of healthcare, outdoor culture, and human-centered storytelling.
           </p>
-          <div className="mt-4 flex items-center gap-2 text-white/60">
-            <Mountain className="h-4 w-4 text-mustard" />
-            <Sun className="h-4 w-4 text-mustard" />
+          <div className="mt-4 flex items-center gap-2 text-muted-foreground">
+            <Mountain className="h-4 w-4 text-honey" />
+            <Sun className="h-4 w-4 text-honey" />
             <span className="font-sans text-sm italic">Based in Los Angeles — designing between hikes and climbs, happiest on trails</span>
           </div>
-          <p className="mt-6 max-w-4xl font-sans text-base leading-relaxed text-white/80 md:text-lg">
+          <p className="mt-6 max-w-4xl font-sans text-base leading-relaxed text-muted-foreground md:text-lg">
             My background as an orthopedic technician shapes how I approach care and accessibility, and my love of trails and climbing shapes how I think about adventure, resilience, and the gear that supports them. My work spans wellness apps, outdoor tools, and emotional design, all built to foster connection through shared experience.
           </p>
           <div className="mt-8">
@@ -57,7 +57,7 @@ export default function HomePage() {
           </div>
 
           {allStudies.length === 0 ? (
-            <p className="font-sans text-white/50">No case studies yet.</p>
+            <p className="font-sans text-muted-foreground">No case studies yet.</p>
           ) : (
             <div className="grid gap-8 md:grid-cols-2">
               <CaseStudyCard
@@ -65,6 +65,7 @@ export default function HomePage() {
                 title={featuredStudy.title}
                 description={featuredStudy.summary}
                 coverImage={featuredStudy.coverImage}
+                coverImageAlt={featuredStudy.coverImageAlt}
                 tags={featuredStudy.tags}
                 featured
               />
@@ -75,6 +76,7 @@ export default function HomePage() {
                   title={study.title}
                   description={study.summary}
                   coverImage={study.coverImage}
+                  coverImageAlt={study.coverImageAlt}
                   tags={study.tags}
                 />
               ))}

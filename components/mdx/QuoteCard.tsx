@@ -10,7 +10,7 @@ interface QuoteCardProps {
 export function QuoteCard({ name, role, image, children }: QuoteCardProps) {
   return (
     <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6">
-      <blockquote className="font-serif text-lg italic text-white/90">
+      <blockquote className="font-serif text-lg italic text-foreground">
         &ldquo;{children}&rdquo;
       </blockquote>
       <div className="mt-auto flex items-center gap-3">
@@ -20,7 +20,7 @@ export function QuoteCard({ name, role, image, children }: QuoteCardProps) {
           </div>
         )}
         <div>
-          <p className="font-sans text-sm font-medium text-white">{name}</p>
+          <p className="font-sans text-sm font-medium text-foreground">{name}</p>
           <p className="font-sans text-xs text-muted-foreground">{role}</p>
         </div>
       </div>

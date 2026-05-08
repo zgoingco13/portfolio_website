@@ -4,7 +4,7 @@ export function KeyInsight({ children }: { children: React.ReactNode }) {
       <p className="mb-2 font-sans text-xs font-medium uppercase tracking-wider text-burnt-orange">
         Key Insight
       </p>
-      <div className="font-serif text-lg leading-relaxed text-white/90">{children}</div>
+      <div className="font-serif text-lg leading-relaxed text-foreground">{children}</div>
     </div>
   )
 }

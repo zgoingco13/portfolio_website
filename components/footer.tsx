@@ -5,7 +5,7 @@ const socialLinks = [
   { href: "https://linkedin.com", label: "LinkedIn", icon: Linkedin },
   { href: "https://twitter.com", label: "Twitter", icon: Twitter },
   { href: "https://dribbble.com", label: "Dribbble", icon: Dribbble },
-  { href: "mailto:hello@sarahchen.design", label: "Email", icon: Mail },
+  { href: "mailto:goingco_czarina_pari@student.smc.edu", label: "Email", icon: Mail },
 ]
 
 export function Footer() {

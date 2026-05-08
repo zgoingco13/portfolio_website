@@ -21,8 +21,8 @@ export default function CaseStudiesPage() {
           <p className="font-sans text-sm font-medium uppercase tracking-wider text-mustard">
             Portfolio
           </p>
-          <h1 className="mt-3 font-display text-4xl text-white md:text-5xl">Case Studies</h1>
-          <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/70">
+          <h1 className="mt-3 font-display text-4xl text-foreground md:text-5xl">Case Studies</h1>
+          <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-muted-foreground">
             In-depth explorations of my design process — from research and discovery through to
             final outcomes.
           </p>
@@ -30,7 +30,7 @@ export default function CaseStudiesPage() {
 
         <section className="mx-auto max-w-6xl px-6 pb-24">
           {studies.length === 0 ? (
-            <p className="font-sans text-white/50">No case studies yet.</p>
+            <p className="font-sans text-muted-foreground">No case studies yet.</p>
           ) : (
             <div className="grid gap-8 md:grid-cols-2">
               {studies.map((study, i) => (
@@ -62,13 +62,13 @@ export default function CaseStudiesPage() {
                       {study.projectType} · {study.year}
                     </p>
                     <h2
-                      className={`mt-2 font-serif font-medium text-white ${
+                      className={`mt-2 font-serif font-medium text-foreground ${
                         i === 0 ? 'text-2xl md:text-3xl' : 'text-xl'
                       }`}
                     >
                       {study.title}
                     </h2>
-                    <p className="mt-2 line-clamp-2 font-sans text-sm text-white/70">
+                    <p className="mt-2 line-clamp-2 font-sans text-sm text-muted-foreground">
                       {study.summary}
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
