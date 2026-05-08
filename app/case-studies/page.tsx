@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
-import { TopoWatermark } from '@/components/TopoWatermark'
 import { CoordinateRow } from '@/components/CoordinateRow'
 import { RustCtaPanel } from '@/components/RustCtaPanel'
 import { BreathStrip } from '@/components/BreathStrip'
@@ -21,10 +20,9 @@ export default function CaseStudiesPage() {
     <div className="flex min-h-screen flex-col">
       <Navigation />
       <main className="flex-1">
-        {/* Hero with topo watermark */}
-        <section className="relative overflow-hidden bg-background pb-8 pt-16 md:pt-24">
-          <TopoWatermark />
-          <div className="relative mx-auto max-w-6xl px-6">
+        {/* Hero */}
+        <section className="bg-background pb-8 pt-16 md:pt-24">
+          <div className="mx-auto max-w-6xl px-6">
             <CoordinateRow text={`${studies.length} case studies · 2022 – 2026`} />
             <h1
               className="mt-3 font-display leading-none text-foreground"

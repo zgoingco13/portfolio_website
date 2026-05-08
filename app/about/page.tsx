@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { TopoWatermark } from "@/components/TopoWatermark"
 import { CoordinateRow } from "@/components/CoordinateRow"
 import { RustCtaPanel } from "@/components/RustCtaPanel"
 import { BreathStrip } from "@/components/BreathStrip"
@@ -42,10 +41,9 @@ export default function AboutPage() {
       <Navigation />
 
       <main className="flex-1">
-        {/* Hero — topo watermark behind */}
-        <section className="relative overflow-hidden bg-background">
-          <TopoWatermark />
-          <div className="relative mx-auto max-w-6xl px-6 py-16 md:py-24">
+        {/* Hero */}
+        <section className="bg-background">
+          <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
             <CoordinateRow text="About · Los Angeles, CA · N 34.013° · W 118.310°" />
             <div className="mt-6 grid gap-12 md:grid-cols-2 md:gap-16">
               {/* Photo */}

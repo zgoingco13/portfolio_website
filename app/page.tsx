@@ -4,7 +4,6 @@ import { OutdoorCarousel } from "@/components/outdoor-carousel"
 import { SunsetStripe } from "@/components/SunsetStripe"
 import { CoordinateRow } from "@/components/CoordinateRow"
 import { ThreeRidgeHero } from "@/components/ThreeRidgeHero"
-import { TopoWatermark } from "@/components/TopoWatermark"
 import { RustCtaPanel } from "@/components/RustCtaPanel"
 import { BreathStrip } from "@/components/BreathStrip"
 import { CaseStudyCard } from "@/components/case-study-card"
@@ -49,10 +48,9 @@ export default function HomePage() {
           <ThreeRidgeHero />
         </section>
 
-        {/* 6. Selected work — topo + ridge watermark behind */}
-        <section id="work" className="relative overflow-hidden bg-background py-20">
-          <TopoWatermark />
-          <div className="relative mx-auto max-w-6xl px-6">
+        {/* 6. Selected work */}
+        <section id="work" className="bg-background py-20">
+          <div className="mx-auto max-w-6xl px-6">
             {/* Section header row */}
             <div className="mb-12 flex items-end gap-4">
               <h2

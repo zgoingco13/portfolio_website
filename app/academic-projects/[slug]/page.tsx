@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
-import { TopoWatermark } from '@/components/TopoWatermark'
 import { CoordinateRow } from '@/components/CoordinateRow'
 import { RustCtaPanel } from '@/components/RustCtaPanel'
 import { BreathStrip } from '@/components/BreathStrip'
@@ -51,10 +50,8 @@ export default async function AcademicProjectPage({ params }: PageProps) {
             All academic projects
           </Link>
 
-          {/* Hero header with topo watermark */}
-          <header className="relative mb-12 overflow-hidden rounded-xl border border-border pb-10 pt-8">
-            <TopoWatermark />
-            <div className="relative px-6">
+          <header className="mb-12 rounded-xl border border-border pb-10 pt-8">
+            <div className="px-6">
               <CoordinateRow text={`Academic work · ${frontmatter.year}`} />
               <h1
                 className="mt-3 font-display leading-none text-foreground"

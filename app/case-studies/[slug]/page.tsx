@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
-import { TopoWatermark } from '@/components/TopoWatermark'
 import { RustCtaPanel } from '@/components/RustCtaPanel'
 import { BreathStrip } from '@/components/BreathStrip'
 import { getCaseStudy, getAllCaseStudies } from '@/lib/content'
@@ -40,9 +39,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <Navigation />
-      <main className="relative flex-1 overflow-hidden">
-        <TopoWatermark />
-        <article className="relative mdx-content mx-auto max-w-6xl px-6 py-12 md:py-16">
+      <main className="flex-1">
+        <article className="mdx-content mx-auto max-w-6xl px-6 py-12 md:py-16">
           <Link
             href="/case-studies"
             className="mb-10 inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[1.5px] text-muted-foreground transition-colors hover:text-rust"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
+import { TopoWatermark } from "@/components/TopoWatermark"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/dwj4mwn.css" />
       </head>
       <body className="antialiased">
+        <TopoWatermark />
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
