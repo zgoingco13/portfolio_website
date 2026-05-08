@@ -21,7 +21,7 @@ export default function AcademicProjectsPage() {
       <Navigation />
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-background pb-8 pt-16 md:pt-24">
+        <section className="pb-8 pt-16 md:pt-24">
           <div className="mx-auto max-w-6xl px-6">
             <CoordinateRow text="Academic work · 2022 – 2026" />
             <h1

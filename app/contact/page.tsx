@@ -30,7 +30,7 @@ export default function ContactPage() {
       <Navigation />
 
       <main className="flex-1">
-        <section className="bg-background">
+        <section>
           <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
             <div className="grid gap-12 md:grid-cols-2 md:gap-16">
               {/* Left — info */}

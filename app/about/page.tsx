@@ -42,7 +42,7 @@ export default function AboutPage() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-background">
+        <section>
           <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
             <CoordinateRow text="About · Los Angeles, CA · N 34.013° · W 118.310°" />
             <div className="mt-6 grid gap-12 md:grid-cols-2 md:gap-16">

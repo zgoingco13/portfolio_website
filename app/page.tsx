@@ -29,7 +29,7 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* 5. Hero — three-ridge silhouette anchored to bottom */}
-        <section className="relative overflow-hidden bg-background">
+        <section className="relative overflow-hidden">
           <div className="mx-auto max-w-6xl px-6 pb-36 pt-16 md:pb-48 md:pt-24">
             <CoordinateRow text="UX/UI Designer · N 34.013° · W 118.310°" />
             <h1
@@ -49,7 +49,7 @@ export default function HomePage() {
         </section>
 
         {/* 6. Selected work */}
-        <section id="work" className="bg-background py-20">
+        <section id="work" className="py-20">
           <div className="mx-auto max-w-6xl px-6">
             {/* Section header row */}
             <div className="mb-12 flex items-end gap-4">
