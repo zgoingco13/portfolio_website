@@ -3,13 +3,13 @@
 > Personal running doc to track what's done, what's in flight, and what's next.
 > Update this whenever you make a meaningful change so future-you (and Claude) can pick up fast.
 
-**Last updated:** 2026-05-08 (late evening · brand v2.2 — global watermark migration complete)
+**Last updated:** 2026-05-08 (night · carousel v2 — auto-advance + manual controls + real Unsplash photos)
 
 ---
 
 ## TL;DR — Where I am right now
 
-Infrastructure complete. Live at https://zgoingco.design. Brand system locked at **v2.2** (logo + colors + typography + two-state architecture + Breath Strip + global topo watermark on every route). v2.1 site is committed locally; v2.2 watermark migration prompt ready to run before push.
+Infrastructure complete. Live at https://zgoingco.design. Brand system locked at **v2.2** (logo + colors + typography + two-state architecture + Breath Strip + global topo watermark on every route). Carousel v2 shipped with real photos and full auto-advance behavior. Next: fill in UGLOO case study content.
 
 ---
 
@@ -61,6 +61,7 @@ Flattened today — no `my_portfolio` wrapper, no `b_pWjCYhe5jTr` subfolder. `pa
 - [x] Created `BRAND_GUIDE.md` and `BRAND_SPEC.md` (machine-readable for Claude Code) — to be added to the repo and to the IxD project on Claude.ai
 - [x] Cleaned logo source files: `logo-forest.svg`/`.png` and `logo-cream.svg`/`.png` (transparent backgrounds, brand color normalized to `#2D4A33`)
 - [x] **Brand v2.2 watermark migration** — `TopoWatermark` refactored from `position: absolute` (section-scoped) to `position: fixed; z-index: -1` and moved to `app/layout.tsx`. Now rendered once globally; inherits to every route including `/case-studies/[slug]` and `/academic-projects/[slug]` which previously had no watermark. All per-page `<TopoWatermark />` instances and their bounding `relative overflow-hidden` wrappers removed.
+- [x] **Carousel v2** — `OutdoorCarousel` fully rebuilt: 6 real Unsplash photos (autumn/nature, no people, all under 250KB) in `public/images/nature-carousel/`. Auto-advances every 6s. Hover + focus pause (separate `hoverPaused` state). Manual arrow/dot interaction triggers a one-interval pause then resumes (`manualPaused` via `setTimeout`). `prefers-reduced-motion` respected with live MediaQuery listener. Prev/next arrows: sand/92 bg, sand-edge border, charcoal chevron, 40px circle. Pagination: 6 dots, rust active pill (24×6px), sand/60 inactive (6px). Photo credits in `public/images/nature-carousel/CREDITS.md`.
 
 ## In progress 🔄
 
