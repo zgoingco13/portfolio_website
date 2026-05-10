@@ -32,7 +32,7 @@ export default function HomePage() {
         <section className="relative overflow-hidden">
           <div className="mx-auto max-w-6xl px-6 pb-36 pt-16 md:pb-48 md:pt-24">
             <div className="flex items-center gap-2" style={{ marginBottom: "14px" }}>
-              <Compass size={14} strokeWidth={2} color="var(--color-rust)" />
+              <Compass size={16} strokeWidth={2} color="var(--color-rust)" />
               <span className="coordinate">UX/UI Designer · Los Angeles, CA · 33.844° N · 118.388° W</span>
             </div>
             <h1
@@ -48,7 +48,7 @@ export default function HomePage() {
               An interaction designer working at the intersection of healthcare, outdoor culture, and human-centered storytelling.
             </p>
             <div className="flex items-center gap-2" style={{ marginTop: "14px" }}>
-              <Sun size={13} strokeWidth={2} color="var(--color-amber)" />
+              <Sun size={16} strokeWidth={2} color="var(--color-amber)" />
               <span className="coordinate" style={{ letterSpacing: "1.5px", fontSize: "10px" }}>
                 Designing between hikes and climbs · Happiest on trails
               </span>
