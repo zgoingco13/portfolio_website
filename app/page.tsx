@@ -2,12 +2,12 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { OutdoorCarousel } from "@/components/outdoor-carousel"
 import { SunsetStripe } from "@/components/SunsetStripe"
-import { CoordinateRow } from "@/components/CoordinateRow"
 import { ThreeRidgeHero } from "@/components/ThreeRidgeHero"
 import { RustCtaPanel } from "@/components/RustCtaPanel"
 import { BreathStrip } from "@/components/BreathStrip"
 import { CaseStudyCard } from "@/components/case-study-card"
 import { getAllCaseStudies } from "@/lib/content"
+import { Compass, Sun } from "lucide-react"
 
 export default function HomePage() {
   const allStudies = getAllCaseStudies()
@@ -31,7 +31,10 @@ export default function HomePage() {
         {/* 5. Hero — three-ridge silhouette anchored to bottom */}
         <section className="relative overflow-hidden">
           <div className="mx-auto max-w-6xl px-6 pb-36 pt-16 md:pb-48 md:pt-24">
-            <CoordinateRow text="UX/UI Designer · N 34.013° · W 118.310°" />
+            <div className="flex items-center gap-2" style={{ marginBottom: "14px" }}>
+              <Compass size={14} strokeWidth={2} color="var(--color-rust)" />
+              <span className="coordinate">UX/UI Designer · Los Angeles, CA · 33.844° N · 118.388° W</span>
+            </div>
             <h1
               className="mt-4 max-w-3xl font-display leading-none text-foreground"
               style={{ fontSize: "var(--text-hero-xl)" }}
@@ -44,6 +47,12 @@ export default function HomePage() {
             >
               An interaction designer working at the intersection of healthcare, outdoor culture, and human-centered storytelling.
             </p>
+            <div className="flex items-center gap-2" style={{ marginTop: "14px" }}>
+              <Sun size={13} strokeWidth={2} color="var(--color-amber)" />
+              <span className="coordinate" style={{ letterSpacing: "1.5px", fontSize: "10px" }}>
+                Designing between hikes and climbs · Happiest on trails
+              </span>
+            </div>
           </div>
           <ThreeRidgeHero />
         </section>
