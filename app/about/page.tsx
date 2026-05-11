@@ -1,38 +1,71 @@
+import type { Metadata } from "next"
+import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { CoordinateRow } from "@/components/CoordinateRow"
 import { RustCtaPanel } from "@/components/RustCtaPanel"
 import { BreathStrip } from "@/components/BreathStrip"
-import Image from "next/image"
-import { Flower2 } from "lucide-react"
-import type { Metadata } from "next"
+import { Compass, Clock, Mail, Linkedin, FileDown } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "About — Czarina 'Z' Goingco",
+  title: "About · Czarina Goingco · zgoingco",
   description:
-    "Learn more about Czarina 'Z' Goingco, a UX Designer passionate about creating thoughtful digital experiences.",
+    "An interaction designer based in Los Angeles, working at the intersection of healthcare, outdoor culture, and human-centered storytelling.",
 }
 
-const skills = [
-  "User Research",
-  "Wireframing",
-  "Prototyping",
-  "Usability Testing",
-  "Design Systems",
-  "Interaction Design",
-  "Information Architecture",
-  "Accessibility",
-]
-
-const tools = [
-  "Figma",
-  "Framer",
-  "Principle",
-  "Maze",
-  "Hotjar",
-  "Notion",
-  "Miro",
-  "Adobe Creative Suite",
+const timeline = [
+  {
+    year: "2019",
+    dotColor: "var(--color-moss)",
+    eyebrow: "Science",
+    description: "Graduated UC San Diego with a BS in Biochemistry & Chemistry.",
+  },
+  {
+    year: "2020",
+    dotColor: "#B8A968",
+    eyebrow: "Detour",
+    description:
+      "Pandemic year. Managed a specialty coffee shop — learned how to run small operations under hard constraints.",
+  },
+  {
+    year: "2021",
+    dotColor: "var(--color-honey)",
+    eyebrow: "Lab",
+    description: "Returned to science as a research assistant.",
+  },
+  {
+    year: "2022",
+    dotColor: "var(--color-amber)",
+    eyebrow: "Care",
+    description: "Certified as an orthopedic technician.",
+  },
+  {
+    year: "2022 – 2025",
+    dotColor: "var(--color-amber)",
+    eyebrow: "Clinic · TMPN Ortho",
+    description:
+      "Three years at TMPN Ortho — fitting casts, splinting fractures, and learning how care lands when it's hands-on.",
+  },
+  {
+    year: "2024 – 2025",
+    dotColor: "var(--color-rust)",
+    eyebrow: "REI",
+    description:
+      "Sales floor + visual merchandising at REI — fitting gear, learning the rhythms of an outdoor community.",
+  },
+  {
+    year: "2024",
+    dotColor: "var(--color-rust)",
+    eyebrow: "Pivot",
+    description:
+      "Started Santa Monica College's Interaction Design program while still seeing patients on weekends.",
+  },
+  {
+    year: "2026",
+    dotColor: "var(--color-forest)",
+    eyebrow: "Now · SMC",
+    description:
+      "Graduating SMC with a BS in Interaction Design. Open to UX/UI roles and freelance.",
+  },
 ]
 
 export default function AboutPage() {
@@ -41,96 +74,320 @@ export default function AboutPage() {
       <Navigation />
 
       <main className="flex-1">
-        {/* Hero */}
-        <section>
-          <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-            <CoordinateRow text="About · Los Angeles, CA · N 34.013° · W 118.310°" />
-            <div className="mt-6 grid gap-12 md:grid-cols-2 md:gap-16">
-              {/* Photo */}
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-card">
-                <Image
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=1000&fit=crop"
-                  alt="Czarina 'Z' Goingco"
-                  fill
-                  className="object-cover"
-                  priority
-                />
+        {/* ── Section 1: Hero ── */}
+        <section className="mx-auto max-w-6xl px-6 pb-12 pt-16 md:pt-24">
+          <div className="grid items-start gap-12 md:grid-cols-[1fr_300px] md:gap-16">
+            {/* Left: bio */}
+            <div>
+              <div
+                className="flex items-center"
+                style={{ gap: "10px", marginBottom: "14px" }}
+              >
+                <Compass size={13} strokeWidth={2} color="var(--color-rust)" />
+                <span className="coordinate">The path · how I got here</span>
               </div>
 
-              {/* Bio */}
-              <div className="flex flex-col justify-center">
-                <h1
-                  className="font-display leading-none text-foreground"
-                  style={{ fontSize: "var(--text-hero-lg)" }}
-                >
-                  Hi, I&apos;m Sarah
-                </h1>
+              <h1
+                className="font-display leading-none text-foreground"
+                style={{ fontSize: "var(--text-hero-lg)" }}
+              >
+                Same hands, new{" "}
+                <span style={{ color: "var(--color-rust)" }}>tools.</span>
+              </h1>
 
-                <div className="mt-6 space-y-4 font-sans text-muted-foreground">
-                  <p className="leading-relaxed">
-                    I&apos;m a UX Designer based in San Francisco with 6+ years of
-                    experience crafting digital products that balance user needs
-                    with business goals.
-                  </p>
-                  <p className="leading-relaxed">
-                    My journey into design started with a fascination for how
-                    people interact with technology. After studying Human-Computer
-                    Interaction at Stanford, I&apos;ve had the privilege of
-                    working with startups and Fortune 500 companies alike.
-                  </p>
-                  <p className="leading-relaxed">
-                    I believe the best designs are born from empathy and
-                    validated through research. My process is collaborative,
-                    iterative, and always centered on the people who will
-                    ultimately use what we create.
-                  </p>
-                  <p className="leading-relaxed">
-                    When I&apos;m not pushing pixels, you&apos;ll find me
-                    exploring hiking trails, experimenting with film photography,
-                    or hunting for the perfect bowl of ramen.
-                  </p>
+              <p
+                className="mt-5 max-w-2xl font-serif font-light italic text-muted-foreground"
+                style={{ fontSize: "var(--text-subhead)" }}
+              >
+                An interaction designer based in Los Angeles, working at the
+                intersection of healthcare, outdoor culture, and human-centered
+                storytelling.
+              </p>
+            </div>
+
+            {/* Right: headshot */}
+            <div
+              className="relative overflow-hidden"
+              style={{
+                aspectRatio: "4 / 5",
+                borderRadius: "var(--radius-md)",
+              }}
+            >
+              <Image
+                src="/images/about/canada.jpeg"
+                alt="Portrait of Czarina Goingco"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 2: Long bio ── */}
+        <section className="mx-auto max-w-6xl px-6 pb-12">
+          <p
+            style={{
+              fontFamily: "var(--font-mid)",
+              fontWeight: 400,
+              fontSize: "15px",
+              lineHeight: "1.65",
+              color: "var(--text-primary)",
+              maxWidth: "640px",
+            }}
+          >
+            My background as an orthopedic technician shapes how I approach care
+            and accessibility, while my love for trails and climbing shapes how I
+            think about adventure, sustainability, and the gear that supports
+            them. My work spans across wellness apps, outdoor tools, and
+            emotional design — all built to foster connection through shared
+            experience.
+          </p>
+        </section>
+
+        {/* ── Section 3: Timeline ── */}
+        <section className="mx-auto max-w-6xl px-6 pb-12">
+          <div style={{ maxWidth: "640px" }}>
+            {/* Header */}
+            <div className="mb-8 flex items-center gap-4">
+              <h2
+                style={{
+                  fontFamily: "var(--font-mid)",
+                  fontWeight: 700,
+                  fontSize: "20px",
+                  color: "var(--color-charcoal)",
+                  flexShrink: 0,
+                  margin: 0,
+                }}
+              >
+                The path
+              </h2>
+              <div
+                style={{
+                  flex: 1,
+                  height: "1px",
+                  background:
+                    "linear-gradient(to right, var(--color-rust), transparent)",
+                }}
+              />
+            </div>
+
+            {/* Rows */}
+            <div className="relative">
+              {/* Dashed vertical line — stops at last dot */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  left: "6px",
+                  top: "6px",
+                  bottom: "6px",
+                  width: "1px",
+                  background:
+                    "repeating-linear-gradient(to bottom, var(--color-rust) 0px, var(--color-rust) 3px, transparent 3px, transparent 6px)",
+                  zIndex: 0,
+                }}
+              />
+
+              {timeline.map((row, i) => (
+                <div
+                  key={i}
+                  className="relative flex"
+                  style={{
+                    gap: "20px",
+                    paddingBottom: i < timeline.length - 1 ? "28px" : 0,
+                  }}
+                >
+                  {/* Dot */}
+                  <div
+                    style={{
+                      width: "13px",
+                      height: "13px",
+                      borderRadius: "50%",
+                      background: row.dotColor,
+                      border: "2px solid var(--color-sand)",
+                      flexShrink: 0,
+                      position: "relative",
+                      zIndex: 1,
+                      marginTop: "3px",
+                    }}
+                  />
+
+                  {/* Content */}
+                  <div>
+                    <div
+                      style={{
+                        fontFamily: "var(--font-hero)",
+                        fontSize: "18px",
+                        color: "var(--color-charcoal)",
+                        lineHeight: 1,
+                      }}
+                    >
+                      {row.year}
+                    </div>
+                    <div
+                      className="coordinate"
+                      style={{
+                        letterSpacing: "1.5px",
+                        marginTop: "3px",
+                        marginBottom: "5px",
+                      }}
+                    >
+                      {row.eyebrow}
+                    </div>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-mid)",
+                        fontSize: "13px",
+                        lineHeight: "1.55",
+                        color: "var(--color-charcoal)",
+                        margin: 0,
+                      }}
+                    >
+                      {row.description}
+                    </p>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 4: Casual photo ── */}
+        <section
+          className="mx-auto max-w-6xl px-6"
+          style={{ marginTop: "40px", marginBottom: "40px" }}
+        >
+          <div
+            className="relative w-full overflow-hidden"
+            style={{
+              aspectRatio: "21 / 9",
+              borderRadius: "var(--radius-md)",
+            }}
+          >
+            <Image
+              src="/images/about/cathedral.jpeg"
+              alt="Climbing at Cathedral — Z outdoors"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </section>
+
+        {/* ── Section 5: Currently ── */}
+        <section className="mx-auto max-w-6xl px-6 pb-12">
+          <div
+            style={{
+              maxWidth: "520px",
+              background: "rgba(255,255,255,0.5)",
+              border: "1px solid var(--border-subtle)",
+              borderRadius: "var(--radius-md)",
+              padding: "18px 20px",
+            }}
+          >
+            <div
+              className="flex items-center"
+              style={{ gap: "8px", marginBottom: "10px" }}
+            >
+              <Clock size={11} strokeWidth={2} color="var(--color-rust)" />
+              <span className="coordinate" style={{ letterSpacing: "1.8px" }}>
+                Currently
+              </span>
+            </div>
+
+            <div
+              style={{
+                fontFamily: "var(--font-mid)",
+                fontSize: "13px",
+                lineHeight: "1.6",
+                color: "var(--color-charcoal)",
+              }}
+            >
+              <div>
+                <strong>Reading</strong> ·{" "}
+                <em>The Overstory</em> by Richard Powers +{" "}
+                <em>Why Fish Don&apos;t Exist</em> by Lulu Miller
+              </div>
+              <div style={{ marginTop: "6px" }}>
+                <strong>Last adventure</strong> · Climbing in Red Rocks, Las
+                Vegas — with friends
+              </div>
+              <div style={{ marginTop: "6px" }}>
+                <strong>Currently</strong> · Surviving my last semester in
+                SMC&apos;s IxD program
               </div>
             </div>
           </div>
         </section>
 
-        {/* Skills & Tools */}
-        <section className="mx-auto max-w-6xl px-6 py-16">
-          <div className="grid gap-12 md:grid-cols-2">
-            <div>
-              <h2 className="flex items-center gap-2 font-serif font-bold text-xl text-foreground">
-                <Flower2 className="h-5 w-5 text-moss" />
-                Skills
-              </h2>
-              <ul className="mt-6 space-y-3">
-                {skills.map((skill) => (
-                  <li
-                    key={skill}
-                    className="border-b border-border pb-3 font-sans text-foreground"
-                  >
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+        {/* ── Section 6: Reach out ── */}
+        <section className="mx-auto max-w-6xl px-6 pb-16">
+          <span
+            className="coordinate"
+            style={{
+              letterSpacing: "1.8px",
+              display: "block",
+              marginBottom: "12px",
+            }}
+          >
+            Reach out
+          </span>
 
-            <div>
-              <h2 className="flex items-center gap-2 font-serif font-bold text-xl text-foreground">
-                <Flower2 className="h-5 w-5 text-honey" />
-                Tools
-              </h2>
-              <ul className="mt-6 space-y-3">
-                {tools.map((tool) => (
-                  <li
-                    key={tool}
-                    className="border-b border-border pb-3 font-sans text-foreground"
-                  >
-                    {tool}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div
+            className="grid gap-3 sm:grid-cols-3"
+            style={{ maxWidth: "520px" }}
+          >
+            <a
+              href="https://www.linkedin.com/in/czarinagoingco/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-[10px] rounded-md border border-border bg-background transition-colors hover:bg-white"
+              style={{
+                padding: "10px 12px",
+                fontFamily: "var(--font-mid)",
+                fontSize: "12px",
+                color: "var(--color-charcoal)",
+                textDecoration: "none",
+                borderRadius: "var(--radius-md)",
+              }}
+            >
+              <Linkedin size={14} strokeWidth={2} color="var(--color-forest)" />
+              LinkedIn
+            </a>
+
+            <a
+              href="mailto:zgoingco.design@gmail.com"
+              className="flex items-center gap-[10px] rounded-md border border-border bg-background transition-colors hover:bg-white"
+              style={{
+                padding: "10px 12px",
+                fontFamily: "var(--font-mid)",
+                fontSize: "12px",
+                color: "var(--color-charcoal)",
+                textDecoration: "none",
+                borderRadius: "var(--radius-md)",
+              }}
+            >
+              <Mail size={14} strokeWidth={2} color="var(--color-forest)" />
+              Email
+            </a>
+
+            <a
+              href="/files/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-[10px] rounded-md border border-border bg-background transition-colors hover:bg-white"
+              style={{
+                padding: "10px 12px",
+                fontFamily: "var(--font-mid)",
+                fontSize: "12px",
+                color: "var(--color-charcoal)",
+                textDecoration: "none",
+                borderRadius: "var(--radius-md)",
+              }}
+            >
+              <FileDown size={14} strokeWidth={2} color="var(--color-forest)" />
+              Resume PDF
+            </a>
           </div>
         </section>
       </main>
