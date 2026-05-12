@@ -30,7 +30,7 @@ export default function HomePage() {
       <main className="flex-1">
         {/* 5. Hero — three-ridge silhouette anchored to bottom */}
         <section className="relative overflow-hidden">
-          <div className="mx-auto max-w-6xl px-6 pb-36 pt-16 md:pb-48 md:pt-24">
+          <div className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] pb-36 pt-16 md:pb-48 md:pt-24">
             <div className="flex items-center gap-2" style={{ marginBottom: "14px" }}>
               <Compass size={16} strokeWidth={2} color="var(--color-rust)" />
               <span className="coordinate">UX/UI Designer · Los Angeles, CA · 33.844° N · 118.388° W</span>
@@ -59,7 +59,7 @@ export default function HomePage() {
 
         {/* 6. Selected work */}
         <section id="work" className="py-20">
-          <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px]">
             {/* Section header row */}
             <div className="mb-12 flex items-end gap-4">
               <h2

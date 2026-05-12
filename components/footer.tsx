@@ -1,18 +1,16 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Linkedin, Twitter, Dribbble, Mail } from "lucide-react"
+import { Linkedin, Mail } from "lucide-react"
 
 const socialLinks = [
-  { href: "https://linkedin.com", label: "LinkedIn", icon: Linkedin },
-  { href: "https://twitter.com", label: "Twitter", icon: Twitter },
-  { href: "https://dribbble.com", label: "Dribbble", icon: Dribbble },
-  { href: "mailto:goingco_czarina_pari@student.smc.edu", label: "Email", icon: Mail },
+  { href: "https://www.linkedin.com/in/czarinagoingco/", label: "LinkedIn", icon: Linkedin },
+  { href: "mailto:zgoingco.design@gmail.com", label: "Email", icon: Mail },
 ]
 
 export function Footer() {
   return (
     <footer className="bg-forest">
-      <div className="mx-auto max-w-6xl px-6 py-12">
+      <div className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] py-12">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <Link href="/" className="flex items-center transition-opacity hover:opacity-75">
             <Image

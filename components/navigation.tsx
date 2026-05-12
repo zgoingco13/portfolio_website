@@ -32,7 +32,7 @@ export function Navigation() {
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 md:px-16 lg:px-[100px] py-6">
         <Link href="/" className="flex items-center transition-opacity hover:opacity-75">
           <Image
             src="/logo/logo-forest.svg"

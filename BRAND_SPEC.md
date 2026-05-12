@@ -3,8 +3,18 @@
 > Source of truth for all brand styling on this website. When building or modifying any UI, **always read and follow this spec exactly.** If the spec and existing code disagree, the spec wins — update the code to match.
 
 **Brand:** zgoingco (portfolio · zgoingco.design)
-**Spec version:** 2.3 — nav active state combines rust color + bold weight; /work hub consolidates case studies and academic projects
-**Last updated:** 2026-05-10 (v2.3)
+**Spec version:** 2.4 — page padding bumped to responsive editorial scale; `--page-padding` token introduced
+**Last updated:** 2026-05-11 (v2.4)
+
+### What changed in v2.4
+- Page horizontal padding: `px-6` (24px uniform) → responsive scale via `--page-padding`
+- Mobile (<768px): 24px · Tablet (≥768px): 64px · Desktop (≥1024px): 100px
+- Applied site-wide: all page-level `<section>` / `<article>` / `<div>` containers, nav bar, footer
+- Card / button / form / inset-widget padding unchanged — only page-level containers affected
+- Implementation: Tailwind responsive classes `px-6 md:px-16 lg:px-[100px]`
+
+### What changed in v2.3
+Nav consolidated to 4 links (HOME · WORK · ABOUT · CONTACT). Active nav state = rust color + Bookmania Bold weight. `/work` hub page created. Work nav link shows active on all `/case-studies/*` and `/academic-projects/*` sub-routes.
 
 ---
 
@@ -30,7 +40,7 @@ The brand has two states that share the same colors, typography, and logo, but d
 
 ### State B — Content pages
 
-**Used on:** `/case-studies/*`, `/academic-projects/*`, `/about`, `/contact`, any inner page.
+**Used on:** `/work`, `/case-studies/*`, `/academic-projects/*`, `/about`, `/contact`, any inner page.
 **Vibe:** quiet canvas, the work is the focal point.
 **Signature elements:** coordinate-style metadata, occasional dark forest panels for emphasis, Sand canvas dominates. State B's signature is what it *doesn't* have — no sunset stripes, no three-ridge silhouette hero, no nature carousel.
 
@@ -299,7 +309,7 @@ If a weight is referenced in CSS but not activated in the Adobe Fonts project, t
 }
 .nav-link.active {
   color: var(--color-rust);
-  font-weight: 700;  /* Bold treatment required alongside rust color */
+  font-weight: 700;  /* Bold — both treatments together, not either alone */
 }
 
 /* Buttons — Eurostile uppercase tracked */
@@ -351,6 +361,7 @@ If a weight is referenced in CSS but not activated in the Adobe Fonts project, t
 - Don't use Bookmania below Bold (700) for section headers — anemic weights look weak next to Cooper.
 - Don't reference a Bookmania weight not activated in the Adobe Fonts web project.
 - Don't use Eurostile lowercase for navigation or buttons — uppercase tracked is the brand signature.
+- Don't use rust color alone OR bold weight alone for active nav links — they must combine. Recruiters scanning the nav need to find their current location in under one second; either treatment in isolation isn't strong enough.
 - Don't add `@font-face` rules — Adobe Fonts handles loading.
 - Don't introduce a fourth typeface.
 
@@ -703,6 +714,22 @@ Apply via inline style or category class on the card's `border-left`:
 
 > **Important:** the topo + ridge watermark sits behind every page on the site at `position: fixed; z-index: -1;` (see "Signature elements" § 3). Do NOT add a `<TopoWatermark />` instance to any individual page — it's already in the root layout. The composition lists below describe what's *on top* of the watermark, which is everything.
 
+### Page-level horizontal padding
+
+All page-level containers (sections, articles, nav bar, footer) use the `--page-padding` responsive scale:
+
+```css
+/* Defined in app/globals.css */
+--page-padding: 24px;   /* mobile (<768px) */
+--page-padding: 64px;   /* tablet (≥768px) */
+--page-padding: 100px;  /* desktop (≥1024px) */
+```
+
+Implementation via Tailwind: `px-6 md:px-16 lg:px-[100px]`
+
+**What gets this padding:** every `mx-auto max-w-6xl` (or `max-w-4xl`) container on a page, plus the nav bar inner container and footer inner container.
+**What does NOT get this padding:** individual cards, buttons, form inputs, inset content widgets (e.g. the Currently box), MDX component internals, mobile nav dropdown.
+
 ### Homepage (State A) — required structure
 
 In order, top to bottom:
@@ -731,7 +758,7 @@ In order, top to bottom:
 In order, top to bottom:
 
 ```
-1. Nav bar (same as State A; active link in rust)
+1. Nav bar (same as State A; active link in rust + bold)
 2. (No sunset stripe)
 3. Hero / page header
    - Coordinate row (rust line + rust eyebrow describing what kind of page this is)
@@ -745,7 +772,9 @@ In order, top to bottom:
 6. Forest footer
 ```
 
-This applies to all State B routes: `/about`, `/contact`, `/case-studies`, `/case-studies/[slug]`, `/academic-projects`, `/academic-projects/[slug]`, and any future inner page.
+This applies to all State B routes: `/work`, `/about`, `/contact`, `/case-studies`, `/case-studies/[slug]`, `/academic-projects`, `/academic-projects/[slug]`, and any future inner page.
+
+**Information architecture note:** the top-level nav is `HOME · WORK · ABOUT · CONTACT`. The `/work` route is a hub page that shows Case Studies (priority) above Academic Projects (supporting), each in their own labeled section. The `/case-studies` and `/academic-projects` index pages still exist as deep-link URLs for direct sharing, but `/work` is the canonical entry point for browsing the body of work. When a visitor is on any sub-route of Work (`/case-studies/*` or `/academic-projects/*`), the `Work` nav link should display as active (rust + bold).
 
 ### State A is **only** for the homepage and pure index pages. Every other route uses State B.
 
@@ -826,15 +855,6 @@ Verify before declaring any page "done":
 - [ ] Warm accents do not stack 3+ in a single section.
 - [ ] Forest and Rust panels are not adjacent unless they carry semantic meaning OR a Sand Breath Strip separates them.
 - [ ] **Breath Strip is present** between any rust CTA panel and the forest footer below it.
-
----
-
----
-
-## What changed in v2.3
-
-- **Nav active state now requires rust color AND bold weight (700) together.** Color alone was insufficient — recruiters scanning the nav need to locate their position in under one second. Both treatments reinforce each other. Active nav link = `color: var(--color-rust); font-weight: 700`.
-- **Site IA consolidated under `/work` hub.** Case Studies and Academic Projects are no longer top-level nav entries. The nav is now: Home · Work · About · Contact. `/case-studies` and `/academic-projects` URLs are preserved as deep links. The "Work" nav link is active on `/work`, `/case-studies/*`, and `/academic-projects/*`.
 
 ---
 

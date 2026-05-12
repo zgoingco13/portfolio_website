@@ -3,6 +3,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@media (min-width: 768px) {
+  :root { --page-padding: 64px; }
+}
+@media (min-width: 1024px) {
+  :root { --page-padding: 100px; }
+}
+
 :root {
   /* ── Brand color foundations (BRAND_SPEC.md v2.1) ── */
   --color-forest:    #2D4A33;  /* Logo, primary structure, dark sections, ridges */
@@ -70,6 +77,9 @@
   --space-4: 16px;  --space-5: 20px;   --space-6: 24px;
   --space-7: 28px;  --space-8: 32px;  --space-10: 40px;
   --space-12: 48px;
+
+  /* ── Page padding — editorial margins (BRAND_SPEC.md v2.4) ── */
+  --page-padding: 24px;  /* mobile default */
 
   /* ── Radius ── */
   --radius-sm:   4px;

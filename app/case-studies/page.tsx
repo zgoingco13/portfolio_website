@@ -22,7 +22,7 @@ export default function CaseStudiesPage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="pb-8 pt-16 md:pt-24">
-          <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px]">
             <CoordinateRow text={`${studies.length} case studies · 2022 – 2026`} />
             <h1
               className="mt-3 font-display leading-none text-foreground"
@@ -40,7 +40,7 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* Cards */}
-        <section className="mx-auto max-w-6xl px-6 pb-24 pt-12">
+        <section className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] pb-24 pt-12">
           {studies.length === 0 ? (
             <p className="font-sans text-muted-foreground">No case studies yet.</p>
           ) : (

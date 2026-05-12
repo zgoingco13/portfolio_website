@@ -4,7 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { RustCtaPanel } from "@/components/RustCtaPanel"
 import { BreathStrip } from "@/components/BreathStrip"
-import { Compass, Clock, Mail, Linkedin, FileDown } from "lucide-react"
+import { Compass, Clock, Mail, Linkedin, FileDown, MapPin } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "About · Czarina Goingco · zgoingco",
@@ -74,79 +74,156 @@ export default function AboutPage() {
       <Navigation />
 
       <main className="flex-1">
-        {/* ── Section 1: Hero ── */}
-        <section className="mx-auto max-w-6xl px-6 pb-12 pt-16 md:pt-24">
-          <div className="grid items-start gap-12 md:grid-cols-[1fr_300px] md:gap-16">
-            {/* Left: bio */}
-            <div>
-              <div
-                className="flex items-center"
-                style={{ gap: "10px", marginBottom: "14px" }}
-              >
-                <Compass size={13} strokeWidth={2} color="var(--color-rust)" />
-                <span className="coordinate">The path · how I got here</span>
-              </div>
-
-              <h1
-                className="font-display leading-none text-foreground"
-                style={{ fontSize: "var(--text-hero-lg)" }}
-              >
-                Same hands, new{" "}
-                <span style={{ color: "var(--color-rust)" }}>tools.</span>
-              </h1>
-
-              <p
-                className="mt-5 max-w-2xl font-serif font-light italic text-muted-foreground"
-                style={{ fontSize: "var(--text-subhead)" }}
-              >
-                An interaction designer based in Los Angeles, working at the
-                intersection of healthcare, outdoor culture, and human-centered
-                storytelling.
-              </p>
+        {/* ── Section 1: Hero — single column ── */}
+        <section className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] pb-0 pt-16 md:pt-24">
+          <div style={{ maxWidth: "720px" }}>
+            <div
+              className="flex items-center"
+              style={{ gap: "10px", marginBottom: "14px" }}
+            >
+              <Compass size={13} strokeWidth={2} color="var(--color-rust)" />
+              <span className="coordinate">My journey · how I got here</span>
             </div>
 
-            {/* Right: headshot */}
-            <div
-              className="relative overflow-hidden"
+            <h1
+              className="font-display leading-none text-foreground"
+              style={{ fontSize: "var(--text-hero-lg)" }}
+            >
+              Same hands, new{" "}
+              <span style={{ color: "var(--color-rust)" }}>tools.</span>
+            </h1>
+
+            <p
+              className="mt-5 font-serif font-light italic text-muted-foreground"
+              style={{ fontSize: "var(--text-subhead)" }}
+            >
+              An interaction designer based in Los Angeles, working at the
+              intersection of healthcare, outdoor culture, and human-centered
+              storytelling.
+            </p>
+
+            <p
               style={{
-                aspectRatio: "4 / 5",
-                borderRadius: "var(--radius-md)",
+                fontFamily: "var(--font-mid)",
+                fontWeight: 400,
+                fontSize: "15px",
+                lineHeight: "1.65",
+                color: "var(--text-primary)",
+                marginTop: "40px",
+                marginBottom: 0,
               }}
             >
-              <Image
-                src="/images/about/canada.jpeg"
-                alt="Portrait of Czarina Goingco"
-                fill
-                className="object-cover"
-                priority
-              />
+              My background as an orthopedic technician shapes how I approach
+              care and accessibility, while my love for trails and climbing
+              shapes how I think about adventure, sustainability, and the gear
+              that supports them. My work spans across wellness apps, outdoor
+              tools, and emotional design — all built to foster connection
+              through shared experience.
+            </p>
+          </div>
+        </section>
+
+        {/* ── Photo section — right-aligned at ~50% width ── */}
+        <section
+          className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px]"
+          style={{ marginTop: "48px", marginBottom: "48px" }}
+        >
+          <div className="grid gap-8 md:grid-cols-2 md:gap-12">
+            <div />{/* intentionally empty */}
+            <div>
+              <div
+                className="relative overflow-hidden"
+                style={{
+                  aspectRatio: "4 / 3",
+                  borderRadius: "var(--radius-md)",
+                }}
+              >
+                <Image
+                  src="/images/about/canada.jpeg"
+                  alt="Czarina exploring downtown Jasper"
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: "35% 30%" }}
+                  priority
+                />
+              </div>
+              <div
+                className="flex items-center"
+                style={{ gap: "6px", marginTop: "8px" }}
+              >
+                <MapPin size={11} strokeWidth={2} color="var(--color-rust)" />
+                <span
+                  style={{
+                    fontFamily: "var(--font-mid)",
+                    fontStyle: "italic",
+                    fontWeight: 300,
+                    fontSize: "11px",
+                    color: "var(--text-secondary)",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  Exploring downtown Jasper, AB, Canada
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── Section 2: Long bio ── */}
-        <section className="mx-auto max-w-6xl px-6 pb-12">
-          <p
-            style={{
-              fontFamily: "var(--font-mid)",
-              fontWeight: 400,
-              fontSize: "15px",
-              lineHeight: "1.65",
-              color: "var(--text-primary)",
-              maxWidth: "640px",
-            }}
-          >
-            My background as an orthopedic technician shapes how I approach care
-            and accessibility, while my love for trails and climbing shapes how I
-            think about adventure, sustainability, and the gear that supports
-            them. My work spans across wellness apps, outdoor tools, and
-            emotional design — all built to foster connection through shared
-            experience.
-          </p>
+        {/* ── Currently row — right-aligned to match photo column ── */}
+        <section
+          className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px]"
+          style={{ marginBottom: "48px" }}
+        >
+          <div className="grid gap-8 md:grid-cols-2 md:gap-12">
+            <div />{/* intentionally empty */}
+            <div>
+              <div
+                style={{
+                  background: "rgba(255,255,255,0.5)",
+                  border: "1px solid var(--border-subtle)",
+                  borderRadius: "var(--radius-md)",
+                  padding: "18px 20px",
+                }}
+              >
+                <div
+                  className="flex items-center"
+                  style={{ gap: "8px", marginBottom: "10px" }}
+                >
+                  <Clock size={11} strokeWidth={2} color="var(--color-rust)" />
+                  <span className="coordinate" style={{ letterSpacing: "1.8px" }}>
+                    Currently
+                  </span>
+                </div>
+
+                <div
+                  style={{
+                    fontFamily: "var(--font-mid)",
+                    fontSize: "13px",
+                    lineHeight: "1.6",
+                    color: "var(--color-charcoal)",
+                  }}
+                >
+                  <div>
+                    <strong>Reading</strong> ·{" "}
+                    <em>The Overstory</em> by Richard Powers +{" "}
+                    <em>Why Fish Don&apos;t Exist</em> by Lulu Miller
+                  </div>
+                  <div style={{ marginTop: "6px" }}>
+                    <strong>Last adventure</strong> · Climbing in Red Rocks, Las
+                    Vegas — with friends
+                  </div>
+                  <div style={{ marginTop: "6px" }}>
+                    <strong>Find me</strong> · Struggling on my senior capstone
+                    for SMC&apos;s IxD program
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* ── Section 3: Timeline ── */}
-        <section className="mx-auto max-w-6xl px-6 pb-12">
+        <section className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] pb-12">
           <div style={{ maxWidth: "640px" }}>
             {/* Header */}
             <div className="mb-8 flex items-center gap-4">
@@ -160,7 +237,7 @@ export default function AboutPage() {
                   margin: 0,
                 }}
               >
-                The path
+                My journey
               </h2>
               <div
                 style={{
@@ -215,25 +292,31 @@ export default function AboutPage() {
 
                   {/* Content */}
                   <div>
+                    {/* Year + eyebrow on one line, baseline-aligned */}
                     <div
                       style={{
-                        fontFamily: "var(--font-hero)",
-                        fontSize: "18px",
-                        color: "var(--color-charcoal)",
-                        lineHeight: 1,
+                        display: "flex",
+                        alignItems: "baseline",
+                        gap: "10px",
+                        marginBottom: "4px",
                       }}
                     >
-                      {row.year}
-                    </div>
-                    <div
-                      className="coordinate"
-                      style={{
-                        letterSpacing: "1.5px",
-                        marginTop: "3px",
-                        marginBottom: "5px",
-                      }}
-                    >
-                      {row.eyebrow}
+                      <span
+                        style={{
+                          fontFamily: "var(--font-hero)",
+                          fontSize: "18px",
+                          color: "var(--color-forest)",
+                          lineHeight: 1,
+                        }}
+                      >
+                        {row.year}
+                      </span>
+                      <span
+                        className="coordinate"
+                        style={{ fontSize: "13px", letterSpacing: "1.2px" }}
+                      >
+                        · {row.eyebrow}
+                      </span>
                     </div>
                     <p
                       style={{
@@ -253,9 +336,9 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── Section 4: Casual photo ── */}
+        {/* ── Section 4: Casual photo + caption ── */}
         <section
-          className="mx-auto max-w-6xl px-6"
+          className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px]"
           style={{ marginTop: "40px", marginBottom: "40px" }}
         >
           <div
@@ -267,61 +350,34 @@ export default function AboutPage() {
           >
             <Image
               src="/images/about/cathedral.jpeg"
-              alt="Climbing at Cathedral — Z outdoors"
+              alt="Climbing at Cathedral Peaks in Yosemite"
               fill
               className="object-cover"
             />
           </div>
-        </section>
-
-        {/* ── Section 5: Currently ── */}
-        <section className="mx-auto max-w-6xl px-6 pb-12">
+          {/* Caption */}
           <div
-            style={{
-              maxWidth: "520px",
-              background: "rgba(255,255,255,0.5)",
-              border: "1px solid var(--border-subtle)",
-              borderRadius: "var(--radius-md)",
-              padding: "18px 20px",
-            }}
+            className="flex items-center"
+            style={{ gap: "6px", marginTop: "8px" }}
           >
-            <div
-              className="flex items-center"
-              style={{ gap: "8px", marginBottom: "10px" }}
-            >
-              <Clock size={11} strokeWidth={2} color="var(--color-rust)" />
-              <span className="coordinate" style={{ letterSpacing: "1.8px" }}>
-                Currently
-              </span>
-            </div>
-
-            <div
+            <MapPin size={11} strokeWidth={2} color="var(--color-rust)" />
+            <span
               style={{
                 fontFamily: "var(--font-mid)",
-                fontSize: "13px",
-                lineHeight: "1.6",
-                color: "var(--color-charcoal)",
+                fontStyle: "italic",
+                fontWeight: 300,
+                fontSize: "11px",
+                color: "var(--text-secondary)",
+                lineHeight: 1.4,
               }}
             >
-              <div>
-                <strong>Reading</strong> ·{" "}
-                <em>The Overstory</em> by Richard Powers +{" "}
-                <em>Why Fish Don&apos;t Exist</em> by Lulu Miller
-              </div>
-              <div style={{ marginTop: "6px" }}>
-                <strong>Last adventure</strong> · Climbing in Red Rocks, Las
-                Vegas — with friends
-              </div>
-              <div style={{ marginTop: "6px" }}>
-                <strong>Currently</strong> · Surviving my last semester in
-                SMC&apos;s IxD program
-              </div>
-            </div>
+              Climbing at Cathedral Peaks in Yosemite, CA
+            </span>
           </div>
         </section>
 
-        {/* ── Section 6: Reach out ── */}
-        <section className="mx-auto max-w-6xl px-6 pb-16">
+        {/* ── Section 5: Reach out ── */}
+        <section className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] pb-16">
           <span
             className="coordinate"
             style={{

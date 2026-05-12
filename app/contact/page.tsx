@@ -4,7 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { CoordinateRow } from "@/components/CoordinateRow"
 import { useState } from "react"
-import { Mail, Linkedin, Twitter } from "lucide-react"
+import { Mail, Linkedin } from "lucide-react"
 import Link from "next/link"
 
 export default function ContactPage() {
@@ -31,7 +31,7 @@ export default function ContactPage() {
 
       <main className="flex-1">
         <section>
-          <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <div className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] py-16 md:py-24">
             <div className="grid gap-12 md:grid-cols-2 md:gap-16">
               {/* Left — info */}
               <div>
@@ -46,7 +46,8 @@ export default function ContactPage() {
                   className="mt-4 font-serif font-light italic text-muted-foreground"
                   style={{ fontSize: "var(--text-subhead)" }}
                 >
-                  Have a project in mind? I&apos;d love to hear about it. Send me a message and I&apos;ll get back to you within 24 hours.
+                  Have a project in mind? I&apos;d love to hear about it. Send
+                  me a message and I&apos;ll get back to you within 24 hours.
                 </p>
 
                 <div className="mt-12">
@@ -55,29 +56,20 @@ export default function ContactPage() {
                   </h2>
                   <div className="mt-6 space-y-4">
                     <Link
-                      href="mailto:hello@sarahchen.design"
+                      href="mailto:zgoingco.design@gmail.com"
                       className="flex items-center gap-3 font-sans text-foreground transition-colors hover:text-rust"
                     >
                       <Mail className="h-5 w-5" />
-                      hello@sarahchen.design
+                      zgoingco.design@gmail.com
                     </Link>
                     <Link
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/czarinagoingco/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 font-sans text-foreground transition-colors hover:text-rust"
                     >
                       <Linkedin className="h-5 w-5" />
                       LinkedIn
-                    </Link>
-                    <Link
-                      href="https://twitter.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 font-sans text-foreground transition-colors hover:text-rust"
-                    >
-                      <Twitter className="h-5 w-5" />
-                      Twitter
                     </Link>
                   </div>
                 </div>
@@ -158,7 +150,10 @@ export default function ContactPage() {
                         rows={5}
                         value={formState.message}
                         onChange={(e) =>
-                          setFormState({ ...formState, message: e.target.value })
+                          setFormState({
+                            ...formState,
+                            message: e.target.value,
+                          })
                         }
                         className="mt-2 w-full resize-none rounded-lg border border-border bg-background px-4 py-3 font-sans text-foreground placeholder:text-muted-foreground focus:border-rust focus:outline-none focus:ring-1 focus:ring-rust"
                         placeholder="Tell me about your project..."

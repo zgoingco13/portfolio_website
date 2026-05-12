@@ -24,7 +24,7 @@ export default function WorkPage() {
       <main className="flex-1">
         {/* ── Hero ── */}
         <section className="pb-8 pt-16 md:pt-24">
-          <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px]">
             <div
               className="flex items-center"
               style={{ gap: "10px", marginBottom: "14px" }}
@@ -53,7 +53,7 @@ export default function WorkPage() {
         </section>
 
         {/* ── Case studies ── */}
-        <section className="mx-auto max-w-6xl px-6 pb-16 pt-12">
+        <section className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] pb-16 pt-12">
           {/* Section header */}
           <div className="mb-4 flex items-end gap-4">
             <h2
@@ -150,7 +150,7 @@ export default function WorkPage() {
         </section>
 
         {/* ── Divider ── */}
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px]">
           <div
             style={{
               height: "1px",
@@ -161,7 +161,7 @@ export default function WorkPage() {
         </div>
 
         {/* ── Academic projects ── */}
-        <section className="mx-auto max-w-6xl px-6 pb-24">
+        <section className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] pb-24">
           {/* Section header */}
           <div className="mb-4 flex items-end gap-4">
             <h2
