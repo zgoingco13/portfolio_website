@@ -22,7 +22,7 @@ export default function AcademicProjectsPage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="pb-8 pt-16 md:pt-24">
-          <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12">
+          <div className="mx-auto w-full px-6 lg:w-3/4 lg:px-0">
             <CoordinateRow text="Academic work · 2022 – 2026" />
             <h1
               className="mt-3 font-display leading-none text-foreground"
@@ -40,7 +40,7 @@ export default function AcademicProjectsPage() {
         </section>
 
         {/* Cards */}
-        <section className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 pb-24 pt-12">
+        <section className="mx-auto w-full px-6 lg:w-3/4 lg:px-0 pb-24 pt-12">
           {projects.length === 0 ? (
             <div className="rounded-2xl border border-border bg-card p-12 text-center">
               <p className="font-serif text-xl text-muted-foreground">Projects coming soon.</p>

@@ -40,7 +40,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     <div className="flex min-h-screen flex-col">
       <Navigation />
       <main className="flex-1">
-        <article className="mdx-content mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-12 md:py-16">
+        <article className="mdx-content mx-auto w-full px-6 lg:w-3/4 lg:px-0 py-12 md:py-16">
           <Link
             href="/case-studies"
             className="mb-10 inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[1.5px] text-muted-foreground transition-colors hover:text-rust"

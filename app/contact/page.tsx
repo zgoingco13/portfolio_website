@@ -31,7 +31,7 @@ export default function ContactPage() {
 
       <main className="flex-1">
         <section>
-          <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-16 md:py-24">
+          <div className="mx-auto w-full px-6 lg:w-3/4 lg:px-0 py-16 md:py-24">
             <div className="grid gap-12 md:grid-cols-2 md:gap-16">
               {/* Left — info */}
               <div>

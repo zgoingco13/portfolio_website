@@ -10,7 +10,7 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-forest">
-      <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-12">
+      <div className="mx-auto w-full px-6 lg:w-3/4 lg:px-0 py-12">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <Link href="/" className="flex items-center transition-opacity hover:opacity-75">
             <Image

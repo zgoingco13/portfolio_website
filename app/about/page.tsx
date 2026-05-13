@@ -77,11 +77,8 @@ export default function AboutPage() {
 
         {/* ────────── SECTION 1: HERO ────────── */}
         <section
-          className="mx-auto"
+          className="mx-auto w-full px-6 lg:w-3/4 lg:px-0"
           style={{
-            maxWidth: "720px",
-            paddingLeft: "24px",
-            paddingRight: "24px",
             paddingTop: "var(--space-12)",
             paddingBottom: "var(--space-8)",
           }}
@@ -152,11 +149,8 @@ export default function AboutPage() {
 
         {/* ────────── SECTION 2: CANADA PHOTO ────────── */}
         <section
-          className="mx-auto"
+          className="mx-auto w-full px-6 lg:w-3/4 lg:px-0"
           style={{
-            maxWidth: "720px",
-            paddingLeft: "24px",
-            paddingRight: "24px",
             paddingTop: "var(--space-6)",
             paddingBottom: "var(--space-6)",
           }}
@@ -194,11 +188,8 @@ export default function AboutPage() {
 
         {/* ────────── SECTION 3: CURRENTLY ────────── */}
         <section
-          className="mx-auto"
+          className="mx-auto w-full px-6 lg:w-3/4 lg:px-0"
           style={{
-            maxWidth: "720px",
-            paddingLeft: "24px",
-            paddingRight: "24px",
             paddingTop: "var(--space-10)",
             paddingBottom: "var(--space-10)",
           }}
@@ -255,11 +246,8 @@ export default function AboutPage() {
 
         {/* ────────── SECTION 4: TIMELINE ────────── */}
         <section
-          className="mx-auto"
+          className="mx-auto w-full px-6 lg:w-3/4 lg:px-0"
           style={{
-            maxWidth: "720px",
-            paddingLeft: "24px",
-            paddingRight: "24px",
             paddingTop: "var(--space-10)",
             paddingBottom: "var(--space-10)",
           }}
@@ -360,11 +348,8 @@ export default function AboutPage() {
 
         {/* ────────── SECTION 5: CATHEDRAL PHOTO ────────── */}
         <section
-          className="mx-auto"
+          className="mx-auto w-full px-6 lg:w-3/4 lg:px-0"
           style={{
-            maxWidth: "960px",
-            paddingLeft: "24px",
-            paddingRight: "24px",
             paddingTop: "var(--space-10)",
             paddingBottom: "var(--space-10)",
           }}
@@ -400,11 +385,8 @@ export default function AboutPage() {
 
         {/* ────────── SECTION 6: REACH OUT ────────── */}
         <section
-          className="mx-auto"
+          className="mx-auto w-full px-6 lg:w-3/4 lg:px-0"
           style={{
-            maxWidth: "720px",
-            paddingLeft: "24px",
-            paddingRight: "24px",
             paddingTop: "var(--space-10)",
             paddingBottom: "var(--space-10)",
           }}
