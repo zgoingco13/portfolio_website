@@ -41,7 +41,7 @@ export default async function AcademicProjectPage({ params }: PageProps) {
     <div className="flex min-h-screen flex-col">
       <Navigation />
       <main className="flex-1">
-        <article className="mdx-content mx-auto max-w-4xl px-6 md:px-16 lg:px-[100px] py-12 md:py-16">
+        <article className="mdx-content mx-auto max-w-4xl px-6 md:px-8 lg:px-12 py-12 md:py-16">
           <Link
             href="/academic-projects"
             className="mb-10 inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[1.5px] text-muted-foreground transition-colors hover:text-rust"

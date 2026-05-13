@@ -80,8 +80,8 @@ export default function AboutPage() {
           className="mx-auto"
           style={{
             maxWidth: "720px",
-            paddingLeft: "var(--page-padding)",
-            paddingRight: "var(--page-padding)",
+            paddingLeft: "24px",
+            paddingRight: "24px",
             paddingTop: "var(--space-12)",
             paddingBottom: "var(--space-8)",
           }}
@@ -155,8 +155,8 @@ export default function AboutPage() {
           className="mx-auto"
           style={{
             maxWidth: "720px",
-            paddingLeft: "var(--page-padding)",
-            paddingRight: "var(--page-padding)",
+            paddingLeft: "24px",
+            paddingRight: "24px",
             paddingTop: "var(--space-6)",
             paddingBottom: "var(--space-6)",
           }}
@@ -197,8 +197,8 @@ export default function AboutPage() {
           className="mx-auto"
           style={{
             maxWidth: "720px",
-            paddingLeft: "var(--page-padding)",
-            paddingRight: "var(--page-padding)",
+            paddingLeft: "24px",
+            paddingRight: "24px",
             paddingTop: "var(--space-10)",
             paddingBottom: "var(--space-10)",
           }}
@@ -258,8 +258,8 @@ export default function AboutPage() {
           className="mx-auto"
           style={{
             maxWidth: "720px",
-            paddingLeft: "var(--page-padding)",
-            paddingRight: "var(--page-padding)",
+            paddingLeft: "24px",
+            paddingRight: "24px",
             paddingTop: "var(--space-10)",
             paddingBottom: "var(--space-10)",
           }}
@@ -363,8 +363,8 @@ export default function AboutPage() {
           className="mx-auto"
           style={{
             maxWidth: "960px",
-            paddingLeft: "var(--page-padding)",
-            paddingRight: "var(--page-padding)",
+            paddingLeft: "24px",
+            paddingRight: "24px",
             paddingTop: "var(--space-10)",
             paddingBottom: "var(--space-10)",
           }}
@@ -403,8 +403,8 @@ export default function AboutPage() {
           className="mx-auto"
           style={{
             maxWidth: "720px",
-            paddingLeft: "var(--page-padding)",
-            paddingRight: "var(--page-padding)",
+            paddingLeft: "24px",
+            paddingRight: "24px",
             paddingTop: "var(--space-10)",
             paddingBottom: "var(--space-10)",
           }}

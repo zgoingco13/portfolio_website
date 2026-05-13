@@ -1,6 +1,6 @@
 # zgoingco — Brand Guide
 
-*Brand system v2.3 · Last updated 2026-05-10*
+*Brand system v2.3 · Last updated 2026-05-09 (morning)*
 
 > Companion to `BRAND_SPEC.md`. The spec is the rules; this guide is the reasoning.
 
@@ -273,7 +273,7 @@ The sunset stripes are the homepage's defining structural move. They turn the na
 ```
 [Global topo + ridge watermark sits behind everything ↓]
 
-Nav bar (active link in rust)
+Nav bar (active link in rust + bold)
 ↓
 Hero / page header with coordinate metadata
 ↓
@@ -308,8 +308,13 @@ Sentence case for everything except buttons, navigation, eyebrow text, and metad
 
 ## 8. What changed in v2.3
 
-- **Nav active state combines rust color + bold weight.** Previously rust color only. Adding `font-weight: 700` ensures visitors can find their position at a glance — color alone fails on screens with reduced contrast or for users scanning quickly. Active nav = rust + bold, always both.
-- **Site IA consolidated under `/work` hub.** Top nav reduced from 5 links (Home · Case Studies · Academic Projects · About · Contact) to 4 (Home · Work · About · Contact). `/work` renders both case studies and academic projects in a single scrollable page with clear hierarchy. Legacy URLs (`/case-studies`, `/academic-projects`) remain live for direct links.
+A small but meaningful change to information architecture and nav behavior:
+
+- **Nav consolidated.** Previously four-link nav (Home · Case Studies · Academic Projects · Contact) became Home · Work · About · Contact. The /work page is a new hub that lists Case Studies in their own section above Academic Projects, giving case studies visual priority while keeping academic work discoverable.
+- **/case-studies and /academic-projects URLs preserved.** They still render as deep-link routes — useful for sharing a specific case study without losing context. /work is just the canonical browsing entry point.
+- **Active nav link styling bumped.** Previously rust color only. Now rust color + Bookmania Bold weight together. Either treatment alone wasn't strong enough — visitors couldn't always find their current location at a glance. Combined, the active link is unmissable.
+- **About page added to the top nav.** The about page was built in v2.2 but wasn't yet linked from the main nav — that's resolved now.
+- **Sub-route active state behavior.** When a visitor is on /case-studies/ugloo or /academic-projects/[anything], the Work nav link displays as active (rust + bold). This required `pathname.startsWith()` logic in the nav component since sub-routes don't match exactly.
 
 ## 9. What changed in v2.2
 
@@ -320,7 +325,7 @@ A scope correction after seeing the v2.1 site live:
 - **Pre-shipping checklist updated** to verify `<TopoWatermark />` is in the root layout, not duplicated per-page.
 - Lower-maintenance benefit: future pages added to the site inherit the watermark with zero extra work.
 
-## 9. What changed in v2.1
+## 10. What changed in v2.1
 
 A small but important addition after testing the v2.0 homepage assembly:
 
@@ -328,7 +333,7 @@ A small but important addition after testing the v2.0 homepage assembly:
 - **Updated rule.** Forest + Rust panel adjacency now requires either semantic meaning (what-worked / what-didn't pairs) OR a Breath Strip between them. Pre-shipping checklist updated accordingly.
 - **Homepage composition updated.** New step 8 (Breath Strip) inserted between the rust CTA and forest footer.
 
-## 10. What changed in v2.0
+## 11. What changed in v2.0
 
 For anyone tracking the system's evolution:
 
@@ -344,7 +349,7 @@ For anyone tracking the system's evolution:
 
 ---
 
-## 11. Files and assets
+## 12. Files and assets
 
 ```
 /brand
