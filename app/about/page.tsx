@@ -75,125 +75,120 @@ export default function AboutPage() {
 
       <main className="flex-1">
 
-        {/* ────────── SECTION 1: HERO ────────── */}
+        {/* ────────── SECTION 1–3: HERO + PHOTO + CURRENTLY (two-column on desktop) ────────── */}
         <section
           className="mx-auto w-full px-6 lg:w-3/4 lg:px-0"
           style={{
             paddingTop: "var(--space-12)",
-            paddingBottom: "var(--space-8)",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-            <Compass size={12} strokeWidth={2} color="var(--color-rust)" />
-            <span style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "11px",
-              fontWeight: 500,
-              color: "var(--color-rust)",
-              textTransform: "uppercase",
-              letterSpacing: "1.5px",
-            }}>
-              My journey · how I got here
-            </span>
-          </div>
-
-          <h1 style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(40px, 6vw, 56px)",
-            fontWeight: 400,
-            color: "var(--color-charcoal)",
-            lineHeight: 1.05,
-            marginBottom: "20px",
-          }}>
-            Same hands, new <span style={{ color: "var(--color-rust)" }}>tools.</span>
-          </h1>
-
-          <p style={{
-            fontFamily: "var(--font-mid)",
-            fontStyle: "italic",
-            fontWeight: 300,
-            fontSize: "18px",
-            color: "var(--text-secondary)",
-            lineHeight: 1.5,
-            marginBottom: "40px",
-          }}>
-            An interaction designer based in Los Angeles, working at the
-            intersection of healthcare, outdoor culture, and human-centered
-            storytelling.
-          </p>
-
-          <p style={{
-            fontFamily: "var(--font-mid)",
-            fontWeight: 400,
-            fontSize: "17px",
-            color: "var(--text-primary)",
-            lineHeight: 1.7,
-            marginBottom: "20px",
-          }}>
-            My background as an orthopedic technician shapes how I approach care
-            and accessibility, while my love for trails and climbing shapes how I
-            think about adventure, sustainability, and the gear that supports them.
-          </p>
-
-          <p style={{
-            fontFamily: "var(--font-mid)",
-            fontWeight: 400,
-            fontSize: "17px",
-            color: "var(--text-primary)",
-            lineHeight: 1.7,
-          }}>
-            My work spans wellness apps, outdoor tools, and emotional design —
-            all built to foster connection through shared experience.
-          </p>
-        </section>
-
-        {/* ────────── SECTION 2: CANADA PHOTO ────────── */}
-        <section
-          className="mx-auto w-full px-6 lg:w-3/4 lg:px-0"
-          style={{
-            paddingTop: "var(--space-6)",
-            paddingBottom: "var(--space-6)",
-          }}
-        >
-          <div style={{
-            width: "100%",
-            aspectRatio: "4 / 3",
-            borderRadius: "var(--radius-md)",
-            overflow: "hidden",
-            position: "relative",
-          }}>
-            <Image
-              src="/images/about/canada.jpeg"
-              alt="Czarina exploring downtown Jasper"
-              fill
-              className="object-cover"
-              style={{ objectPosition: "35% 30%" }}
-              priority
-            />
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "10px" }}>
-            <MapPin size={11} strokeWidth={2} color="var(--color-rust)" />
-            <span style={{
-              fontFamily: "var(--font-mid)",
-              fontStyle: "italic",
-              fontWeight: 300,
-              fontSize: "12px",
-              color: "var(--text-secondary)",
-              lineHeight: 1.4,
-            }}>
-              Exploring downtown Jasper, AB, Canada
-            </span>
-          </div>
-        </section>
-
-        {/* ────────── SECTION 3: CURRENTLY ────────── */}
-        <section
-          className="mx-auto w-full px-6 lg:w-3/4 lg:px-0"
-          style={{
-            paddingTop: "var(--space-10)",
             paddingBottom: "var(--space-10)",
           }}
         >
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16 md:items-start">
+
+            {/* ── LEFT: eyebrow → headline → subhead → bio ── */}
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
+                <Compass size={12} strokeWidth={2} color="var(--color-rust)" />
+                <span style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  color: "var(--color-rust)",
+                  textTransform: "uppercase",
+                  letterSpacing: "1.5px",
+                }}>
+                  My journey · how I got here
+                </span>
+              </div>
+
+              <h1 style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(40px, 6vw, 56px)",
+                fontWeight: 400,
+                color: "var(--color-charcoal)",
+                lineHeight: 1.05,
+                marginBottom: "20px",
+              }}>
+                Same hands, new <span style={{ color: "var(--color-rust)" }}>tools.</span>
+              </h1>
+
+              <p style={{
+                fontFamily: "var(--font-mid)",
+                fontStyle: "italic",
+                fontWeight: 300,
+                fontSize: "18px",
+                color: "var(--text-secondary)",
+                lineHeight: 1.5,
+                marginBottom: "32px",
+              }}>
+                An interaction designer based in Los Angeles, working at the
+                intersection of healthcare, outdoor culture, and human-centered
+                storytelling.
+              </p>
+
+              <p style={{
+                fontFamily: "var(--font-mid)",
+                fontWeight: 400,
+                fontSize: "16px",
+                color: "var(--text-primary)",
+                lineHeight: 1.7,
+                marginBottom: "16px",
+              }}>
+                My background as an orthopedic technician shapes how I approach care
+                and accessibility, while my love for trails and climbing shapes how I
+                think about adventure, sustainability, and the gear that supports them.
+              </p>
+
+              <p style={{
+                fontFamily: "var(--font-mid)",
+                fontWeight: 400,
+                fontSize: "16px",
+                color: "var(--text-primary)",
+                lineHeight: 1.7,
+              }}>
+                My work spans wellness apps, outdoor tools, and emotional design —
+                all built to foster connection through shared experience.
+              </p>
+            </div>
+
+            {/* ── RIGHT: photo + caption → Currently ── */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+
+              {/* Photo */}
+              <div>
+                <div style={{
+                  width: "100%",
+                  aspectRatio: "4 / 3",
+                  borderRadius: "var(--radius-md)",
+                  overflow: "hidden",
+                  position: "relative",
+                }}>
+                  <Image
+                    src="/images/about/canada.jpeg"
+                    alt="Czarina exploring downtown Jasper"
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: "35% 30%" }}
+                    priority
+                  />
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "10px" }}>
+                  <MapPin size={11} strokeWidth={2} color="var(--color-rust)" />
+                  <span style={{
+                    fontFamily: "var(--font-mid)",
+                    fontStyle: "italic",
+                    fontWeight: 300,
+                    fontSize: "12px",
+                    color: "var(--text-secondary)",
+                    lineHeight: 1.4,
+                  }}>
+                    Exploring downtown Jasper, AB, Canada
+                  </span>
+                </div>
+              </div>
+
+              {/* Currently */}
+              <div>
           <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "20px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <Clock size={12} strokeWidth={2} color="var(--color-rust)" />
@@ -242,6 +237,9 @@ export default function AboutPage() {
               </span>
             </div>
           </div>
+              </div> {/* close Currently wrapper */}
+            </div>   {/* close right column */}
+          </div>     {/* close grid */}
         </section>
 
         {/* ────────── SECTION 4: TIMELINE ────────── */}
