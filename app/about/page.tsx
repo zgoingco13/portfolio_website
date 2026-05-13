@@ -4,7 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { RustCtaPanel } from "@/components/RustCtaPanel"
 import { BreathStrip } from "@/components/BreathStrip"
-import { Compass, Clock, Mail, Linkedin, FileDown, MapPin } from "lucide-react"
+import { Compass, Clock, Mail, Linkedin, FileText, MapPin } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "About · Czarina Goingco · zgoingco",
@@ -74,378 +74,419 @@ export default function AboutPage() {
       <Navigation />
 
       <main className="flex-1">
-        {/* ── Section 1: Hero — single column ── */}
-        <section className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] pb-0 pt-16 md:pt-24">
-          <div style={{ maxWidth: "720px" }}>
+
+        {/* ────────── SECTION 1: HERO ────────── */}
+        <section
+          className="mx-auto"
+          style={{
+            maxWidth: "720px",
+            paddingLeft: "var(--page-padding)",
+            paddingRight: "var(--page-padding)",
+            paddingTop: "var(--space-12)",
+            paddingBottom: "var(--space-8)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
+            <Compass size={12} strokeWidth={2} color="var(--color-rust)" />
+            <span style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "11px",
+              fontWeight: 500,
+              color: "var(--color-rust)",
+              textTransform: "uppercase",
+              letterSpacing: "1.5px",
+            }}>
+              My journey · how I got here
+            </span>
+          </div>
+
+          <h1 style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(40px, 6vw, 56px)",
+            fontWeight: 400,
+            color: "var(--color-charcoal)",
+            lineHeight: 1.05,
+            marginBottom: "20px",
+          }}>
+            Same hands, new <span style={{ color: "var(--color-rust)" }}>tools.</span>
+          </h1>
+
+          <p style={{
+            fontFamily: "var(--font-mid)",
+            fontStyle: "italic",
+            fontWeight: 300,
+            fontSize: "18px",
+            color: "var(--text-secondary)",
+            lineHeight: 1.5,
+            marginBottom: "40px",
+          }}>
+            An interaction designer based in Los Angeles, working at the
+            intersection of healthcare, outdoor culture, and human-centered
+            storytelling.
+          </p>
+
+          <p style={{
+            fontFamily: "var(--font-mid)",
+            fontWeight: 400,
+            fontSize: "17px",
+            color: "var(--text-primary)",
+            lineHeight: 1.7,
+            marginBottom: "20px",
+          }}>
+            My background as an orthopedic technician shapes how I approach care
+            and accessibility, while my love for trails and climbing shapes how I
+            think about adventure, sustainability, and the gear that supports them.
+          </p>
+
+          <p style={{
+            fontFamily: "var(--font-mid)",
+            fontWeight: 400,
+            fontSize: "17px",
+            color: "var(--text-primary)",
+            lineHeight: 1.7,
+          }}>
+            My work spans wellness apps, outdoor tools, and emotional design —
+            all built to foster connection through shared experience.
+          </p>
+        </section>
+
+        {/* ────────── SECTION 2: CANADA PHOTO ────────── */}
+        <section
+          className="mx-auto"
+          style={{
+            maxWidth: "720px",
+            paddingLeft: "var(--page-padding)",
+            paddingRight: "var(--page-padding)",
+            paddingTop: "var(--space-6)",
+            paddingBottom: "var(--space-6)",
+          }}
+        >
+          <div style={{
+            width: "100%",
+            aspectRatio: "4 / 3",
+            borderRadius: "var(--radius-md)",
+            overflow: "hidden",
+            position: "relative",
+          }}>
+            <Image
+              src="/images/about/canada.jpeg"
+              alt="Czarina exploring downtown Jasper"
+              fill
+              className="object-cover"
+              style={{ objectPosition: "35% 30%" }}
+              priority
+            />
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "10px" }}>
+            <MapPin size={11} strokeWidth={2} color="var(--color-rust)" />
+            <span style={{
+              fontFamily: "var(--font-mid)",
+              fontStyle: "italic",
+              fontWeight: 300,
+              fontSize: "12px",
+              color: "var(--text-secondary)",
+              lineHeight: 1.4,
+            }}>
+              Exploring downtown Jasper, AB, Canada
+            </span>
+          </div>
+        </section>
+
+        {/* ────────── SECTION 3: CURRENTLY ────────── */}
+        <section
+          className="mx-auto"
+          style={{
+            maxWidth: "720px",
+            paddingLeft: "var(--page-padding)",
+            paddingRight: "var(--page-padding)",
+            paddingTop: "var(--space-10)",
+            paddingBottom: "var(--space-10)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "20px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <Clock size={12} strokeWidth={2} color="var(--color-rust)" />
+              <span style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "11px",
+                fontWeight: 500,
+                color: "var(--color-rust)",
+                textTransform: "uppercase",
+                letterSpacing: "1.5px",
+              }}>
+                Currently
+              </span>
+            </div>
+            <div style={{
+              flex: 1,
+              height: "1px",
+              background: "linear-gradient(to right, var(--color-rust), transparent)",
+              opacity: 0.4,
+            }} />
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+            <div>
+              <span style={{ fontFamily: "var(--font-mid)", fontWeight: 700, fontSize: "16px", color: "var(--text-primary)" }}>
+                Reading
+              </span>
+              <span style={{ fontFamily: "var(--font-mid)", fontWeight: 400, fontSize: "16px", color: "var(--text-primary)", lineHeight: 1.5, marginLeft: "4px" }}>
+                · <em>The Overstory</em> by Richard Powers + <em>Why Fish Don&apos;t Exist</em> by Lulu Miller
+              </span>
+            </div>
+            <div>
+              <span style={{ fontFamily: "var(--font-mid)", fontWeight: 700, fontSize: "16px", color: "var(--text-primary)" }}>
+                Last adventure
+              </span>
+              <span style={{ fontFamily: "var(--font-mid)", fontWeight: 400, fontSize: "16px", color: "var(--text-primary)", lineHeight: 1.5, marginLeft: "4px" }}>
+                · Climbing in Red Rocks, Las Vegas — with friends
+              </span>
+            </div>
+            <div>
+              <span style={{ fontFamily: "var(--font-mid)", fontWeight: 700, fontSize: "16px", color: "var(--text-primary)" }}>
+                Find me
+              </span>
+              <span style={{ fontFamily: "var(--font-mid)", fontWeight: 400, fontSize: "16px", color: "var(--text-primary)", lineHeight: 1.5, marginLeft: "4px" }}>
+                · Struggling on my senior capstone for SMC&apos;s IxD program
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* ────────── SECTION 4: TIMELINE ────────── */}
+        <section
+          className="mx-auto"
+          style={{
+            maxWidth: "720px",
+            paddingLeft: "var(--page-padding)",
+            paddingRight: "var(--page-padding)",
+            paddingTop: "var(--space-10)",
+            paddingBottom: "var(--space-10)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "32px" }}>
+            <h2 style={{
+              fontFamily: "var(--font-mid)",
+              fontWeight: 700,
+              fontSize: "24px",
+              color: "var(--color-charcoal)",
+              margin: 0,
+              flexShrink: 0,
+            }}>
+              My journey
+            </h2>
+            <div style={{
+              flex: 1,
+              height: "1px",
+              background: "linear-gradient(to right, var(--color-rust), transparent)",
+              opacity: 0.4,
+            }} />
+          </div>
+
+          <div style={{ position: "relative" }}>
+            {/* Dashed vertical trail */}
             <div
-              className="flex items-center"
-              style={{ gap: "10px", marginBottom: "14px" }}
-            >
-              <Compass size={13} strokeWidth={2} color="var(--color-rust)" />
-              <span className="coordinate">My journey · how I got here</span>
-            </div>
-
-            <h1
-              className="font-display leading-none text-foreground"
-              style={{ fontSize: "var(--text-hero-lg)" }}
-            >
-              Same hands, new{" "}
-              <span style={{ color: "var(--color-rust)" }}>tools.</span>
-            </h1>
-
-            <p
-              className="mt-5 font-serif font-light italic text-muted-foreground"
-              style={{ fontSize: "var(--text-subhead)" }}
-            >
-              An interaction designer based in Los Angeles, working at the
-              intersection of healthcare, outdoor culture, and human-centered
-              storytelling.
-            </p>
-
-            <p
+              aria-hidden="true"
               style={{
-                fontFamily: "var(--font-mid)",
-                fontWeight: 400,
-                fontSize: "15px",
-                lineHeight: "1.65",
-                color: "var(--text-primary)",
-                marginTop: "40px",
-                marginBottom: 0,
+                position: "absolute",
+                left: "6px",
+                top: "6px",
+                bottom: "6px",
+                width: "1px",
+                background: "repeating-linear-gradient(to bottom, var(--color-rust) 0px, var(--color-rust) 3px, transparent 3px, transparent 6px)",
+                zIndex: 0,
               }}
-            >
-              My background as an orthopedic technician shapes how I approach
-              care and accessibility, while my love for trails and climbing
-              shapes how I think about adventure, sustainability, and the gear
-              that supports them. My work spans across wellness apps, outdoor
-              tools, and emotional design — all built to foster connection
-              through shared experience.
-            </p>
-          </div>
-        </section>
+            />
 
-        {/* ── Photo section — right-aligned at ~50% width ── */}
-        <section
-          className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px]"
-          style={{ marginTop: "48px", marginBottom: "48px" }}
-        >
-          <div className="grid gap-8 md:grid-cols-2 md:gap-12">
-            <div />{/* intentionally empty */}
-            <div>
+            {timeline.map((row, i) => (
               <div
-                className="relative overflow-hidden"
+                key={i}
                 style={{
-                  aspectRatio: "4 / 3",
-                  borderRadius: "var(--radius-md)",
+                  position: "relative",
+                  display: "flex",
+                  gap: "20px",
+                  paddingBottom: i < timeline.length - 1 ? "28px" : 0,
                 }}
               >
-                <Image
-                  src="/images/about/canada.jpeg"
-                  alt="Czarina exploring downtown Jasper"
-                  fill
-                  className="object-cover"
-                  style={{ objectPosition: "35% 30%" }}
-                  priority
-                />
-              </div>
-              <div
-                className="flex items-center"
-                style={{ gap: "6px", marginTop: "8px" }}
-              >
-                <MapPin size={11} strokeWidth={2} color="var(--color-rust)" />
-                <span
-                  style={{
-                    fontFamily: "var(--font-mid)",
-                    fontStyle: "italic",
-                    fontWeight: 300,
-                    fontSize: "11px",
-                    color: "var(--text-secondary)",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  Exploring downtown Jasper, AB, Canada
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
+                {/* Dot */}
+                <div style={{
+                  width: "13px",
+                  height: "13px",
+                  borderRadius: "50%",
+                  background: row.dotColor,
+                  border: "2px solid var(--color-sand)",
+                  flexShrink: 0,
+                  position: "relative",
+                  zIndex: 1,
+                  marginTop: "3px",
+                }} />
 
-        {/* ── Currently row — right-aligned to match photo column ── */}
-        <section
-          className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px]"
-          style={{ marginBottom: "48px" }}
-        >
-          <div className="grid gap-8 md:grid-cols-2 md:gap-12">
-            <div />{/* intentionally empty */}
-            <div>
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.5)",
-                  border: "1px solid var(--border-subtle)",
-                  borderRadius: "var(--radius-md)",
-                  padding: "18px 20px",
-                }}
-              >
-                <div
-                  className="flex items-center"
-                  style={{ gap: "8px", marginBottom: "10px" }}
-                >
-                  <Clock size={11} strokeWidth={2} color="var(--color-rust)" />
-                  <span className="coordinate" style={{ letterSpacing: "1.8px" }}>
-                    Currently
-                  </span>
-                </div>
-
-                <div
-                  style={{
+                {/* Content */}
+                <div>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "10px", marginBottom: "4px" }}>
+                    <span style={{
+                      fontFamily: "var(--font-hero)",
+                      fontSize: "18px",
+                      color: "var(--color-forest)",
+                      lineHeight: 1,
+                    }}>
+                      {row.year}
+                    </span>
+                    <span style={{
+                      fontFamily: "var(--font-body)",
+                      fontSize: "13px",
+                      fontWeight: 500,
+                      color: "var(--color-rust)",
+                      textTransform: "uppercase",
+                      letterSpacing: "1.2px",
+                    }}>
+                      · {row.eyebrow}
+                    </span>
+                  </div>
+                  <p style={{
                     fontFamily: "var(--font-mid)",
                     fontSize: "13px",
-                    lineHeight: "1.6",
+                    lineHeight: "1.55",
                     color: "var(--color-charcoal)",
-                  }}
-                >
-                  <div>
-                    <strong>Reading</strong> ·{" "}
-                    <em>The Overstory</em> by Richard Powers +{" "}
-                    <em>Why Fish Don&apos;t Exist</em> by Lulu Miller
-                  </div>
-                  <div style={{ marginTop: "6px" }}>
-                    <strong>Last adventure</strong> · Climbing in Red Rocks, Las
-                    Vegas — with friends
-                  </div>
-                  <div style={{ marginTop: "6px" }}>
-                    <strong>Find me</strong> · Struggling on my senior capstone
-                    for SMC&apos;s IxD program
-                  </div>
+                    margin: 0,
+                  }}>
+                    {row.description}
+                  </p>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </section>
 
-        {/* ── Section 3: Timeline ── */}
-        <section className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] pb-12">
-          <div style={{ maxWidth: "640px" }}>
-            {/* Header */}
-            <div className="mb-8 flex items-center gap-4">
-              <h2
-                style={{
-                  fontFamily: "var(--font-mid)",
-                  fontWeight: 700,
-                  fontSize: "20px",
-                  color: "var(--color-charcoal)",
-                  flexShrink: 0,
-                  margin: 0,
-                }}
-              >
-                My journey
-              </h2>
-              <div
-                style={{
-                  flex: 1,
-                  height: "1px",
-                  background:
-                    "linear-gradient(to right, var(--color-rust), transparent)",
-                }}
-              />
-            </div>
-
-            {/* Rows */}
-            <div className="relative">
-              {/* Dashed vertical line — stops at last dot */}
-              <div
-                aria-hidden="true"
-                style={{
-                  position: "absolute",
-                  left: "6px",
-                  top: "6px",
-                  bottom: "6px",
-                  width: "1px",
-                  background:
-                    "repeating-linear-gradient(to bottom, var(--color-rust) 0px, var(--color-rust) 3px, transparent 3px, transparent 6px)",
-                  zIndex: 0,
-                }}
-              />
-
-              {timeline.map((row, i) => (
-                <div
-                  key={i}
-                  className="relative flex"
-                  style={{
-                    gap: "20px",
-                    paddingBottom: i < timeline.length - 1 ? "28px" : 0,
-                  }}
-                >
-                  {/* Dot */}
-                  <div
-                    style={{
-                      width: "13px",
-                      height: "13px",
-                      borderRadius: "50%",
-                      background: row.dotColor,
-                      border: "2px solid var(--color-sand)",
-                      flexShrink: 0,
-                      position: "relative",
-                      zIndex: 1,
-                      marginTop: "3px",
-                    }}
-                  />
-
-                  {/* Content */}
-                  <div>
-                    {/* Year + eyebrow on one line, baseline-aligned */}
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "baseline",
-                        gap: "10px",
-                        marginBottom: "4px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily: "var(--font-hero)",
-                          fontSize: "18px",
-                          color: "var(--color-forest)",
-                          lineHeight: 1,
-                        }}
-                      >
-                        {row.year}
-                      </span>
-                      <span
-                        className="coordinate"
-                        style={{ fontSize: "13px", letterSpacing: "1.2px" }}
-                      >
-                        · {row.eyebrow}
-                      </span>
-                    </div>
-                    <p
-                      style={{
-                        fontFamily: "var(--font-mid)",
-                        fontSize: "13px",
-                        lineHeight: "1.55",
-                        color: "var(--color-charcoal)",
-                        margin: 0,
-                      }}
-                    >
-                      {row.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Section 4: Casual photo + caption ── */}
+        {/* ────────── SECTION 5: CATHEDRAL PHOTO ────────── */}
         <section
-          className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px]"
-          style={{ marginTop: "40px", marginBottom: "40px" }}
+          className="mx-auto"
+          style={{
+            maxWidth: "960px",
+            paddingLeft: "var(--page-padding)",
+            paddingRight: "var(--page-padding)",
+            paddingTop: "var(--space-10)",
+            paddingBottom: "var(--space-10)",
+          }}
         >
-          <div
-            className="relative w-full overflow-hidden"
-            style={{
-              aspectRatio: "21 / 9",
-              borderRadius: "var(--radius-md)",
-            }}
-          >
+          <div style={{
+            width: "100%",
+            aspectRatio: "21 / 9",
+            borderRadius: "var(--radius-md)",
+            overflow: "hidden",
+            position: "relative",
+          }}>
             <Image
               src="/images/about/cathedral.jpeg"
-              alt="Climbing at Cathedral Peaks in Yosemite"
+              alt="Climbing at Cathedral Peaks in Yosemite, CA"
               fill
               className="object-cover"
             />
           </div>
-          {/* Caption */}
-          <div
-            className="flex items-center"
-            style={{ gap: "6px", marginTop: "8px" }}
-          >
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "10px" }}>
             <MapPin size={11} strokeWidth={2} color="var(--color-rust)" />
-            <span
-              style={{
-                fontFamily: "var(--font-mid)",
-                fontStyle: "italic",
-                fontWeight: 300,
-                fontSize: "11px",
-                color: "var(--text-secondary)",
-                lineHeight: 1.4,
-              }}
-            >
+            <span style={{
+              fontFamily: "var(--font-mid)",
+              fontStyle: "italic",
+              fontWeight: 300,
+              fontSize: "12px",
+              color: "var(--text-secondary)",
+              lineHeight: 1.4,
+            }}>
               Climbing at Cathedral Peaks in Yosemite, CA
             </span>
           </div>
         </section>
 
-        {/* ── Section 5: Reach out ── */}
-        <section className="mx-auto max-w-6xl px-6 md:px-16 lg:px-[100px] pb-16">
-          <span
-            className="coordinate"
-            style={{
-              letterSpacing: "1.8px",
-              display: "block",
-              marginBottom: "12px",
-            }}
-          >
-            Reach out
-          </span>
+        {/* ────────── SECTION 6: REACH OUT ────────── */}
+        <section
+          className="mx-auto"
+          style={{
+            maxWidth: "720px",
+            paddingLeft: "var(--page-padding)",
+            paddingRight: "var(--page-padding)",
+            paddingTop: "var(--space-10)",
+            paddingBottom: "var(--space-10)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "20px" }}>
+            <span style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "11px",
+              fontWeight: 500,
+              color: "var(--color-rust)",
+              textTransform: "uppercase",
+              letterSpacing: "1.5px",
+            }}>
+              Reach out
+            </span>
+            <div style={{
+              flex: 1,
+              height: "1px",
+              background: "linear-gradient(to right, var(--color-rust), transparent)",
+              opacity: 0.4,
+            }} />
+          </div>
 
-          <div
-            className="grid gap-3 sm:grid-cols-3"
-            style={{ maxWidth: "520px" }}
-          >
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <a
               href="https://www.linkedin.com/in/czarinagoingco/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-[10px] rounded-md border border-border bg-background transition-colors hover:bg-white"
               style={{
-                padding: "10px 12px",
-                fontFamily: "var(--font-mid)",
-                fontSize: "12px",
-                color: "var(--color-charcoal)",
-                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "14px 16px",
+                background: "rgba(255,255,255,0.4)",
+                border: "0.5px solid var(--border-subtle)",
                 borderRadius: "var(--radius-md)",
+                textDecoration: "none",
+                color: "var(--text-primary)",
               }}
             >
-              <Linkedin size={14} strokeWidth={2} color="var(--color-forest)" />
-              LinkedIn
+              <Linkedin size={14} strokeWidth={2} color="var(--color-rust)" />
+              <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>LinkedIn</span>
             </a>
-
             <a
               href="mailto:zgoingco.design@gmail.com"
-              className="flex items-center gap-[10px] rounded-md border border-border bg-background transition-colors hover:bg-white"
               style={{
-                padding: "10px 12px",
-                fontFamily: "var(--font-mid)",
-                fontSize: "12px",
-                color: "var(--color-charcoal)",
-                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "14px 16px",
+                background: "rgba(255,255,255,0.4)",
+                border: "0.5px solid var(--border-subtle)",
                 borderRadius: "var(--radius-md)",
+                textDecoration: "none",
+                color: "var(--text-primary)",
               }}
             >
-              <Mail size={14} strokeWidth={2} color="var(--color-forest)" />
-              Email
+              <Mail size={14} strokeWidth={2} color="var(--color-rust)" />
+              <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Email</span>
             </a>
-
             <a
               href="/files/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-[10px] rounded-md border border-border bg-background transition-colors hover:bg-white"
               style={{
-                padding: "10px 12px",
-                fontFamily: "var(--font-mid)",
-                fontSize: "12px",
-                color: "var(--color-charcoal)",
-                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "14px 16px",
+                background: "rgba(255,255,255,0.4)",
+                border: "0.5px solid var(--border-subtle)",
                 borderRadius: "var(--radius-md)",
+                textDecoration: "none",
+                color: "var(--text-primary)",
               }}
             >
-              <FileDown size={14} strokeWidth={2} color="var(--color-forest)" />
-              Resume PDF
+              <FileText size={14} strokeWidth={2} color="var(--color-rust)" />
+              <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Resume PDF</span>
             </a>
           </div>
         </section>
+
       </main>
 
       <RustCtaPanel />

@@ -3,13 +3,13 @@
 > Personal running doc to track what's done, what's in flight, and what's next.
 > Update this whenever you make a meaningful change so future-you (and Claude) can pick up fast.
 
-**Last updated:** 2026-05-10 (v2.3 · /work hub built, nav consolidated to Home/Work/About/Contact)
+**Last updated:** 2026-05-13 (about page reset to single-column architecture)
 
 ---
 
 ## TL;DR — Where I am right now
 
-Infrastructure complete. Live at https://zgoingco.design. Brand system at **v2.3** (nav consolidated to Home · Work · About · Contact; active link = rust + bold; /work hub built). Next: fill in UGLOO case study content and add academic projects.
+Site is **live** at https://zgoingco.design with the v2.3 brand system fully applied. Brand locked at v2.3 (logo + colors + typography + two-state architecture + Breath Strip + global watermark + nav consolidation under /work hub). Major site sections all built: homepage, about, work, case studies, academic projects, contact. Next phase: UGLOO case study content + real photography for the homepage carousel.
 
 ---
 
@@ -60,9 +60,6 @@ Flattened today — no `my_portfolio` wrapper, no `b_pWjCYhe5jTr` subfolder. `pa
 - [x] Locked typography: Cooper Black (hero) + Bookmania (mid) + Eurostile (body/UI), all served via Adobe Fonts
 - [x] Created `BRAND_GUIDE.md` and `BRAND_SPEC.md` (machine-readable for Claude Code) — to be added to the repo and to the IxD project on Claude.ai
 - [x] Cleaned logo source files: `logo-forest.svg`/`.png` and `logo-cream.svg`/`.png` (transparent backgrounds, brand color normalized to `#2D4A33`)
-- [x] **Brand v2.2 watermark migration** — `TopoWatermark` refactored from `position: absolute` (section-scoped) to `position: fixed; z-index: -1` and moved to `app/layout.tsx`. Now rendered once globally; inherits to every route including `/case-studies/[slug]` and `/academic-projects/[slug]` which previously had no watermark. All per-page `<TopoWatermark />` instances and their bounding `relative overflow-hidden` wrappers removed.
-- [x] **Brand v2.3 / Nav restructure** — Top nav consolidated from 5 links to 4: Home · Work · About · Contact. `/work` hub page built with case studies section above academic projects section, matching card patterns from their respective index pages. Active link state upgraded to rust + bold (was rust-only). "Work" link stays active on `/case-studies/*` and `/academic-projects/*` sub-routes. Legacy URLs preserved as deep links. BRAND_SPEC.md and BRAND_GUIDE.md bumped to v2.3.
-- [x] **Carousel v2** — `OutdoorCarousel` fully rebuilt: 6 real Unsplash photos (autumn/nature, no people, all under 250KB) in `public/images/nature-carousel/`. Auto-advances every 6s. Hover + focus pause (separate `hoverPaused` state). Manual arrow/dot interaction triggers a one-interval pause then resumes (`manualPaused` via `setTimeout`). `prefers-reduced-motion` respected with live MediaQuery listener. Prev/next arrows: sand/92 bg, sand-edge border, charcoal chevron, 40px circle. Pagination: 6 dots, rust active pill (24×6px), sand/60 inactive (6px). Photo credits in `public/images/nature-carousel/CREDITS.md`.
 
 ## In progress 🔄
 
@@ -158,6 +155,43 @@ claude
 ---
 
 ## Log
+
+### 2026-05-13 — About page reset to single-column architecture
+After 8 iterative passes that didn't converge on a layout that felt right, the two-column architecture was scrapped and rebuilt from scratch.
+
+- **Inspiration:** Fernando Herrera's about page (fernandoh.design/about) — single column, conversational, personal moments stacked vertically. Adapted to Czarina's brand system and content.
+- **Structure (top to bottom):** Hero (eyebrow + Cooper headline + italic subhead + 2 short bio paragraphs) → Canada photo (4:3, centered, MapPin caption) → Currently (eyebrow + rust gradient line + 3 bolded label rows) → Timeline (8 milestones, preserved exactly) → Cathedral photo (wider 960px, 21:9, visual moment) → Reach out (3 link cards: LinkedIn / Email / Resume PDF).
+- **No two-column grids anywhere.** All text sections constrained to `maxWidth: 720px`, cathedral photo to `maxWidth: 960px`. `mx-auto` and `var(--page-padding)` handle spacing.
+- **Timeline preserved exactly** — same data array, same dot colors, same dashed rust trail, same rendering logic.
+- **All content preserved** — headline, subhead, bio, Currently lines, resume PDF path, LinkedIn URL, email.
+- **Page is now genuinely done.** Ready to ship and focus on case study writing.
+
+### 2026-05-11 — Polish pass + editorial margins (v2.4)
+Two prompts shipped. Both committed to main (not pushed — visual verification first).
+
+- **Contact + footer cleanup:** real email, LinkedIn, Twitter/Dribbble removed (see 2026-05-11 log below for details).
+- **Editorial margins (v2.4):** page padding bumped from `px-6` (24px uniform) to responsive scale: 24px mobile / 64px tablet / 100px desktop. Applied site-wide via `px-6 md:px-16 lg:px-[100px]` on all page-level containers. `--page-padding` CSS variable added to `globals.css`. Nav bar and footer match. Cards, buttons, forms untouched. Brand spec bumped to v2.4.
+
+### 2026-05-11 — Polish pass: contact + footer + about restructure
+Site-wide placeholder cleanup and about page layout improvements.
+
+- **Contact page:** replaced `hello@sarahchen.design` placeholder with `zgoingco.design@gmail.com` (href + display text). Updated LinkedIn href to real profile URL. Removed Twitter from "Or reach out directly" — section now shows Email + LinkedIn only.
+- **Footer (site-wide):** removed Twitter and Dribbble icons. Footer social row now shows LinkedIn (real URL) + Email (`zgoingco.design@gmail.com`) only. SMC student email replaced with design email.
+- **About hero restructured:** headshot moved to landscape crop (`aspectRatio: 16/10`, `objectPosition: center 30%`) to eliminate portrait whitespace orphan. Bio paragraph removed from hero — hero now contains only eyebrow + headline + subhead on left, headshot + caption on right.
+- **Photo captions added:** MapPin icon (rust, 11px) + Bookmania Light Italic 11px caption under both photos — "Exploring downtown Jasper, AB, Canada" under headshot, "Climbing at Cathedral Peaks in Yosemite, CA" under cathedral.jpeg.
+- **Bio + Currently sidebar:** bio paragraph and Currently box now live in a two-column layout (`1.5fr 1fr`), stacking on mobile. Previously the Currently box was isolated below the cathedral photo.
+- **Timeline:** renamed "The path" → "My journey" (section header + hero eyebrow). Year and category label now display on one baseline-aligned line (`2019 · Science`) instead of stacked on two lines.
+
+### 2026-05-09 (morning) — v2.3 nav consolidation + /work hub + about page live
+Wrapping up the brand application phase. Two prompts shipped today, both pushed to production.
+
+- **About page built** (prompt 1 of 2). Full layout: hero with "Same hands, new tools" headline + headshot · long bio paragraph (the one restored from the screenshot you sent yesterday) · 8-node vertical timeline with rust dashed trail line (Science → Detour → Lab → Care → Clinic → REI → Pivot → Now) · full-bleed cathedral.jpeg photo · Currently sidebar (reading list, Red Rocks trip, SMC IxD final semester) · Reach out links (real LinkedIn, email, resume PDF) · rust CTA · Breath Strip · forest footer.
+- **Nav restructure + /work hub** (prompt 2 of 2). Top nav consolidated from 4-link variation into HOME · WORK · ABOUT · CONTACT. New `/work` page is a hub showing Case Studies (visual priority) above Academic Projects (supporting), in two clearly labeled sections. `/case-studies` and `/academic-projects` URLs preserved as deep links for direct sharing.
+- **Active nav link styling bumped.** Now rust color + Bookmania Bold weight, combined. Previously just rust color. Together they make the current location unmissable.
+- **Sub-route active state** handled via `pathname.startsWith()` in the nav component — visitors on `/case-studies/ugloo` or any academic project see the Work link active, not nothing.
+- **Site is live in production** with all changes pushed. Czarina manually verified across routes after push.
+
+**Brand at v2.3.** Spec, guide, and progress doc all updated in sync.
 
 ### 2026-05-08 (evening) — v2.2 global watermark migration
 Spotted that the topo + ridge watermark was missing from `/case-studies/[slug]` and `/academic-projects/[slug]` after the v2.1 build finished. Root cause: spec described the watermark as a "page-level wrapper," which led to per-page wiring that missed the dynamic detail routes.
