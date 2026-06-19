@@ -12,6 +12,7 @@ import { AnnotatedImage } from './AnnotatedImage'
 import { KeyInsight } from './KeyInsight'
 import { ImageWithCaption } from './ImageWithCaption'
 import { ComparisonGrid } from './ComparisonGrid'
+import { Video } from './Video'
 
 export {
   Section,
@@ -25,6 +26,7 @@ export {
   KeyInsight,
   ImageWithCaption,
   ComparisonGrid,
+  Video,
 }
 
 /** Base component map — CaseStudyHeader requires frontmatter to be bound via getMdxComponents. */
@@ -40,6 +42,7 @@ const baseComponents = {
   KeyInsight,
   ImageWithCaption,
   ComparisonGrid,
+  Video,
 }
 
 /**

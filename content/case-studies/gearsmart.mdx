@@ -1,0 +1,210 @@
+---
+title: GearSmart
+tagline: "A data-powered gear advisor that tells first-time adventurers exactly what to pack — and why."
+slug: gearsmart
+year: 2026
+projectType: "AI + AR Product Design — Senior Capstone"
+duration: "Spring 2026"
+role:
+  - "Sole designer & builder — research, product design, schema design, AI-assisted engineering"
+team:
+  - "Solo"
+tools:
+  - "Claude (tool use)"
+  - "Vercel"
+  - "OpenWeather"
+  - "Open-Meteo"
+  - "SerpAPI"
+  - "TensorFlow.js / MoveNet"
+  - "Figma"
+tags:
+  - "AI"
+  - "Product Design"
+  - "UX Research"
+  - "AR"
+coverImage: "/images/case-studies/gearsmart/case_study_images/gearsmart_hero_image.png"
+coverImageAlt: "GearSmart — Pack right. Get outside."
+heroVariant: "default"
+summary: "An AI-powered gear advisor that builds a trip-specific packing list for first-time outdoor adventurers — every item grounded in real conditions, with a reason and the best price."
+featured: true
+order: 1
+---
+
+<CaseStudyHeader />
+
+<Section title="The Hook">
+
+The first time I went camping, at Holcomb Valley, I hit the moment every beginner knows: not knowing what you don't know. Later, working the floor at REI and leading a women's climbing community, I kept meeting the same person — a capable beginner, underprepared, not for lack of trying, but because every gear resource was written for people who already know. GearSmart is the friend in the gear store, for the people who don't have one.
+
+</Section>
+
+<Section title="Problem">
+
+Beginners show up underprepared for three reasons: generic lists ignore the **real conditions** of where they're going; the **cost** of entry is intimidating and unranked; and there's endless gear content but almost none **specific to their actual trip**. The result is overbuying, underbuying, or giving up.
+
+</Section>
+
+<Section title="What I Built">
+
+<Video
+  src="/images/case-studies/gearsmart/case_study_videos/01_goingco_czarina_embeddedviedo.mp4"
+  caption="From landing page to trip setup — five inputs shape the whole list."
+  autoPlay
+  loop
+  muted
+/>
+
+You give GearSmart your trip — destination, dates, activity, experience level, budget — and it generates a checklist built for *that* trip: every item carries a plain-language reason, flagged Essential or Recommended, grounded in live weather and conditions, and linked to whichever trusted retailer sells it cheapest. A companion AR feature then coaches you through fitting your pack correctly once it's on the list.
+
+<ImageWithCaption
+  src="/images/case-studies/gearsmart/case_study_images/detail_1_checklist.png"
+  caption="The results screen: every item carries a plain-language reason, flagged Essential or Recommended."
+  natural
+/>
+
+<Video
+  src="/images/case-studies/gearsmart/case_study_videos/03_goingco_czarina_embeddedviedo..mp4#t=0.5"
+  caption="Tap any item to see why it's on your list — plus alternatives at different price points."
+/>
+
+<ImageWithCaption
+  src="/images/case-studies/gearsmart/case_study_images/detail_2_live-conditions.png"
+  caption="Live weather and conditions for the destination and dates ground every recommendation."
+  natural
+/>
+
+</Section>
+
+<Section title="Process">
+
+**Research with real beginners.** I ran a session with the Ladies Climbing Coalition — real first-timers, not classmates — using an REI roleplay and an affinity board. Three themes surfaced:
+
+<KeyInsight>
+
+*"I had no idea desert nights were freezing — I showed up with one layer."*
+
+**Condition Gaps.** Lists must surface hidden, counterintuitive conditions, not just gear categories.
+
+</KeyInsight>
+
+<KeyInsight>
+
+*"I wished someone gave me a list specific to where I was actually going, not just hiking in general."*
+
+**Specificity Gap.** Built around the exact trip — terrain, season, duration — not a generic archetype.
+
+</KeyInsight>
+
+<KeyInsight>
+
+*"I didn't know what was actually essential vs. nice to have. Everything looked equally important."*
+
+**Priority Blindness.** A clear safe-vs-upgrade signal so beginners know where to spend first.
+
+</KeyInsight>
+
+The deeper finding: every target user over-rated their own skill on exactly the trip where it mattered most. The real problem wasn't gear — it was **calibration**.
+
+**Four versions, and a rebuild.** V1 worked but leaked API keys and broke on bad data. I moved every secret server-side, replaced fragile parsing with the AI's structured tool-use, added retries and spending caps — shipping to real users meant making it not-broken.
+
+**The pivot that defines it.** I applied to REI's affiliate program; they rejected it. So I rebuilt the entire purchase layer to be **retailer-agnostic** — searching trusted retailers and routing to whoever's cheapest. The rejection made the product better.
+
+<Video
+  src="/images/case-studies/gearsmart/case_study_videos/04_goingco_czarina_embeddedviedo..mp4#t=0.5"
+  caption="Tap to buy and GearSmart routes you to whichever trusted retailer sells it cheapest."
+/>
+
+**What I removed.** The strongest decisions were walk-backs — designed, tested, and pulled because simpler served the user better:
+
+- **Per-person pricing.** Built it, tested it, removed it — splitting cost across people obscured the per-item decision the user actually needed to make.
+- **Hover tooltips.** Designed for desktop power users, but the real flow was mobile and one-handed. Tooltips became a tap target nobody wanted.
+- **Solo-mode toggle.** Solved a problem most users didn't have, at the cost of an extra decision every user *did* have to make.
+
+**Designing in AR.** The first time I tested the AR fit guide on a real pack, I learned an overlay can show you the target but can't confirm you've hit it — so v2 tracks the body, not the gear. The physical test taught me what the screen couldn't.
+
+<figure className="my-6">
+  <StoryboardGrid>
+    <StoryboardFrame
+      image="/images/case-studies/gearsmart/case_study_images/v2-01-torso.jpg"
+      caption="torso measurement"
+    />
+    <StoryboardFrame
+      image="/images/case-studies/gearsmart/case_study_images/v2-02-hipbelt.jpg"
+      caption="set the hip belt"
+    />
+    <StoryboardFrame
+      image="/images/case-studies/gearsmart/case_study_images/v2-03-shoulders.jpg"
+      caption="snug the shoulders"
+    />
+    <StoryboardFrame
+      image="/images/case-studies/gearsmart/case_study_images/v2-04-loadlifters.jpg"
+      caption="pull the load lifters"
+    />
+    <StoryboardFrame
+      image="/images/case-studies/gearsmart/case_study_images/v2-05-sternum.jpg"
+      caption="clip the sternum strap"
+    />
+    <StoryboardFrame
+      image="/images/case-studies/gearsmart/case_study_images/v2-06-fitted.jpg"
+      caption="fitted and confirmed — saved to your profile."
+    />
+  </StoryboardGrid>
+  <figcaption className="mt-2 text-center font-sans text-sm italic text-muted-foreground">
+    The AR Fit Guide reads 17 body keypoints live, in-browser, and coaches you through five fitting steps — then confirms the fit and remembers your torso size for next time.
+  </figcaption>
+</figure>
+
+</Section>
+
+<Section title="What I Designed vs. What AI Built">
+
+AI built the prototype fast — that's the point; it let me test ideas in days, not weeks. What's mine is the thinking. The problem came from the REI floor and my own first trip, validated against real beginners before I built anything. The structure — every item carrying a *why*, tied to the actual forecast for your destination and dates — was a schema I designed and iterated across four versions. The biggest call was the retailer-agnostic pivot after REI's rejection — judgment AI doesn't hand you. And I tested with a real climbing community, not classmates, and changed the product based on what they did. The tool is the artifact; the judgment is the design.
+
+</Section>
+
+<Section title="Validation">
+
+Tested with beginner climbers (LCC + remote), reviewed by a panel of working designers — including a senior product designer at Patagonia and a designer on Adobe's design-system team — and exhibited publicly through a four-table experience where visitors compared their own packing guess against a researched list: the gap between guessing and knowing, made physical.
+
+<QuoteGrid>
+  <QuoteCard name="Sam Anvari" role="Advisor">
+    It's genius that you started pulling the API from weather and from the vendors to bring everything into one shop.
+  </QuoteCard>
+  <QuoteCard name="Beginner tester" role="Ladies Climbing Coalition">
+    Like a knowledgeable, generous friend.
+  </QuoteCard>
+</QuoteGrid>
+
+<ImageWithCaption
+  src="/images/case-studies/gearsmart/case_study_images/detail_4_exhibition.jpeg"
+  caption="The exhibition: four tables that let visitors compare their own packing guess against a researched list."
+  natural
+/>
+
+<ImageWithCaption
+  src="/images/case-studies/gearsmart/case_study_images/detail_5_guiding-visitors.jpeg"
+  caption="Guiding visitors through the gap between guessing and knowing."
+  natural
+/>
+
+<ImageWithCaption
+  src="/images/case-studies/gearsmart/case_study_images/detail_6_community.jpeg"
+  caption="Built with the Ladies Climbing Coalition — real first-timers, not classmates."
+  natural
+/>
+
+</Section>
+
+<Section title="Reflection">
+
+GearSmart taught me what AI is good for as a design material: speed. But the defensible work is the judgment underneath — framing the real problem, designing the reasoning structure, the retailer-agnostic pivot, and testing with real beginners instead of classmates. The tool is the artifact. The judgment is the design.
+
+</Section>
+
+<Section title="Links">
+
+- [Try the live prototype](https://gear-smart.vercel.app/v5GS.html)
+- [Read the full case study](https://gear-smart.vercel.app/case-study.html)
+- [See the AR Fit Guide](https://gearsmart-fit-guide-ar.vercel.app)
+
+</Section>
