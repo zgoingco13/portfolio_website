@@ -91,7 +91,7 @@ function DefaultHero({ coverImage, title }: { coverImage: string; title: string 
   return (
     <div
       className="relative mb-10 w-full overflow-hidden rounded-2xl"
-      style={{ height: 'min(400px, 60vh)' }}
+      style={{ height: 'min(500px, 75vh)' }}
     >
       <Image src={coverImage} alt={title} fill className="object-contain" priority />
     </div>
@@ -133,20 +133,34 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
       <h1 className="mt-3 font-display leading-none text-foreground" style={{ fontSize: "var(--text-hero-xl)" }}>{title}</h1>
       <p className="mt-4 max-w-3xl font-serif font-light italic text-muted-foreground" style={{ fontSize: "var(--text-subhead)" }}>{tagline}</p>
 
-      <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
-        {[
-          { label: 'Year', value: String(year) },
-          { label: 'Duration', value: duration },
-          { label: 'Role', value: role?.join(' · ') },
-          { label: 'Team', value: team?.join(', ') },
-        ].map(({ label, value }) => (
-          <div key={label} className="rounded-xl border border-border bg-card p-4">
-            <p className="font-sans text-[11px] font-medium uppercase tracking-[2px] text-honey">
-              {label}
-            </p>
-            <p className="mt-1 font-sans text-sm leading-snug text-foreground">{value}</p>
+      <div className="mt-10 grid gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            { label: 'Year', value: String(year) },
+            { label: 'Duration', value: duration },
+            { label: 'Role', value: role?.join(' · ') },
+            { label: 'Team', value: team?.join(', ') },
+          ].map(({ label, value }) => (
+            <div key={label} className="rounded-xl border border-border bg-card p-4">
+              <p className="font-sans text-[11px] font-medium uppercase tracking-[2px] text-honey">
+                {label}
+              </p>
+              <p className="mt-1 font-sans text-sm leading-snug text-foreground">{value}</p>
+            </div>
+          ))}
+        </div>
+        {title === 'GearSmart' && (
+          <div className="relative overflow-hidden rounded-xl bg-card">
+            <video
+              src="/images/case-studies/gearsmart/case_study_videos/02_goingco_czarina_embeddedviedo..mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           </div>
-        ))}
+        )}
       </div>
 
       {tools?.length > 0 && (

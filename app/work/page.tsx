@@ -101,9 +101,9 @@ export default function WorkPage() {
                       i === 0 ? "aspect-[21/9]" : "aspect-[4/3]"
                     }`}
                   >
-                    {study.coverImage ? (
+                    {study.thumbnailImage ?? study.coverImage ? (
                       <Image
-                        src={study.coverImage}
+                        src={(study.thumbnailImage ?? study.coverImage)!}
                         alt={study.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"

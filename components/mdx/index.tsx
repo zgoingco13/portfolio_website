@@ -11,6 +11,7 @@ import { StoryboardGrid } from './StoryboardGrid'
 import { AnnotatedImage } from './AnnotatedImage'
 import { KeyInsight } from './KeyInsight'
 import { ImageWithCaption } from './ImageWithCaption'
+import { ImageCarousel, CarouselSlide } from './ImageCarousel'
 import { ComparisonGrid } from './ComparisonGrid'
 import { Video } from './Video'
 
@@ -25,6 +26,8 @@ export {
   AnnotatedImage,
   KeyInsight,
   ImageWithCaption,
+  ImageCarousel,
+  CarouselSlide,
   ComparisonGrid,
   Video,
 }
@@ -41,6 +44,8 @@ const baseComponents = {
   AnnotatedImage,
   KeyInsight,
   ImageWithCaption,
+  ImageCarousel,
+  CarouselSlide,
   ComparisonGrid,
   Video,
 }

@@ -20,3 +20,4 @@ _source/
 
 # Source material — reference PDFs, raw assets, etc. Not for git.
 _source/
+.vercel

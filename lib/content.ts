@@ -17,6 +17,7 @@ export interface CaseStudyFrontmatter {
   tags: string[]
   coverImage?: string
   coverImageAlt?: string
+  thumbnailImage?: string
   summary: string
   featured: boolean
   order: number

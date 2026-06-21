@@ -22,8 +22,9 @@ tags:
   - "Product Design"
   - "UX Research"
   - "AR"
-coverImage: "/images/case-studies/gearsmart/case_study_images/gearsmart_hero_image.png"
+coverImage: "/images/case-studies/gearsmart/case_study_images/hero_image.png"
 coverImageAlt: "GearSmart — Pack right. Get outside."
+thumbnailImage: "/images/case-studies/gearsmart/case_study_images/gearsmart_thumbnail_image.png"
 heroVariant: "default"
 summary: "An AI-powered gear advisor that builds a trip-specific packing list for first-time outdoor adventurers — every item grounded in real conditions, with a reason and the best price."
 featured: true
@@ -46,32 +47,78 @@ Beginners show up underprepared for three reasons: generic lists ignore the **re
 
 <Section title="What I Built">
 
-<Video
-  src="/images/case-studies/gearsmart/case_study_videos/01_goingco_czarina_embeddedviedo.mp4"
-  caption="From landing page to trip setup — five inputs shape the whole list."
-  autoPlay
-  loop
-  muted
-/>
+<div className="my-6 flex justify-center">
+  <div className="w-full max-w-2xl">
+    <Video
+      src="/images/case-studies/gearsmart/case_study_videos/01_goingco_czarina_embeddedviedo.mp4"
+      caption="From landing page to trip setup — five inputs shape the whole list."
+      autoPlay
+      loop
+      muted
+    />
+  </div>
+</div>
 
-You give GearSmart your trip — destination, dates, activity, experience level, budget — and it generates a checklist built for *that* trip: every item carries a plain-language reason, flagged Essential or Recommended, grounded in live weather and conditions, and linked to whichever trusted retailer sells it cheapest. A companion AR feature then coaches you through fitting your pack correctly once it's on the list.
+<div className="my-6 grid gap-6 md:grid-cols-3 md:items-start">
+  <ImageWithCaption
+    src="/images/case-studies/gearsmart/case_study_images/form_p1.png"
+    caption="Select your outdoor activity."
+    wrapperClassName="aspect-[12/5] bg-card"
+    objectFit="contain"
+    lightbox
+  />
+  <ImageWithCaption
+    src="/images/case-studies/gearsmart/case_study_images/form_p2.png"
+    caption="Enter your trip's information."
+    wrapperClassName="aspect-[12/5] bg-card"
+    objectFit="contain"
+    lightbox
+  />
+  <ImageWithCaption
+    src="/images/case-studies/gearsmart/case_study_images/form_p3.png"
+    caption="Input your experience level."
+    wrapperClassName="aspect-[12/5]"
+    objectFit="contain"
+    lightbox
+  />
+</div>
 
-<ImageWithCaption
-  src="/images/case-studies/gearsmart/case_study_images/detail_1_checklist.png"
-  caption="The results screen: every item carries a plain-language reason, flagged Essential or Recommended."
-  natural
-/>
-
-<Video
-  src="/images/case-studies/gearsmart/case_study_videos/03_goingco_czarina_embeddedviedo..mp4#t=0.5"
-  caption="Tap any item to see why it's on your list — plus alternatives at different price points."
-/>
-
-<ImageWithCaption
-  src="/images/case-studies/gearsmart/case_study_images/detail_2_live-conditions.png"
-  caption="Live weather and conditions for the destination and dates ground every recommendation."
-  natural
-/>
+<div className="my-6 grid gap-8 md:grid-cols-[3fr_5fr] md:items-start">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    You give GearSmart your trip — destination, dates, activity, experience level, budget — and it generates a checklist built for <em>that</em> trip: every item carries a plain-language reason, flagged Essential or Recommended, grounded in live weather and conditions, and linked to whichever trusted retailer sells it cheapest. A companion AR feature then coaches you through fitting your pack correctly once it's on the list.
+  </div>
+  <div className="flex flex-col gap-6">
+    <ImageCarousel>
+      <CarouselSlide
+        src="/images/case-studies/gearsmart/case_study_images/detail_2_live-conditions.png"
+        caption="Using several API servers, GearSmart provides real weather, alerts, and trip notes, such as elevation, terrain, and UV."
+      />
+      <CarouselSlide
+        src="/images/case-studies/gearsmart/case_study_images/detail_1_checklist.png"
+        caption="GearSmart turns a trip into a complete checklist with each item categorized and labeled."
+      />
+      <CarouselSlide
+        src="/images/case-studies/gearsmart/case_study_images/item_dropdown.png"
+        caption="Tap any item to read why it's needed and GearSmart also suggests product options."
+      />
+    </ImageCarousel>
+    <figure>
+      <div className="relative aspect-[2/1] w-full overflow-hidden rounded-xl bg-card">
+        <video
+          src="/images/case-studies/gearsmart/case_study_videos/03_goingco_czarina_embeddedviedo..mp4#t=0.5"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </div>
+      <figcaption className="mt-2 text-center font-sans text-sm italic text-muted-foreground">
+        Tap to buy and GearSmart routes you to whichever trusted retailer sells it cheapest.
+      </figcaption>
+    </figure>
+  </div>
+</div>
 
 </Section>
 

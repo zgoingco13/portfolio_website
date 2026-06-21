@@ -90,7 +90,7 @@ export default function HomePage() {
                     slug={study.slug}
                     title={study.title}
                     description={study.summary}
-                    coverImage={study.coverImage}
+                    coverImage={study.thumbnailImage ?? study.coverImage}
                     coverImageAlt={study.coverImageAlt}
                     tags={study.tags}
                   />
