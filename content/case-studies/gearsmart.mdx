@@ -156,18 +156,30 @@ The deeper finding: every target user over-rated their own skill on exactly the 
 
 **The pivot that defines it.** I applied to REI's affiliate program; they rejected it. So I rebuilt the entire purchase layer to be **retailer-agnostic** — searching trusted retailers and routing to whoever's cheapest. The rejection made the product better.
 
-<Video
-  src="/images/case-studies/gearsmart/case_study_videos/04_goingco_czarina_embeddedviedo..mp4#t=0.5"
-  caption="Tap to buy and GearSmart routes you to whichever trusted retailer sells it cheapest."
-/>
-
 **What I removed.** The strongest decisions were walk-backs — designed, tested, and pulled because simpler served the user better:
 
 - **Per-person pricing.** Built it, tested it, removed it — splitting cost across people obscured the per-item decision the user actually needed to make.
 - **Hover tooltips.** Designed for desktop power users, but the real flow was mobile and one-handed. Tooltips became a tap target nobody wanted.
 - **Solo-mode toggle.** Solved a problem most users didn't have, at the cost of an extra decision every user *did* have to make.
 
-**Designing in AR.** The first time I tested the AR fit guide on a real pack, I learned an overlay can show you the target but can't confirm you've hit it — so v2 tracks the body, not the gear. The physical test taught me what the screen couldn't.
+<div className="my-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-center">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    <strong>Designing in AR.</strong> The first time I tested the AR fit guide on a real pack, I learned an overlay can show you the target but can't confirm you've hit it — so v2 tracks the body, not the gear. The physical test taught me what the screen couldn't.
+  </div>
+  <figure>
+    <video
+      src="/images/case-studies/gearsmart/case_study_videos/04_goingco_czarina_embeddedviedo..mp4#t=0.5"
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full h-auto rounded-xl"
+    />
+    <figcaption className="mt-2 text-center font-sans text-sm italic text-muted-foreground">
+      Tap to buy and GearSmart routes you to whichever trusted retailer sells it cheapest.
+    </figcaption>
+  </figure>
+</div>
 
 <figure className="my-6">
   <StoryboardGrid>
@@ -222,23 +234,22 @@ Tested with beginner climbers (LCC + remote), reviewed by a panel of working des
   </QuoteCard>
 </QuoteGrid>
 
-<ImageWithCaption
-  src="/images/case-studies/gearsmart/case_study_images/detail_4_exhibition.jpeg"
-  caption="The exhibition: four tables that let visitors compare their own packing guess against a researched list."
-  natural
-/>
-
-<ImageWithCaption
-  src="/images/case-studies/gearsmart/case_study_images/detail_5_guiding-visitors.jpeg"
-  caption="Guiding visitors through the gap between guessing and knowing."
-  natural
-/>
-
-<ImageWithCaption
-  src="/images/case-studies/gearsmart/case_study_images/detail_6_community.jpeg"
-  caption="Built with the Ladies Climbing Coalition — real first-timers, not classmates."
-  natural
-/>
+<div className="mx-auto my-6 w-full max-w-3xl">
+  <ImageCarousel>
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/detail_4_exhibition.jpeg"
+      caption="The exhibition: four tables that let visitors compare their own packing guess against a researched list."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/detail_5_guiding-visitors.jpeg"
+      caption="Guiding visitors through the gap between guessing and knowing."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/detail_6_community.jpeg"
+      caption="Built with the Ladies Climbing Coalition — real first-timers, not classmates."
+    />
+  </ImageCarousel>
+</div>
 
 </Section>
 
