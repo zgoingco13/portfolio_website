@@ -88,19 +88,13 @@ export default function WorkPage() {
             </p>
           ) : (
             <div className="grid gap-8 md:grid-cols-2">
-              {studies.map((study, i) => (
+              {studies.map((study) => (
                 <Link
                   key={study.slug}
                   href={`/case-studies/${study.slug}`}
-                  className={`group block overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-rust/60 hover:shadow-lg ${
-                    i === 0 ? "md:col-span-2" : ""
-                  }`}
+                  className="group block overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-rust/60 hover:shadow-lg"
                 >
-                  <div
-                    className={`relative overflow-hidden ${
-                      i === 0 ? "aspect-[21/9]" : "aspect-[4/3]"
-                    }`}
-                  >
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     {study.thumbnailImage ?? study.coverImage ? (
                       <Image
                         src={(study.thumbnailImage ?? study.coverImage)!}
@@ -112,15 +106,11 @@ export default function WorkPage() {
                       <div className="h-full w-full bg-muted" />
                     )}
                   </div>
-                  <div className={`p-6 ${i === 0 ? "md:p-8" : ""}`}>
+                  <div className="p-6">
                     <p className="font-sans text-[11px] font-medium uppercase tracking-[2px] text-rust">
                       {study.projectType} · {study.year}
                     </p>
-                    <h2
-                      className={`mt-2 font-serif font-bold text-foreground ${
-                        i === 0 ? "text-2xl md:text-3xl" : "text-xl"
-                      }`}
-                    >
+                    <h2 className="mt-2 font-serif font-bold text-xl text-foreground">
                       {study.title}
                     </h2>
                     <p className="mt-2 line-clamp-2 font-sans text-sm text-muted-foreground">
