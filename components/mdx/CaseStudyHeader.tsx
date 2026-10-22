@@ -133,35 +133,34 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
       <h1 className="mt-3 font-display leading-none text-foreground" style={{ fontSize: "var(--text-hero-xl)" }}>{title}</h1>
       <p className="mt-4 max-w-3xl font-serif font-light italic text-muted-foreground" style={{ fontSize: "var(--text-subhead)" }}>{tagline}</p>
 
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
-        <div className="grid grid-cols-2 gap-3">
-          {[
-            { label: 'Year', value: String(year) },
-            { label: 'Duration', value: duration },
-            { label: 'Role', value: role?.join(' · ') },
-            { label: 'Team', value: team?.join(', ') },
-          ].map(({ label, value }) => (
-            <div key={label} className="rounded-xl border border-border bg-card p-4">
-              <p className="font-sans text-[11px] font-medium uppercase tracking-[2px] text-honey">
-                {label}
-              </p>
-              <p className="mt-1 font-sans text-sm leading-snug text-foreground">{value}</p>
-            </div>
-          ))}
-        </div>
-        {title === 'GearSmart' && (
-          <div className="relative overflow-hidden rounded-xl bg-card">
-            <video
-              src="/images/case-studies/gearsmart/case_study_videos/02_goingco_czarina_embeddedviedo..mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+      <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {[
+          { label: 'Year', value: String(year) },
+          { label: 'Duration', value: duration },
+          { label: 'Role', value: role?.join(' · ') },
+          { label: 'Team', value: team?.join(', ') },
+        ].map(({ label, value }) => (
+          <div key={label} className="rounded-xl border border-border bg-card p-4">
+            <p className="font-sans text-[11px] font-medium uppercase tracking-[2px] text-honey">
+              {label}
+            </p>
+            <p className="mt-1 font-sans text-sm leading-snug text-foreground">{value}</p>
           </div>
-        )}
+        ))}
       </div>
+
+      {title === 'GearSmart' && (
+        <div className="mt-4 overflow-hidden rounded-xl">
+          <video
+            src="/images/case-studies/gearsmart/case_study_videos/02_goingco_czarina_embeddedviedo..mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full"
+          />
+        </div>
+      )}
 
       {tools?.length > 0 && (
         <div className="mt-5 flex flex-wrap gap-2">
