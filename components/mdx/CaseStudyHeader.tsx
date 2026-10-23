@@ -152,7 +152,7 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
       {title === 'GearSmart' && (
         <div className="mt-4 overflow-hidden rounded-xl">
           <video
-            src="/images/case-studies/gearsmart/case_study_videos/02_goingco_czarina_embeddedviedo..mp4"
+            src="/images/case-studies/gearsmart/case_study_videos/demo-overview.mp4"
             autoPlay
             loop
             muted

@@ -350,4 +350,16 @@
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
   }
+
+}
+
+/* ── Dark-surface text overrides — force sand on all text inside dark green boxes ── */
+.key-insight p,
+.key-insight li,
+.key-insight strong,
+.key-insight em,
+.quote-card blockquote,
+.quote-card blockquote * {
+  color: var(--color-sand) !important;
+  max-width: none !important;
 }
