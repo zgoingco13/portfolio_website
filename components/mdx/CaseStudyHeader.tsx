@@ -14,38 +14,23 @@ function ProductAndLogoHero({
   title: string
 }) {
   return (
-    <div className="mb-12">
-      {/*
-        Desktop: watch | logo | phone in a single row, vertically centered.
-        Mobile: logo on top, then watch + phone side-by-side below.
-      */}
-
-      {/* Mobile layout (hidden on md+): logo dominant, products below side-by-side */}
-      <div className="md:hidden">
-        {heroLogo && (
-          <div className="mb-5 flex justify-center">
-            <div className="relative h-36 w-full max-w-[280px]">
-              <Image src={heroLogo} alt={`${title} logo`} fill className="object-contain" priority />
-            </div>
-          </div>
-        )}
-        <div className="flex items-center gap-3">
-          <div className="relative h-36 flex-1">
-            <Image src={heroWatch} alt={`${title} — watch`} fill className="object-contain" priority />
-          </div>
-          <div className="relative h-36 flex-1">
-            <Image src={heroPhone} alt={`${title} — phone`} fill className="object-contain" priority />
-          </div>
+    <div className="mb-12 flex flex-col gap-6">
+      {/* Row 1: logo full width */}
+      {heroLogo && (
+        <div className="relative w-full" style={{ height: 'min(160px, 14vw)' }}>
+          <Image
+            src={heroLogo}
+            alt={`${title} logo`}
+            fill
+            className="object-contain object-center"
+            priority
+          />
         </div>
-      </div>
+      )}
 
-      {/* Desktop triptych (hidden below md): centered composition, tight gap */}
-      <div className="hidden items-center justify-center gap-8 md:flex lg:gap-12">
-        {/* Left — watch, supporting role */}
-        <div
-          className="relative shrink-0"
-          style={{ width: 'min(200px, 20vw)', height: 'min(240px, 24vw)' }}
-        >
+      {/* Row 2: watch + phone side-by-side, same width as logo row above */}
+      <div className="flex w-full items-center gap-6">
+        <div className="relative flex-1" style={{ height: 'min(320px, 32vw)' }}>
           <Image
             src={heroWatch}
             alt={`${title} — watch`}
@@ -54,26 +39,7 @@ function ProductAndLogoHero({
             priority
           />
         </div>
-
-        {/* Center — logo, dominant: ~55% of the row, up to 640px */}
-        <div
-          className="relative shrink-0"
-          style={{ width: 'min(640px, 54vw)', height: 'min(480px, 40vw)' }}
-        >
-          <Image
-            src={heroLogo ?? heroWatch}
-            alt={`${title} logo`}
-            fill
-            className="object-contain object-center"
-            priority
-          />
-        </div>
-
-        {/* Right — phone, supporting role */}
-        <div
-          className="relative shrink-0"
-          style={{ width: 'min(200px, 20vw)', height: 'min(240px, 24vw)' }}
-        >
+        <div className="relative flex-1" style={{ height: 'min(320px, 32vw)' }}>
           <Image
             src={heroPhone}
             alt={`${title} — phone`}
