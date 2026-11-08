@@ -4,7 +4,7 @@ import { TopoWatermark } from "@/components/TopoWatermark"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Czarina 'Z' Goingco — UX Designer",
+  title: "Czarina 'Z' Goingco | UX Designer",
   description:
     "UX/UI designer based in Los Angeles. Healthcare, outdoor culture, human-centered work.",
   icons: {

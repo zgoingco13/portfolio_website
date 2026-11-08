@@ -24,7 +24,7 @@ const timeline = [
     dotColor: "#B8A968",
     eyebrow: "Detour",
     description:
-      "Pandemic year. Managed a specialty coffee shop — learned how to run small operations under hard constraints.",
+      "Pandemic year. Managed a specialty coffee shop and learned how to run small operations under hard constraints.",
   },
   {
     year: "2021",
@@ -43,14 +43,14 @@ const timeline = [
     dotColor: "var(--color-amber)",
     eyebrow: "Clinic · TMPN Ortho",
     description:
-      "Three years at TMPN Ortho — fitting casts, splinting fractures, and learning how care lands when it's hands-on.",
+      "Three years at TMPN Ortho: fitting casts, splinting fractures, and learning how care lands when it's hands-on.",
   },
   {
     year: "2024 – 2025",
     dotColor: "var(--color-rust)",
     eyebrow: "REI",
     description:
-      "Sales floor + visual merchandising at REI — fitting gear, learning the rhythms of an outdoor community.",
+      "Sales floor + visual merchandising at REI: fitting gear, learning the rhythms of an outdoor community.",
   },
   {
     year: "2024",
@@ -146,7 +146,7 @@ export default function AboutPage() {
                 color: "var(--text-primary)",
                 lineHeight: 1.7,
               }}>
-                My work spans wellness apps, outdoor tools, and emotional design —
+                My work spans wellness apps, outdoor tools, and emotional design,
                 all built to foster connection through shared experience.
               </p>
             </div>
@@ -225,7 +225,7 @@ export default function AboutPage() {
                 Last adventure
               </span>
               <span style={{ fontFamily: "var(--font-mid)", fontWeight: 400, fontSize: "16px", color: "var(--text-primary)", lineHeight: 1.5, marginLeft: "4px" }}>
-                · Climbing in Red Rocks, Las Vegas — with friends
+                · Climbing in Red Rocks, Las Vegas, with friends
               </span>
             </div>
             <div>

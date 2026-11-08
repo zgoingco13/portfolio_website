@@ -9,7 +9,7 @@ import { getAllCaseStudies } from '@/lib/content'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata = {
-  title: "Case Studies — Czarina 'Z' Goingco",
+  title: "Case Studies | Czarina 'Z' Goingco",
   description: 'In-depth UX case studies exploring research, design process, and outcomes.',
 }
 
@@ -34,7 +34,7 @@ export default function CaseStudiesPage() {
               className="mt-4 max-w-2xl font-serif font-light italic text-muted-foreground"
               style={{ fontSize: "var(--text-subhead)" }}
             >
-              In-depth explorations of my design process — from research and discovery through to final outcomes.
+              In-depth explorations of my design process, from research and discovery through to final outcomes.
             </p>
           </div>
         </section>

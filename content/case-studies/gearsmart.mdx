@@ -1,12 +1,12 @@
 ---
 title: GearSmart
-tagline: "A data-powered gear advisor that tells first-time adventurers exactly what to pack — and why."
+tagline: "A data-powered gear advisor that tells first-time adventurers exactly what to pack, and why."
 slug: gearsmart
 year: 2026
-projectType: "AI + AR Product Design — Senior Capstone"
+projectType: "AI + AR Product Design, Senior Capstone"
 duration: "Spring 2026"
 role:
-  - "Sole designer & builder — research, product design, schema design, AI-assisted engineering"
+  - "Sole designer & builder: research, product design, schema design, AI-assisted engineering"
 team:
   - "Solo"
 tools:
@@ -23,10 +23,10 @@ tags:
   - "UX Research"
   - "AR"
 coverImage: "/images/case-studies/gearsmart/case_study_images/hero_image.png"
-coverImageAlt: "GearSmart — Pack right. Get outside."
+coverImageAlt: "GearSmart: Pack right. Get outside."
 thumbnailImage: "/images/case-studies/gearsmart/case_study_images/gearsmart_thumbnail_image.png"
 heroVariant: "default"
-summary: "An AI-powered gear advisor that builds a trip-specific packing list for first-time outdoor adventurers — every item grounded in real conditions, with a reason and the best price."
+summary: "An AI-powered gear advisor that builds a trip-specific packing list for first-time outdoor adventurers, with every item grounded in real conditions, with a reason and the best price."
 featured: true
 order: 1
 ---
@@ -35,7 +35,7 @@ order: 1
 
 <Section title="The Hook">
 
-The first time I went camping, at Holcomb Valley, I hit the moment every beginner knows: not knowing what you don't know. Later, working the floor at REI and leading a women's climbing community, I kept meeting the same person — a capable beginner, underprepared, not for lack of trying, but because every gear resource was written for people who already know. GearSmart is the friend in the gear store, for the people who don't have one.
+The first time I went camping, at Holcomb Valley, I hit the moment every beginner knows: not knowing what you don't know. Later, working the floor at REI and leading a women's climbing community, I kept meeting the same person: a capable beginner, underprepared not for lack of trying, but because every gear resource was written for people who already know. GearSmart is the friend in the gear store, for the people who don't have one.
 
 </Section>
 
@@ -51,7 +51,7 @@ Beginners show up underprepared for three reasons: generic lists ignore the **re
   <div className="w-full max-w-2xl">
     <Video
       src="/images/case-studies/gearsmart/case_study_videos/demo-landing-to-setup.mp4"
-      caption="From landing page to trip setup — five inputs shape the whole list."
+      caption="From landing page to trip setup, five inputs shape the whole list."
       autoPlay
       loop
       muted
@@ -85,7 +85,7 @@ Beginners show up underprepared for three reasons: generic lists ignore the **re
 
 <div className="my-6 grid gap-8 md:grid-cols-[3fr_5fr] md:items-start">
   <div className="font-serif text-base leading-relaxed text-foreground">
-    You give GearSmart your trip — destination, dates, activity, experience level, budget — and it generates a checklist built for <em>that</em> trip: every item carries a plain-language reason, flagged Essential or Recommended, grounded in live weather and conditions, and linked to whichever trusted retailer sells it cheapest. A companion AR feature then coaches you through fitting your pack correctly once it's on the list.
+    You give GearSmart your trip (destination, dates, activity, experience level, budget), and it generates a checklist built for <em>that</em> trip: every item carries a plain-language reason, flagged Essential or Recommended, grounded in live weather and conditions, and linked to whichever trusted retailer sells it cheapest. A companion AR feature then coaches you through fitting your pack correctly once it's on the list.
   </div>
   <div className="flex flex-col gap-6">
     <ImageCarousel>
@@ -124,7 +124,7 @@ Beginners show up underprepared for three reasons: generic lists ignore the **re
 
 <Section title="Process">
 
-**Research with real beginners.** I ran a session with the Ladies Climbing Coalition — real first-timers, not classmates — using an REI roleplay and an affinity board. Three themes surfaced:
+**Research with real beginners.** I ran a session with the Ladies Climbing Coalition (real first-timers, not classmates), using an REI roleplay and an affinity board. Three themes surfaced:
 
 <KeyInsight>
 
@@ -138,7 +138,7 @@ Beginners show up underprepared for three reasons: generic lists ignore the **re
 
 *"I wished someone gave me a list specific to where I was actually going, not just hiking in general."*
 
-**Specificity Gap.** Built around the exact trip — terrain, season, duration — not a generic archetype.
+**Specificity Gap.** Built around the exact trip (terrain, season, duration), not a generic archetype.
 
 </KeyInsight>
 
@@ -150,21 +150,21 @@ Beginners show up underprepared for three reasons: generic lists ignore the **re
 
 </KeyInsight>
 
-The deeper finding: every target user over-rated their own skill on exactly the trip where it mattered most. The real problem wasn't gear — it was **calibration**.
+The deeper finding: every target user over-rated their own skill on exactly the trip where it mattered most. The real problem wasn't gear. It was **calibration**.
 
-**Four versions, and a rebuild.** V1 worked but leaked API keys and broke on bad data. I moved every secret server-side, replaced fragile parsing with the AI's structured tool-use, added retries and spending caps — shipping to real users meant making it not-broken.
+**Four versions, and a rebuild.** V1 worked but leaked API keys and broke on bad data. I moved every secret server-side, replaced fragile parsing with the AI's structured tool-use, added retries and spending caps. Shipping to real users meant making it not-broken.
 
-**The pivot that defines it.** I applied to REI's affiliate program; they rejected it. So I rebuilt the entire purchase layer to be **retailer-agnostic** — searching trusted retailers and routing to whoever's cheapest. The rejection made the product better.
+**The pivot that defines it.** I applied to REI's affiliate program; they rejected it. So I rebuilt the entire purchase layer to be **retailer-agnostic**, searching trusted retailers and routing to whoever's cheapest. The rejection made the product better.
 
-**What I removed.** The strongest decisions were walk-backs — designed, tested, and pulled because simpler served the user better:
+**What I removed.** The strongest decisions were walk-backs: designed, tested, and pulled because simpler served the user better:
 
-- **Per-person pricing.** Built it, tested it, removed it — splitting cost across people obscured the per-item decision the user actually needed to make.
+- **Per-person pricing.** Built it, tested it, removed it. Splitting cost across people obscured the per-item decision the user actually needed to make.
 - **Hover tooltips.** Designed for desktop power users, but the real flow was mobile and one-handed. Tooltips became a tap target nobody wanted.
 - **Solo-mode toggle.** Solved a problem most users didn't have, at the cost of an extra decision every user *did* have to make.
 
 <div className="my-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-center">
   <div className="font-serif text-base leading-relaxed text-foreground">
-    <strong>Designing in AR.</strong> The first time I tested the AR fit guide on a real pack, I learned an overlay can show you the target but can't confirm you've hit it — so v2 tracks the body, not the gear. The physical test taught me what the screen couldn't.
+    <strong>Designing in AR.</strong> The first time I tested the AR fit guide on a real pack, I learned an overlay can show you the target but can't confirm you've hit it, so v2 tracks the body, not the gear. The physical test taught me what the screen couldn't.
   </div>
   <figure>
     <video
@@ -202,11 +202,11 @@ The deeper finding: every target user over-rated their own skill on exactly the 
     />
     <StoryboardFrame
       image="/images/case-studies/gearsmart/case_study_images/v2-06-fitted.jpg"
-      caption="fitted and confirmed — saved to your profile."
+      caption="fitted and confirmed, then saved to your profile."
     />
   </StoryboardGrid>
   <figcaption className="mt-2 text-center font-sans text-sm italic text-muted-foreground">
-    The AR Fit Guide reads 17 body keypoints live, in-browser, and coaches you through five fitting steps — then confirms the fit and remembers your torso size for next time.
+    The AR Fit Guide reads 17 body keypoints live, in-browser, and coaches you through five fitting steps, then confirms the fit and remembers your torso size for next time.
   </figcaption>
 </figure>
 
@@ -214,13 +214,13 @@ The deeper finding: every target user over-rated their own skill on exactly the 
 
 <Section title="What I Designed vs. What AI Built">
 
-AI built the prototype fast — that's the point; it let me test ideas in days, not weeks. What's mine is the thinking. The problem came from the REI floor and my own first trip, validated against real beginners before I built anything. The structure — every item carrying a *why*, tied to the actual forecast for your destination and dates — was a schema I designed and iterated across four versions. The biggest call was the retailer-agnostic pivot after REI's rejection — judgment AI doesn't hand you. And I tested with a real climbing community, not classmates, and changed the product based on what they did. The tool is the artifact; the judgment is the design.
+AI built the prototype fast. That's the point: it let me test ideas in days, not weeks. What's mine is the thinking. The problem came from the REI floor and my own first trip, validated against real beginners before I built anything. The structure, where every item carries a *why* tied to the actual forecast for your destination and dates, was a schema I designed and iterated across four versions. The biggest call was the retailer-agnostic pivot after REI's rejection, a judgment AI doesn't hand you. And I tested with a real climbing community, not classmates, and changed the product based on what they did. The tool is the artifact; the judgment is the design.
 
 </Section>
 
 <Section title="Validation">
 
-Tested with beginner climbers (LCC + remote), reviewed by a panel of working designers — including a senior product designer at Patagonia and a designer on Adobe's design-system team — and exhibited publicly through a four-table experience where visitors compared their own packing guess against a researched list: the gap between guessing and knowing, made physical.
+Tested with beginner climbers (LCC + remote), reviewed by a panel of working designers (including a senior product designer at Patagonia and a designer on Adobe's design-system team), and exhibited publicly through a four-table experience where visitors compared their own packing guess against a researched list. It made the gap between guessing and knowing physical.
 
 <QuoteGrid>
   <QuoteCard name="Sam Anvari" role="Advisor">
@@ -243,7 +243,7 @@ Tested with beginner climbers (LCC + remote), reviewed by a panel of working des
     />
     <CarouselSlide
       src="/images/case-studies/gearsmart/case_study_images/detail_6_community.jpeg"
-      caption="Built with the Ladies Climbing Coalition — real first-timers, not classmates."
+      caption="Built with the Ladies Climbing Coalition: real first-timers, not classmates."
     />
   </ImageCarousel>
 </div>
@@ -252,7 +252,7 @@ Tested with beginner climbers (LCC + remote), reviewed by a panel of working des
 
 <Section title="Reflection">
 
-GearSmart taught me what AI is good for as a design material: speed. But the defensible work is the judgment underneath — framing the real problem, designing the reasoning structure, the retailer-agnostic pivot, and testing with real beginners instead of classmates. The tool is the artifact. The judgment is the design.
+GearSmart taught me what AI is good for as a design material: speed. But the defensible work is the judgment underneath: framing the real problem, designing the reasoning structure, the retailer-agnostic pivot, and testing with real beginners instead of classmates. The tool is the artifact. The judgment is the design.
 
 </Section>
 

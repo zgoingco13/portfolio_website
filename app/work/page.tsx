@@ -45,7 +45,7 @@ export default function WorkPage() {
               style={{ fontSize: "var(--text-subhead)" }}
             >
               Projects across wellness, neurodiversity, healthcare, and outdoor
-              culture — research, prototyping, and validation from start to finish.
+              culture: research, prototyping, and validation from start to finish.
             </p>
           </div>
         </section>
@@ -76,7 +76,7 @@ export default function WorkPage() {
             className="mb-8 font-serif font-light italic text-muted-foreground"
             style={{ fontSize: "14px" }}
           >
-            Long-form investigations — 12 to 16 week design projects with full
+            Answering initial questions through in-depth projects with full
             research, prototyping, and validation.
           </p>
 

@@ -21,3 +21,9 @@ _source/
 # Source material — reference PDFs, raw assets, etc. Not for git.
 _source/
 .vercel
+
+# Local tooling and exports (not part of the site)
+.claude/
+*.zip
+tsconfig.tsbuildinfo
+PROJECT_HANDOFF.md

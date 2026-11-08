@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps) {
   const item = getAcademicProject(slug)
   if (!item) return { title: 'Not Found' }
   return {
-    title: `${item.frontmatter.title} — Czarina 'Z' Goingco`,
+    title: `${item.frontmatter.title} | Czarina 'Z' Goingco`,
     description: item.frontmatter.summary,
   }
 }
@@ -92,7 +92,7 @@ export default async function AcademicProjectPage({ params }: PageProps) {
             </div>
           </header>
 
-          <MDXRemote source={content} components={components} />
+          <MDXRemote source={content} components={components} options={{ blockJS: false }} />
         </article>
       </main>
 

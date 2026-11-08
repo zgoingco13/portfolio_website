@@ -25,7 +25,7 @@ export function RustCtaPanel() {
           className="mt-3 font-serif font-light italic"
           style={{ fontSize: "13px", lineHeight: "1.5", maxWidth: "380px", opacity: 0.92 }}
         >
-          If you&apos;re working on something at the intersection of wellness, neurodiversity, or thoughtful product design — let&apos;s talk.
+          If you&apos;re working on something at the intersection of wellness, neurodiversity, or thoughtful product design, let&apos;s talk.
         </p>
       </div>
       <Link

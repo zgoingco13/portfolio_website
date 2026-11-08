@@ -91,7 +91,7 @@ Pulled from resume + project files. Status reflects readiness for the new site.
 
 | Project | Year | Role | Source material status | MDX status |
 |---|---|---|---|---|
-| **UGLOO** — Wearable ecosystem for neurodivergent kids (Lvl 1 Autism) | Spring 2025 (16 wks) | Marketing/Brand Lead, UX/UI, UX Research | Full PDF write-up + images in project files | **Partially started** — `ugloo.mdx` exists; 4 images in `public/images/case-studies/ugloo/` (hero-phone, hero-watch, logo, solution-diagram) |
+| **UGLOO** — Wearable ecosystem for neurodivergent kids (Lvl 1 Autism) | Spring 2025 (8 wks) | Marketing/Brand Lead, UX/UI, UX Research | Full PDF write-up + images in project files | **Partially started** — `ugloo.mdx` exists; 4 images in `public/images/case-studies/ugloo/` (hero-phone, hero-watch, logo, solution-diagram) |
 | **BeWell** — Wellness app for medical professionals / Barnsdall walk experience | Fall 2024 (16 wks) | UX/UI Designer | Wireframes + final UI screens in project files | Not started |
 | **Apple Watch — Now Playing redesign** | Spring 2025 (2 wks) | UX/UI Designer | Sketches, lo-fi, mid-fi, final renders in project files | Not started |
 
