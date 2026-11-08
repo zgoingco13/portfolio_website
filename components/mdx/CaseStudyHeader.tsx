@@ -29,22 +29,22 @@ function ProductAndLogoHero({
       )}
 
       {/* Row 2: watch + phone side-by-side, same width as logo row above */}
-      <div className="flex w-full items-center gap-6">
-        <div className="relative flex-1" style={{ height: 'min(320px, 32vw)' }}>
+      <div className="flex w-full items-center gap-2">
+        <div className="relative flex-1" style={{ height: 'min(420px, 44vw)' }}>
           <Image
             src={heroWatch}
             alt={`${title} — watch`}
             fill
-            className="object-contain object-center"
+            className="object-contain object-right"
             priority
           />
         </div>
-        <div className="relative flex-1" style={{ height: 'min(320px, 32vw)' }}>
+        <div className="relative flex-1" style={{ height: 'min(420px, 44vw)' }}>
           <Image
             src={heroPhone}
             alt={`${title} — phone`}
             fill
-            className="object-contain object-center"
+            className="object-contain object-left"
             priority
           />
         </div>

@@ -14,6 +14,7 @@ import { ImageWithCaption } from './ImageWithCaption'
 import { ImageCarousel, CarouselSlide } from './ImageCarousel'
 import { ComparisonGrid } from './ComparisonGrid'
 import { Video } from './Video'
+import { PhoneVideo } from './PhoneVideo'
 
 export {
   Section,
@@ -30,6 +31,7 @@ export {
   CarouselSlide,
   ComparisonGrid,
   Video,
+  PhoneVideo,
 }
 
 /** Base component map — CaseStudyHeader requires frontmatter to be bound via getMdxComponents. */
@@ -48,6 +50,7 @@ const baseComponents = {
   CarouselSlide,
   ComparisonGrid,
   Video,
+  PhoneVideo,
 }
 
 /**

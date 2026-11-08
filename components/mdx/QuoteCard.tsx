@@ -7,11 +7,20 @@ interface QuoteCardProps {
   children: React.ReactNode
 }
 
+function extractText(children: React.ReactNode): string {
+  if (typeof children === 'string') return children.trim()
+  if (Array.isArray(children)) return children.map(extractText).join(' ').trim()
+  if (children && typeof children === 'object' && 'props' in children) {
+    return extractText((children as React.ReactElement).props.children)
+  }
+  return ''
+}
+
 export function QuoteCard({ name, role, image, children }: QuoteCardProps) {
   return (
     <div className="quote-card flex flex-col gap-4 rounded-xl bg-forest p-6">
       <blockquote className="font-serif font-light text-lg italic text-sand">
-        &ldquo;{children}&rdquo;
+        &ldquo;{extractText(children)}&rdquo;
       </blockquote>
       <div className="mt-auto flex items-center gap-3">
         {image && (

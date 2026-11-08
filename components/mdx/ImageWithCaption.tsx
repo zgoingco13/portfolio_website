@@ -19,7 +19,7 @@ export function ImageWithCaption({
   wrapperClassName,
   objectFit = 'cover',
   natural,
-  lightbox,
+  lightbox = true,
   captionClassName,
 }: ImageWithCaptionProps) {
   const [open, setOpen] = useState(false)
@@ -55,7 +55,7 @@ export function ImageWithCaption({
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="block w-full cursor-zoom-in rounded-xl transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-rust"
+            className="img-spin block w-full cursor-zoom-in rounded-xl focus-visible:outline-2 focus-visible:outline-rust"
             aria-label={`Enlarge: ${caption}`}
           >
             {imageEl}
@@ -82,7 +82,8 @@ export function ImageWithCaption({
             width={0}
             height={0}
             sizes="90vw"
-            className="h-auto max-h-[85vh] w-auto max-w-[90vw] cursor-default rounded-xl object-contain"
+            className="h-auto max-h-[85vh] w-auto max-w-[90vw] cursor-default rounded-xl object-contain p-4 md:p-6"
+            style={{ backgroundColor: '#F0E6D0' }}
             onClick={(e) => e.stopPropagation()}
           />
           <p
