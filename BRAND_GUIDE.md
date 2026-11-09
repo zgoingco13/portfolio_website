@@ -1,6 +1,6 @@
 # zgoingco — Brand Guide
 
-*Brand system v2.3 · Last updated 2026-05-09 (morning)*
+*Brand system v2.4 · Last updated 2026-11-09*
 
 > Companion to `BRAND_SPEC.md`. The spec is the rules; this guide is the reasoning.
 
@@ -16,7 +16,8 @@ zgoingco's brand is a portfolio for a designer who works at the intersection of 
 
 | Element | Color | Hex | Typeface |
 |---|---|---|---|
-| Logo | Forest | `#2D4A33` | — |
+| Logo (boot print) | Rust (light bg) / Sand (dark bg) | `#B8482E` / `#F0E6D0` | Cooper Black (Z, outlined) |
+| Favicon | Rust shoe print on Sand tile | `#B8482E` / `#F0E6D0` | Cooper Black (Z, outlined) |
 | Page background | Sand | `#F0E6D0` | — |
 | Body text | Charcoal | `#1F2A22` | Eurostile |
 | Hero headline | Charcoal (with Rust accent word) | `#1F2A22` / `#B8482E` | Cooper Black |
@@ -58,23 +59,51 @@ This is how mature brands work. Patagonia's homepage is full-bleed mountain imag
 
 ## 2. The mark
 
-The logo is a stylized letter Z containing a mountain range and a winding path that extends beyond the bottom-right edge. The extending path is the brand's signature gesture — it represents a journey continuing past the frame.
+### The logo: boot print with a Z
+
+The logo is a hiking-boot sole seen from below: chevron lugs up the middle of the forefoot, a ring of edge blocks, a round lug on the heel, and a capital **Z in Cooper Black** stamped into the arch plate, like a maker's mark on a real boot. It's a footprint — the first step of a trail — with the brand's initial pressed into it.
+
+It carries the same idea as the original mark (a Z with mountains and a path running past the frame): the brand is about a journey. The boot says it more directly — this is someone who actually walks the trail — and it's a single, sturdy shape instead of a scene. It replaced the original in v2.4 because the old mark had too many small details and broke down at small sizes.
 
 ### Logo color
 
-Always Forest green (`#2D4A33`) on light backgrounds and Sand (`#F0E6D0`) on dark backgrounds. Never recolored in any other palette color.
+- **Rust (`#B8482E`) on light backgrounds** (Sand, white cards).
+- **Sand (`#F0E6D0`) on dark backgrounds** (Forest footer, Charcoal). Rust on Forest is too low-contrast.
+- One color at a time; the Z and the gaps between lugs are cut out, so the background shows through.
+- Never in Honey, Amber, Ember, Moss, or Forest.
+
+Rust is the brand's "call" color, so the logo now reads as the brand's signature accent rather than part of the green structure.
 
 ### File naming caveat
 
-The inverse (light-on-dark) logo file is named `logo-cream.svg` for historical reasons — earlier versions of the spec used "Cream" as the canvas color name. The actual color it produces is Sand (`#F0E6D0`). Don't rename the file; just know that "cream" in the filename refers to a previous color name.
+The files keep their old names so existing code keeps working: `logo-forest.svg` is the primary (light-background) logo — it's now **Rust**, not Forest — and `logo-cream.svg` is the inverse, which renders Sand (`#F0E6D0`). Don't rename them; just know the names are historical.
 
-### File quality note
+### File quality
 
-The current SVG was traced from a raster source, so its path data is bloated even though the colors have been normalized to Forest plus transparent. It works fine on the web at any size you'll use, but a future task is to redraw it as clean hand-coded SVG (under 5 paths, single fill) for crisp print output.
+Drawn by hand in Illustrator as clean vector shapes, with fills set directly on each shape. Crisp at any size, including print. The old traced, bloated SVG is retired.
 
-### Clear space and minimum size
+### Proportions, clear space, and minimum size
 
-Maintain clear space equal to the height of the mountain peak inside the Z. Below 24px tall, the path detail becomes illegible — for favicons, use a simplified icon variant (Z + mountains only).
+- The logo is tall and narrow: about **0.4 : 1** (width : height).
+- **Clear space:** at least the width of the heel on every side.
+- **Minimum size:** 56px tall in the nav (64px is better; that's where the Z becomes readable). Below that, use the favicon instead.
+
+### The favicon: shoe print with a Z
+
+At favicon sizes the boot's tread turns to texture, so the brand has a dedicated icon: **a single upright shoe print with a Cooper Black Z cut out of the sole**, in Rust on a Sand rounded tile. It's the boot logo simplified: same idea, same Z, no lugs.
+
+- One design works at every size, from the 16px browser tab to the 512px app icon.
+- The Z is Cooper Black, set large (about 13% bigger than an even stroke Z) so it survives at 16px. It's straightened upright for legibility.
+- The Sand tile keeps the icon visible in both light and dark browser tabs.
+- On the iPhone home-screen icon, the tile is a full Sand square, because iOS rounds the corners itself.
+
+### Alternate mark: footsteps Z
+
+An earlier v2.4 candidate, kept as an alternate: nine shoe prints walking the shape of a Z, ending at a Rust badge with a waving flag cut out. Footprints in Forest (Sand on dark), flag badge in Rust. Use it only for decorative moments (e.g. a section divider or about-page detail), never in place of the logo.
+
+### Why Cooper Black for the Z
+
+Cooper Black is already the hero headline face, so the Z belongs to the brand. It's also the only one of the three typefaces heavy enough to survive small sizes: rounded, with no thin strokes. In the logo and favicon the Z is outlined artwork, not live text.
 
 ---
 
@@ -85,7 +114,7 @@ Maintain clear space equal to the height of the mountain peak inside the Z. Belo
 Four colors do the structural work. They appear on every page.
 
 **Forest** — `#2D4A33`
-The brand anchor. Logo, navigation, structural elements, dark section backgrounds, the ridge silhouettes that appear in both states. Most-used color after Sand.
+The brand anchor. Navigation, structural elements, dark section backgrounds, the ridge silhouettes that appear in both states. Most-used color after Sand.
 
 **Moss** — `#6B8A4A`
 Secondary green. "Easy" / "Wearable" tags, success states, lighter green accents.
@@ -107,7 +136,7 @@ Highlights, "currently" badges, eyebrow text on dark backgrounds, "easy" tags.
 Sunset stripe middle, secondary CTAs, "Wellness / moderate" tags, journal section accents.
 
 **Rust** — `#B8482E`
-Primary CTAs, "Watch UI / strenuous" tags, coordinate metadata, accent words in headlines, the rust co-structural panel. The most-used warm accent.
+Primary CTAs, "Watch UI / strenuous" tags, coordinate metadata, accent words in headlines, the rust co-structural panel, the logo, and the favicon. The most-used warm accent.
 
 **Ember** — `#7A2820`
 Deep accent. Text on Honey backgrounds, sunset gradient endpoint, hover states.
@@ -138,14 +167,14 @@ Three typefaces, three jobs. **Cooper for attention. Bookmania for personality. 
 
 ### Cooper Black — Hero headlines
 
-Used for hero headlines, key statements, and special callouts. Cooper's chunky retro warmth gives the brand its national-park-poster character.
+Used for hero headlines, key statements, and special callouts. Cooper's chunky retro warmth gives the brand its national-park-poster character. It's also the letterform for the Z in the logo and the favicon (outlined artwork).
 
 - Sizes: 40–64px (responsive via clamp)
 - Weight: Black (the only weight)
 - Case: Sentence case
 - Leading: Tight (1.0–1.1)
 - Use sparingly — one Cooper headline per screen, max
-- Below 24px, Cooper becomes muddy. Use Bookmania instead.
+- Below 24px, Cooper becomes muddy as live text. Use Bookmania instead. (The favicon Z is the exception: it's a single heavy outlined letter, drawn large inside the icon.)
 
 ### Bookmania — Section headers and voice
 
@@ -202,8 +231,6 @@ A 6px gradient stripe (Honey → Amber → Rust) at 85% opacity. **State A only.
 ### Three-ridge silhouettes
 
 Layered mountain ridge polygons in fading green opacity (10% / 18% / 32%). Used as the State A hero background and as the bottom-of-page horizon on State B page watermarks. The three opacities create depth — the closest ridge has the most prominent peaks. Always anchor ridges to the bottom of their container.
-
-### Topo + ridge watermark
 
 ### Topo + ridge watermark (global)
 
@@ -306,7 +333,19 @@ Sentence case for everything except buttons, navigation, eyebrow text, and metad
 
 ---
 
-## 8. What changed in v2.3
+## 8. What changed in v2.4
+
+A new mark, a real favicon, and a letterform for the Z:
+
+- **New logo: boot print with a Cooper Black Z.** The Z + mountains + path mark is retired. The new logo is a hiking-boot sole with a Cooper Black Z stamped into the arch. Reason: the old mark had too many small details and broke down at small sizes; the boot keeps the journey idea as one sturdy shape.
+- **Logo color changed to Rust** on light backgrounds (Sand on dark). Previously the logo was Forest. File names stay `logo-forest.svg` / `logo-cream.svg` so code doesn't break.
+- **Clean vector files.** Hand-drawn in Illustrator; the old raster-trace SVG and its "redraw later" task are resolved.
+- **Favicon added.** A single upright shoe print with a Cooper Black Z cut out, Rust on a Sand tile — the boot simplified. One design at every size (16–512px). Replaces the planned "Z + mountains" icon-only variant.
+- **Alternate mark: footsteps Z** (nine prints walking a Z to a Rust flag badge), kept for decorative use only.
+- **Cooper Black for the Z** in both the logo and the favicon (outlined), matching the hero typeface.
+- **Logo proportions changed** from square to tall (about 0.4 : 1). Minimum 56px tall in the nav; `<img>` sizes in code need updating (e.g. `width="24" height="60"`).
+
+## 9. What changed in v2.3
 
 A small but meaningful change to information architecture and nav behavior:
 
@@ -316,7 +355,7 @@ A small but meaningful change to information architecture and nav behavior:
 - **About page added to the top nav.** The about page was built in v2.2 but wasn't yet linked from the main nav — that's resolved now.
 - **Sub-route active state behavior.** When a visitor is on /case-studies/ugloo or /academic-projects/[anything], the Work nav link displays as active (rust + bold). This required `pathname.startsWith()` logic in the nav component since sub-routes don't match exactly.
 
-## 9. What changed in v2.2
+## 10. What changed in v2.2
 
 A scope correction after seeing the v2.1 site live:
 
@@ -325,7 +364,7 @@ A scope correction after seeing the v2.1 site live:
 - **Pre-shipping checklist updated** to verify `<TopoWatermark />` is in the root layout, not duplicated per-page.
 - Lower-maintenance benefit: future pages added to the site inherit the watermark with zero extra work.
 
-## 10. What changed in v2.1
+## 11. What changed in v2.1
 
 A small but important addition after testing the v2.0 homepage assembly:
 
@@ -333,7 +372,7 @@ A small but important addition after testing the v2.0 homepage assembly:
 - **Updated rule.** Forest + Rust panel adjacency now requires either semantic meaning (what-worked / what-didn't pairs) OR a Breath Strip between them. Pre-shipping checklist updated accordingly.
 - **Homepage composition updated.** New step 8 (Breath Strip) inserted between the rust CTA and forest footer.
 
-## 11. What changed in v2.0
+## 12. What changed in v2.0
 
 For anyone tracking the system's evolution:
 
@@ -349,15 +388,22 @@ For anyone tracking the system's evolution:
 
 ---
 
-## 12. Files and assets
+## 13. Files and assets
 
 ```
-/brand
+/public
   /logo
-    logo-forest.svg                primary, light backgrounds
-    logo-forest.png / -1x / -2x    raster fallbacks
-    logo-cream.svg                 inverse, dark backgrounds (recolored Sand)
+    logo-forest.svg                primary logo: Rust boot print (light backgrounds)
+    logo-forest.png / -1x / -2x    raster fallbacks (1024 / 256 / 512 px tall)
+    logo-cream.svg                 inverse: Sand boot print (dark backgrounds)
     logo-cream.png / -1x / -2x     inverse raster fallbacks
+    footsteps-z-forest.svg / -cream.svg   alternate mark (decorative only)
+/app
+  favicon.ico                      shoe-print favicon (16, 32, 48 px inside)
+  icon.svg                         shoe-print favicon, vector (modern browsers)
+  apple-icon.png                   180 px, full Sand square (iOS rounds corners)
+  (optional) icon-16/32/192/512.png
+/brand
   /docs
     BRAND_GUIDE.md                 (this file)
     BRAND_SPEC.md                  machine-readable spec for Claude Code

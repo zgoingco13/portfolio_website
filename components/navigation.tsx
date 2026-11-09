@@ -37,8 +37,8 @@ export function Navigation() {
           <Image
             src="/logo/logo-forest.svg"
             alt="Z Goingco"
-            width={48}
-            height={32}
+            width={26}
+            height={64}
             priority
           />
         </Link>

@@ -3,13 +3,13 @@
 > Personal running doc to track what's done, what's in flight, and what's next.
 > Update this whenever you make a meaningful change so future-you (and Claude) can pick up fast.
 
-**Last updated:** 2026-05-13 (about page reset to single-column architecture)
+**Last updated:** 2026-11-09 (brand v2.4 — new boot-print logo + shoe-print favicon)
 
 ---
 
 ## TL;DR — Where I am right now
 
-Site is **live** at https://zgoingco.design with the v2.3 brand system fully applied. Brand locked at v2.3 (logo + colors + typography + two-state architecture + Breath Strip + global watermark + nav consolidation under /work hub). Major site sections all built: homepage, about, work, case studies, academic projects, contact. Next phase: UGLOO case study content + real photography for the homepage carousel.
+Site is **live** at https://zgoingco.design with the v2.3 brand system applied. Brand is now at **v2.4**: a new boot-print logo with a Cooper Black Z (Rust), a shoe-print favicon with a Cooper Black Z, and a footsteps-Z alternate mark. The v2.4 logo and favicon files are made but **not yet dropped into the repo**. Major site sections all built: homepage, about, work, case studies, academic projects, contact. Next phase: install the v2.4 logo + favicon, then UGLOO case study content + real photography for the homepage carousel.
 
 ---
 
@@ -55,16 +55,22 @@ Flattened today — no `my_portfolio` wrapper, no `b_pWjCYhe5jTr` subfolder. `pa
 - [x] Bought `zgoingco.design` ($19.99 yr 1, autorenew OFF — expires May 5 2027)
 - [x] Bought `zgoingco.com` ($11.25/yr, autorenew ON)
 - [x] Configured `zgoingco.design` as primary; `.com` and `.vercel.app` URLs redirect to it
-- [x] Locked brand identity: Z+mountains+path logo (Image 8 from Claude.ai brand session)
+- [x] Locked brand identity: Z+mountains+path logo (Image 8 from Claude.ai brand session) — *replaced in v2.4*
 - [x] Locked color system: Forest `#2D4A33` (primary), Moss, Cream, Charcoal, plus warm autumn accents (Honey, Amber, Rust, Ember)
 - [x] Locked typography: Cooper Black (hero) + Bookmania (mid) + Eurostile (body/UI), all served via Adobe Fonts
 - [x] Created `BRAND_GUIDE.md` and `BRAND_SPEC.md` (machine-readable for Claude Code) — to be added to the repo and to the IxD project on Claude.ai
-- [x] Cleaned logo source files: `logo-forest.svg`/`.png` and `logo-cream.svg`/`.png` (transparent backgrounds, brand color normalized to `#2D4A33`)
+- [x] Cleaned logo source files: `logo-forest.svg`/`.png` and `logo-cream.svg`/`.png` (transparent backgrounds, brand color normalized to `#2D4A33`) — *replaced in v2.4*
+- [x] **v2.4 logo:** boot print (hiking-boot sole, chevron lugs, round heel lug) with a Cooper Black Z stamped in the arch, drawn clean in Illustrator; Rust version for light backgrounds, Sand for dark, plus PNGs
+- [x] **v2.4 favicon:** single upright shoe print with a Cooper Black Z (larger size) cut out, Rust on a Sand tile — `favicon.ico`, `icon.svg`, `apple-icon.png`, plus 16/32/192/512 PNGs
+- [x] **v2.4 alternate mark:** footsteps Z (nine shoe prints walking a Z to a Rust flag badge), decorative use only
+- [x] Brand docs bumped to v2.4 (`BRAND_SPEC.md`, `BRAND_GUIDE.md`, `PROJECT_HANDOFF.md`, this file)
 
 ## In progress 🔄
 
 - [ ] Apply new brand system across the existing site (Option A — full refactor):
-  - [ ] Drop logo files into `/public/logo/`
+  - [ ] Drop the **v2.4** logo files into `/public/logo/` (same file names as before: `logo-forest.svg` = Rust boot, `logo-cream.svg` = Sand boot, PNGs) plus the `footsteps-z-*.svg` alternates
+  - [ ] Drop the **v2.4** favicon files into `app/` (`favicon.ico`, `icon.svg`, `apple-icon.png`) and delete any older favicon files that would override them
+  - [ ] Update logo `<img>` sizes to the new tall ratio (~0.4 : 1, e.g. `width="24" height="60"`), at least 56px tall in the nav
   - [ ] Wire Adobe Fonts `<link>` into `app/layout.tsx` (or equivalent)
   - [ ] Replace any existing color values with brand tokens from `BRAND_SPEC.md`
   - [ ] Replace existing fonts with Cooper Black / Bookmania / Eurostile per spec
@@ -78,8 +84,7 @@ Flattened today — no `my_portfolio` wrapper, no `b_pWjCYhe5jTr` subfolder. `pa
 - [ ] Wire homepage cards to the case study pages
 - [ ] Polish, optimize images (TinyPNG / Squoosh), deploy to Vercel
 - [ ] Update resume/links to point to new domain instead of Webflow URL
-- [ ] **Logo cleanup task:** redraw the SVG as clean hand-coded paths (current SVG is from a raster trace — works but bloated). Target: under 5 path elements, single fill.
-- [ ] Create icon-only variant of the logo (Z + mountains, no path detail) for favicons and small UI
+- [ ] Use the boot-print logo (or the favicon tile) as the LinkedIn / social avatar (optional)
 
 ---
 
@@ -91,7 +96,7 @@ Pulled from resume + project files. Status reflects readiness for the new site.
 
 | Project | Year | Role | Source material status | MDX status |
 |---|---|---|---|---|
-| **UGLOO** — Wearable ecosystem for neurodivergent kids (Lvl 1 Autism) | Spring 2025 (8 wks) | Marketing/Brand Lead, UX/UI, UX Research | Full PDF write-up + images in project files | **Partially started** — `ugloo.mdx` exists; 4 images in `public/images/case-studies/ugloo/` (hero-phone, hero-watch, logo, solution-diagram) |
+| **UGLOO** — Wearable ecosystem for neurodivergent kids (Lvl 1 Autism) | Spring 2025 (16 wks) | Marketing/Brand Lead, UX/UI, UX Research | Full PDF write-up + images in project files | **Partially started** — `ugloo.mdx` exists; 4 images in `public/images/case-studies/ugloo/` (hero-phone, hero-watch, logo, solution-diagram) |
 | **BeWell** — Wellness app for medical professionals / Barnsdall walk experience | Fall 2024 (16 wks) | UX/UI Designer | Wireframes + final UI screens in project files | Not started |
 | **Apple Watch — Now Playing redesign** | Spring 2025 (2 wks) | UX/UI Designer | Sketches, lo-fi, mid-fi, final renders in project files | Not started |
 
@@ -126,10 +131,10 @@ Optimize later via TinyPNG or Squoosh before deploy.
 - [ ] Decide on `.design` renewal by April 2027 (~$53.29/yr after promo)
 - [ ] Decide whether to commit `_source/` PDFs to git or add to `.gitignore`
 - [ ] Activate Adobe Fonts web project with Cooper Black + Bookmania (Light Italic, Regular, Bold) + Eurostile, paste `<link>` into `app/layout.tsx`
-- [ ] After Option A refactor, schedule the logo SVG redraw (clean hand-coded paths) before any print/large-format use
 - [ ] Confirm the Adobe Fonts web project's exact font-family strings match the spec (lowercase-hyphenated by Adobe convention but can vary)
 - [ ] Source 4-12 nature photographs for the homepage carousel (landscape orientation, ~1600px wide). Until then, run the build with placeholder gradients and swap real photos in afterward.
 - [ ] Decide whether `/work` is a separate index page (would also use State A) or whether the homepage IS the work index
+- [ ] Optional: a "zgoingco" wordmark lockup next to the logo (Cooper Black would be the natural choice)
 
 ---
 
@@ -156,31 +161,18 @@ claude
 
 ## Log
 
-### 2026-05-13 — About page reset to single-column architecture
-After 8 iterative passes that didn't converge on a layout that felt right, the two-column architecture was scrapped and rebuilt from scratch.
+### 2026-11-09 — v2.4 new logo + favicon
+Logo redesign session in Claude.ai (Nov 8–9). The old Z + mountains + path mark had too many small details (footprints in the path, grass tufts, snow lines) and broke down at small sizes.
 
-- **Inspiration:** Fernando Herrera's about page (fernandoh.design/about) — single column, conversational, personal moments stacked vertically. Adapted to Czarina's brand system and content.
-- **Structure (top to bottom):** Hero (eyebrow + Cooper headline + italic subhead + 2 short bio paragraphs) → Canada photo (4:3, centered, MapPin caption) → Currently (eyebrow + rust gradient line + 3 bolded label rows) → Timeline (8 milestones, preserved exactly) → Cathedral photo (wider 960px, 21:9, visual moment) → Reach out (3 link cards: LinkedIn / Email / Resume PDF).
-- **No two-column grids anywhere.** All text sections constrained to `maxWidth: 720px`, cathedral photo to `maxWidth: 960px`. `mx-auto` and `var(--page-padding)` handle spacing.
-- **Timeline preserved exactly** — same data array, same dot colors, same dashed rust trail, same rendering logic.
-- **All content preserved** — headline, subhead, bio, Currently lines, resume PDF path, LinkedIn URL, email.
-- **Page is now genuinely done.** Ready to ship and focus on case study writing.
-
-### 2026-05-11 — Polish pass + editorial margins (v2.4)
-Two prompts shipped. Both committed to main (not pushed — visual verification first).
-
-- **Contact + footer cleanup:** real email, LinkedIn, Twitter/Dribbble removed (see 2026-05-11 log below for details).
-- **Editorial margins (v2.4):** page padding bumped from `px-6` (24px uniform) to responsive scale: 24px mobile / 64px tablet / 100px desktop. Applied site-wide via `px-6 md:px-16 lg:px-[100px]` on all page-level containers. `--page-padding` CSS variable added to `globals.css`. Nav bar and footer match. Cards, buttons, forms untouched. Brand spec bumped to v2.4.
-
-### 2026-05-11 — Polish pass: contact + footer + about restructure
-Site-wide placeholder cleanup and about page layout improvements.
-
-- **Contact page:** replaced `hello@sarahchen.design` placeholder with `zgoingco.design@gmail.com` (href + display text). Updated LinkedIn href to real profile URL. Removed Twitter from "Or reach out directly" — section now shows Email + LinkedIn only.
-- **Footer (site-wide):** removed Twitter and Dribbble icons. Footer social row now shows LinkedIn (real URL) + Email (`zgoingco.design@gmail.com`) only. SMC student email replaced with design email.
-- **About hero restructured:** headshot moved to landscape crop (`aspectRatio: 16/10`, `objectPosition: center 30%`) to eliminate portrait whitespace orphan. Bio paragraph removed from hero — hero now contains only eyebrow + headline + subhead on left, headshot + caption on right.
-- **Photo captions added:** MapPin icon (rust, 11px) + Bookmania Light Italic 11px caption under both photos — "Exploring downtown Jasper, AB, Canada" under headshot, "Climbing at Cathedral Peaks in Yosemite, CA" under cathedral.jpeg.
-- **Bio + Currently sidebar:** bio paragraph and Currently box now live in a two-column layout (`1.5fr 1fr`), stacking on mobile. Previously the Currently box was isolated below the cathedral photo.
-- **Timeline:** renamed "The path" → "My journey" (section header + hero eyebrow). Year and category label now display on one baseline-aligned line (`2019 · Science`) instead of stacked on two lines.
+- **Explored:** simplified versions of the old mark, "the Z is the trail," then a fresh start with 12 outdoor symbols (sunrise, trail blaze, pine, compass, topo summit, campfire, fern, river, moon, footsteps, mountain patch, sun-and-hills Z) and bikes. Narrowed through compass, campfire, footsteps and mountain patch to "Z is north" (compass) vs. "Steps along a Z."
+- **Picked: boot print with a Cooper Black Z.** A hiking-boot sole (chevron lugs, edge ring, round heel lug) with a Z stamped in the arch plate, drawn in Illustrator. Chosen as the main logo after first settling on "footsteps Z" (nine shoe prints walking a Z to a Rust flag badge), which is kept as a decorative alternate. The boot is one sturdy shape that says "someone who walks the trail."
+- **Destination marker:** compared dot, pennant, summit, X, and map pin. X was ruled out because it reads as "close/delete" next to the browser tab's own × button. Went with the waving flag in a Rust badge.
+- **Favicon:** the full logo turns to texture at 16px, so the favicon is a single upright shoe print with a Cooper Black Z cut out, Rust on a Sand tile (tile keeps it visible in dark tabs). Tried boot prints with lugs and detailed tread; detail turned to noise at 16px, so the favicon stayed a simple shoe print. One design works at every size.
+- **Z letterform:** Cooper Black — matches the hero font and is the only brand face heavy enough to survive 16px. Used at the larger size in the favicon, straightened upright.
+- **Color rules changed:** the logo is now Rust on light backgrounds and Sand on dark (never Rust on Forest). Previously Forest-only. File names stay `logo-forest.svg` / `logo-cream.svg` so code doesn't break. Snapped stray Illustrator colors (`#b9492e`, `#d47328`, `#315126`, `#ed2024`) to brand values.
+- **Other spec changes:** logo is tall, ~0.4 : 1 (update `<img>` sizes, e.g. 24 × 60); minimum 56px tall in the nav (64px is where the Z reads); below that use the favicon. Clear space = the heel's width.
+- **Docs:** `BRAND_SPEC.md` and `BRAND_GUIDE.md` bumped to v2.4 together; this log and `PROJECT_HANDOFF.md` updated to match.
+- **Next:** drop logo files into `public/logo/` and favicon files into `app/`, update `<img>` sizes, push, check the live tab icon in light and dark mode.
 
 ### 2026-05-09 (morning) — v2.3 nav consolidation + /work hub + about page live
 Wrapping up the brand application phase. Two prompts shipped today, both pushed to production.
@@ -234,7 +226,7 @@ Brand v2.0 lock session in Claude.ai. Earlier today's v1.1 was the warm-up; this
   - `CLAUDE_CODE_PROMPT.md` — new 11-step prompt covering the full Option A refactor including State A homepage build and State B page treatment
 - **Decisions deferred:**
   - Real nature photography for the homepage carousel — placeholders OK for first build, swap real photos in after
-  - Logo SVG redraw (still a raster trace; works on web, redraw before any print use)
+  - Logo SVG redraw (still a raster trace; works on web, redraw before any print use) — *resolved in v2.4*
   - Adobe Fonts Web Project setup — needs to happen before running the Claude Code prompt
 - **Next session:** create the Adobe Fonts Web Project, drop the brand files into the IxD project on Claude.ai, then run the v2.0 Claude Code prompt against the portfolio repo.
 

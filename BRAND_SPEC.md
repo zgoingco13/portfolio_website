@@ -3,18 +3,8 @@
 > Source of truth for all brand styling on this website. When building or modifying any UI, **always read and follow this spec exactly.** If the spec and existing code disagree, the spec wins — update the code to match.
 
 **Brand:** zgoingco (portfolio · zgoingco.design)
-**Spec version:** 2.4 — page padding bumped to responsive editorial scale; `--page-padding` token introduced
-**Last updated:** 2026-05-11 (v2.4)
-
-### What changed in v2.4
-- Page horizontal padding: `px-6` (24px uniform) → responsive scale via `--page-padding`
-- Mobile (<768px): 24px · Tablet (≥768px): 64px · Desktop (≥1024px): 100px
-- Applied site-wide: all page-level `<section>` / `<article>` / `<div>` containers, nav bar, footer
-- Card / button / form / inset-widget padding unchanged — only page-level containers affected
-- Implementation: Tailwind responsive classes `px-6 md:px-16 lg:px-[100px]`
-
-### What changed in v2.3
-Nav consolidated to 4 links (HOME · WORK · ABOUT · CONTACT). Active nav state = rust color + Bookmania Bold weight. `/work` hub page created. Work nav link shows active on all `/case-studies/*` and `/academic-projects/*` sub-routes.
+**Spec version:** 2.4 — new boot-print logo with Cooper Black Z (Rust); shoe-print favicon with Cooper Black Z; footsteps-Z alternate mark
+**Last updated:** 2026-11-09 (v2.4)
 
 ---
 
@@ -55,7 +45,7 @@ Use these as CSS variables. They are non-negotiable.
 ```css
 :root {
   /* Foundations */
-  --color-forest:   #2D4A33;  /* Logo, primary structure, dark sections, ridges */
+  --color-forest:   #2D4A33;  /* Primary structure, dark sections, ridges */
   --color-moss:     #6B8A4A;  /* Secondary green, easy/soft tags */
   --color-charcoal: #1F2A22;  /* Body text, dark UI surfaces, never #000 */
   --color-sand:     #F0E6D0;  /* Page background — NEVER use #FFFFFF */
@@ -64,7 +54,7 @@ Use these as CSS variables. They are non-negotiable.
   /* Warm accents */
   --color-honey:  #E8B547;  /* Highlights, eyebrow text on dark, "easy" tags */
   --color-amber:  #D87A3A;  /* Secondary CTAs, moderate tags, sunset middle */
-  --color-rust:   #B8482E;  /* Primary CTAs, strenuous tags, eyebrow on light, RUST PANELS */
+  --color-rust:   #B8482E;  /* Primary CTAs, strenuous tags, eyebrow on light, RUST PANELS, logo, favicon */
   --color-ember:  #7A2820;  /* Deep accent, text on Honey */
 
   /* Semantic aliases — use these in component code */
@@ -107,8 +97,9 @@ Use these as CSS variables. They are non-negotiable.
 | Card / surface on top of Sand | `#FFFFFF` with `--border-subtle` |
 | Body text on light bg | `--color-charcoal` (never `#000000`) |
 | Body text on dark bg | `--color-sand` |
-| Logo on light bg | `--color-forest` |
-| Logo on dark bg (forest, charcoal, rust) | `--color-sand` |
+| Logo on light bg | `--color-rust` boot print (`logo-forest.svg` — historical file name) |
+| Logo on dark bg (forest, charcoal) | `--color-sand` boot print (`logo-cream.svg`) |
+| Favicon | `--color-rust` shoe print on `--color-sand` tile |
 | Primary button | `--color-rust` bg, `--color-sand` text |
 | Secondary button | transparent bg, `--color-forest` text and border |
 | Button inside a rust panel | `--color-sand` bg, `--color-charcoal` text |
@@ -185,7 +176,7 @@ Aim for: ~50% Sand, ~28% Forest, ~12% Charcoal, ~7% Rust (for CTA panel moments)
 
 - Don't use `#FFFFFF` for page backgrounds — use Sand.
 - Don't use `#000000` for text — use Charcoal.
-- Don't recolor the logo in any warm accent or Moss.
+- Don't recolor the logo in anything but Rust (light bg) or Sand (dark bg). Never put the Rust logo on Forest — use the Sand version.
 - Don't place Forest text on Charcoal background — they disappear.
 - Don't stack three or more warm accents in one section.
 - Don't place forest and rust panels adjacent without a Sand Breath Strip between them — unless the panels carry semantic meaning (e.g., what-worked vs what-didn't pairs).
@@ -220,7 +211,7 @@ All three typefaces are served via Adobe Fonts. **Do not self-host or use `@font
 
 | Typeface | Required weights | Used for |
 |---|---|---|
-| Cooper Black | Regular | Hero headlines |
+| Cooper Black | Regular | Hero headlines (and the outlined Z in the logo / favicon) |
 | Bookmania | Light Italic (300), Regular (400), Bold (700) | Subheads, journal copy, section headers |
 | Eurostile | Regular | Body, UI, all uppercase tracked elements |
 
@@ -355,7 +346,7 @@ If a weight is referenced in CSS but not activated in the Adobe Fonts project, t
 
 ### Don't
 
-- Don't use Cooper Black below 24px — it becomes muddy.
+- Don't use Cooper Black below 24px as live text — it becomes muddy. (The outlined Z in the logo and favicon is artwork, not text, and is exempt.)
 - Don't use more than one Cooper Black headline per screen.
 - Don't use Bookmania for default body text — that's Eurostile's job. Bookmania Regular is reserved for long-form journal content (`.journal-text`).
 - Don't use Bookmania below Bold (700) for section headers — anemic weights look weak next to Cooper.
@@ -714,22 +705,6 @@ Apply via inline style or category class on the card's `border-left`:
 
 > **Important:** the topo + ridge watermark sits behind every page on the site at `position: fixed; z-index: -1;` (see "Signature elements" § 3). Do NOT add a `<TopoWatermark />` instance to any individual page — it's already in the root layout. The composition lists below describe what's *on top* of the watermark, which is everything.
 
-### Page-level horizontal padding
-
-All page-level containers (sections, articles, nav bar, footer) use the `--page-padding` responsive scale:
-
-```css
-/* Defined in app/globals.css */
---page-padding: 24px;   /* mobile (<768px) */
---page-padding: 64px;   /* tablet (≥768px) */
---page-padding: 100px;  /* desktop (≥1024px) */
-```
-
-Implementation via Tailwind: `px-6 md:px-16 lg:px-[100px]`
-
-**What gets this padding:** every `mx-auto max-w-6xl` (or `max-w-4xl`) container on a page, plus the nav bar inner container and footer inner container.
-**What does NOT get this padding:** individual cards, buttons, form inputs, inset content widgets (e.g. the Currently box), MDX component internals, mobile nav dropdown.
-
 ### Homepage (State A) — required structure
 
 In order, top to bottom:
@@ -782,32 +757,62 @@ This applies to all State B routes: `/work`, `/about`, `/contact`, `/case-studie
 
 ## Logo
 
-The logo lives in `/public/logo/`.
+The primary logo is a **boot print with a Cooper Black Z**: a hiking-boot sole seen from below (chevron lugs, an edge ring of blocks, a round heel lug) with a capital Z in Cooper Black stamped into the arch plate. The Z and the gaps between lugs are cut out, so the background shows through. Files live in `/public/logo/`.
 
 ```html
-<!-- On light backgrounds (Sand) -->
-<img src="/logo/logo-forest.svg" alt="zgoingco" width="32" height="32" />
+<!-- On light backgrounds (Sand) — Rust boot -->
+<img src="/logo/logo-forest.svg" alt="zgoingco" width="24" height="60" />
 
-<!-- On dark backgrounds (Forest, Charcoal, Rust) -->
-<img src="/logo/logo-cream.svg" alt="zgoingco" width="32" height="32" />
+<!-- On dark backgrounds (Forest, Charcoal) — Sand boot -->
+<img src="/logo/logo-cream.svg" alt="zgoingco" width="24" height="60" />
 ```
 
-> Note on naming: the inverse logo file is named `logo-cream.svg` for historical reasons — it's recolored Sand (`#F0E6D0`), not the original Cream value. Don't rename the file; just know the color it produces is Sand.
+> The logo is tall and narrow, about **0.4 : 1** (width : height). Keep that ratio in every `<img>` — e.g. `24 × 60`, `26 × 64`. Never force it into a square box.
+
+> Note on naming: the files keep their historical names so code doesn't break. `logo-forest.svg` is the **Rust** boot (light backgrounds); `logo-cream.svg` is the **Sand** boot (dark backgrounds). Don't rename them.
+
+**Color rules:**
+- Rust (`#B8482E`) on light backgrounds; Sand (`#F0E6D0`) on dark backgrounds.
+- Never Rust on Forest (too little contrast) — use the Sand version.
+- Never Honey, Amber, Ember, Moss, or Forest.
 
 **Available files:**
 
 | File | Use |
 |---|---|
-| `logo-forest.svg` | Primary, web — light backgrounds |
-| `logo-cream.svg` | Inverse, web — dark backgrounds |
-| `logo-forest.png`, `-1x`, `-2x` | Raster fallbacks (transparent) |
+| `logo-forest.svg` | Primary, web — light backgrounds (Rust) |
+| `logo-cream.svg` | Inverse, web — dark backgrounds (Sand) |
+| `logo-forest.png`, `-1x`, `-2x` | Raster fallbacks (1024 / 256 / 512 px tall, transparent) |
 | `logo-cream.png`, `-1x`, `-2x` | Inverse raster fallbacks (transparent) |
+| `footsteps-z-forest.svg`, `footsteps-z-cream.svg` | Alternate mark — see below |
 
-**Note on the SVG:** the shipping SVG was traced from a raster source, so the path data is bloated. Color is correct (Forest `#2D4A33` + transparent). A future task is to redraw it as clean hand-coded SVG. Logged in `PORTFOLIO_PROGRESS.md`.
+**File quality:** clean, hand-drawn vector shapes with fills set directly on each shape. Safe for print at any size.
 
-**Minimum size:** 24px tall. Below that, use an icon-only variant (to be created).
-**Clear space:** equal to the height of the mountain peak inside the Z.
-**Never:** recolor in Honey, Amber, Rust, Ember, or Moss.
+**Minimum size:** 56px tall in the nav (64px recommended — that's where the Z becomes readable). Below that, use the favicon mark.
+**Clear space:** at least the width of the heel on every side.
+**Never:** rotate, stretch, recolor outside the rules above, or add effects.
+
+### Favicon
+
+A single upright shoe print with a **Cooper Black Z** cut out of the sole, in Rust on a Sand rounded tile — the boot logo simplified, without lugs. One design at every size, 16px to 512px.
+
+The Z is Cooper Black, outlined, set at the **larger size** (about 13% bigger than an even stroke Z) and straightened upright so it reads at 16px. The Sand tile keeps the icon visible in light and dark browser tabs.
+
+Files go in `app/` (the Next.js app router picks them up automatically):
+
+| File | Location | Use |
+|---|---|---|
+| `favicon.ico` | `app/favicon.ico` | Tab fallback (16, 32, 48 px inside) |
+| `icon.svg` | `app/icon.svg` | Sharp tab icon in modern browsers |
+| `apple-icon.png` | `app/apple-icon.png` | iPhone home screen, 180 px, full Sand square (iOS rounds corners — no transparent corners) |
+| `icon-16.png`, `icon-32.png` | optional | Extra small PNG sizes |
+| `icon-192.png`, `icon-512.png` | optional | Android / web manifest |
+
+Remove any older favicon files (e.g. `public/favicon.ico`, an old `app/icon.png`) so they don't override these.
+
+### Alternate mark: footsteps Z
+
+`footsteps-z-forest.svg` / `footsteps-z-cream.svg`: nine shoe prints walking the shape of a Z, ending at a Rust badge with a waving flag cut out. Footprints Forest (Sand on dark); flag badge always Rust. Decorative use only (section dividers, about-page detail). Never in the nav or in place of the logo.
 
 ---
 
@@ -831,8 +836,13 @@ Verify before declaring any page "done":
 **Color & background**
 - [ ] Page background is `--color-sand` (`#F0E6D0`), not white.
 - [ ] Body text is `--color-charcoal`, not black.
-- [ ] Logo is Forest on light bg, Sand on dark bg.
+- [ ] Logo is the Rust boot on light bg, the Sand boot on dark bg.
+- [ ] Logo `<img>` keeps the ~0.4 : 1 ratio (e.g. 24 × 60) and is at least 56px tall; never squeezed square.
 - [ ] No third hex color outside this palette has been introduced.
+
+**Favicon**
+- [ ] `app/favicon.ico`, `app/icon.svg`, and `app/apple-icon.png` are the v2.4 shoe-print files.
+- [ ] No older favicon file (e.g. `public/favicon.ico`) is overriding them.
 
 **Typography**
 - [ ] At most one Cooper Black headline per screen, never below 24px.
