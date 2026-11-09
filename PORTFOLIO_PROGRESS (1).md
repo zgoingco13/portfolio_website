@@ -171,6 +171,7 @@ Logo redesign session in Claude.ai (Nov 8–9). The old Z + mountains + path mar
 - **Z letterform:** Cooper Black — matches the hero font and is the only brand face heavy enough to survive 16px. Used at the larger size in the favicon, straightened upright.
 - **Color rules changed:** the logo is now Rust on light backgrounds and Sand on dark (never Rust on Forest). Previously Forest-only. File names stay `logo-forest.svg` / `logo-cream.svg` so code doesn't break. Snapped stray Illustrator colors (`#b9492e`, `#d47328`, `#315126`, `#ed2024`) to brand values.
 - **Other spec changes:** logo is tall, ~0.4 : 1 (update `<img>` sizes, e.g. 24 × 60); minimum 56px tall in the nav (64px is where the Z reads); below that use the favicon. Clear space = the heel's width.
+- **Nav version (same day, after shipping):** at 64px tall the upright boot's Z was only ~10px, so the nav and footer now use a sideways boot walking right (`logo-nav-forest.svg` 143 × 56, `logo-nav-cream.svg` 123 × 48) with the Z upright (~21px). The favicon print turned sideways to match.
 - **Docs:** `BRAND_SPEC.md` and `BRAND_GUIDE.md` bumped to v2.4 together; this log and `PROJECT_HANDOFF.md` updated to match.
 - **Next:** drop logo files into `public/logo/` and favicon files into `app/`, update `<img>` sizes, push, check the live tab icon in light and dark mode.
 

@@ -14,10 +14,10 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <Link href="/" className="flex items-center transition-opacity hover:opacity-75">
             <Image
-              src="/logo/logo-cream.svg"
+              src="/logo/logo-nav-cream.svg"
               alt="Z Goingco"
-              width={24}
-              height={60}
+              width={123}
+              height={48}
             />
           </Link>
 

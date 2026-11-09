@@ -760,14 +760,17 @@ This applies to all State B routes: `/work`, `/about`, `/contact`, `/case-studie
 The primary logo is a **boot print with a Cooper Black Z**: a hiking-boot sole seen from below (chevron lugs, an edge ring of blocks, a round heel lug) with a capital Z in Cooper Black stamped into the arch plate. The Z and the gaps between lugs are cut out, so the background shows through. Files live in `/public/logo/`.
 
 ```html
-<!-- On light backgrounds (Sand) — Rust boot -->
-<img src="/logo/logo-forest.svg" alt="zgoingco" width="24" height="60" />
+<!-- Nav (light background) — sideways Rust boot -->
+<img src="/logo/logo-nav-forest.svg" alt="zgoingco" width="143" height="56" />
 
-<!-- On dark backgrounds (Forest, Charcoal) — Sand boot -->
-<img src="/logo/logo-cream.svg" alt="zgoingco" width="24" height="60" />
+<!-- Footer (dark background) — sideways Sand boot -->
+<img src="/logo/logo-nav-cream.svg" alt="zgoingco" width="123" height="48" />
+
+<!-- Large upright uses (hero, about page, print) -->
+<img src="/logo/logo-forest.svg" alt="zgoingco" width="48" height="120" />
 ```
 
-> The logo is tall and narrow, about **0.4 : 1** (width : height). Keep that ratio in every `<img>` — e.g. `24 × 60`, `26 × 64`. Never force it into a square box.
+> The upright logo is tall and narrow, about **0.4 : 1** (width : height); the nav version is about **2.55 : 1**. Keep each ratio in every `<img>`. Never force either into a square box.
 
 > Note on naming: the files keep their historical names so code doesn't break. `logo-forest.svg` is the **Rust** boot (light backgrounds); `logo-cream.svg` is the **Sand** boot (dark backgrounds). Don't rename them.
 
@@ -784,19 +787,25 @@ The primary logo is a **boot print with a Cooper Black Z**: a hiking-boot sole s
 | `logo-cream.svg` | Inverse, web — dark backgrounds (Sand) |
 | `logo-forest.png`, `-1x`, `-2x` | Raster fallbacks (1024 / 256 / 512 px tall, transparent) |
 | `logo-cream.png`, `-1x`, `-2x` | Inverse raster fallbacks (transparent) |
+| `logo-nav-forest.svg` | Nav version — sideways Rust boot, light backgrounds (header) |
+| `logo-nav-cream.svg` | Nav version — sideways Sand boot, dark backgrounds (footer) |
 | `footsteps-z-forest.svg`, `footsteps-z-cream.svg` | Alternate mark — see below |
 
 **File quality:** clean, hand-drawn vector shapes with fills set directly on each shape. Safe for print at any size.
 
-**Minimum size:** 56px tall in the nav (64px recommended — that's where the Z becomes readable). Below that, use the favicon mark.
+**Minimum size:** upright logo about 96px tall (where the Z becomes readable). In the nav and footer, always use the sideways nav version (56px tall in the nav, 48px in the footer). Below that, use the favicon mark.
 **Clear space:** at least the width of the heel on every side.
-**Never:** rotate, stretch, recolor outside the rules above, or add effects.
+**Never:** rotate beyond the two approved orientations (upright, and sideways walking right), flip it to walk left, stretch, recolor outside the rules above, or add effects.
+
+### Nav version
+
+`logo-nav-forest.svg` / `logo-nav-cream.svg`: the same boot turned sideways, walking right toward the nav links, with the Z kept upright. Use it in the header (`143 × 56`) and footer (`123 × 48`). At 56px tall its Z is about 21px, versus about 10px for the upright logo at 64px.
 
 ### Favicon
 
-A single upright shoe print with a **Cooper Black Z** cut out of the sole, in Rust on a Sand rounded tile — the boot logo simplified, without lugs. One design at every size, 16px to 512px.
+A single shoe print, **sideways and walking right** like the nav logo, with an upright **Cooper Black Z** cut out of the sole, in Rust on a Sand rounded tile — the nav logo simplified, without lugs. One design at every size, 16px to 512px.
 
-The Z is Cooper Black, outlined, set at the **larger size** (about 13% bigger than an even stroke Z) and straightened upright so it reads at 16px. The Sand tile keeps the icon visible in light and dark browser tabs.
+The Z is Cooper Black, outlined, set at the **larger size** (about 13% bigger than an even stroke Z) and kept upright while the print turns, so it reads at 16px. The Sand tile keeps the icon visible in light and dark browser tabs.
 
 Files go in `app/` (the Next.js app router picks them up automatically):
 
@@ -837,11 +846,11 @@ Verify before declaring any page "done":
 - [ ] Page background is `--color-sand` (`#F0E6D0`), not white.
 - [ ] Body text is `--color-charcoal`, not black.
 - [ ] Logo is the Rust boot on light bg, the Sand boot on dark bg.
-- [ ] Logo `<img>` keeps the ~0.4 : 1 ratio (e.g. 24 × 60) and is at least 56px tall; never squeezed square.
+- [ ] Nav and footer use the sideways nav logo (`logo-nav-*.svg`, 143 × 56 / 123 × 48); any upright logo keeps the ~0.4 : 1 ratio; nothing is squeezed square.
 - [ ] No third hex color outside this palette has been introduced.
 
 **Favicon**
-- [ ] `app/favicon.ico`, `app/icon.svg`, and `app/apple-icon.png` are the v2.4 shoe-print files.
+- [ ] `app/favicon.ico`, `app/icon.svg`, and `app/apple-icon.png` are the v2.4 sideways shoe-print files.
 - [ ] No older favicon file (e.g. `public/favicon.ico`) is overriding them.
 
 **Typography**

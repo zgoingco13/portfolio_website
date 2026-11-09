@@ -86,14 +86,22 @@ Drawn by hand in Illustrator as clean vector shapes, with fills set directly on 
 
 - The logo is tall and narrow: about **0.4 : 1** (width : height).
 - **Clear space:** at least the width of the heel on every side.
-- **Minimum size:** 56px tall in the nav (64px is better; that's where the Z becomes readable). Below that, use the favicon instead.
+- **Minimum size (upright):** about 96px tall — that's where the Z becomes readable. Smaller than that, use the nav version or the favicon.
+
+### Nav version: sideways boot
+
+In the nav and footer, the boot turns sideways and walks right, toward the nav links, with the Z kept upright. The upright boot is too narrow for a header: at 64px tall its Z is only about 10px. Sideways at 56px tall, the Z is about 21px and the header doesn't have to grow.
+
+- Files: `logo-nav-forest.svg` (Rust, light backgrounds) and `logo-nav-cream.svg` (Sand, dark backgrounds).
+- Proportions about **2.55 : 1**. Nav: 56px tall (`143 × 56`). Footer: 48px tall (`123 × 48`).
+- Always walking right (toe toward the right). Never flip it to walk left.
 
 ### The favicon: shoe print with a Z
 
-At favicon sizes the boot's tread turns to texture, so the brand has a dedicated icon: **a single upright shoe print with a Cooper Black Z cut out of the sole**, in Rust on a Sand rounded tile. It's the boot logo simplified: same idea, same Z, no lugs.
+At favicon sizes the boot's tread turns to texture, so the brand has a dedicated icon: **a single shoe print, turned sideways and walking right like the nav logo, with an upright Cooper Black Z cut out of the sole**, in Rust on a Sand rounded tile. It's the nav logo simplified: same direction, same Z, no lugs. Sideways, the sole is wide enough to give the Z more room than an upright print would.
 
 - One design works at every size, from the 16px browser tab to the 512px app icon.
-- The Z is Cooper Black, set large (about 13% bigger than an even stroke Z) so it survives at 16px. It's straightened upright for legibility.
+- The Z is Cooper Black, set large (about 13% bigger than an even stroke Z) so it survives at 16px. It stays upright while the print turns.
 - The Sand tile keeps the icon visible in both light and dark browser tabs.
 - On the iPhone home-screen icon, the tile is a full Sand square, because iOS rounds the corners itself.
 
@@ -343,7 +351,8 @@ A new mark, a real favicon, and a letterform for the Z:
 - **Favicon added.** A single upright shoe print with a Cooper Black Z cut out, Rust on a Sand tile — the boot simplified. One design at every size (16–512px). Replaces the planned "Z + mountains" icon-only variant.
 - **Alternate mark: footsteps Z** (nine prints walking a Z to a Rust flag badge), kept for decorative use only.
 - **Cooper Black for the Z** in both the logo and the favicon (outlined), matching the hero typeface.
-- **Logo proportions changed** from square to tall (about 0.4 : 1). Minimum 56px tall in the nav; `<img>` sizes in code need updating (e.g. `width="24" height="60"`).
+- **Logo proportions changed** from square to tall (about 0.4 : 1).
+- **Nav version:** the boot turns sideways and walks right in the nav and footer (`logo-nav-*.svg`, 143 × 56 in the nav), so the Z is about 21px instead of 10px. The favicon turns sideways to match.
 
 ## 9. What changed in v2.3
 
@@ -397,9 +406,11 @@ For anyone tracking the system's evolution:
     logo-forest.png / -1x / -2x    raster fallbacks (1024 / 256 / 512 px tall)
     logo-cream.svg                 inverse: Sand boot print (dark backgrounds)
     logo-cream.png / -1x / -2x     inverse raster fallbacks
+    logo-nav-forest.svg            nav version: sideways Rust boot (header)
+    logo-nav-cream.svg             nav version: sideways Sand boot (footer)
     footsteps-z-forest.svg / -cream.svg   alternate mark (decorative only)
 /app
-  favicon.ico                      shoe-print favicon (16, 32, 48 px inside)
+  favicon.ico                      sideways shoe-print favicon (16, 32, 48 px inside)
   icon.svg                         shoe-print favicon, vector (modern browsers)
   apple-icon.png                   180 px, full Sand square (iOS rounds corners)
   (optional) icon-16/32/192/512.png

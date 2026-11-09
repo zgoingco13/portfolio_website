@@ -35,10 +35,10 @@ export function Navigation() {
       <nav className="mx-auto flex w-full items-center justify-between px-6 lg:w-3/4 lg:px-0 py-6">
         <Link href="/" className="flex items-center transition-opacity hover:opacity-75">
           <Image
-            src="/logo/logo-forest.svg"
+            src="/logo/logo-nav-forest.svg"
             alt="Z Goingco"
-            width={26}
-            height={64}
+            width={143}
+            height={56}
             priority
           />
         </Link>
