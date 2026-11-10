@@ -4,16 +4,30 @@ import { useState, useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
-const PHOTOS = [
-  { src: "/images/nature-carousel/nature-01.jpg", alt: "Autumn forest path" },
-  { src: "/images/nature-carousel/nature-02.jpg", alt: "Autumn forest foliage" },
-  { src: "/images/nature-carousel/nature-03.jpg", alt: "Morning fog over a meadow" },
-  { src: "/images/nature-carousel/nature-04.jpg", alt: "Mountain sunset" },
-  { src: "/images/nature-carousel/nature-05.jpg", alt: "Autumn larch forest trail" },
-  { src: "/images/nature-carousel/nature-06.jpg", alt: "Golden larch hillside path" },
+const PHOTOS: { src: string; alt: string; position?: string }[] = [
+  { src: "/images/nature-carousel/nature-01.jpg", alt: "Orange sunset glowing behind a dark mountain ridgeline" },
+  { src: "/images/nature-carousel/nature-02.jpg", alt: "Lily pads and white agapanthus in a lush garden" },
+  { src: "/images/nature-carousel/nature-03.jpg", alt: "Climber high on a red sandstone wall" },
+  { src: "/images/nature-carousel/nature-04.jpg", alt: "Pond with lily pads under a tree canopy" },
+  { src: "/images/nature-carousel/nature-05.jpg", alt: "Alpine lake below granite cliffs and pines" },
+  { src: "/images/nature-carousel/nature-06.jpg", alt: "Selfie above a turquoise glacier lake" },
+  { src: "/images/nature-carousel/nature-07.jpg", alt: "Hiker on a boardwalk across a glacial river flat" },
+  { src: "/images/nature-carousel/nature-08.jpg", alt: "Two hikers resting on a rocky ridge facing snowy peaks" },
+  { src: "/images/nature-carousel/nature-09.jpg", alt: "Hiker on a forested mountain trail", position: "center 30%" },
+  { src: "/images/nature-carousel/nature-10.jpg", alt: "Two people at a viewpoint over a glaciered valley" },
+  { src: "/images/nature-carousel/nature-11.jpg", alt: "Turquoise lake in a forested valley under big clouds" },
+  { src: "/images/nature-carousel/nature-12.jpg", alt: "Elk crossing a road beside a pine forest" },
+  { src: "/images/nature-carousel/nature-13.jpg", alt: "Hiker sitting on rocks above a turquoise lake" },
+  { src: "/images/nature-carousel/nature-14.jpg", alt: "Close-up of leaves beside a small waterfall" },
+  { src: "/images/nature-carousel/nature-15.jpg", alt: "Cyclist by a pond lined with boulders and palm trees" },
+  { src: "/images/nature-carousel/nature-16.jpg", alt: "Bike at the top of wooden stairs down to the ocean" },
+  { src: "/images/nature-carousel/nature-17.jpg", alt: "City skyline and water seen past green treetops" },
+  { src: "/images/nature-carousel/nature-18.jpg", alt: "Two hikers holding a Quandary Peak 14,271 sign at the summit" },
+  { src: "/images/nature-carousel/nature-19.jpg", alt: "Hiker in a wildflower meadow among tall pines", position: "center 25%" },
+  { src: "/images/nature-carousel/nature-20.jpg", alt: "Alpine lake below a scree slope and snowy peak" },
 ]
 
-const TOTAL = PHOTOS.length  // 6
+const TOTAL = PHOTOS.length
 const INTERVAL = 6000
 
 export function OutdoorCarousel() {
@@ -96,6 +110,7 @@ export function OutdoorCarousel() {
               alt={photo.alt}
               fill
               className="object-cover"
+              style={{ objectPosition: photo.position ?? "center" }}
               sizes="25vw"
               priority={currentIndex === 0 && i === 0}
             />
