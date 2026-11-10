@@ -225,7 +225,7 @@ export default function AboutPage() {
                 Last adventure
               </span>
               <span style={{ fontFamily: "var(--font-mid)", fontWeight: 400, fontSize: "16px", color: "var(--text-primary)", lineHeight: 1.5, marginLeft: "4px" }}>
-                · Climbing in Red Rocks, Las Vegas, with friends
+                · Camping in Tuolumne, Yosemite, with friends
               </span>
             </div>
             <div>
@@ -233,7 +233,7 @@ export default function AboutPage() {
                 Find me
               </span>
               <span style={{ fontFamily: "var(--font-mid)", fontWeight: 400, fontSize: "16px", color: "var(--text-primary)", lineHeight: 1.5, marginLeft: "4px" }}>
-                · Struggling on my senior capstone for SMC&apos;s IxD program
+                · Recovering from my fourth (and hopefully last) ACL surgery
               </span>
             </div>
           </div>
