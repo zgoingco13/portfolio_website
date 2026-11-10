@@ -18,12 +18,16 @@ const timeline = [
     year: "2019",
     dotColor: "var(--color-moss)",
     eyebrow: "Science",
+    photo: "/images/about/timeline/2019-science.jpg",
+    photoAlt: "Graduating from UC San Diego, Biochemistry & Chemistry",
     description: "Graduated UC San Diego with a BS in Biochemistry & Chemistry.",
   },
   {
     year: "2020",
     dotColor: "#B8A968",
     eyebrow: "Detour",
+    photo: "/images/about/timeline/2020-detour.jpg",
+    photoAlt: "Running a specialty coffee shop during the pandemic",
     description:
       "Pandemic year. Managed a specialty coffee shop and learned how to run small operations under hard constraints.",
   },
@@ -31,18 +35,24 @@ const timeline = [
     year: "2021",
     dotColor: "var(--color-honey)",
     eyebrow: "Lab",
+    photo: "/images/about/timeline/2021-lab.jpg",
+    photoAlt: "Pulling samples from liquid nitrogen at Scripps Research",
     description: "Returned to science as a research assistant.",
   },
   {
     year: "2022",
     dotColor: "var(--color-amber)",
     eyebrow: "Care",
+    photo: "/images/about/timeline/2022-care.jpg",
+    photoAlt: "Orthopedic technician training with my cohort",
     description: "Certified as an orthopedic technician.",
   },
   {
     year: "2022 – 2025",
     dotColor: "var(--color-amber)",
     eyebrow: "Clinic · TMPN Ortho",
+    photo: "/images/about/timeline/2022-clinic.jpg",
+    photoAlt: "On shift at the clinic",
     description:
       "Three years at TMPN Ortho: fitting casts, splinting fractures, and learning how care lands when it's hands-on.",
   },
@@ -50,6 +60,8 @@ const timeline = [
     year: "2024 – 2025",
     dotColor: "var(--color-rust)",
     eyebrow: "REI",
+    photo: "/images/about/timeline/2024-rei.jpg",
+    photoAlt: "On the floor at REI",
     description:
       "Sales floor + visual merchandising at REI: fitting gear, learning the rhythms of an outdoor community.",
   },
@@ -57,6 +69,8 @@ const timeline = [
     year: "2024",
     dotColor: "var(--color-rust)",
     eyebrow: "Pivot",
+    photo: "/images/about/timeline/2024-pivot.jpg",
+    photoAlt: "Starting SMC's Interaction Design program with my cohort",
     description:
       "Started Santa Monica College's Interaction Design program while still seeing patients on weekends.",
   },
@@ -64,6 +78,8 @@ const timeline = [
     year: "2026",
     dotColor: "var(--color-forest)",
     eyebrow: "Now · SMC",
+    photo: "/images/about/timeline/2026-now.jpg",
+    photoAlt: "Interaction Design graduates, SMC",
     description:
       "Graduating SMC with a BS in Interaction Design. Open to UX/UI roles and freelance.",
   },
@@ -327,7 +343,7 @@ export default function AboutPage() {
                       textTransform: "uppercase",
                       letterSpacing: "1.2px",
                     }}>
-                      · {row.eyebrow}
+                      · <CurrentlyPhoto src={row.photo} alt={row.photoAlt}>{row.eyebrow}</CurrentlyPhoto>
                     </span>
                   </div>
                   <p style={{
