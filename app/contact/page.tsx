@@ -16,13 +16,41 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
+  // Web3Forms access key. It's meant to be public (it only lets people send
+  // messages to your inbox), so it's safe to keep in client code.
+  const WEB3FORMS_KEY = "a8374565-9061-4cca-b653-149e425d196c"
+
+  const [error, setError] = useState("")
+  const [botField, setBotField] = useState(false)
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError("")
+    if (botField) return
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormState({ name: "", email: "", message: "" })
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New message from ${formState.name} (zgoingco.design)`,
+          from_name: "zgoingco.design",
+          name: formState.name,
+          email: formState.email,
+          replyto: formState.email,
+          message: formState.message,
+        }),
+      })
+      const data = await res.json()
+      if (!data.success) throw new Error(data.message || "Send failed")
+      setIsSubmitted(true)
+      setFormState({ name: "", email: "", message: "" })
+    } catch {
+      setError("Something went wrong and your message didn't send. Please email me directly at zgoingco.design@gmail.com.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -159,6 +187,22 @@ export default function ContactPage() {
                         placeholder="Tell me about your project..."
                       />
                     </div>
+
+                    <input
+                      type="checkbox"
+                      name="botcheck"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="hidden"
+                      onChange={(e) => setBotField(e.target.checked)}
+                    />
+
+                    {error && (
+                      <p role="alert" className="font-sans text-sm text-rust">
+                        {error}
+                      </p>
+                    )}
 
                     <button
                       type="submit"

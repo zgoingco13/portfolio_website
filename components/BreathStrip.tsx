@@ -3,10 +3,10 @@ export function BreathStrip() {
     <section className="breath-strip">
       <p className="breath-strip-text">Or just say hello.</p>
       <a
-        href="mailto:hello@zgoingco.design"
+        href="mailto:zgoingco.design@gmail.com"
         className="breath-strip-link"
       >
-        hello@zgoingco.design →
+        zgoingco.design@gmail.com →
       </a>
     </section>
   )
