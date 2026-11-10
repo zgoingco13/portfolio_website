@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { RustCtaPanel } from "@/components/RustCtaPanel"
 import { BreathStrip } from "@/components/BreathStrip"
+import { CurrentlyPhoto } from "@/components/CurrentlyPhoto"
 import { Compass, Clock, Mail, Linkedin, FileText, MapPin } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -217,7 +218,7 @@ export default function AboutPage() {
                 Reading
               </span>
               <span style={{ fontFamily: "var(--font-mid)", fontWeight: 400, fontSize: "16px", color: "var(--text-primary)", lineHeight: 1.5, marginLeft: "4px" }}>
-                · <em>The Overstory</em> by Richard Powers + <em>Why Fish Don&apos;t Exist</em> by Lulu Miller
+                · <a href="https://www.goodreads.com/en/book/show/40180098-the-overstory" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline", textDecorationStyle: "dotted", textDecorationColor: "var(--color-rust)", textUnderlineOffset: "4px" }}><em>The Overstory</em></a> by Richard Powers + <a href="https://www.goodreads.com/en/book/show/50887097-why-fish-don-t-exist" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline", textDecorationStyle: "dotted", textDecorationColor: "var(--color-rust)", textUnderlineOffset: "4px" }}><em>Why Fish Don&apos;t Exist</em></a> by Lulu Miller
               </span>
             </div>
             <div>
@@ -225,7 +226,7 @@ export default function AboutPage() {
                 Last adventure
               </span>
               <span style={{ fontFamily: "var(--font-mid)", fontWeight: 400, fontSize: "16px", color: "var(--text-primary)", lineHeight: 1.5, marginLeft: "4px" }}>
-                · Camping in Tuolumne, Yosemite, with friends
+                · <CurrentlyPhoto src="/images/about/tuolumne.jpg" alt="Camping in Tuolumne, Yosemite, with friends">Camping in Tuolumne, Yosemite, with friends</CurrentlyPhoto>
               </span>
             </div>
             <div>
@@ -233,7 +234,7 @@ export default function AboutPage() {
                 Find me
               </span>
               <span style={{ fontFamily: "var(--font-mid)", fontWeight: 400, fontSize: "16px", color: "var(--text-primary)", lineHeight: 1.5, marginLeft: "4px" }}>
-                · Recovering from my fourth (and hopefully last) ACL surgery
+                · <CurrentlyPhoto src="/images/about/acl-recovery.jpg" alt="Recovering from my fourth ACL surgery">Recovering from my fourth (and hopefully last) ACL surgery</CurrentlyPhoto>
               </span>
             </div>
           </div>
