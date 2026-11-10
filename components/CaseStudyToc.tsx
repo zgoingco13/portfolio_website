@@ -42,12 +42,8 @@ export function CaseStudyToc() {
         if (el && el.getBoundingClientRect().top <= line) current = id
       }
       setActive(current)
-      // Visible from the top of the page; hidden once the article ends (so it doesn't sit over the CTA and footer)
-      const article = document.querySelector('article')
-      if (article) {
-        const notPastEnd = article.getBoundingClientRect().bottom > window.innerHeight * 0.6
-        setInArticle(notPastEnd)
-      }
+      // Always visible, from the top of the page to the bottom
+      setInArticle(true)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -134,7 +130,8 @@ const TOC_CSS = `
 .toc-link.is-active { opacity: 1; color: var(--color-rust); font-weight: 700; border-left-color: var(--color-rust); }
 
 .toc-rail {
-  display: none; position: fixed; top: 128px; left: 1.25rem; width: calc(12.5vw - 2.5rem); z-index: 30;
+  display: none; position: fixed; top: 128px; left: 0.75rem; width: calc(12.5vw - 1.5rem); z-index: 30;
+  background: var(--color-sand); border-radius: 0.5rem; padding: 0.5rem;
   opacity: 0; pointer-events: none; transition: opacity 0.3s;
 }
 .toc-rail.is-visible { opacity: 1; pointer-events: auto; }
