@@ -261,6 +261,43 @@ Let's use Barnsdall Art Park to help hospital workers relieve burnout.
 
 </Section>
 
+<Section title="Usability testing">
+
+<p style={{maxWidth:'none', marginTop:'2.5rem'}}>We tested the prototype by asking people to check in at the park, pick a breathing exercise and add it to the Mind Branch, and write a journal entry. The questions they asked out loud showed us where the design wasn't explaining itself:</p>
+
+<div className="my-6 grid gap-6 md:grid-cols-3">
+  <p className="font-serif text-lg italic" style={{borderLeft:'3px solid var(--color-rust)', paddingLeft:'1rem', margin:0}}>&ldquo;How do I check in? How does it know I'm here?&rdquo;</p>
+  <p className="font-serif text-lg italic" style={{borderLeft:'3px solid var(--color-rust)', paddingLeft:'1rem', margin:0}}>&ldquo;What does 'archive' mean here?&rdquo;</p>
+  <p className="font-serif text-lg italic" style={{borderLeft:'3px solid var(--color-rust)', paddingLeft:'1rem', margin:0}}>&ldquo;What happens to my data when I submit it?&rdquo;</p>
+</div>
+
+<ComparisonGrid labels={['Tested prototype', 'Final']}>
+  <ImageWithCaption
+    src="/images/case-studies/bewell/testing-before.png"
+    caption="Tested prototype: a small 'I'm here!' check-in, a 'Situation' field split from the writing prompt, and four buttons to end an entry."
+    natural
+  />
+  <ImageWithCaption
+    src="/images/case-studies/bewell/testing-after.png"
+    caption="Final: a full-width check-in button with the reason above it, journal types with lengths, and the prompt and writing on one screen."
+    natural
+  />
+</ComparisonGrid>
+
+<p style={{maxWidth:'none'}}>What we heard, and what we changed:</p>
+
+- **Check-in was unclear.** The small "I'm here!" link became a full-width Check-in button under a map of the park, with a line saying why: checking in unlocks your exercises.
+- **No one knew what the Mind Branch was.** Our own prototype called it both "Mind Branch" and "Olive Branch." We settled on one name, gave it its own onboarding slide, and added a note to the breathwork and journal pages explaining what it shows.
+- **Journaling had too many steps.** We removed the "Situation" label, put the prompt and the writing area on one screen, and replaced Submit, Archive, and Post with a single Finalize. People who want guidance pick Random Prompt; people who don't pick General.
+- **Privacy was a real concern.** Activities are now private by default, and the activity pages say so. Sharing to the park's public Mind Branch is a separate, deliberate step.
+- **Exercises didn't say what to expect.** Each session now shows a speaker icon for audio, its length, and a one-line description.
+- **Icons needed words.** Every tab now has a label, and the journal has a history button for past entries.
+- **Gamification got mixed reactions.** Testers liked tracking progress but worried it could add pressure, and didn't want to be labeled "Beginner." We kept rewards low-key: streaks, milestones, an encouraging empty state, and badges that double as a guide to the park's art.
+
+<p style={{maxWidth:'none'}}>Two suggestions we didn't get to: password-protected journal entries and personalized reminders.</p>
+
+</Section>
+
 <Section title="Final design">
 
 <p style={{maxWidth:'none', marginTop:'2.5rem'}}>I made the product video we showed in our final presentation.</p>
