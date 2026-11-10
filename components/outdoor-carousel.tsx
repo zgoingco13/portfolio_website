@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -47,90 +47,132 @@ const PHOTOS: { src: string; alt: string; position?: string }[] = [
 ]
 
 const TOTAL = PHOTOS.length
-const INTERVAL = 6000
+const GAP = 2 // px between photos
+const VISIBLE = 4 // photos across
+const SECONDS_PER_PHOTO = 10 // drift speed: one photo width every 10s
+const NUDGE_MS = 600 // arrow-click glide duration
+
+const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
 
 export function OutdoorCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  // Separate hover-pause from manual-pause so they don't fight each other
-  const [hoverPaused, setHoverPaused] = useState(false)
-  const [manualPaused, setManualPaused] = useState(false)
-  const [reducedMotion, setReducedMotion] = useState(false)
-  const manualPauseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const stepRef = useRef(0) // one photo width + gap, in px
+  const offsetRef = useRef(0)
+  const pausedRef = useRef(false)
+  const reducedRef = useRef(false)
+  const nudgeRef = useRef<{ from: number; to: number; start: number } | null>(null)
 
-  const isPaused = hoverPaused || manualPaused
+  const applyTransform = useCallback(() => {
+    const loop = stepRef.current * TOTAL
+    if (!trackRef.current || loop === 0) return
+    const x = ((offsetRef.current % loop) + loop) % loop
+    trackRef.current.style.transform = `translate3d(${-x}px, 0, 0)`
+  }, [])
 
-  // Track prefers-reduced-motion, including live changes
+  // Measure photo width; keep it right on resize
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const measure = () => {
+      const oldStep = stepRef.current
+      const cell = (el.clientWidth - GAP * (VISIBLE - 1)) / VISIBLE
+      stepRef.current = cell + GAP
+      // keep the same photo in view after a resize
+      if (oldStep > 0) offsetRef.current *= stepRef.current / oldStep
+      applyTransform()
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [applyTransform])
+
+  // Respect prefers-reduced-motion, including live changes
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
-    setReducedMotion(mq.matches)
-    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches)
+    reducedRef.current = mq.matches
+    const handler = (e: MediaQueryListEvent) => (reducedRef.current = e.matches)
     mq.addEventListener("change", handler)
     return () => mq.removeEventListener("change", handler)
   }, [])
 
-  // Auto-advance — disabled when paused or reduced-motion is on
+  // Continuous drift + arrow glides, one animation loop
   useEffect(() => {
-    if (reducedMotion || isPaused) return
-    const t = setInterval(() => {
-      setCurrentIndex((i) => (i + 1) % TOTAL)
-    }, INTERVAL)
-    return () => clearInterval(t)
-  }, [isPaused, reducedMotion])
-
-  // Cleanup manual-pause timer on unmount
-  useEffect(() => {
-    return () => {
-      if (manualPauseTimerRef.current) clearTimeout(manualPauseTimerRef.current)
+    let raf = 0
+    let last = performance.now()
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 100) / 1000 // clamp after tab switches
+      last = now
+      const nudge = nudgeRef.current
+      if (nudge) {
+        const t = Math.min((now - nudge.start) / NUDGE_MS, 1)
+        offsetRef.current = nudge.from + (nudge.to - nudge.from) * easeInOut(t)
+        if (t === 1) nudgeRef.current = null
+      } else if (!pausedRef.current && !reducedRef.current) {
+        offsetRef.current += (stepRef.current / SECONDS_PER_PHOTO) * dt
+      }
+      applyTransform()
+      raf = requestAnimationFrame(tick)
     }
-  }, [])
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [applyTransform])
 
-  // After a manual interaction, pause for one interval then resume
-  const pauseAfterManual = useCallback(() => {
-    setManualPaused(true)
-    if (manualPauseTimerRef.current) clearTimeout(manualPauseTimerRef.current)
-    manualPauseTimerRef.current = setTimeout(() => setManualPaused(false), INTERVAL)
-  }, [])
+  // Arrows glide one photo; snap to whole photos so the strip lines up
+  const move = useCallback((dir: 1 | -1) => {
+    const step = stepRef.current
+    if (step === 0) return
+    const from = offsetRef.current
+    const to = dir === 1 ? (Math.floor(from / step + 0.01) + 1) * step : (Math.ceil(from / step - 0.01) - 1) * step
+    if (reducedRef.current) {
+      offsetRef.current = to
+      applyTransform()
+    } else {
+      nudgeRef.current = { from, to, start: performance.now() }
+    }
+  }, [applyTransform])
 
-  const prev = useCallback(() => {
-    setCurrentIndex((i) => (i - 1 + TOTAL) % TOTAL)
-    pauseAfterManual()
-  }, [pauseAfterManual])
+  const prev = useCallback(() => move(-1), [move])
+  const next = useCallback(() => move(1), [move])
 
-  const next = useCallback(() => {
-    setCurrentIndex((i) => (i + 1) % TOTAL)
-    pauseAfterManual()
-  }, [pauseAfterManual])
-
-
-  // 4 visible photos via modulo wrap
-  const visible = Array.from({ length: 4 }, (_, i) => PHOTOS[(currentIndex + i) % TOTAL])
+  // Two copies of the strip so it loops seamlessly
+  const strip = [...PHOTOS, ...PHOTOS]
 
   return (
     <div
-      className="group relative w-full"
-      onMouseEnter={() => setHoverPaused(true)}
-      onMouseLeave={() => setHoverPaused(false)}
-      onFocus={() => setHoverPaused(true)}
-      onBlur={() => setHoverPaused(false)}
+      ref={containerRef}
+      className="relative w-full overflow-hidden"
+      aria-roledescription="carousel"
+      aria-label="Photos from the outdoors"
+      onMouseEnter={() => (pausedRef.current = true)}
+      onMouseLeave={() => (pausedRef.current = false)}
+      onFocus={() => (pausedRef.current = true)}
+      onBlur={() => (pausedRef.current = false)}
     >
-      {/* 4-up strip — 4:3 aspect ratio, 2px gaps */}
-      <div className="grid grid-cols-4 gap-[2px]">
-        {visible.map((photo, i) => (
-          <div
-            key={`${currentIndex}-${i}`}
-            className="relative aspect-[4/3] overflow-hidden"
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              className="object-cover"
-              style={{ objectPosition: photo.position ?? "center" }}
-              sizes="25vw"
-              priority={currentIndex === 0 && i === 0}
-            />
-          </div>
-        ))}
+      {/* Drifting strip — 4 visible, 4:3 aspect ratio, 2px gaps */}
+      <div ref={trackRef} className="flex will-change-transform" style={{ gap: `${GAP}px` }}>
+        {strip.map((photo, i) => {
+          const isCopy = i >= TOTAL
+          return (
+            <div
+              key={i}
+              className="relative aspect-[4/3] shrink-0 overflow-hidden"
+              style={{ width: `calc((100% - ${GAP * (VISIBLE - 1)}px) / ${VISIBLE})` }}
+              aria-hidden={isCopy || undefined}
+            >
+              <Image
+                src={photo.src}
+                alt={isCopy ? "" : photo.alt}
+                fill
+                className="object-cover"
+                style={{ objectPosition: photo.position ?? "center" }}
+                sizes="25vw"
+                priority={i < VISIBLE}
+              />
+            </div>
+          )
+        })}
       </div>
 
       {/* Prev arrow */}
