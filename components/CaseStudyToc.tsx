@@ -9,7 +9,7 @@ const slugify = (s: string) =>
 
 /*
  * "On this page" navigation for case studies.
- * - Wide screens (1280px+): a fixed list in the left margin that highlights the section you're reading.
+ * - Wide screens (1280px+): a fixed list in the left margin, shown from the top of the page, that highlights the section you're reading.
  * - Smaller screens: a "Contents" button in the bottom-right corner that opens the same list.
  * Sections come from each <Section title="…"> heading, so new sections appear automatically.
  */
@@ -42,12 +42,11 @@ export function CaseStudyToc() {
         if (el && el.getBoundingClientRect().top <= line) current = id
       }
       setActive(current)
-      const first = document.getElementById(items[0].id)
+      // Visible from the top of the page; hidden once the article ends (so it doesn't sit over the CTA and footer)
       const article = document.querySelector('article')
-      if (first && article) {
-        const startedReading = first.getBoundingClientRect().top < window.innerHeight * 0.8
+      if (article) {
         const notPastEnd = article.getBoundingClientRect().bottom > window.innerHeight * 0.6
-        setInArticle(startedReading && notPastEnd)
+        setInArticle(notPastEnd)
       }
     }
     onScroll()
