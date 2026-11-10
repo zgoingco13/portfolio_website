@@ -82,6 +82,10 @@ export function OutdoorCarousel() {
     pauseAfterManual()
   }, [pauseAfterManual])
 
+  const goTo = useCallback((index: number) => {
+    setCurrentIndex(index)
+    pauseAfterManual()
+  }, [pauseAfterManual])
 
   // 4 visible photos via modulo wrap
   const visible = Array.from({ length: 4 }, (_, i) => PHOTOS[(currentIndex + i) % TOTAL])
@@ -142,29 +146,30 @@ export function OutdoorCarousel() {
         <ChevronRight className="h-5 w-5" />
       </button>
 
-      {/* Pagination — three dots: previous · current (rust) · next */}
+      {/* Pagination dots — overlaid at bottom-center, inside the photo strip */}
       <div
         className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2"
-        aria-label="Carousel position"
+        role="tablist"
+        aria-label="Carousel photos"
       >
-        <button
-          onClick={prev}
-          className="h-[6px] w-[6px] rounded-full transition-transform duration-200 hover:scale-125"
-          style={{ background: "rgba(240, 230, 208, 0.6)" }}
-          aria-label="Previous photo"
-        />
-        <span
-          className="h-[6px] w-[6px] rounded-full"
-          style={{ background: "var(--color-rust)" }}
-          role="status"
-          aria-label={`Photo ${currentIndex + 1} of ${TOTAL}`}
-        />
-        <button
-          onClick={next}
-          className="h-[6px] w-[6px] rounded-full transition-transform duration-200 hover:scale-125"
-          style={{ background: "rgba(240, 230, 208, 0.6)" }}
-          aria-label="Next photo"
-        />
+        {PHOTOS.map((_, i) => (
+          <button
+            key={i}
+            role="tab"
+            aria-selected={i === currentIndex}
+            onClick={() => goTo(i)}
+            className="rounded-full transition-all duration-300"
+            style={{
+              width: i === currentIndex ? "24px" : "6px",
+              height: "6px",
+              background:
+                i === currentIndex
+                  ? "var(--color-rust)"
+                  : "rgba(240, 230, 208, 0.6)",
+            }}
+            aria-label={`Go to photo ${i + 1}`}
+          />
+        ))}
       </div>
     </div>
   )
