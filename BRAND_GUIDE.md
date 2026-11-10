@@ -84,7 +84,7 @@ Drawn by hand in Illustrator as clean vector shapes, with fills set directly on 
 
 ### Proportions, clear space, and minimum size
 
-- The logo is tall and narrow: about **0.4 : 1** (width : height).
+- The logo is tall and narrow: about **0.37 : 1** (width : height).
 - **Clear space:** at least the width of the heel on every side.
 - **Minimum size (upright):** about 96px tall — that's where the Z becomes readable. Smaller than that, use the nav version or the favicon.
 
@@ -93,7 +93,7 @@ Drawn by hand in Illustrator as clean vector shapes, with fills set directly on 
 In the nav and footer, the boot turns sideways and walks right, toward the nav links, with the Z kept upright. The upright boot is too narrow for a header: at 64px tall its Z is only about 10px. Sideways at 56px tall, the Z is about 21px and the header doesn't have to grow.
 
 - Files: `logo-nav-forest.svg` (Rust, light backgrounds) and `logo-nav-cream.svg` (Sand, dark backgrounds).
-- Proportions about **2.55 : 1**. Nav: 56px tall (`143 × 56`). Footer: 48px tall (`123 × 48`).
+- Proportions about **2.73 : 1**. Nav: 56px tall (`153 × 56`). Footer: 48px tall (`131 × 48`).
 - Always walking right (toe toward the right). Never flip it to walk left.
 
 ### The favicon: shoe print with a Z
@@ -352,7 +352,7 @@ A new mark, a real favicon, and a letterform for the Z:
 - **Alternate mark: footsteps Z** (nine prints walking a Z to a Rust flag badge), kept for decorative use only.
 - **Cooper Black for the Z** in both the logo and the favicon (outlined), matching the hero typeface.
 - **Logo proportions changed** from square to tall (about 0.4 : 1).
-- **Nav version:** the boot turns sideways and walks right in the nav and footer (`logo-nav-*.svg`, 143 × 56 in the nav), so the Z is about 21px instead of 10px. The favicon turns sideways to match.
+- **Nav version:** the boot turns sideways and walks right in the nav and footer (`logo-nav-*.svg`, 153 × 56 in the nav), so the Z is about 21px instead of 10px. The favicon turns sideways to match.
 
 ## 9. What changed in v2.3
 

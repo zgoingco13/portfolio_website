@@ -16,7 +16,7 @@ export function Footer() {
             <Image
               src="/logo/logo-nav-cream.svg"
               alt="Z Goingco"
-              width={123}
+              width={131}
               height={48}
             />
           </Link>

@@ -757,20 +757,20 @@ This applies to all State B routes: `/work`, `/about`, `/contact`, `/case-studie
 
 ## Logo
 
-The primary logo is a **boot print with a Cooper Black Z**: a hiking-boot sole seen from below (chevron lugs, an edge ring of blocks, a round heel lug) with a capital Z in Cooper Black stamped into the arch plate. The Z and the gaps between lugs are cut out, so the background shows through. Files live in `/public/logo/`.
+The primary logo is a **boot print with a Cooper Black Z**: a hiking-boot sole seen from below (chevron lugs, an edge ring of blocks, a round heel lug) with a capital Z in Cooper Black stamped into a long arch plate (lengthened 50% so the Z has room). The Z and the gaps between lugs are cut out, so the background shows through. Files live in `/public/logo/`.
 
 ```html
 <!-- Nav (light background) — sideways Rust boot -->
-<img src="/logo/logo-nav-forest.svg" alt="zgoingco" width="143" height="56" />
+<img src="/logo/logo-nav-forest.svg" alt="zgoingco" width="153" height="56" />
 
 <!-- Footer (dark background) — sideways Sand boot -->
-<img src="/logo/logo-nav-cream.svg" alt="zgoingco" width="123" height="48" />
+<img src="/logo/logo-nav-cream.svg" alt="zgoingco" width="124" height="48" />
 
 <!-- Large upright uses (hero, about page, print) -->
 <img src="/logo/logo-forest.svg" alt="zgoingco" width="48" height="120" />
 ```
 
-> The upright logo is tall and narrow, about **0.4 : 1** (width : height); the nav version is about **2.55 : 1**. Keep each ratio in every `<img>`. Never force either into a square box.
+> The upright logo is tall and narrow, about **0.37 : 1** (width : height); the nav version is about **2.73 : 1**. Keep each ratio in every `<img>`. Never force either into a square box.
 
 > Note on naming: the files keep their historical names so code doesn't break. `logo-forest.svg` is the **Rust** boot (light backgrounds); `logo-cream.svg` is the **Sand** boot (dark backgrounds). Don't rename them.
 
@@ -799,7 +799,7 @@ The primary logo is a **boot print with a Cooper Black Z**: a hiking-boot sole s
 
 ### Nav version
 
-`logo-nav-forest.svg` / `logo-nav-cream.svg`: the same boot turned sideways, walking right toward the nav links, with the Z kept upright. Use it in the header (`143 × 56`) and footer (`123 × 48`). At 56px tall its Z is about 21px, versus about 10px for the upright logo at 64px.
+`logo-nav-forest.svg` / `logo-nav-cream.svg`: the same boot turned sideways, walking right toward the nav links, with the Z kept upright. Use it in the header (`153 × 56`) and footer (`131 × 48`). At 56px tall its Z is about 21px, versus about 10px for the upright logo at 64px.
 
 ### Favicon
 
@@ -846,7 +846,7 @@ Verify before declaring any page "done":
 - [ ] Page background is `--color-sand` (`#F0E6D0`), not white.
 - [ ] Body text is `--color-charcoal`, not black.
 - [ ] Logo is the Rust boot on light bg, the Sand boot on dark bg.
-- [ ] Nav and footer use the sideways nav logo (`logo-nav-*.svg`, 143 × 56 / 123 × 48); any upright logo keeps the ~0.4 : 1 ratio; nothing is squeezed square.
+- [ ] Nav and footer use the sideways nav logo (`logo-nav-*.svg`, 153 × 56 / 131 × 48); any upright logo keeps the ~0.4 : 1 ratio; nothing is squeezed square.
 - [ ] No third hex color outside this palette has been introduced.
 
 **Favicon**
