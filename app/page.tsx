@@ -11,7 +11,7 @@ import { Compass, Sun } from "lucide-react"
 
 export default function HomePage() {
   const allStudies = getAllCaseStudies()
-  const featured = allStudies.slice(0, 3)
+  const featured = allStudies.slice(0, 4)
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -83,7 +83,7 @@ export default function HomePage() {
             {allStudies.length === 0 ? (
               <p className="font-sans text-muted-foreground">No case studies yet.</p>
             ) : (
-              <div className="grid gap-6 md:grid-cols-3">
+              <div className="grid gap-6 md:grid-cols-2">
                 {featured.map((study) => (
                   <CaseStudyCard
                     key={study.slug}
