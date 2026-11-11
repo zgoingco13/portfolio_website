@@ -75,7 +75,7 @@ export default function ContactPage() {
                   style={{ fontSize: "var(--text-subhead)" }}
                 >
                   Have a project in mind? I&apos;d love to hear about it. Send
-                  me a message and I&apos;ll get back to you within 24 hours.
+                  me a message and I&apos;ll get back to you as soon as possible!
                 </p>
 
                 <div className="mt-12">
