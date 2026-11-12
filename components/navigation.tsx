@@ -19,8 +19,7 @@ function isActive(pathname: string, href: string): boolean {
   if (href === "/work") {
     return (
       pathname === "/work" ||
-      pathname.startsWith("/case-studies") ||
-      pathname.startsWith("/academic-projects")
+      pathname.startsWith("/case-studies")
     )
   }
   return pathname === href || pathname.startsWith(href)

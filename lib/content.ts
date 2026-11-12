@@ -27,17 +27,6 @@ export interface CaseStudyFrontmatter {
   heroLogo?: string
 }
 
-export interface AcademicProjectFrontmatter {
-  title: string
-  slug: string
-  year: number
-  role: string[]
-  tags: string[]
-  coverImage: string
-  summary: string
-  order: number
-}
-
 function getSlugs(collection: string): string[] {
   const dir = path.join(contentRoot, collection)
   if (!fs.existsSync(dir)) return []
@@ -70,22 +59,6 @@ export function getAllCaseStudies(): (CaseStudyFrontmatter & { slug: string })[]
     })
     .filter(Boolean)
     .sort((a, b) => (a!.order ?? 99) - (b!.order ?? 99)) as (CaseStudyFrontmatter & {
-    slug: string
-  })[]
-}
-
-export function getAcademicProject(slug: string) {
-  return getItem<AcademicProjectFrontmatter>('academic-projects', slug)
-}
-
-export function getAllAcademicProjects(): (AcademicProjectFrontmatter & { slug: string })[] {
-  return getSlugs('academic-projects')
-    .map((slug) => {
-      const item = getAcademicProject(slug)
-      return item ? { ...item.frontmatter, slug } : null
-    })
-    .filter(Boolean)
-    .sort((a, b) => (a!.order ?? 99) - (b!.order ?? 99)) as (AcademicProjectFrontmatter & {
     slug: string
   })[]
 }
