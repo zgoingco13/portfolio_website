@@ -11,6 +11,10 @@ interface ConceptPosterProps {
   src: string
   /** Caption shown under the image in the overlay */
   caption: string
+  /** Optional second image shown below the first (e.g. a later storyboard) */
+  moreSrc?: string
+  /** Caption for the second image */
+  moreCaption?: string
 }
 
 /**
@@ -18,7 +22,7 @@ interface ConceptPosterProps {
  * Same overlay look as ImageWithCaption's lightbox; rendered in a portal so
  * transformed ancestors (reveal animations) can't trap the fixed overlay.
  */
-export function ConceptPoster({ title, src, caption }: ConceptPosterProps) {
+export function ConceptPoster({ title, src, caption, moreSrc, moreCaption }: ConceptPosterProps) {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -52,24 +56,38 @@ export function ConceptPoster({ title, src, caption }: ConceptPosterProps) {
             aria-modal="true"
             aria-label={caption}
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-50 flex cursor-zoom-out flex-col items-center justify-center gap-4 bg-black/55 p-6 backdrop-blur-sm"
+            className="fixed inset-0 z-50 cursor-zoom-out overflow-y-auto bg-black/55 p-6 backdrop-blur-sm"
           >
-            <Image
-              src={src}
-              alt={caption}
-              width={0}
-              height={0}
-              sizes="90vw"
-              className="h-auto max-h-[85vh] w-auto max-w-[90vw] cursor-default rounded-xl object-contain p-4 md:p-6"
-              style={{ backgroundColor: '#F0E6D0' }}
-              onClick={(e) => e.stopPropagation()}
-            />
-            <p
-              className="max-w-3xl text-center font-sans text-[1.4rem] italic"
-              style={{ color: '#F0E6D0', textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}
-            >
-              {caption}
-            </p>
+            <div className={`flex min-h-full flex-col items-center gap-4 ${moreSrc ? 'py-6' : 'justify-center'}`}>
+              {[
+                { s: src, c: caption },
+                ...(moreSrc ? [{ s: moreSrc, c: moreCaption ?? '' }] : []),
+              ].map(({ s, c }, i) => (
+                <figure key={s} className={`flex flex-col items-center gap-4 ${i > 0 ? 'mt-8' : ''}`}>
+                  <Image
+                    src={s}
+                    alt={c}
+                    width={0}
+                    height={0}
+                    sizes="90vw"
+                    className="h-auto max-h-[85vh] w-auto max-w-[90vw] cursor-default rounded-xl object-contain p-4 md:p-6"
+                    style={{ backgroundColor: '#F0E6D0' }}
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                  <figcaption
+                    className="max-w-3xl text-center font-sans text-[1.4rem] italic"
+                    style={{ color: '#F0E6D0', textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}
+                  >
+                    {c}
+                  </figcaption>
+                  {i === 0 && moreSrc && (
+                    <p className="font-sans text-sm" style={{ color: '#F0E6D0', opacity: 0.8 }}>
+                      Scroll down for more ↓
+                    </p>
+                  )}
+                </figure>
+              ))}
+            </div>
           </div>,
           document.body,
         )}
