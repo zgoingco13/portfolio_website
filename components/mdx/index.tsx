@@ -16,6 +16,7 @@ import { ComparisonGrid } from './ComparisonGrid'
 import { Video } from './Video'
 import { PhoneVideo } from './PhoneVideo'
 import { YouTube } from './YouTube'
+import { ConceptPoster } from './ConceptPoster'
 
 export {
   Section,
@@ -34,6 +35,7 @@ export {
   Video,
   PhoneVideo,
   YouTube,
+  ConceptPoster,
 }
 
 /** Base component map — CaseStudyHeader requires frontmatter to be bound via getMdxComponents. */
@@ -54,6 +56,7 @@ const baseComponents = {
   Video,
   PhoneVideo,
   YouTube,
+  ConceptPoster,
 }
 
 /**
