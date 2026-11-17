@@ -160,9 +160,6 @@ export function JourneyTimeline({ rows }: { rows: JourneyRow[] }) {
               width: '100%',
               flex: 1,
               minHeight: 0,
-              borderRadius: 'var(--radius-md)',
-              overflow: 'hidden',
-              background: 'var(--color-sand)',
             }}
           >
             {rows.map((row, i) =>
@@ -170,23 +167,17 @@ export function JourneyTimeline({ rows }: { rows: JourneyRow[] }) {
                 <div
                   key={i}
                   aria-hidden={i !== active}
-                  className="absolute inset-0 transition-opacity duration-300 ease-out"
+                  className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 ease-out"
                   style={{ opacity: i === active ? 1 : 0 }}
                 >
-                  {/* Soft blurred fill so portrait, square and landscape shots all sit in one frame */}
-                  <Image
-                    src={row.photo}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1024px) 30vw, 1px"
-                    className="scale-110 object-cover opacity-60 blur-2xl"
-                  />
                   <Image
                     src={row.photo}
                     alt={i === active ? row.photoAlt ?? '' : ''}
-                    fill
+                    width={0}
+                    height={0}
                     sizes="(min-width: 1024px) 30vw, 1px"
-                    className="object-contain"
+                    className="h-auto max-h-full w-auto max-w-full"
+                    style={{ borderRadius: 'var(--radius-md)' }}
                   />
                 </div>
               ) : null,
