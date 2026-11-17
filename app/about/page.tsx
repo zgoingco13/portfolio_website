@@ -425,7 +425,7 @@ export default function AboutPage() {
             }} />
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <a
               href="https://www.linkedin.com/in/czarinagoingco/"
               target="_blank"
@@ -463,7 +463,7 @@ export default function AboutPage() {
               <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Email</span>
             </a>
             <a
-              href="/files/resume.pdf"
+              href="/files/Czarina_Goingco_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -479,7 +479,26 @@ export default function AboutPage() {
               }}
             >
               <FileText size={14} strokeWidth={2} color="var(--color-rust)" />
-              <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Resume PDF</span>
+              <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Resume</span>
+            </a>
+            <a
+              href="/files/Czarina_Goingco_Resume_ATS.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "14px 16px",
+                background: "rgba(255,255,255,0.4)",
+                border: "0.5px solid var(--border-subtle)",
+                borderRadius: "var(--radius-md)",
+                textDecoration: "none",
+                color: "var(--text-primary)",
+              }}
+            >
+              <FileText size={14} strokeWidth={2} color="var(--color-rust)" />
+              <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Resume (print-friendly)</span>
             </a>
           </div>
         </section>
