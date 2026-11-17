@@ -166,6 +166,105 @@ export default function AboutPage() {
                 My work spans wellness apps, outdoor tools, and emotional design,
                 all built to foster connection through shared experience.
               </p>
+
+              {/* Reach out */}
+              <div style={{ marginTop: "40px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "20px" }}>
+                <span style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  color: "var(--color-rust)",
+                  textTransform: "uppercase",
+                  letterSpacing: "1.5px",
+                }}>
+                  Reach out
+                </span>
+                <div style={{
+                  flex: 1,
+                  height: "1px",
+                  background: "linear-gradient(to right, var(--color-rust), transparent)",
+                  opacity: 0.4,
+                }} />
+              </div>
+    
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <a
+                  href="https://www.linkedin.com/in/czarinagoingco/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "14px 16px",
+                    background: "rgba(255,255,255,0.4)",
+                    border: "0.5px solid var(--border-subtle)",
+                    borderRadius: "var(--radius-md)",
+                    textDecoration: "none",
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  <Linkedin size={14} strokeWidth={2} color="var(--color-rust)" />
+                  <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>LinkedIn</span>
+                </a>
+                <a
+                  href="mailto:zgoingco.design@gmail.com"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "14px 16px",
+                    background: "rgba(255,255,255,0.4)",
+                    border: "0.5px solid var(--border-subtle)",
+                    borderRadius: "var(--radius-md)",
+                    textDecoration: "none",
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  <Mail size={14} strokeWidth={2} color="var(--color-rust)" />
+                  <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Email</span>
+                </a>
+                <a
+                  href="/files/Czarina_Goingco_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "14px 16px",
+                    background: "rgba(255,255,255,0.4)",
+                    border: "0.5px solid var(--border-subtle)",
+                    borderRadius: "var(--radius-md)",
+                    textDecoration: "none",
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  <FileText size={14} strokeWidth={2} color="var(--color-rust)" />
+                  <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Resume</span>
+                </a>
+                <a
+                  href="/files/Czarina_Goingco_Resume_ATS.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "14px 16px",
+                    background: "rgba(255,255,255,0.4)",
+                    border: "0.5px solid var(--border-subtle)",
+                    borderRadius: "var(--radius-md)",
+                    textDecoration: "none",
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  <FileText size={14} strokeWidth={2} color="var(--color-rust)" />
+                  <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Resume (print-friendly)</span>
+                </a>
+              </div>
+              </div>
             </div>
 
             {/* ── RIGHT: photo + caption → Currently ── */}
@@ -395,111 +494,6 @@ export default function AboutPage() {
             }}>
               Climbing at Cathedral Peaks in Yosemite, CA
             </span>
-          </div>
-        </section>
-
-        {/* ────────── SECTION 6: REACH OUT ────────── */}
-        <section
-          className="mx-auto w-full px-6 lg:w-3/4 lg:px-0"
-          style={{
-            paddingTop: "var(--space-10)",
-            paddingBottom: "var(--space-10)",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "20px" }}>
-            <span style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "11px",
-              fontWeight: 500,
-              color: "var(--color-rust)",
-              textTransform: "uppercase",
-              letterSpacing: "1.5px",
-            }}>
-              Reach out
-            </span>
-            <div style={{
-              flex: 1,
-              height: "1px",
-              background: "linear-gradient(to right, var(--color-rust), transparent)",
-              opacity: 0.4,
-            }} />
-          </div>
-
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <a
-              href="https://www.linkedin.com/in/czarinagoingco/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                padding: "14px 16px",
-                background: "rgba(255,255,255,0.4)",
-                border: "0.5px solid var(--border-subtle)",
-                borderRadius: "var(--radius-md)",
-                textDecoration: "none",
-                color: "var(--text-primary)",
-              }}
-            >
-              <Linkedin size={14} strokeWidth={2} color="var(--color-rust)" />
-              <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>LinkedIn</span>
-            </a>
-            <a
-              href="mailto:zgoingco.design@gmail.com"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                padding: "14px 16px",
-                background: "rgba(255,255,255,0.4)",
-                border: "0.5px solid var(--border-subtle)",
-                borderRadius: "var(--radius-md)",
-                textDecoration: "none",
-                color: "var(--text-primary)",
-              }}
-            >
-              <Mail size={14} strokeWidth={2} color="var(--color-rust)" />
-              <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Email</span>
-            </a>
-            <a
-              href="/files/Czarina_Goingco_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                padding: "14px 16px",
-                background: "rgba(255,255,255,0.4)",
-                border: "0.5px solid var(--border-subtle)",
-                borderRadius: "var(--radius-md)",
-                textDecoration: "none",
-                color: "var(--text-primary)",
-              }}
-            >
-              <FileText size={14} strokeWidth={2} color="var(--color-rust)" />
-              <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Resume</span>
-            </a>
-            <a
-              href="/files/Czarina_Goingco_Resume_ATS.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                padding: "14px 16px",
-                background: "rgba(255,255,255,0.4)",
-                border: "0.5px solid var(--border-subtle)",
-                borderRadius: "var(--radius-md)",
-                textDecoration: "none",
-                color: "var(--text-primary)",
-              }}
-            >
-              <FileText size={14} strokeWidth={2} color="var(--color-rust)" />
-              <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Resume (print-friendly)</span>
-            </a>
           </div>
         </section>
 
