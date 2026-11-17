@@ -17,7 +17,7 @@ export interface JourneyRow {
 /**
  * "My journey" timeline.
  * Desktop (lg+): hovering, focusing or clicking a row swaps the photo in a
- * sticky panel on the right. The last-selected photo stays put on mouse-out.
+ * photo panel on the right. The last-selected photo stays put on mouse-out.
  * Mobile: no panel; each eyebrow is a tap-to-open lightbox (CurrentlyPhoto).
  */
 export function JourneyTimeline({ rows }: { rows: JourneyRow[] }) {
@@ -40,7 +40,7 @@ export function JourneyTimeline({ rows }: { rows: JourneyRow[] }) {
   const activeRow = rows[active]
 
   return (
-    <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-16">
+    <div className="grid gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-16">
       {/* ── LEFT: timeline ── */}
       <div style={{ position: 'relative' }}>
         {/* Dashed vertical trail */}
@@ -151,14 +151,15 @@ export function JourneyTimeline({ rows }: { rows: JourneyRow[] }) {
         })}
       </div>
 
-      {/* ── RIGHT: sticky photo panel (desktop only) ── */}
-      <div className="hidden lg:block">
-        <div className="sticky" style={{ top: '104px' }}>
+      {/* ── RIGHT: photo panel, same height as the timeline (desktop only) ── */}
+      <div className="hidden lg:flex" style={{ flexDirection: 'column' }}>
+        <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
           <div
             style={{
               position: 'relative',
               width: '100%',
-              aspectRatio: '4 / 5',
+              flex: 1,
+              minHeight: 0,
               borderRadius: 'var(--radius-md)',
               overflow: 'hidden',
               background: 'var(--color-sand)',
@@ -177,14 +178,14 @@ export function JourneyTimeline({ rows }: { rows: JourneyRow[] }) {
                     src={row.photo}
                     alt=""
                     fill
-                    sizes="(min-width: 1024px) 34vw, 1px"
+                    sizes="(min-width: 1024px) 30vw, 1px"
                     className="scale-110 object-cover opacity-60 blur-2xl"
                   />
                   <Image
                     src={row.photo}
                     alt={i === active ? row.photoAlt ?? '' : ''}
                     fill
-                    sizes="(min-width: 1024px) 34vw, 1px"
+                    sizes="(min-width: 1024px) 30vw, 1px"
                     className="object-contain"
                   />
                 </div>
