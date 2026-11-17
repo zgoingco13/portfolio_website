@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import { RustCtaPanel } from "@/components/RustCtaPanel"
 import { BreathStrip } from "@/components/BreathStrip"
 import { CurrentlyPhoto } from "@/components/CurrentlyPhoto"
+import { JourneyTimeline } from "@/components/JourneyTimeline"
 import { Compass, Clock, Mail, Linkedin, FileText, MapPin } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -365,79 +366,7 @@ export default function AboutPage() {
             }} />
           </div>
 
-          <div style={{ position: "relative" }}>
-            {/* Dashed vertical trail */}
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                left: "6px",
-                top: "6px",
-                bottom: "6px",
-                width: "1px",
-                background: "repeating-linear-gradient(to bottom, var(--color-rust) 0px, var(--color-rust) 3px, transparent 3px, transparent 6px)",
-                zIndex: 0,
-              }}
-            />
-
-            {timeline.map((row, i) => (
-              <div
-                key={i}
-                style={{
-                  position: "relative",
-                  display: "flex",
-                  gap: "20px",
-                  paddingBottom: i < timeline.length - 1 ? "28px" : 0,
-                }}
-              >
-                {/* Dot */}
-                <div style={{
-                  width: "13px",
-                  height: "13px",
-                  borderRadius: "50%",
-                  background: row.dotColor,
-                  border: "2px solid var(--color-sand)",
-                  flexShrink: 0,
-                  position: "relative",
-                  zIndex: 1,
-                  marginTop: "3px",
-                }} />
-
-                {/* Content */}
-                <div>
-                  <div style={{ display: "flex", alignItems: "baseline", gap: "10px", marginBottom: "4px" }}>
-                    <span style={{
-                      fontFamily: "var(--font-hero)",
-                      fontSize: "18px",
-                      color: "var(--color-forest)",
-                      lineHeight: 1,
-                    }}>
-                      {row.year}
-                    </span>
-                    <span style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                      color: "var(--color-rust)",
-                      textTransform: "uppercase",
-                      letterSpacing: "1.2px",
-                    }}>
-                      · <CurrentlyPhoto src={row.photo} alt={row.photoAlt}>{row.eyebrow}</CurrentlyPhoto>
-                    </span>
-                  </div>
-                  <p style={{
-                    fontFamily: "var(--font-mid)",
-                    fontSize: "13px",
-                    lineHeight: "1.55",
-                    color: "var(--color-charcoal)",
-                    margin: 0,
-                  }}>
-                    {row.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <JourneyTimeline rows={timeline} />
         </section>
 
         {/* ────────── SECTION 5: CATHEDRAL PHOTO ────────── */}

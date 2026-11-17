@@ -36,6 +36,8 @@ export function CurrentlyPhoto({ src, alt, children }: CurrentlyPhotoProps) {
         style={{
           font: 'inherit',
           color: 'inherit',
+          textTransform: 'inherit',
+          letterSpacing: 'inherit',
           background: 'none',
           border: 'none',
           padding: 0,
@@ -76,7 +78,7 @@ export function CurrentlyPhoto({ src, alt, children }: CurrentlyPhotoProps) {
           />
           <p
             className="max-w-3xl text-center font-sans text-lg italic"
-            style={{ color: '#F0E6D0', textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}
+            style={{ color: '#F0E6D0', textShadow: '0 1px 4px rgba(0,0,0,0.6)', textTransform: 'none', letterSpacing: 'normal' }}
           >
             {alt}
           </p>
