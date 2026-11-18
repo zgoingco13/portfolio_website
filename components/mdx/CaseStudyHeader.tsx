@@ -58,6 +58,37 @@ function ProductAndLogoHero({
   )
 }
 
+function LogoAndDevicesImageHero({
+  heroLogo,
+  heroDevices,
+  heroDevicesAlt,
+  title,
+}: {
+  heroLogo?: string
+  heroDevices: string
+  heroDevicesAlt?: string
+  title: string
+}) {
+  return (
+    <div className="mb-12 flex flex-col gap-6">
+      {heroLogo && (
+        <div className="relative w-full" style={{ height: 'min(160px, 14vw)' }}>
+          <Image src={heroLogo} alt={`${title} logo`} fill className="object-contain object-center" priority />
+        </div>
+      )}
+      <div className="relative w-full" style={{ height: 'min(460px, 60vw)' }}>
+        <Image
+          src={heroDevices}
+          alt={heroDevicesAlt ?? `${title} on devices`}
+          fill
+          className="object-contain object-center"
+          priority
+        />
+      </div>
+    </div>
+  )
+}
+
 function DevicesAndLogoHero({
   heroLaptopLeft,
   heroPhone,
@@ -149,13 +180,22 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
     heroLogo,
     heroWatchAlt,
     heroPhoneAlt,
+    heroDevices,
+    heroDevicesAlt,
     heroLaptopLeft,
     heroLaptopRight,
   } = frontmatter
 
   return (
     <header className="mb-16">
-      {heroVariant === 'product-and-logo' && heroWatch && heroPhone ? (
+      {heroVariant === 'product-and-logo' && heroDevices ? (
+        <LogoAndDevicesImageHero
+          heroLogo={heroLogo}
+          heroDevices={heroDevices}
+          heroDevicesAlt={heroDevicesAlt}
+          title={title}
+        />
+      ) : heroVariant === 'product-and-logo' && heroWatch && heroPhone ? (
         <ProductAndLogoHero
           heroWatch={heroWatch}
           heroPhone={heroPhone}
