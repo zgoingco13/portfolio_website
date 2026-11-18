@@ -72,11 +72,11 @@ function LogoAndDevicesImageHero({
   return (
     <div className="mb-12 flex flex-col gap-6">
       {heroLogo && (
-        <div className="relative w-full" style={{ height: 'min(160px, 14vw)' }}>
+        <div className="relative w-full" style={{ height: 'min(174px, 16vw)' }}>
           <Image src={heroLogo} alt={`${title} logo`} fill className="object-contain object-center" priority />
         </div>
       )}
-      <div className="relative w-full" style={{ height: 'min(460px, 60vw)' }}>
+      <div className="relative w-full" style={{ height: 'min(380px, 52vw)' }}>
         <Image
           src={heroDevices}
           alt={heroDevicesAlt ?? `${title} on devices`}
