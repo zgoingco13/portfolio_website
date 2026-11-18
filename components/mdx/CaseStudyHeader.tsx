@@ -1,7 +1,19 @@
+import type React from 'react'
 import Image from 'next/image'
 import { Video } from './Video'
 import type { CaseStudyFrontmatter } from '@/lib/content'
 import { CoordinateRow } from '@/components/CoordinateRow'
+
+type CSSVars = React.CSSProperties & Record<`--${string}`, string>
+
+/** Logo row shared by the logo heroes. Height comes from .cs-hero-logo in globals.css. */
+function HeroLogo({ src, alt, logoH }: { src: string; alt: string; logoH?: string }) {
+  return (
+    <div className="cs-hero-logo" style={logoH ? ({ '--hero-logo-h': logoH } as CSSVars) : undefined}>
+      <Image src={src} alt={alt} fill sizes="100vw" className="object-contain object-center" priority />
+    </div>
+  )
+}
 
 function ProductAndLogoHero({
   heroWatch,
@@ -19,36 +31,27 @@ function ProductAndLogoHero({
   heroPhoneAlt?: string
 }) {
   return (
-    <div className="mb-12 flex flex-col gap-6">
-      {/* Row 1: logo full width */}
-      {heroLogo && (
-        <div className="relative w-full" style={{ height: 'min(160px, 14vw)' }}>
-          <Image
-            src={heroLogo}
-            alt={`${title} logo`}
-            fill
-            className="object-contain object-center"
-            priority
-          />
-        </div>
-      )}
+    <div className="cs-hero">
+      {heroLogo && <HeroLogo src={heroLogo} alt={`${title} logo`} logoH="160px" />}
 
-      {/* Row 2: watch + phone side-by-side, same width as logo row above */}
-      <div className="flex w-full items-center gap-2">
-        <div className="relative flex-1" style={{ height: 'min(420px, 44vw)' }}>
+      {/* Watch + phone side-by-side, filling the rest of the first screen */}
+      <div className="cs-hero-media flex items-center gap-2" style={{ '--hero-mobile-h': 'min(420px, 44vw)' } as CSSVars}>
+        <div className="relative h-full flex-1">
           <Image
             src={heroWatch}
             alt={heroWatchAlt ?? `${title} — watch`}
             fill
+            sizes="50vw"
             className="object-contain object-right"
             priority
           />
         </div>
-        <div className="relative flex-1" style={{ height: 'min(420px, 44vw)' }}>
+        <div className="relative h-full flex-1">
           <Image
             src={heroPhone}
             alt={heroPhoneAlt ?? `${title} — phone`}
             fill
+            sizes="50vw"
             className="object-contain object-left"
             priority
           />
@@ -70,17 +73,14 @@ function LogoAndDevicesImageHero({
   title: string
 }) {
   return (
-    <div className="mb-12 flex flex-col gap-6">
-      {heroLogo && (
-        <div className="relative w-full" style={{ height: 'min(174px, 16vw)' }}>
-          <Image src={heroLogo} alt={`${title} logo`} fill className="object-contain object-center" priority />
-        </div>
-      )}
-      <div className="relative w-full" style={{ height: 'min(380px, 52vw)' }}>
+    <div className="cs-hero">
+      {heroLogo && <HeroLogo src={heroLogo} alt={`${title} logo`} />}
+      <div className="cs-hero-media" style={{ '--hero-mobile-h': 'min(380px, 60vw)' } as CSSVars}>
         <Image
           src={heroDevices}
           alt={heroDevicesAlt ?? `${title} on devices`}
           fill
+          sizes="100vw"
           className="object-contain object-center"
           priority
         />
@@ -102,50 +102,23 @@ function DevicesAndLogoHero({
   heroLogo?: string
   title: string
 }) {
+  const cell = (src: string, alt: string, sizes: string, pos: string) => (
+    <div className="relative h-full">
+      <Image src={src} alt={alt} fill sizes={sizes} className={`object-contain ${pos}`} priority />
+    </div>
+  )
   return (
-    <div className="mb-12 flex flex-col gap-6">
-      {/* Row 1: banner full width */}
-      {heroLogo && (
-        <Image
-          src={heroLogo}
-          alt={`${title} banner`}
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="h-auto w-full rounded-xl"
-          priority
-        />
-      )}
+    <div className="cs-hero">
+      {heroLogo && <HeroLogo src={heroLogo} alt={`${title} banner`} />}
 
-      {/* Row 2: laptop · phone · laptop */}
-      <div className="grid w-full grid-cols-[5fr_2fr_5fr] items-center gap-2 md:gap-4 lg:-mx-[6%] lg:w-[112%]">
-        <Image
-          src={heroLaptopLeft}
-          alt={`${title} on a laptop`}
-          width={0}
-          height={0}
-          sizes="40vw"
-          className="h-auto w-full"
-          priority
-        />
-        <Image
-          src={heroPhone}
-          alt={`${title} AR Fit Guide on a phone`}
-          width={0}
-          height={0}
-          sizes="20vw"
-          className="h-auto w-full"
-          priority
-        />
-        <Image
-          src={heroLaptopRight}
-          alt={`${title} results on a laptop`}
-          width={0}
-          height={0}
-          sizes="40vw"
-          className="h-auto w-full"
-          priority
-        />
+      {/* laptop · phone · laptop, filling the rest of the first screen */}
+      <div
+        className="cs-hero-media grid grid-cols-[5fr_2fr_5fr] items-center gap-2 md:gap-4 lg:-mx-[6%] lg:!w-[112%]"
+        style={{ '--hero-mobile-h': '34vw' } as CSSVars}
+      >
+        {cell(heroLaptopLeft, `${title} on a laptop`, '40vw', 'object-right')}
+        {cell(heroPhone, `${title} AR Fit Guide on a phone`, '20vw', 'object-center')}
+        {cell(heroLaptopRight, `${title} results on a laptop`, '40vw', 'object-left')}
       </div>
     </div>
   )
@@ -153,11 +126,10 @@ function DevicesAndLogoHero({
 
 function DefaultHero({ coverImage, title }: { coverImage: string; title: string }) {
   return (
-    <div
-      className="relative mb-10 w-full overflow-hidden rounded-2xl"
-      style={{ height: 'min(500px, 75vh)' }}
-    >
-      <Image src={coverImage} alt={title} fill className="object-contain" priority />
+    <div className="cs-hero">
+      <div className="cs-hero-media overflow-hidden rounded-2xl" style={{ '--hero-mobile-h': 'min(500px, 75vh)' } as CSSVars}>
+        <Image src={coverImage} alt={title} fill sizes="100vw" className="object-contain" priority />
+      </div>
     </div>
   )
 }
