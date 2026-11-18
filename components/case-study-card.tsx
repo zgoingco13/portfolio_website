@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { FootstepTrail } from "@/components/footstep-trail"
 
 interface CaseStudyCardProps {
   slug: string
@@ -32,7 +33,7 @@ export function CaseStudyCard({
     <Link
       href={`/case-studies/${slug}`}
       className={cn(
-        "group block overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-rust/50 hover:shadow-lg",
+        "group relative block overflow-hidden rounded-xl border border-border bg-transparent transition-all hover:border-rust/50 hover:shadow-lg",
         featured ? "col-span-full" : ""
       )}
     >
@@ -50,7 +51,8 @@ export function CaseStudyCard({
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <div className={cn("p-6", featured ? "md:p-8" : "")}>
+      <div className={cn("relative p-6", featured ? "md:p-8" : "")}>
+        <FootstepTrail variant="below" className="inset-x-0 top-[13px]" />
         {/* Recoleta for card titles */}
         <h3
           className={cn(
