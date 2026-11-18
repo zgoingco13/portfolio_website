@@ -25,6 +25,9 @@ export interface CaseStudyFrontmatter {
   heroWatch?: string
   heroPhone?: string
   heroLogo?: string
+  /** Alt text for the two product-and-logo images (defaults say watch / phone) */
+  heroWatchAlt?: string
+  heroPhoneAlt?: string
   heroLaptopLeft?: string
   heroLaptopRight?: string
 }
