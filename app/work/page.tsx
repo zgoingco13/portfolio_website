@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import { RustCtaPanel } from "@/components/RustCtaPanel"
 import { BreathStrip } from "@/components/BreathStrip"
 import { getAllCaseStudies } from "@/lib/content"
+import { FootstepTrail } from "@/components/footstep-trail"
 import { Compass, ArrowRight } from "lucide-react"
 
 export const metadata = {
@@ -90,7 +91,7 @@ export default function WorkPage() {
                 <Link
                   key={study.slug}
                   href={`/case-studies/${study.slug}`}
-                  className="group block overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-rust/60 hover:shadow-lg"
+                  className="group block overflow-hidden rounded-2xl border border-border bg-transparent transition-all hover:border-rust/60 hover:shadow-lg"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     {study.thumbnailImage ?? study.coverImage ? (
@@ -104,7 +105,8 @@ export default function WorkPage() {
                       <div className="h-full w-full bg-muted" />
                     )}
                   </div>
-                  <div className="p-6">
+                  <div className="relative px-6 pb-6 pt-9">
+                    <FootstepTrail variant="below" className="inset-x-0 top-[13px]" />
                     <p className="font-sans text-[11px] font-medium uppercase tracking-[2px] text-rust">
                       {study.projectType} · {study.year}
                     </p>
