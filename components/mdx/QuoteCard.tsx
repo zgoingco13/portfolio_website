@@ -5,6 +5,8 @@ interface QuoteCardProps {
   role: string
   image?: string
   children: React.ReactNode
+  /** Smaller card and text. */
+  compact?: boolean
 }
 
 function extractText(children: React.ReactNode): string {
@@ -16,10 +18,10 @@ function extractText(children: React.ReactNode): string {
   return ''
 }
 
-export function QuoteCard({ name, role, image, children }: QuoteCardProps) {
+export function QuoteCard({ name, role, image, children, compact = false }: QuoteCardProps) {
   return (
-    <div className="quote-card flex flex-col gap-4 rounded-xl bg-forest p-6">
-      <blockquote className="font-serif font-light text-lg italic text-sand">
+    <div className={`quote-card flex flex-col rounded-xl bg-forest ${compact ? 'gap-3 p-4' : 'gap-4 p-6'}`}>
+      <blockquote className={`font-serif font-light italic text-sand ${compact ? 'text-base' : 'text-lg'}`}>
         &ldquo;{extractText(children)}&rdquo;
       </blockquote>
       <div className="mt-auto flex items-center gap-3">

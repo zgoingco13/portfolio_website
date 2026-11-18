@@ -16,6 +16,7 @@ tools:
   - "Open-Meteo"
   - "SerpAPI"
   - "TensorFlow.js / MoveNet"
+  - "Magic Patterns"
   - "Figma"
 tags:
   - "AI"
@@ -25,240 +26,444 @@ tags:
 coverImage: "/images/case-studies/gearsmart/case_study_images/hero_image.png"
 coverImageAlt: "GearSmart: Pack right. Get outside."
 thumbnailImage: "/images/case-studies/gearsmart/case_study_images/gearsmart_thumbnail_image.png"
-heroVariant: "default"
-summary: "An AI-powered gear advisor that builds a trip-specific packing list for first-time outdoor adventurers, with every item grounded in real conditions, with a reason and the best price."
+heroVariant: "devices-and-logo"
+heroLogo: "/images/case-studies/gearsmart/case_study_images/gearsmart-banner-light.png"
+heroLaptopLeft: "/images/case-studies/gearsmart/case_study_images/hero-laptop-list.png"
+heroPhone: "/images/case-studies/gearsmart/case_study_images/hero-phone-ar-loadlifters.png"
+heroLaptopRight: "/images/case-studies/gearsmart/case_study_images/hero-laptop-results.png"
+summary: "An AI-powered gear advisor that builds a trip-specific packing list for first-time outdoor adventurers. Every item is grounded in real conditions and comes with a reason and the best price."
 featured: true
 order: 1
 ---
 
 <CaseStudyHeader />
 
-<Section title="The Hook">
+<Section title="The Problem">
 
-The first time I went camping, at Holcomb Valley, I hit the moment every beginner knows: not knowing what you don't know. Later, working the floor at REI and leading a women's climbing community, I kept meeting the same person: a capable beginner, underprepared not for lack of trying, but because every gear resource was written for people who already know. GearSmart is the friend in the gear store, for the people who don't have one.
+**The trip that started it.** My first camping trip was Holcomb Valley in the summer of 2024. I relied on borrowed gear I didn't know how to use and underestimated the cold. By midnight my sleeping pad had completely deflated, and I woke up freezing with a headache. My friend Chris had made me a detailed packing list, and it still wasn't enough: a list tells you what to bring, not which items matter or how to use them.
+
+<div className="my-6 grid gap-6 md:grid-cols-2 md:items-start">
+  <ImageWithCaption
+    src="/images/case-studies/gearsmart/case_study_images/problem-holcomb-camp.jpg"
+    caption="The morning after my first night at Holcomb Valley."
+    wrapperClassName="aspect-[4/3]"
+    objectFit="cover"
+    lightbox
+  />
+  <ImageWithCaption
+    src="/images/case-studies/gearsmart/case_study_images/problem-chris-list.jpg"
+    caption="Chris's packing list for the trip. Detailed, and still not enough."
+    wrapperClassName="aspect-[4/3]"
+    objectFit="cover"
+    lightbox
+  />
+</div>
+
+<div className="mt-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-start">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    <p className="mt-0"><strong>Then a pattern.</strong> Every time I got outside after that, an experienced friend filled the gap. Climbing friends at Red Rocks showed me what to bring, and the Ladies Climbing Coalition showed me how to belong outdoors. It took a couple of years to get my own pack right, and the beginner I was would have looked at that pile and stayed home.</p>
+    <p className="mt-4"><strong>Not everyone has that friend.</strong> Working at REI, I saw it from the other side: customers came to me confused and overwhelmed. Online, beginners say the same thing. A camper <a href="https://susanorlean.substack.com/p/the-perils-of-packing-unpacked/comments" target="_blank" rel="noopener noreferrer">can't imagine the weather</a> somewhere they've never been,<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-16" className="no-underline">16</a></sup> a shopper is <a href="https://wilderdispatch.substack.com/p/overrated-hiking-gear" target="_blank" rel="noopener noreferrer">overwhelmed by the sheer amount of gear</a> in an outdoor store,<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-17" className="no-underline">17</a></sup> and first-timers <a href="https://www.reddit.com/r/WildernessBackpacking/comments/11kjwon/first_timer_packing_listgear_advice/" target="_blank" rel="noopener noreferrer">ask strangers on Reddit</a> what to bring.<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-18" className="no-underline">18</a></sup></p>
+  </div>
+  <ImageCarousel aspectClass="aspect-[4/3]" imageFit="contain" figureClassName="my-0">
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/problem-red-rocks.jpg"
+      caption="Climbing with friends at Red Rocks, Nevada."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/problem-lcc-meetup.jpg"
+      caption="A Ladies Climbing Coalition meetup."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/problem-gear-pile.jpg"
+      caption="What I bring on a climbing trip now. It took years to get here."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/problem-rei-floor.jpg"
+      caption="Working the floor at REI, where beginners came in confused and overwhelmed."
+    />
+  </ImageCarousel>
+</div>
+
+**Why beginners show up underprepared.** Generic lists ignore the **real conditions** of where they're going. The **cost** of entry is intimidating and unranked. And there's endless gear content, but almost none **specific to their actual trip**. The result is overbuying, underbuying or giving up.
 
 </Section>
 
-<Section title="Problem">
+<Section title="Research">
 
-Beginners show up underprepared for three reasons: generic lists ignore the **real conditions** of where they're going; the **cost** of entry is intimidating and unranked; and there's endless gear content but almost none **specific to their actual trip**. The result is overbuying, underbuying, or giving up.
+<div className="my-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-start">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    <p className="mt-0">Before designing anything, I researched three things: who is heading outdoors, what tools they already have, and what real beginners wish they had known.</p>
+    <p><strong>More beginners than ever.</strong> A record 183.2 million Americans got outside in 2025, 59% of everyone six and older, and the outdoors has added nearly 30 million participants since 2019. More than half of participants have less than ten years of experience, and casual participants drive most of the growth.<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-1" className="no-underline">1</a>,<a href="#ref-4" className="no-underline">4</a></sup></p>
+    <p className="mt-4"><strong>And they think they're ready.</strong> At Rocky Mountain National Park, researchers surveyed 654 day hikers and trail runners in the summer of 2024. Nearly nine in ten rated themselves adequately prepared, but only 15.7% of day hikers met the study's definition of "wilderness prepared," and about a quarter didn't tell anyone where they were going.<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-3" className="no-underline">3</a></sup></p>
+  </div>
+  <ImageWithCaption
+    src="/images/case-studies/gearsmart/case_study_images/research-outdoor-foundation-graph.jpg"
+    caption="Outdoor recreation participants, 2007 to 2024 (Outdoor Foundation and OIA, 2025 report). The 2026 report adds 2025: a record 183.2 million."
+    natural
+    lightbox
+  />
+</div>
+
+**How people choose.** Twelve secondary sources on the outdoor market and decision-making shaped three rules for the product:
+
+- **Beginners buy cheap.** Most gear sold is mass-priced, and new participants don't start with premium gear.<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-6" className="no-underline">6</a>,<a href="#ref-8" className="no-underline">8</a></sup> So GearSmart treats budget as an input and defaults to affordable picks.
+- **More options, worse choices.** Past a certain point, extra options lower satisfaction and raise regret,<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-9" className="no-underline">9</a>,<a href="#ref-13" className="no-underline">13</a></sup> and too many options on mobile leads people to give up.<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-10" className="no-underline">10</a></sup> So GearSmart makes one confident list instead of a catalog.
+- **Gear is a belonging problem.** For women, cost, intimidation and gear itself all keep people out of a sport.<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-14" className="no-underline">14</a></sup> So every item explains *why* in plain language, framed around safety and confidence.
+
+<div className="my-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-center">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    <p><strong>Competitive analysis.</strong> The information a beginner needs already exists. It's just scattered: REI knows the gear, AllTrails knows the trail and the Weather Channel knows the forecast. I ran a SWOT analysis on eight tools a beginner might use to plan a first trip. None starts where a beginner starts: with a trip and no gear. The best personal help is still a human expert on the phone, and that doesn't scale.<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-15" className="no-underline">15</a></sup></p>
+  </div>
+  <ImageWithCaption
+    src="/images/case-studies/gearsmart/case_study_images/problem-scattered.png"
+    caption="Gear, trail and weather each live in a different place. GearSmart pulls them together."
+    natural
+  />
+</div>
+
+<div className="my-6 overflow-x-auto rounded-xl bg-[#2C1810] text-[#F5E6D0]">
+  <table className="w-full min-w-[640px] border-collapse text-left font-sans text-sm">
+    <thead>
+      <tr className="bg-[#D4722A] text-xs uppercase tracking-widest text-[#2C1810]">
+        <th className="px-4 py-3 font-semibold">Tool</th>
+        <th className="px-4 py-3 font-semibold">Type</th>
+        <th className="px-4 py-3 font-semibold">What it does well</th>
+        <th className="px-4 py-3 font-semibold">The gap GearSmart fills</th>
+      </tr>
+    </thead>
+    <tbody className="align-top">
+      <tr className="border-t border-[#F5E6D0]/10"><td className="px-4 py-3 font-semibold text-[#FF8C42]">LighterPack</td><td className="px-4 py-3 text-[#F5E6D0]/70">List builder</td><td className="px-4 py-3">Simple, fast, free; loved by ultralight hikers</td><td className="px-4 py-3">Starts with your gear. Beginners have no gear yet, so GearSmart starts with the trip.</td></tr>
+      <tr className="border-t border-[#F5E6D0]/10"><td className="px-4 py-3 font-semibold text-[#FF8C42]">PackStack</td><td className="px-4 py-3 text-[#F5E6D0]/70">List builder</td><td className="px-4 py-3">Organizes gear around specific trips</td><td className="px-4 py-3">Organizes a trip but doesn't tell you what belongs on the list.</td></tr>
+      <tr className="border-t border-[#F5E6D0]/10"><td className="px-4 py-3 font-semibold text-[#FF8C42]">Hikt</td><td className="px-4 py-3 text-[#F5E6D0]/70">List builder</td><td className="px-4 py-3">Gear closet, packing lists, AI recommendations, community lists</td><td className="px-4 py-3">Its AI is generic. GearSmart's adapts to conditions and experience.</td></tr>
+      <tr className="border-t border-[#F5E6D0]/10"><td className="px-4 py-3 font-semibold text-[#FF8C42]">OutPack</td><td className="px-4 py-3 text-[#F5E6D0]/70">List builder</td><td className="px-4 py-3">Adds trip journaling, waypoints and photos to lists</td><td className="px-4 py-3">Documents what you brought. GearSmart helps you decide what to bring.</td></tr>
+      <tr className="border-t border-[#F5E6D0]/10"><td className="px-4 py-3 font-semibold text-[#FF8C42]">OutdoorGearLab</td><td className="px-4 py-3 text-[#F5E6D0]/70">Gear reviews</td><td className="px-4 py-3">Trusted, expert-tested reviews and comparisons</td><td className="px-4 py-3">Tells you which tent is best, not which tent your trip needs.</td></tr>
+      <tr className="border-t border-[#F5E6D0]/10"><td className="px-4 py-3 font-semibold text-[#FF8C42]">Switchback Travel</td><td className="px-4 py-3 text-[#F5E6D0]/70">Gear reviews</td><td className="px-4 py-3">Strong editorial voice; a static backpacking checklist</td><td className="px-4 py-3">The same checklist for everyone. GearSmart's is built around you.</td></tr>
+      <tr className="border-t border-[#F5E6D0]/10"><td className="px-4 py-3 font-semibold text-[#FF8C42]">FarOut</td><td className="px-4 py-3 text-[#F5E6D0]/70">Navigation</td><td className="px-4 py-3">The standard for thru-hike navigation, offline GPS</td><td className="px-4 py-3">Knows where you're going, says nothing about what to bring.</td></tr>
+      <tr className="border-t border-[#F5E6D0]/10"><td className="px-4 py-3 font-semibold text-[#FF8C42]">Moosejaw</td><td className="px-4 py-3 text-[#F5E6D0]/70">Retailer</td><td className="px-4 py-3">Approachable, funny brand voice; expert chat</td><td className="px-4 py-3">Sorts by category, not by trip. A tone reference more than a competitor.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div className="my-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-start">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    <p><strong>Primary research with real beginners.</strong> I ran a session with the Ladies Climbing Coalition. Each climber drew a trip card and played an REI employee advising a beginner. Then we filled an affinity board asking "What do you wish you knew?" About thirty sticky notes clustered into three themes:</p>
+    <ul className="mt-4 list-disc space-y-3 pl-5">
+      <li><strong>Condition gaps.</strong> <em>"How cold it gets at night regardless of daytime temp. Pack layers!"</em> Lists must surface hidden, counterintuitive conditions, not just gear categories.</li>
+      <li><strong>Specificity gap.</strong> <em>"Not all crags have hike-able toprope anchors!"</em> A list has to be built around the exact trip (place, terrain, season, duration), not a generic archetype.</li>
+      <li><strong>Priority blindness.</strong> <em>"You don't need new + expensive gear!"</em> Cost came up three times. Beginners need a clear signal for what's essential and what can wait.</li>
+    </ul>
+    <p className="mt-4">Several notes were about skills, like warming up and how hard outdoor grades feel. A gear list can't teach those, so I kept them out of scope. Under "what would have helped," one climber wrote that she wished she'd had a knowledgeable, well-equipped, generous friend.</p>
+  </div>
+  <div className="grid grid-cols-2 gap-4">
+    <ImageWithCaption
+      src="/images/case-studies/gearsmart/case_study_images/research-lcc-session.jpg"
+      caption="The LCC meetup where I ran the session."
+      wrapperClassName="aspect-[3/4]"
+      objectFit="cover"
+      lightbox
+    />
+    <ImageWithCaption
+      src="/images/case-studies/gearsmart/case_study_images/research-affinity-board.jpg"
+      caption={'The affinity board: "What do you wish you knew?"'}
+      wrapperClassName="aspect-[3/4]"
+      objectFit="cover"
+      lightbox
+    />
+  </div>
+</div>
+
+<div className="my-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-center">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    <strong>A blind gear tasting.</strong> Borrowing from wine tasting, I hosted a dinner where a beginner and an experienced climber handled about ten pieces of gear with the brands, names and prices hidden. They guessed what each piece was for and what it cost, then I revealed it. The beginner priced a $35 belay device at $200. Nobody packed water or food for the practice trip ("I figured it was implied"), and the rope was left to "the experienced friend." The gap wasn't effort. It was knowing what each piece does and how the pieces work together: <em>"So the bag actually needs the pad to work?"</em>
+  </div>
+  <ImageWithCaption
+    src="/images/case-studies/gearsmart/case_study_images/research-gear-tasting.jpg"
+    caption="The gear tasting: blind first, then the reveal."
+    natural
+    lightbox
+  />
+</div>
+
+**The finding I didn't expect.** Mid-semester I presented GearSmart to Rhys Newman, an industry reviewer from my program's Interaction Design Advisory Board. He told me "beginner/intermediate/expert is too vague." When I ran three personas through v3, each one would have rated themselves higher than their skill on the trip they were planning, the same gap the Rocky Mountain study found in real hikers.<sup className="ml-0.5 font-sans text-[0.7em]"><a href="#ref-3" className="no-underline">3</a></sup> The real problem wasn't gear. It was **calibration**, so v4 asks a calibration question instead of trusting the self-rating.
+
+**The reframe.** My first question, in March, was broad: how to present outdoor resources so people could prepare. Every round of research pointed at something narrower, the missing experienced friend.
+
+<KeyInsight label="How might we">
+
+*How might we digitally recreate the experienced friend who knows what's needed, so anyone can confidently pack and enjoy their time outdoors?*
+
+GearSmart is that friend, for the people who don't have one.
+
+</KeyInsight>
 
 </Section>
 
 <Section title="What I Built">
 
-<div className="my-6 flex justify-center">
-  <div className="w-full max-w-2xl">
-    <Video
-      src="/images/case-studies/gearsmart/case_study_videos/demo-landing-to-setup.mp4"
-      caption="From landing page to trip setup, five inputs shape the whole list."
-      autoPlay
-      loop
-      muted
-    />
-  </div>
-</div>
-
-<div className="my-6 grid gap-6 md:grid-cols-3 md:items-start">
-  <ImageWithCaption
-    src="/images/case-studies/gearsmart/case_study_images/form_p1.png"
-    caption="Select your outdoor activity."
-    wrapperClassName="aspect-[12/5] bg-card"
-    objectFit="contain"
+<div className="mx-auto my-6 w-full max-w-3xl">
+  <Video
+    src="/images/case-studies/gearsmart/case_study_videos/demo-landing-to-setup.mp4"
+    title="Setting up a trip"
+    caption="From the landing page to trip setup: five inputs shape the whole list."
+    frame="laptop"
+    autoPlay
+    loop
+    muted
     lightbox
-  />
-  <ImageWithCaption
-    src="/images/case-studies/gearsmart/case_study_images/form_p2.png"
-    caption="Enter your trip's information."
-    wrapperClassName="aspect-[12/5] bg-card"
-    objectFit="contain"
-    lightbox
-  />
-  <ImageWithCaption
-    src="/images/case-studies/gearsmart/case_study_images/form_p3.png"
-    caption="Input your experience level."
-    wrapperClassName="aspect-[12/5]"
-    objectFit="contain"
-    lightbox
+    figureClassName="my-0"
   />
 </div>
 
-<div className="my-6 grid gap-8 md:grid-cols-[3fr_5fr] md:items-start">
+<div className="my-10 grid gap-8 md:grid-cols-[2fr_3fr] md:items-center">
   <div className="font-serif text-base leading-relaxed text-foreground">
-    You give GearSmart your trip (destination, dates, activity, experience level, budget), and it generates a checklist built for <em>that</em> trip: every item carries a plain-language reason, flagged Essential or Recommended, grounded in live weather and conditions, and linked to whichever trusted retailer sells it cheapest. A companion AR feature then coaches you through fitting your pack correctly once it's on the list.
+    <p><strong>Setup, one question at a time.</strong> GearSmart asks for the trip in three short steps instead of one long form. First the activity (backpacking, day hike, climbing or camping), then where and when you're going, then your experience level, group size and budget. Each step narrows the context before any gear appears, so nobody faces a wall of fields on a phone.</p>
+    <p className="mt-4">Destination search uses <strong>Google Maps Places</strong>, so a vague name like "Holcomb Valley" becomes exact coordinates that the weather lookups depend on.</p>
   </div>
-  <div className="flex flex-col gap-6">
-    <ImageCarousel>
-      <CarouselSlide
-        src="/images/case-studies/gearsmart/case_study_images/detail_2_live-conditions.png"
-        caption="Using several API servers, GearSmart provides real weather, alerts, and trip notes, such as elevation, terrain, and UV."
-      />
-      <CarouselSlide
-        src="/images/case-studies/gearsmart/case_study_images/detail_1_checklist.png"
-        caption="GearSmart turns a trip into a complete checklist with each item categorized and labeled."
-      />
-      <CarouselSlide
-        src="/images/case-studies/gearsmart/case_study_images/item_dropdown.png"
-        caption="Tap any item to read why it's needed and GearSmart also suggests product options."
-      />
-    </ImageCarousel>
-    <figure>
-      <div className="relative aspect-[2/1] w-full overflow-hidden rounded-xl bg-card">
-        <video
-          src="/images/case-studies/gearsmart/case_study_videos/demo-purchase-flow.mp4#t=0.5"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-      <figcaption className="mt-2 text-center font-sans text-sm italic text-muted-foreground">
-        Tap to buy and GearSmart routes you to whichever trusted retailer sells it cheapest.
-      </figcaption>
-    </figure>
+  <ImageCarousel frame="laptop" imageFit="contain" steps captionClassName="text-base text-foreground" figureClassName="my-0">
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/form_p1.png"
+      label="Activity"
+      caption="Step 1: select your outdoor activity."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/form_p2.png"
+      label="Trip details"
+      caption="Step 2: enter where and when you're going."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/form_p3.png"
+      label="Experience"
+      caption="Step 3: tell it about your experience, group and budget."
+    />
+  </ImageCarousel>
+</div>
+
+<div className="my-10 grid gap-8 md:grid-cols-[2fr_3fr] md:items-center">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    <p><strong>A list built for that trip.</strong> The results page opens with the conditions you'll actually face, then the packing list.</p>
+    <ul className="mt-4 list-disc space-y-2 pl-5">
+      <li><strong>Live weather</strong> from <strong>OpenWeather</strong>: what it's like at the destination right now, with the source and time on every reading.</li>
+      <li><strong>Trip-date weather</strong> from <strong>Open-Meteo</strong>: the forecast for your dates if the trip is within 16 days, or the typical weather for that month, averaged over past years, if it's further out.</li>
+      <li><strong>Trip notes and alerts</strong> such as elevation, terrain, UV and how cold it gets at night.</li>
+      <li><strong>The packing list</strong>, generated by <strong>Claude (Sonnet 4.5)</strong> through the schema I designed: categories, a priority for every item, a plain-language reason and a top pick. Items check off as you pack, with a progress bar.</li>
+    </ul>
   </div>
+  <ImageCarousel frame="laptop" figureClassName="my-0">
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/detail_2_live-conditions.png"
+      caption="Live weather, alerts and trip notes such as elevation, terrain and UV."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/detail_1_checklist.png"
+      caption="A complete checklist, every item categorized and labeled."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/item_dropdown.png"
+      caption="Tap any item to see why you need it, plus a few product options."
+    />
+  </ImageCarousel>
+</div>
+
+<div className="my-10 grid gap-8 md:grid-cols-[2fr_3fr] md:items-center">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    <p><strong>Buy from the best retailer, not one store.</strong> Items you still need collect in a "What I still need to buy" panel with an estimated total. Tap Buy and GearSmart searches <strong>Google Shopping through SerpAPI</strong> for that product, picks the best price among trusted outdoor retailers and sends you straight to it. If the search fails, it falls back to an REI search so the button never dead-ends.</p>
+  </div>
+  <Video
+    src="/images/case-studies/gearsmart/case_study_videos/demo-purchase-flow-v2.mp4"
+    caption="Tap Buy and GearSmart routes you to the best trusted retailer. Here, REI."
+    frame="laptop"
+    autoPlay
+    loop
+    muted
+    lightbox
+    figureClassName="my-0"
+  />
 </div>
 
 </Section>
 
-<Section title="Process">
+<Section title="The Pack List">
 
-**Research with real beginners.** I ran a session with the Ladies Climbing Coalition (real first-timers, not classmates), using an REI roleplay and an affinity board. Three themes surfaced:
+<div className="my-6 grid gap-8 md:grid-cols-[2fr_3fr] md:items-center">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    <p className="mt-0"><strong>The first concept.</strong> Before writing any code, I prototyped the flow in Magic Patterns: pick an activity, review a trip summary with expected conditions, then get a checklist grouped by category. That flow survived every version.</p>
+  </div>
+  <ImageCarousel aspectClass="aspect-[16/9]" imageFit="contain" figureClassName="my-0">
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/process-mp-activity.jpg"
+      caption="March: choose an activity."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/process-mp-summary.jpg"
+      caption="Review the trip and its expected conditions."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/process-mp-gearlist.jpg"
+      caption="Get a checklist grouped by category."
+    />
+  </ImageCarousel>
+</div>
 
-<KeyInsight>
+**Design moves.**
 
-*"I had no idea desert nights were freezing — I showed up with one layer."*
+- **A schema, not a prompt.** I designed the structure the AI has to fill: 4 to 6 categories of 3 to 6 items, each with an Essential, Recommended or Optional priority, a reason scaled to how much the choice matters, and one top pick with a one-line why. The caps keep the list short enough to act on.
+- **One question at a time.** Setup asks for the activity, then the trip, then experience, so each step narrows the context before any gear appears.
+- **Detail on tap.** The list shows each item's name and priority first. The reason and product options open only when you tap, so the list stays short on a phone.
 
-**Condition Gaps.** Lists must surface hidden, counterintuitive conditions, not just gear categories.
+<ImageWithCaption
+  src="/images/case-studies/gearsmart/case_study_images/process-v3-annotated.jpg"
+  caption="V3, annotated for my faculty review: categories, a progress bar, a reason and a suggested product for every item, and a running list of what's left to buy."
+  natural
+  lightbox
+/>
 
-</KeyInsight>
+**Four versions.** V1 proved the idea: a trip in, a list out. V2 put Essential and Recommended badges on every item and added a progress bar. V3 redesigned each item to open into "why this item" and added a running shopping total. V4 added the calibration question, group and solo trips, and weather-source citations. Under the hood, I moved the API keys server-side and switched to structured tool use, so the list doesn't break on bad data.
 
-<KeyInsight>
-
-*"I wished someone gave me a list specific to where I was actually going, not just hiking in general."*
-
-**Specificity Gap.** Built around the exact trip (terrain, season, duration), not a generic archetype.
-
-</KeyInsight>
-
-<KeyInsight>
-
-*"I didn't know what was actually essential vs. nice to have. Everything looked equally important."*
-
-**Priority Blindness.** A clear safe-vs-upgrade signal so beginners know where to spend first.
-
-</KeyInsight>
-
-The deeper finding: every target user over-rated their own skill on exactly the trip where it mattered most. The real problem wasn't gear. It was **calibration**.
-
-**Four versions, and a rebuild.** V1 worked but leaked API keys and broke on bad data. I moved every secret server-side, replaced fragile parsing with the AI's structured tool-use, added retries and spending caps. Shipping to real users meant making it not-broken.
-
-**The pivot that defines it.** I applied to REI's affiliate program; they rejected it. So I rebuilt the entire purchase layer to be **retailer-agnostic**, searching trusted retailers and routing to whoever's cheapest. The rejection made the product better.
-
-**What I removed.** The strongest decisions were walk-backs: designed, tested, and pulled because simpler served the user better:
-
-- **Per-person pricing.** Built it, tested it, removed it. Splitting cost across people obscured the per-item decision the user actually needed to make.
-- **Hover tooltips.** Designed for desktop power users, but the real flow was mobile and one-handed. Tooltips became a tap target nobody wanted.
-- **Solo-mode toggle.** Solved a problem most users didn't have, at the cost of an extra decision every user *did* have to make.
+**The pivot that defines it.** I applied to REI's affiliate program; they rejected it. So I rebuilt the entire purchase layer to be **retailer-agnostic**, searching trusted retailers and routing to whoever's cheapest.
 
 <div className="my-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-center">
   <div className="font-serif text-base leading-relaxed text-foreground">
-    <strong>Designing in AR.</strong> The first time I tested the AR fit guide on a real pack, I learned an overlay can show you the target but can't confirm you've hit it, so v2 tracks the body, not the gear. The physical test taught me what the screen couldn't.
+    <p><strong>What I removed.</strong> The strongest decisions were walk-backs: designed, tested, and pulled because simpler served the user better:</p>
+    <ul className="mt-4 list-disc space-y-2 pl-5">
+      <li><strong>Per-person pricing.</strong> Built it, tested it, removed it. Splitting cost across people obscured the per-item decision the user actually needed to make.</li>
+      <li><strong>Hover tooltips.</strong> Designed for desktop power users, but the real flow was mobile and one-handed. Tooltips became a tap target nobody wanted.</li>
+      <li><strong>Solo-mode toggle.</strong> Solved a problem most users didn't have, at the cost of an extra decision every user <em>did</em> have to make.</li>
+    </ul>
   </div>
-  <figure>
-    <video
-      src="/images/case-studies/gearsmart/case_study_videos/demo-ar-fit-guide.mp4#t=0.5"
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="w-full h-auto rounded-xl"
-    />
-  </figure>
+  <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-3">
+    <div>
+      <p className="mb-2 text-center font-sans text-xs font-semibold uppercase tracking-widest text-muted-foreground">Before</p>
+      <ImageWithCaption
+        src="/images/case-studies/gearsmart/case_study_images/process-per-person-pricing.jpg"
+        caption={'Per-person pricing: "$180 × 2 people."'}
+        natural
+        lightbox
+      />
+    </div>
+    <span aria-hidden="true" className="self-center font-sans text-3xl font-bold text-[#D4722A]">→</span>
+    <div>
+      <p className="mb-2 text-center font-sans text-xs font-semibold uppercase tracking-widest text-[#D4722A]">Now</p>
+      <ImageWithCaption
+        src="/images/case-studies/gearsmart/case_study_images/process-pricing-now.jpg"
+        caption="One price per item."
+        natural
+        lightbox
+      />
+    </div>
+  </div>
 </div>
-
-<figure className="my-6">
-  <StoryboardGrid>
-    <StoryboardFrame
-      image="/images/case-studies/gearsmart/case_study_images/v2-01-torso.jpg"
-      caption="torso measurement"
-    />
-    <StoryboardFrame
-      image="/images/case-studies/gearsmart/case_study_images/v2-02-hipbelt.jpg"
-      caption="set the hip belt"
-    />
-    <StoryboardFrame
-      image="/images/case-studies/gearsmart/case_study_images/v2-03-shoulders.jpg"
-      caption="snug the shoulders"
-    />
-    <StoryboardFrame
-      image="/images/case-studies/gearsmart/case_study_images/v2-04-loadlifters.jpg"
-      caption="pull the load lifters"
-    />
-    <StoryboardFrame
-      image="/images/case-studies/gearsmart/case_study_images/v2-05-sternum.jpg"
-      caption="clip the sternum strap"
-    />
-    <StoryboardFrame
-      image="/images/case-studies/gearsmart/case_study_images/v2-06-fitted.jpg"
-      caption="fitted and confirmed, then saved to your profile."
-    />
-  </StoryboardGrid>
-  <figcaption className="mt-2 text-center font-sans text-sm italic text-muted-foreground">
-    The AR Fit Guide reads 17 body keypoints live, in-browser, and coaches you through five fitting steps, then confirms the fit and remembers your torso size for next time.
-  </figcaption>
-</figure>
 
 </Section>
 
-<Section title="What I Designed vs. What AI Built">
+<Section title="The AR Fit Guide">
 
-AI built the prototype fast. That's the point: it let me test ideas in days, not weeks. What's mine is the thinking. The problem came from the REI floor and my own first trip, validated against real beginners before I built anything. The structure, where every item carries a *why* tied to the actual forecast for your destination and dates, was a schema I designed and iterated across four versions. The biggest call was the retailer-agnostic pivot after REI's rejection, a judgment AI doesn't hand you. And I tested with a real climbing community, not classmates, and changed the product based on what they did. The tool is the artifact; the judgment is the design.
+**Designing in AR.** Fit is the other half of being prepared: the right pack, worn wrong, still hurts. The first time I tested the AR Fit Guide on a real pack, I learned an overlay can show you the target but can't confirm you've hit it, so v2 tracks the body, not the gear. It reads 17 body keypoints live in the browser, coaches you through five fitting steps, then confirms the fit and remembers your torso size for next time. The physical test taught me what the screen couldn't.
+
+<div className="my-6 flex flex-col items-center gap-10 md:flex-row md:items-start md:justify-center md:gap-24">
+<div className="w-full max-w-[400px]">
+  <Video
+    src="/images/case-studies/gearsmart/case_study_videos/demo-ar-fit-guide.mp4"
+    caption="The AR Fit Guide, start to finish."
+    wrapperClassName="aspect-[9/16] bg-card"
+    objectFit="cover"
+    autoPlay
+    loop
+    muted
+    lightbox
+    figureClassName="my-0"
+  />
+</div>
+<div className="w-full max-w-[544px]">
+  <ImageCarousel aspectClass="aspect-[9/16]" steps stepsPosition="side" captionClassName="text-base text-foreground" figureClassName="my-0">
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/v2-01-torso.jpg"
+      label="Torso"
+      caption="Step 1: stand still while it measures your torso."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/v2-02-hipbelt.jpg"
+      label="Hip belt"
+      caption="Step 2: set the hip belt, hands on your hips."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/v2-03-shoulders.jpg"
+      label="Shoulders"
+      caption="Step 3: snug the shoulder straps."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/v2-04-loadlifters.jpg"
+      label="Load lifters"
+      caption="Step 4: pull the load lifters and hold the pose."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/v2-05-sternum.jpg"
+      label="Sternum strap"
+      caption="Step 5: clip the sternum strap."
+    />
+    <CarouselSlide
+      src="/images/case-studies/gearsmart/case_study_images/v2-06-fitted.jpg"
+      label="Fitted"
+      caption="Fitted and confirmed. Your torso size is saved for next time."
+    />
+  </ImageCarousel>
+</div>
+</div>
 
 </Section>
 
 <Section title="Validation">
 
-Tested with beginner climbers (LCC + remote), reviewed by a panel of working designers (including a senior product designer at Patagonia and a designer on Adobe's design-system team), and exhibited publicly through a four-table experience where visitors compared their own packing guess against a researched list. It made the gap between guessing and knowing physical.
-
-<QuoteGrid>
-  <QuoteCard name="Sam Anvari" role="Advisor">
-    It's genius that you started pulling the API from weather and from the vendors to bring everything into one shop.
-  </QuoteCard>
-  <QuoteCard name="Beginner tester" role="Ladies Climbing Coalition">
-    Like a knowledgeable, generous friend.
-  </QuoteCard>
-</QuoteGrid>
-
-<div className="mx-auto my-6 w-full max-w-3xl">
-  <ImageCarousel>
-    <CarouselSlide
-      src="/images/case-studies/gearsmart/case_study_images/detail_4_exhibition.jpeg"
-      caption="The exhibition: four tables that let visitors compare their own packing guess against a researched list."
-    />
-    <CarouselSlide
-      src="/images/case-studies/gearsmart/case_study_images/detail_5_guiding-visitors.jpeg"
-      caption="Guiding visitors through the gap between guessing and knowing."
-    />
-    <CarouselSlide
-      src="/images/case-studies/gearsmart/case_study_images/detail_6_community.jpeg"
-      caption="Built with the Ladies Climbing Coalition: real first-timers, not classmates."
-    />
-  </ImageCarousel>
+<div className="my-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-center">
+  <div className="font-serif text-base leading-relaxed text-foreground">
+    Tested with beginner climbers from the Ladies Climbing Coalition and five to six remote testers recruited through friends and family, reviewed by a panel of working designers (including a senior product designer at Patagonia and a designer on Adobe's design-system team), and exhibited publicly through a four-table experience where visitors compared their own packing guess against a researched list. It made the gap between guessing and knowing physical.
+  </div>
+  <div className="flex flex-col gap-3">
+    <QuoteCard compact name="Sam Anvari" role="Advisor">
+      It's genius that you started pulling the API from weather and from the vendors to bring everything into one shop.
+    </QuoteCard>
+    <QuoteCard compact name="Elísabet Elfa" role="Senior Product Designer, Patagonia">
+      You're on to something. I haven't seen anything out there that is similar.
+    </QuoteCard>
+  </div>
 </div>
 
 </Section>
 
 <Section title="Reflection">
 
-GearSmart taught me what AI is good for as a design material: speed. But the defensible work is the judgment underneath: framing the real problem, designing the reasoning structure, the retailer-agnostic pivot, and testing with real beginners instead of classmates. The tool is the artifact. The judgment is the design.
+<div className="my-6 grid gap-10 md:grid-cols-[3fr_2fr] md:items-start">
+  <div className="flex flex-col font-serif text-base leading-relaxed text-foreground">
+    <p><strong>It started with a bad night.</strong> On my first camping trip, at Holcomb Valley, my sleeping pad deflated by midnight and I woke up freezing. Chris's detailed packing list still wasn't enough: a list tells you what to bring, not why you need it or how to use it. That gap became the project.</p>
+    <p><strong>The real problem wasn't gear.</strong> Beginners don't lack information; they lack information built for their trip. And people over-rate their own skill on exactly the trip where it matters most. I set out to build a gear list generator and ended up designing around how people judge themselves.</p>
+    <p><strong>What I designed, and what AI built.</strong> AI let me build and test in days instead of weeks: Claude Code wrote most of the code from my specs, and Claude writes each list. The decisions were mine:</p>
+    <ul className="list-disc space-y-2 pl-5">
+      <li><strong>The research:</strong> my first trip, the REI floor, the LCC session, the gear tasting and the competitive analysis.</li>
+      <li><strong>The design:</strong> the flow, the interface and the schema that shapes every list.</li>
+      <li><strong>The judgment calls:</strong> the retailer-agnostic rebuild, the calibration question, moving keys server-side and cutting three features I'd already built.</li>
+      <li><strong>The testing:</strong> real beginners, the four-table exhibit, and treating every AI output as a draft to check.</li>
+    </ul>
+    <p><strong>The lesson I'll keep.</strong> A source line I added to the weather banner exposed that live weather had been silently broken for days, and Claude had filled the gap with plausible seasonal advice. A working-looking app isn't a working app. Showing your sources is a form of testing.</p>
+    <p><strong>What the panel taught me.</strong> Put the product first, cut the visual noise and make my judgment visible. In the AI era, "I built it" isn't enough.</p>
+    <p>The tool is the artifact. The judgment is the design.</p>
+  </div>
+  <div className="md:sticky md:top-24">
+    <YouTube
+      id="vT4_M0YOtNg"
+      title="GearSmart final capstone presentation"
+      caption="My final presentation to the SMC Interaction Design capstone panel, June 2026."
+      start={16918}
+      end={18290}
+      figureClassName="my-0"
+    />
+    <p className="mt-3 text-center font-sans text-sm"><a href="https://www.youtube.com/watch?v=vT4_M0YOtNg&t=16918s" target="_blank" rel="noopener noreferrer">Watch my segment on YouTube (4:41:58 to 5:04:50)</a></p>
+  </div>
+</div>
 
 </Section>
 
 <Section title="What's next">
 
-A Patagonia product designer on my capstone panel gave me three ideas I want to build next.
+Elísabet Elfa, a senior product designer at Patagonia, reviewed GearSmart on my capstone panel and gave me three ideas I want to build next.
 
 - **Pack weight.** Show a running total as you check items off. Weight decides what kind of pack you need, from a light shoulder-carry to a full hip-belt pack with load lifters.
 - **A post-trip check-in.** After the trip, mark what you actually used. The next list for a similar trip gets smarter, and so do you.
@@ -269,7 +474,31 @@ A Patagonia product designer on my capstone panel gave me three ideas I want to 
 <Section title="Links">
 
 - [Try the live prototype](https://gear-smart.vercel.app/v5GS.html)
-- [Read the full case study](https://gear-smart.vercel.app/case-study.html)
 - [See the AR Fit Guide](https://gearsmart-fit-guide-ar.vercel.app)
+
+</Section>
+
+<Section title="References" id="references">
+
+<ol className="list-decimal gap-x-12 pl-6 font-sans text-sm leading-relaxed text-foreground marker:text-muted-foreground md:columns-2">
+  <li id="ref-1" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Outdoor Industry Association and Outdoor Foundation. "2026 Outdoor Participation Trends Report: Executive Summary." 2026. <a href="https://oia.outdoorindustry.org/2026-participation-trends-report-summary" target="_blank" rel="noopener noreferrer">oia.outdoorindustry.org</a></li>
+  <li id="ref-2" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Outdoor Industry Association and Outdoor Foundation. "2025 Outdoor Participation Trends Report: Executive Summary." 2025. Source of the participation graph. <a href="https://oia.outdoorindustry.org/exec-summary-outdoor-participation-trends" target="_blank" rel="noopener noreferrer">oia.outdoorindustry.org</a></li>
+  <li id="ref-3" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Lambert, John T., Davidson H. Hamer, Taylor N. Weckstein and Gregory A. Wellenius. "Know Before You Go! A Field Survey of the Preparedness of Wilderness Day Hikers and Trail Runners in Rocky Mountain National Park." <em>Wilderness & Environmental Medicine</em>, 2026. <a href="https://npshistory.com/publications/romo/wem-2026.pdf" target="_blank" rel="noopener noreferrer">PDF</a></li>
+  <li id="ref-4" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Outdoor Industry Association. "New Report: Outdoor Market Shows Modest Rebound to $28B in 2024, Driven by Casual Consumers." 15 Apr. 2025. <a href="https://outdoorindustry.org/press-release/new-report-outdoor-market-shows-modest-rebound-to-28b-in-2024-driven-by-casual-consumers" target="_blank" rel="noopener noreferrer">outdoorindustry.org</a></li>
+  <li id="ref-5" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Outdoor Industry Association. "Solid Economy, Cautious Consumers: Outdoor Retail Confronts Challenges." 17 Dec. 2024. <a href="https://outdoorindustry.org/article/solid-economy-cautious-consumers-outdoor-retail-confronts-challenges" target="_blank" rel="noopener noreferrer">outdoorindustry.org</a></li>
+  <li id="ref-6" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Grand View Research. "U.S. Camping and Hiking Gear Market Size & Industry Growth 2030." 2024. <a href="https://www.grandviewresearch.com/industry-analysis/us-camping-hiking-gear-market-report" target="_blank" rel="noopener noreferrer">grandviewresearch.com</a></li>
+  <li id="ref-7" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Continuous Agency. "2025: Six Trends Shaping the Future of the Outdoor Industry." 2025. <a href="https://wearecontinuous.net/news/2025-six-trends-shaping-the-future-of-the-outdoor-industry" target="_blank" rel="noopener noreferrer">wearecontinuous.net</a></li>
+  <li id="ref-8" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Boardsport SOURCE. "Great Outdoors S/S 2025 Retail Buyer's Guide." 16 Sept. 2024. <a href="https://www.boardsportsource.com/retail-buyers-guide/great-outdoors-s-s-2025-retail-buyers-guide" target="_blank" rel="noopener noreferrer">boardsportsource.com</a></li>
+  <li id="ref-9" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Schwartz, Barry. <em>The Paradox of Choice: Why More Is Less.</em> HarperCollins, 2004.</li>
+  <li id="ref-10" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Baymard Institute. "2024 Product Finding Research Update." 17 Sept. 2024. <a href="https://baymard.com/blog/product-finding-2024-launch" target="_blank" rel="noopener noreferrer">baymard.com</a></li>
+  <li id="ref-11" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Winsome Marketing. "Decision Fatigue in E-Commerce: How Many Product Options Are Too Many?" 30 June 2025. <a href="https://winsomemarketing.com/winsome-marketing/decision-fatigue-in-e-commerce-how-many-product-options-are-too-many" target="_blank" rel="noopener noreferrer">winsomemarketing.com</a></li>
+  <li id="ref-12" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Anthony, Jay. "Designing for Decisions: UX That Guides, Not Overwhelms." Loop11, 6 Oct. 2025. <a href="https://www.loop11.com/designing-for-decisions-ux-that-guides-not-overwhelms" target="_blank" rel="noopener noreferrer">loop11.com</a></li>
+  <li id="ref-13" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Renascence. "Choice Overload: Difficulty in Making Decisions with Too Many Options." Aug. 2024. <a href="https://www.renascence.io/journal/choice-overload-difficulty-in-making-decisions-with-too-many-options" target="_blank" rel="noopener noreferrer">renascence.io</a></li>
+  <li id="ref-14" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Women in Sport. "Barriers to Sports Participation for Women and Girls." 2024. <a href="https://womeninsport.org/resource/barriers-sports-participation-women-girls" target="_blank" rel="noopener noreferrer">womeninsport.org</a></li>
+  <li id="ref-15" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Latterly. "Top 12 REI Competitors & Alternatives." 2026. <a href="https://www.latterly.org/rei-competitors" target="_blank" rel="noopener noreferrer">latterly.org</a></li>
+  <li id="ref-16" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Orlean, Susan. "The Perils of Packing, Unpacked" (reader comments). Substack. <a href="https://susanorlean.substack.com/p/the-perils-of-packing-unpacked/comments" target="_blank" rel="noopener noreferrer">susanorlean.substack.com</a></li>
+  <li id="ref-17" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">Wilder Dispatch. "Overrated Hiking Gear" (reader comments). Substack. <a href="https://wilderdispatch.substack.com/p/overrated-hiking-gear" target="_blank" rel="noopener noreferrer">wilderdispatch.substack.com</a></li>
+  <li id="ref-18" className="mb-2 break-inside-avoid scroll-mt-24 pl-1">r/WildernessBackpacking. "First timer packing list/gear advice." Reddit. <a href="https://www.reddit.com/r/WildernessBackpacking/comments/11kjwon/first_timer_packing_listgear_advice/" target="_blank" rel="noopener noreferrer">reddit.com</a></li>
+</ol>
 
 </Section>

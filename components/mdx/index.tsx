@@ -39,7 +39,14 @@ export {
 }
 
 /** Base component map — CaseStudyHeader requires frontmatter to be bound via getMdxComponents. */
+/** Markdown links: external ones open in a new tab. */
+function MdxLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const external = typeof props.href === 'string' && /^https?:\/\//.test(props.href)
+  return external ? <a {...props} target="_blank" rel="noopener noreferrer" /> : <a {...props} />
+}
+
 const baseComponents = {
+  a: MdxLink,
   Section,
   QuoteCard,
   QuoteGrid,

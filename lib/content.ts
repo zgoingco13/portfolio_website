@@ -21,10 +21,12 @@ export interface CaseStudyFrontmatter {
   summary: string
   featured: boolean
   order: number
-  heroVariant?: 'default' | 'product-and-logo'
+  heroVariant?: 'default' | 'product-and-logo' | 'devices-and-logo'
   heroWatch?: string
   heroPhone?: string
   heroLogo?: string
+  heroLaptopLeft?: string
+  heroLaptopRight?: string
 }
 
 function getSlugs(collection: string): string[] {

@@ -45,6 +45,38 @@ const UGLOO_IMAGE_CSS = `
 }
 `
 
+// Same hover effect for the GearSmart case study, in GearSmart's brand colors (orange, ember, green, cream).
+const GEARSMART_IMAGE_CSS = `
+@property --gs-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes gs-spin { to { --gs-angle: 360deg; } }
+[data-slug="gearsmart"] .img-spin { position: relative; }
+.mdx-content[data-slug="gearsmart"] p,
+.mdx-content[data-slug="gearsmart"] ul,
+.mdx-content[data-slug="gearsmart"] ol { max-width: none; }
+[data-slug="gearsmart"] .img-spin::before,
+[data-slug="gearsmart"] .img-spin::after {
+  content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  border-radius: inherit;
+  background: conic-gradient(from var(--gs-angle),
+    transparent 0deg 338deg,
+    #2C1810 345deg, #D4722A 351deg, #FF8C42 355deg, #7AB648 358deg,
+    transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity 0.25s ease;
+}
+[data-slug="gearsmart"] .img-spin::after { padding: 2px; }
+[data-slug="gearsmart"] .img-spin::before { padding: 6px; inset: -3px; filter: blur(5px) brightness(1.15); }
+[data-slug="gearsmart"] .img-spin:hover::before,
+[data-slug="gearsmart"] .img-spin:hover::after,
+[data-slug="gearsmart"] .img-spin:focus-visible::before,
+[data-slug="gearsmart"] .img-spin:focus-visible::after { opacity: 1; animation: gs-spin 5s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  [data-slug="gearsmart"] .img-spin:hover::before,
+  [data-slug="gearsmart"] .img-spin:hover::after { animation: none; }
+}
+`
+
 interface CaseStudyPageProps {
   params: Promise<{ slug: string }>
 }
@@ -85,6 +117,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             All case studies
           </Link>
           {slug === 'ugloo' && <style>{UGLOO_IMAGE_CSS}</style>}
+          {slug === 'gearsmart' && <style>{GEARSMART_IMAGE_CSS}</style>}
           <MDXRemote source={content} components={components} options={{ blockJS: false }} />
         </article>
         <CaseStudyToc />

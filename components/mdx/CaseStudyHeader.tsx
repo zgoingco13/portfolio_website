@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { Video } from './Video'
 import type { CaseStudyFrontmatter } from '@/lib/content'
 import { CoordinateRow } from '@/components/CoordinateRow'
 
@@ -53,6 +54,68 @@ function ProductAndLogoHero({
   )
 }
 
+function DevicesAndLogoHero({
+  heroLaptopLeft,
+  heroPhone,
+  heroLaptopRight,
+  heroLogo,
+  title,
+}: {
+  heroLaptopLeft: string
+  heroPhone: string
+  heroLaptopRight: string
+  heroLogo?: string
+  title: string
+}) {
+  return (
+    <div className="mb-12 flex flex-col gap-6">
+      {/* Row 1: banner full width */}
+      {heroLogo && (
+        <Image
+          src={heroLogo}
+          alt={`${title} banner`}
+          width={0}
+          height={0}
+          sizes="100vw"
+          className="h-auto w-full rounded-xl"
+          priority
+        />
+      )}
+
+      {/* Row 2: laptop · phone · laptop */}
+      <div className="grid w-full grid-cols-[5fr_2fr_5fr] items-center gap-2 md:gap-4 lg:-mx-[6%] lg:w-[112%]">
+        <Image
+          src={heroLaptopLeft}
+          alt={`${title} on a laptop`}
+          width={0}
+          height={0}
+          sizes="40vw"
+          className="h-auto w-full"
+          priority
+        />
+        <Image
+          src={heroPhone}
+          alt={`${title} AR Fit Guide on a phone`}
+          width={0}
+          height={0}
+          sizes="20vw"
+          className="h-auto w-full"
+          priority
+        />
+        <Image
+          src={heroLaptopRight}
+          alt={`${title} results on a laptop`}
+          width={0}
+          height={0}
+          sizes="40vw"
+          className="h-auto w-full"
+          priority
+        />
+      </div>
+    </div>
+  )
+}
+
 function DefaultHero({ coverImage, title }: { coverImage: string; title: string }) {
   return (
     <div
@@ -80,6 +143,8 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
     heroWatch,
     heroPhone,
     heroLogo,
+    heroLaptopLeft,
+    heroLaptopRight,
   } = frontmatter
 
   return (
@@ -88,6 +153,14 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
         <ProductAndLogoHero
           heroWatch={heroWatch}
           heroPhone={heroPhone}
+          heroLogo={heroLogo}
+          title={title}
+        />
+      ) : heroVariant === 'devices-and-logo' && heroLaptopLeft && heroPhone && heroLaptopRight ? (
+        <DevicesAndLogoHero
+          heroLaptopLeft={heroLaptopLeft}
+          heroPhone={heroPhone}
+          heroLaptopRight={heroLaptopRight}
           heroLogo={heroLogo}
           title={title}
         />
@@ -116,14 +189,17 @@ export function CaseStudyHeader({ frontmatter }: { frontmatter: CaseStudyFrontma
       </div>
 
       {title === 'GearSmart' && (
-        <div className="mt-4 overflow-hidden rounded-xl">
-          <video
+        <div className="mx-auto mt-6 w-full max-w-2xl">
+          <Video
             src="/images/case-studies/gearsmart/case_study_videos/demo-overview.mp4"
+            title="This is GearSmart"
+            caption="Holcomb Valley, Big Bear: trip conditions up top, gear grouped by category, and items checked off as you pack."
+            frame="laptop"
             autoPlay
             loop
             muted
-            playsInline
-            className="w-full"
+            lightbox
+            figureClassName="my-0"
           />
         </div>
       )}
