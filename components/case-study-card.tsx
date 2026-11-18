@@ -32,7 +32,7 @@ export function CaseStudyCard({
     <Link
       href={`/case-studies/${slug}`}
       className={cn(
-        "group block overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-rust/50 hover:shadow-lg",
+        "group block overflow-hidden rounded-xl border border-border bg-transparent transition-all hover:border-rust/50 hover:shadow-lg",
         featured ? "col-span-full" : ""
       )}
     >
