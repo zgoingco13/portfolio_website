@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 /**
  * Boot prints that walk in when the parent `.group` is hovered.
  * Shape is one print from the footsteps-Z mark (public/logo/footsteps-z-*.svg).
- * Pure CSS: each print fades in after its own delay; on hover-out they all fade at once.
+ * CSS only (see TRAIL_CSS): each print fades in after its own delay; on hover-out they all fade at once.
  */
 
 type Variant = "below" | "border"
@@ -17,6 +17,15 @@ function Print() {
     </svg>
   )
 }
+
+// Hover behaviour lives here so the effect is self-contained (React 19 hoists and dedupes this <style>)
+const TRAIL_CSS = `
+.footstep { opacity: 0; transition: opacity 200ms ease-out; }
+.group:hover .footstep, .group:focus-visible .footstep { opacity: 0.85; transition-delay: var(--step-delay); }
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .footstep, .group:focus-visible .footstep { transition: none; }
+}
+`
 
 const STEP_MS = 70 // delay between prints
 const PRINT_W = 20 // px
@@ -58,6 +67,9 @@ export function FootstepTrail({ variant, className }: { variant: Variant; classN
   const stepMs = variant === "below" ? STEP_MS : 30
   return (
     <div aria-hidden="true" className={cn("footstep-trail pointer-events-none absolute", className)}>
+      <style href="footstep-trail" precedence="default">
+        {TRAIL_CSS}
+      </style>
       {steps.map((s, i) => (
         <span
           key={i}

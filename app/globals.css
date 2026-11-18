@@ -399,20 +399,3 @@
     height: auto;
   }
 }
-
-/* Footstep trail — boot prints walk in on card hover (components/footstep-trail.tsx) */
-.footstep {
-  opacity: 0;
-  transition: opacity 200ms ease-out;
-}
-.group:hover .footstep,
-.group:focus-visible .footstep {
-  opacity: 0.85;
-  transition-delay: var(--step-delay);
-}
-@media (prefers-reduced-motion: reduce) {
-  .group:hover .footstep,
-  .group:focus-visible .footstep {
-    transition: none;
-  }
-}
