@@ -150,14 +150,14 @@ export function OutdoorCarousel() {
       onFocus={() => (pausedRef.current = true)}
       onBlur={() => (pausedRef.current = false)}
     >
-      {/* Drifting strip — 4 visible, 4:3 aspect ratio, 2px gaps */}
+      {/* Drifting strip — 4 visible, 5:3 aspect ratio, 2px gaps */}
       <div ref={trackRef} className="flex will-change-transform" style={{ gap: `${GAP}px` }}>
         {strip.map((photo, i) => {
           const isCopy = i >= TOTAL
           return (
             <div
               key={i}
-              className="relative aspect-[4/3] shrink-0 overflow-hidden"
+              className="relative aspect-[5/3] shrink-0 overflow-hidden"
               style={{ width: `calc((100% - ${GAP * (VISIBLE - 1)}px) / ${VISIBLE})` }}
               aria-hidden={isCopy || undefined}
             >

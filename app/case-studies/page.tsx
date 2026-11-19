@@ -3,8 +3,6 @@ import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { CoordinateRow } from '@/components/CoordinateRow'
-import { RustCtaPanel } from '@/components/RustCtaPanel'
-import { BreathStrip } from '@/components/BreathStrip'
 import { getAllCaseStudies } from '@/lib/content'
 import { ArrowRight } from 'lucide-react'
 
@@ -107,8 +105,6 @@ export default function CaseStudiesPage() {
         </section>
       </main>
 
-      <RustCtaPanel />
-      <BreathStrip />
       <Footer />
     </div>
   )

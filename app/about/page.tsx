@@ -2,8 +2,6 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { RustCtaPanel } from "@/components/RustCtaPanel"
-import { BreathStrip } from "@/components/BreathStrip"
 import { CurrentlyPhoto } from "@/components/CurrentlyPhoto"
 import { JourneyTimeline } from "@/components/JourneyTimeline"
 import { Compass, Clock, Mail, Linkedin, FileText, MapPin } from "lucide-react"
@@ -408,8 +406,6 @@ export default function AboutPage() {
 
       </main>
 
-      <RustCtaPanel />
-      <BreathStrip />
       <Footer />
     </div>
   )

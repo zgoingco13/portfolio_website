@@ -2,8 +2,6 @@ import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
-import { RustCtaPanel } from '@/components/RustCtaPanel'
-import { BreathStrip } from '@/components/BreathStrip'
 import { getCaseStudy, getAllCaseStudies } from '@/lib/content'
 import { getMdxComponents } from '@/components/mdx'
 import Link from 'next/link'
@@ -123,8 +121,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <CaseStudyToc />
       </main>
 
-      <RustCtaPanel />
-      <BreathStrip />
       <Footer />
     </div>
   )

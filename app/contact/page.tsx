@@ -219,7 +219,7 @@ export default function ContactPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer showCta={false} />
     </div>
   )
 }

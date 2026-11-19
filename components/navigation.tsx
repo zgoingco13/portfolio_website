@@ -7,6 +7,8 @@ import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
 
+const RESUME_HREF = "/files/Czarina_Goingco_Resume.pdf"
+
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
@@ -60,6 +62,16 @@ export function Navigation() {
               </li>
             )
           })}
+          <li>
+            <a
+              href={RESUME_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-rust px-4 py-1.5 font-sans text-xs font-medium uppercase tracking-[1.5px] text-rust transition-colors hover:bg-rust hover:text-sand"
+            >
+              Resume ↗
+            </a>
+          </li>
         </ul>
 
         {/* Mobile toggle */}
@@ -97,6 +109,17 @@ export function Navigation() {
                 </li>
               )
             })}
+            <li>
+              <a
+                href={RESUME_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block font-sans text-xs font-medium uppercase tracking-[1.5px] text-rust"
+              >
+                Resume ↗
+              </a>
+            </li>
           </ul>
         </div>
       )}

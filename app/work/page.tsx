@@ -2,8 +2,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { RustCtaPanel } from "@/components/RustCtaPanel"
-import { BreathStrip } from "@/components/BreathStrip"
 import { getAllCaseStudies } from "@/lib/content"
 import { FootstepTrail } from "@/components/footstep-trail"
 import { Compass, ArrowRight } from "lucide-react"
@@ -69,9 +67,6 @@ export default function WorkPage() {
                   "linear-gradient(to right, var(--color-rust), transparent)",
               }}
             />
-            <span className="coordinate mb-1">
-              {studies.length} of {studies.length}
-            </span>
           </div>
           <p
             className="mb-8 font-serif font-light italic text-muted-foreground"
@@ -141,8 +136,6 @@ export default function WorkPage() {
 
       </main>
 
-      <RustCtaPanel />
-      <BreathStrip />
       <Footer />
     </div>
   )

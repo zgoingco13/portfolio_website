@@ -39,10 +39,10 @@ interface Step {
   foot: 1 | -1 // left/right foot
 }
 
-// Prints walking left → right across the card, just under the picture
-function belowSteps(count = 14): Step[] {
+// Prints walking left → right. Spread across the box by default, or a fixed `spacing` (px) apart
+function belowSteps(count = 14, spacing?: number): Step[] {
   return Array.from({ length: count }, (_, i) => ({
-    left: `${4 + (92 * i) / (count - 1)}%`,
+    left: spacing ? `${PRINT_W / 2 + i * spacing}px` : `${4 + (92 * i) / (count - 1)}%`,
     top: "0px",
     angle: 0,
     foot: i % 2 === 0 ? 1 : -1,
@@ -62,11 +62,25 @@ function borderSteps(perSide = { x: 16, y: 17 }): Step[] {
   return steps
 }
 
-export function FootstepTrail({ variant, className }: { variant: Variant; className?: string }) {
-  const steps = variant === "below" ? belowSteps() : borderSteps()
+export function FootstepTrail({
+  variant,
+  count,
+  spacing,
+  className,
+  style,
+}: {
+  variant: Variant
+  /** Number of prints for the "below" trail (default 14) */
+  count?: number
+  /** Fixed gap between prints in px for the "below" trail; prints past the box edge are clipped */
+  spacing?: number
+  className?: string
+  style?: React.CSSProperties
+}) {
+  const steps = variant === "below" ? belowSteps(count, spacing) : borderSteps()
   const stepMs = variant === "below" ? STEP_MS : 30
   return (
-    <div aria-hidden="true" className={cn("footstep-trail pointer-events-none absolute", className)}>
+    <div aria-hidden="true" className={cn("footstep-trail pointer-events-none absolute", className)} style={style}>
       <style href="footstep-trail" precedence="default">
         {TRAIL_CSS}
       </style>
