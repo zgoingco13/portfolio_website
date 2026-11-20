@@ -41,40 +41,45 @@ export default function HomePage() {
         <section className="relative overflow-hidden">
           <div data-site-margins className="mx-auto flex w-full flex-col items-center gap-6 px-6 pb-36 text-center md:pb-48 lg:w-3/4 lg:px-0">
             {/* Name block fills the rest of the first screen (below the nav, carousel and stripes),
-                so the preview starts just below the fold. Carousel height = 15% of the width. */}
-            <div
-              className="relative flex w-full flex-col items-center justify-center pb-24 pt-10"
-              style={{ minHeight: "calc(100svh - 116px - 15vw)" }}
-            >
-              <div className="flex items-center justify-center gap-2" style={{ marginBottom: "14px" }}>
-                <Compass size={16} strokeWidth={2} color="var(--color-rust)" />
-                <span className="coordinate">UX/UI Designer · Los Angeles, CA · 33.844° N · 118.388° W</span>
-              </div>
-              <h1
-                className="mt-4 max-w-4xl font-display leading-none text-foreground"
-                style={{ fontSize: "var(--text-hero-xl)" }}
-              >
-                Czarina <span className="text-rust">&lsquo;Z&rsquo;</span> Goingco
-              </h1>
-              <p
-                className="mt-5 max-w-2xl mx-auto font-serif font-light italic text-muted-foreground"
-                style={{ fontSize: "var(--text-subhead)" }}
-              >
-                An interaction designer working at the intersection of healthcare, outdoor culture, and human-centered storytelling.
-              </p>
-              <div className="flex items-center justify-center gap-2" style={{ marginTop: "14px" }}>
-                <Sun size={16} strokeWidth={2} color="var(--color-amber)" />
-                <span className="coordinate" style={{ letterSpacing: "1.5px", fontSize: "10px" }}>
-                  Designing between hikes and climbs · Happiest on trails
-                </span>
+                so the preview starts just below the fold. Carousel height = 20% of the width (5:4 photos, 4 across),
+                or 40% on phones (2 across). */}
+            <div className="flex min-h-[calc(100svh-116px-40vw)] w-full flex-col items-center sm:min-h-[calc(100svh-116px-20vw)]">
+              {/* Sizes follow both width (vw) and height (svh) so the block fits short laptop screens too */}
+              <div className="flex w-full flex-1 flex-col items-center justify-center pt-4">
+                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1" style={{ marginBottom: "clamp(8px, 2svh, 20px)" }}>
+                  <Compass className="h-5 w-5 md:h-6 md:w-6" strokeWidth={2} color="var(--color-rust)" />
+                  <span className="coordinate" style={{ fontSize: "clamp(10px, 1vw, 13px)", letterSpacing: "2.5px" }}>
+                    UX/UI Designer · Los Angeles, CA · 33.844° N · 118.388° W
+                  </span>
+                </div>
+                <h1
+                  className="max-w-6xl font-display leading-none text-foreground"
+                  style={{ fontSize: "clamp(40px, min(9vw, 10svh), 96px)", marginTop: "clamp(6px, 2.2svh, 24px)" }}
+                >
+                  Czarina <span className="text-rust">&lsquo;Z&rsquo;</span> Goingco
+                </h1>
+                <p
+                  className="mx-auto max-w-4xl font-serif font-light italic text-muted-foreground"
+                  style={{ fontSize: "clamp(16px, min(2.2vw, 2.9svh), 28px)", lineHeight: 1.4, marginTop: "clamp(10px, 2.6svh, 28px)" }}
+                >
+                  An interaction designer working at the intersection of healthcare, outdoor culture, and human-centered storytelling.
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1" style={{ marginTop: "clamp(8px, 2svh, 20px)" }}>
+                  <Sun className="h-5 w-5 md:h-6 md:w-6" strokeWidth={2} color="var(--color-amber)" />
+                  <span className="coordinate" style={{ letterSpacing: "2px", fontSize: "clamp(11px, 1.05vw, 15px)" }}>
+                    Designing between hikes and climbs · Happiest on trails
+                  </span>
+                </div>
               </div>
               {/* "Scroll down" cue at the bottom of the first screen — fades out once the visitor scrolls */}
-              <ScrollHint className="absolute bottom-6 left-1/2 -translate-x-1/2" />
+              <ScrollHint className="pb-4 pt-3" />
             </div>
 
             {/* Below the name — rotating preview of the work, straight to /work */}
             {slides.length > 0 && (
-              <div className="w-full max-w-3xl">
+              // Width capped by the window height so the whole block (logo, image, heading, button)
+              // fits on one screen below the sticky nav: block height ≈ 0.67 × width + ~190px.
+              <div className="w-full" style={{ maxWidth: "min(72rem, calc((100svh - 330px) * 1.45))" }}>
                 <ExploreWorkPanel slides={slides} />
               </div>
             )}

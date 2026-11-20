@@ -102,24 +102,26 @@ export function ExploreWorkPanel({ slides }: { slides: ExploreSlide[] }) {
         ))}
       </div>
 
-      <div className="mt-4 text-center">
-        <p className="coordinate">Featured work</p>
+      <div className="mt-6 text-center">
+        <p className="coordinate" style={{ fontSize: "clamp(10px, 1vw, 13px)", letterSpacing: "2.5px" }}>
+          Featured work
+        </p>
         <p
-          className="mt-2 font-serif font-bold leading-tight text-foreground"
-          style={{ fontSize: "var(--text-h2)" }}
+          className="mt-3 font-serif font-bold leading-tight text-foreground"
+          style={{ fontSize: "clamp(26px, 3.75vw, 42px)" }}
         >
           Let&rsquo;s start exploring
         </p>
         {/* Button centered; hovering it sends the footprints walking away from it, out to the site's
             right margin. The row ignores the pointer so only the button itself triggers the hover. */}
-        <div className="group pointer-events-none mt-4 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div className="group pointer-events-none mt-6 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
           <div aria-hidden="true" />
           <Link
             href="/work"
-            className="pointer-events-auto inline-flex shrink-0 items-center gap-2 rounded-full bg-rust px-5 py-2.5 font-sans text-xs font-medium uppercase tracking-[2px] text-sand transition-colors group-hover:bg-ember"
+            className="pointer-events-auto inline-flex shrink-0 items-center gap-2 rounded-full bg-rust px-6 py-3 font-sans text-xs font-medium uppercase tracking-[2px] md:px-8 md:py-4 md:text-sm text-sand transition-colors group-hover:bg-ember"
           >
             Explore my work
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 md:h-5 md:w-5" />
           </Link>
           <div ref={trailRef} className="relative h-3 min-w-0">
             {trailCount > 0 && (
