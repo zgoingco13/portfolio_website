@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { getAllCaseStudies } from "@/lib/content"
 import { FootstepTrail } from "@/components/footstep-trail"
+import { HoverVideo } from "@/components/hover-video"
 import { Compass, ArrowRight } from "lucide-react"
 
 export const metadata = {
@@ -88,16 +89,22 @@ export default function WorkPage() {
                   href={`/case-studies/${study.slug}`}
                   className="group block overflow-hidden rounded-2xl border border-border bg-transparent transition-all hover:border-rust/60 hover:shadow-lg"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-[4/3] overflow-hidden [&[data-hover-playing]>img]:opacity-0">
                     {study.thumbnailImage ?? study.coverImage ? (
                       <Image
                         src={(study.thumbnailImage ?? study.coverImage)!}
                         alt={study.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover transition-[transform,opacity] duration-500 group-hover:scale-105"
                       />
                     ) : (
                       <div className="h-full w-full bg-muted" />
+                    )}
+                    {study.hoverVideo && (
+                      <HoverVideo
+                        src={study.hoverVideo}
+                        className="transition-transform duration-500 group-hover:scale-105"
+                      />
                     )}
                   </div>
                   <div className="relative px-6 pb-6 pt-9">

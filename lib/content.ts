@@ -18,6 +18,8 @@ export interface CaseStudyFrontmatter {
   coverImage?: string
   coverImageAlt?: string
   thumbnailImage?: string
+  /** Short muted clip shown over the thumbnail on hover (Work page cards) */
+  hoverVideo?: string
   summary: string
   featured: boolean
   order: number
