@@ -414,11 +414,39 @@ GearSmart is that friend, for the people who don't have one.
 
 <Section title="Validation">
 
-<div className="my-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-center">
-  <div className="font-serif text-base leading-relaxed text-foreground">
-    Tested with beginner climbers from the Ladies Climbing Coalition and five to six remote testers recruited through friends and family, reviewed by a panel of working designers (including a senior product designer at Patagonia and a designer on Adobe's design-system team), and exhibited publicly through a four-table experience where visitors compared their own packing guess against a researched list. It made the gap between guessing and knowing physical.
+<div className="my-6 grid gap-8 md:grid-cols-[3fr_2fr] md:items-start">
+  <div className="flex flex-col gap-6">
+    <div className="font-serif text-base leading-relaxed text-foreground">
+      Tested with beginner climbers from the Ladies Climbing Coalition and five to six remote testers recruited through friends and family, reviewed by a panel of working designers (including a senior product designer at Patagonia and a designer on Adobe's design-system team), and exhibited publicly through a four-table experience where visitors compared their own packing guess against a researched list. It made the gap between guessing and knowing physical.
+    </div>
+    <ImageCarousel aspectClass="aspect-[4/3]" figureClassName="my-0">
+      <CarouselSlide
+        src="/images/case-studies/gearsmart/case_study_images/detail_4_exhibition.jpeg"
+        caption="The exhibit: visitors compared their own packing guess against a researched list."
+      />
+      <CarouselSlide
+        src="/images/case-studies/gearsmart/case_study_images/validation-exhibit-laptop.jpg"
+        caption="Visitors trying GearSmart at the exhibit’s laptop station."
+      />
+      <CarouselSlide
+        src="/images/case-studies/gearsmart/case_study_images/detail_5_guiding-visitors.jpeg"
+        caption="Guiding visitors through the gap between guessing and knowing."
+      />
+      <CarouselSlide
+        src="/images/case-studies/gearsmart/case_study_images/validation-forgot-board.jpg"
+        caption="The “What did you forget?” board, where visitors added what they’d left behind on past trips."
+      />
+      <CarouselSlide
+        src="/images/case-studies/gearsmart/case_study_images/detail_6_community.jpeg"
+        caption="Visitors comparing their packing picks at the gear tables."
+      />
+      <CarouselSlide
+        src="/images/case-studies/gearsmart/case_study_images/validation-cafe-test.jpg"
+        caption="A tester trying GearSmart on their phone at a café."
+      />
+    </ImageCarousel>
   </div>
-  <div className="flex flex-col gap-3">
+  <div className="flex flex-col justify-center gap-10 md:self-stretch">
     <QuoteCard compact name="Sam Anvari" role="Advisor">
       It's genius that you started pulling the API from weather and from the vendors to bring everything into one shop.
     </QuoteCard>
