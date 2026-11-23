@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { CurrentlyPhoto } from "@/components/CurrentlyPhoto"
@@ -246,8 +247,8 @@ export default function AboutPage() {
                   <Linkedin size={14} strokeWidth={2} color="var(--color-rust)" style={{ flexShrink: 0 }} />
                   <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>LinkedIn</span>
                 </a>
-                <a
-                  href="mailto:zgoingco.design@gmail.com"
+                <Link
+                  href="/contact"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -262,7 +263,7 @@ export default function AboutPage() {
                 >
                   <Mail size={14} strokeWidth={2} color="var(--color-rust)" style={{ flexShrink: 0 }} />
                   <span style={{ fontFamily: "var(--font-mid)", fontSize: "14px", fontWeight: 500 }}>Email</span>
-                </a>
+                </Link>
                 <a
                   href="/files/Czarina_Goingco_Resume.pdf"
                   target="_blank"
