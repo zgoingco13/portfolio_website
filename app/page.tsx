@@ -59,10 +59,10 @@ export default function HomePage() {
                   Czarina <span className="text-rust">&lsquo;Z&rsquo;</span> Goingco
                 </h1>
                 <p
-                  className="mx-auto max-w-4xl font-serif font-light italic text-muted-foreground"
+                  className="mx-auto max-w-5xl text-balance font-serif font-light italic text-muted-foreground"
                   style={{ fontSize: "clamp(16px, min(2.2vw, 2.9svh), 28px)", lineHeight: 1.4, marginTop: "clamp(10px, 2.6svh, 28px)" }}
                 >
-                  A user experience designer and researcher working at the intersection of healthcare, outdoor culture, and human-centered storytelling to prepare people with tools to manage their health and their time outdoors.
+                  A UX designer and researcher bridging healthcare, outdoor culture, and storytelling to prepare people with tools to manage their <span className="text-rust">health</span> and their time <span className="text-rust">outdoors</span>.
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1" style={{ marginTop: "clamp(8px, 2svh, 20px)" }}>
                   <Sun className="h-5 w-5 md:h-6 md:w-6" strokeWidth={2} color="var(--color-amber)" />
