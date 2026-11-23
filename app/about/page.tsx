@@ -9,7 +9,7 @@ import { Compass, Clock, Mail, Linkedin, FileText, MapPin } from "lucide-react"
 export const metadata: Metadata = {
   title: "About · Czarina Goingco · zgoingco",
   description:
-    "A user experience designer and researcher based in Los Angeles, working at the intersection of healthcare, outdoor culture, and human-centered storytelling to prepare people with tools to manage their health and their time outdoors.",
+    "A UX designer and researcher based in Los Angeles, bridging healthcare, outdoor culture, and storytelling to prepare people with tools to manage their health and their time outdoors.",
 }
 
 const timeline = [
@@ -137,10 +137,11 @@ export default function AboutPage() {
                 lineHeight: 1.5,
                 marginBottom: "32px",
               }}>
-                A user experience designer and researcher based in Los Angeles,
-                working at the intersection of healthcare, outdoor culture, and
-                human-centered storytelling to prepare people with tools to manage
-                their health and their time outdoors.
+                A UX designer and researcher based in Los Angeles, bridging
+                healthcare, outdoor culture, and storytelling to prepare people
+                with tools to manage their{" "}
+                <span className="text-rust">health</span> and their time{" "}
+                <span className="text-rust">outdoors</span>.
               </p>
 
               <p style={{
